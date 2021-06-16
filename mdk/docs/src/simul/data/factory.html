@@ -1,0 +1,326 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Data objects factory &mdash; mdk  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Data objects" href="objects.html" />
+    <link rel="prev" title="Data objects" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> mdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sections:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prep/index.html">Preparation layer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Simulation layer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../simulation.html">Simulation object</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Data objects</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Data objects factory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="objects.html">Data objects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../primitives.html">Primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../simulvar.html">Simulation variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forces/index.html">Forces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kernels/index.html">Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../verlet.html">Verlet list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stats.html">Coordination stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../state.html">Physical state object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integrator/index.html">Integrators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hooks/index.html">Hooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/index.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../entire.html">Entire namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Simulation layer</a> &raquo;</li>
+        
+          <li><a href="index.html">Data objects</a> &raquo;</li>
+        
+      <li>Data objects factory</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/src/simul/data/factory.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="data-objects-factory">
+<h1>Data objects factory<a class="headerlink" href="#data-objects-factory" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk11DataFactoryE">
+<span id="_CPPv3N3mdk11DataFactoryE"></span><span id="_CPPv2N3mdk11DataFactoryE"></span><span id="mdk::DataFactory"></span><span class="target" id="classmdk_1_1DataFactory"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">DataFactory</span></span></span><br /></dt>
+<dd><p>A generic provider of data classes derived from a model and a parameter file. This class is provided chiefly for convenience. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk11DataFactory11DataFactoryERK5ModelRKN5param10ParametersE">
+<span id="_CPPv3N3mdk11DataFactory11DataFactoryERK5ModelRKN5param10ParametersE"></span><span id="_CPPv2N3mdk11DataFactory11DataFactoryERK5ModelRKN5param10ParametersE"></span><span id="mdk::DataFactory::DataFactory__ModelCR.param::ParametersCR"></span><span class="target" id="classmdk_1_1DataFactory_1a9c89a3250f7d2e2bcdae5e04f5c0aacd"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DataFactory</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5ModelE" title="mdk::Model"><span class="n"><span class="pre">Model</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">model</span></span>, <a class="reference internal" href="../../entire.html#_CPPv4N3mdk5paramE" title="mdk::param"><span class="n"><span class="pre">param</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5param10ParametersE" title="mdk::param::Parameters"><span class="n"><span class="pre">Parameters</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">params</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN3mdk11DataFactory4dataERK4Datav">
+<span id="_CPPv3I0EN3mdk11DataFactory4dataEv"></span><span id="_CPPv2I0EN3mdk11DataFactory4dataEv"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Data</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classmdk_1_1DataFactory_1a6c01ba0a0b0ff86f8e558eb9dfaea464"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4I0EN3mdk11DataFactory4dataERK4Datav" title="mdk::DataFactory::data::Data"><span class="n"><span class="pre">Data</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">data</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Extract a data class of type Data, if such is defined; otherwise, one will most likely get a linker error, as relevant template specialzations of /p create are placed in a .cpp file. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters</dt>
+<dd class="field-odd"><p><strong>Data</strong> – Type of data class to retrieve </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A const reference to a stored data class. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0ENK3mdk11DataFactory6createE4Datav">
+<span id="_CPPv3I0ENK3mdk11DataFactory6createEv"></span><span id="_CPPv2I0ENK3mdk11DataFactory6createEv"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Data</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classmdk_1_1DataFactory_1a66a4587161816dde1c41f4cb67d68f11"></span><a class="reference internal" href="../../entire.html#_CPPv4I0ENK3mdk11DataFactory6createE4Datav" title="mdk::DataFactory::create::Data"><span class="n"><span class="pre">Data</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">create</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Underlying data class constructor. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters</dt>
+<dd class="field-odd"><p><strong>Data</strong> – Data class to construct </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Constructed data class. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4IENK3mdk11DataFactory6createE6Chainsv">
+<span id="_CPPv3IENK3mdk11DataFactory6createEv"></span><span id="_CPPv2IENK3mdk11DataFactory6createEv"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classmdk_1_1DataFactory_1ad2db89d7e23b4290f53f7f852702665c"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk6ChainsE" title="mdk::Chains"><span class="n"><span class="pre">Chains</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">create</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4IENK3mdk11DataFactory6createE7Chargesv">
+<span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classmdk_1_1DataFactory_1a90d35932a141e5afedb3d852d4409816"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk7ChargesE" title="mdk::Charges"><span class="n"><span class="pre">Charges</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">create</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4IENK3mdk11DataFactory6createE6Massesv">
+<span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classmdk_1_1DataFactory_1ad3d0c5d43bc7e36793109bd6ac6e0d6f"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk6MassesE" title="mdk::Masses"><span class="n"><span class="pre">Masses</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">create</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4IENK3mdk11DataFactory6createE5Typesv">
+<span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classmdk_1_1DataFactory_1a1517f480133104adecc50e7b6ab58a4f"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5TypesE" title="mdk::Types"><span class="n"><span class="pre">Types</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">create</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4IENK3mdk11DataFactory6createE5Modelv">
+<span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classmdk_1_1DataFactory_1a9c49692861d00dc8011bc470be0eafdf"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5ModelE" title="mdk::Model"><span class="n"><span class="pre">Model</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">create</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk11DataFactory5modelE">
+<span id="_CPPv3N3mdk11DataFactory5modelE"></span><span id="_CPPv2N3mdk11DataFactory5modelE"></span><span id="mdk::DataFactory::model__ModelCP"></span><span class="target" id="classmdk_1_1DataFactory_1aad2d7718052133eb125b811f208cbfd6"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5ModelE" title="mdk::Model"><span class="n"><span class="pre">Model</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">model</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk11DataFactory6paramsE">
+<span id="_CPPv3N3mdk11DataFactory6paramsE"></span><span id="_CPPv2N3mdk11DataFactory6paramsE"></span><span id="mdk::DataFactory::params__param::ParametersCP"></span><span class="target" id="classmdk_1_1DataFactory_1a6e6df449eef3c16ea66e43804ea033f5"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5paramE" title="mdk::param"><span class="n"><span class="pre">param</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5param10ParametersE" title="mdk::param::Parameters"><span class="n"><span class="pre">Parameters</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">params</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk11DataFactory9savedDataE">
+<span id="_CPPv3N3mdk11DataFactory9savedDataE"></span><span id="_CPPv2N3mdk11DataFactory9savedDataE"></span><span id="mdk::DataFactory::savedData__std::unordered_map:std::type_index.std::shared_ptr:void::"></span><span class="target" id="classmdk_1_1DataFactory_1a96f86737ffaa202ab682a4a76dfd4e31"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unordered_map</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">type_index</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">savedData</span></span></span><br /></dt>
+<dd><p>A realization of a heterogeneous container. It holds values based on the types of elements, i.e. at most one value of each type can be stored. Using std::shared_ptr&lt;void&gt; allows for safe destruction of stored entities. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="objects.html" class="btn btn-neutral float-right" title="Data objects" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Data objects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, IF PAN &amp; ZPP Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

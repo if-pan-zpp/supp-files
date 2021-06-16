@@ -1,0 +1,307 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Nonlocal function interface &mdash; mdk  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Go-model native contacts potential" href="gomodel.html" />
+    <link rel="prev" title="Chirality potential" href="chiral.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> mdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sections:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prep/index.html">Preparation layer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Simulation layer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../simulation.html">Simulation object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">Data objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../primitives.html">Primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../simulvar.html">Simulation variables</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Forces</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="tether.html">Chain tether forces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bondangle.html">Bond angle potential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dihedral.html">Dihedral angle potentials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chiral.html">Chirality potential</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Nonlocal function interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gomodel.html">Go-model native contacts potential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="es.html">Electrostatic forces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pauli.html">Pauli exclusion forces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pid.html">Pseudo-improper-dihedral custom potential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qa.html">Quasi-adiabatic custom potential</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kernels/index.html">Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../verlet.html">Verlet list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stats.html">Coordination stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../state.html">Physical state object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integrator/index.html">Integrators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hooks/index.html">Hooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/index.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../entire.html">Entire namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Simulation layer</a> &raquo;</li>
+        
+          <li><a href="index.html">Forces</a> &raquo;</li>
+        
+      <li>Nonlocal function interface</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/src/simul/forces/nonlocal.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="nonlocal-function-interface">
+<h1>Nonlocal function interface<a class="headerlink" href="#nonlocal-function-interface" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk13NonlocalForceE">
+<span id="_CPPv3N3mdk13NonlocalForceE"></span><span id="_CPPv2N3mdk13NonlocalForceE"></span><span id="mdk::NonlocalForce"></span><span class="target" id="classmdk_1_1NonlocalForce"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">NonlocalForce</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5ForceE" title="mdk::Force"><span class="n"><span class="pre">Force</span></span></a><br /></dt>
+<dd><p>A nonlocal force interface. It differs from the standard force interface in that it must provide some specs for the VL list, and needs to implement a hook to run when a VL list is updated. </p>
+<p>Subclassed by <a class="reference internal" href="es.html#classmdk_1_1ESBase"><span class="std std-ref">mdk::ESBase</span></a>, <a class="reference internal" href="gomodel.html#classmdk_1_1NativeContacts"><span class="std std-ref">mdk::NativeContacts</span></a>, <a class="reference internal" href="pauli.html#classmdk_1_1PauliExclusion"><span class="std std-ref">mdk::PauliExclusion</span></a>, <a class="reference internal" href="pid.html#classmdk_1_1PseudoImproperDihedral"><span class="std std-ref">mdk::PseudoImproperDihedral</span></a>, <a class="reference internal" href="qa.html#classmdk_1_1QuasiAdiabatic"><span class="std std-ref">mdk::QuasiAdiabatic</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk13NonlocalForce4bindER10Simulation">
+<span id="_CPPv3N3mdk13NonlocalForce4bindER10Simulation"></span><span id="_CPPv2N3mdk13NonlocalForce4bindER10Simulation"></span><span id="mdk::NonlocalForce::bind__SimulationR"></span><span class="target" id="classmdk_1_1NonlocalForce_1a1f94107635c8016cec1043eed1db1d0c"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bind</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk10SimulationE" title="mdk::Simulation"><span class="n"><span class="pre">Simulation</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">simulation</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Bind the nonlocal force to the simulation object. This class shouldn’t be bound to the simulation object, rather invoked by derived classes. In particular, it fetches Verlet list into <code class="docutils literal notranslate"><span class="pre">vl</span></code>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>simulation</strong> – <a class="reference internal" href="../simulation.html#classmdk_1_1Simulation"><span class="std std-ref">Simulation</span></a> to bind to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk13NonlocalForce12vlUpdateHookEv">
+<span id="_CPPv3N3mdk13NonlocalForce12vlUpdateHookEv"></span><span id="_CPPv2N3mdk13NonlocalForce12vlUpdateHookEv"></span><span id="mdk::NonlocalForce::vlUpdateHook"></span><span class="target" id="classmdk_1_1NonlocalForce_1ad3530533cabe22f97ecb6c63a8914782"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">vlUpdateHook</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd><p>An action to be performed when Verlet list is updated; usually one copies the relevant pairs into a local list, perhaps with some modifications. The actions are invoked in the order of being added to the Verlet list. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-protected-functions">Protected Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk13NonlocalForce4specEv">
+<span id="_CPPv3NK3mdk13NonlocalForce4specEv"></span><span id="_CPPv2NK3mdk13NonlocalForce4specEv"></span><span id="mdk::NonlocalForce::specC"></span><span class="target" id="classmdk_1_1NonlocalForce_1a9468ce8c77144d94f461caef71f0fe61"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk13NonlocalForce2vlE" title="mdk::NonlocalForce::vl"><span class="n"><span class="pre">vl</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Spec</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">spec</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd><p>Compute the spec to register to the VL list. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Generated VL spec. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk13NonlocalForce13installIntoVLEv">
+<span id="_CPPv3N3mdk13NonlocalForce13installIntoVLEv"></span><span id="_CPPv2N3mdk13NonlocalForce13installIntoVLEv"></span><span id="mdk::NonlocalForce::installIntoVL"></span><span class="target" id="classmdk_1_1NonlocalForce_1abb204b280e43a61ed067c765048ea1a4"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">installIntoVL</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Registers the spec into the Verlet list. Note: it must be executed only one all the data required for its generation has been fetched, i.e. usually at the end of <code class="docutils literal notranslate"><span class="pre">bind</span></code>. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-protected-attributes">Protected Attributes</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk13NonlocalForce9savedSpecE">
+<span id="_CPPv3N3mdk13NonlocalForce9savedSpecE"></span><span id="_CPPv2N3mdk13NonlocalForce9savedSpecE"></span><span id="mdk::NonlocalForce::savedSpec__vl::Spec"></span><span class="target" id="classmdk_1_1NonlocalForce_1ae0cfc3745f6e074396326268809c5d18"></span><span class="k"><span class="pre">mutable</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk13NonlocalForce2vlE" title="mdk::NonlocalForce::vl"><span class="n"><span class="pre">vl</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Spec</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">savedSpec</span></span></span><br /></dt>
+<dd><p>A copy of the generated <code class="docutils literal notranslate"><a class="reference internal" href="#classmdk_1_1NonlocalForce_1a9468ce8c77144d94f461caef71f0fe61"><span class="std std-ref"><span class="pre">spec()</span></span></a></code>, for use in the computation of forces (for example it holds the cutoff distance). </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk13NonlocalForce2vlE">
+<span id="_CPPv3N3mdk13NonlocalForce2vlE"></span><span id="_CPPv2N3mdk13NonlocalForce2vlE"></span><span id="mdk::NonlocalForce::vl__vl::ListP"></span><span class="target" id="classmdk_1_1NonlocalForce_1a795d974c98420bf1a56ddb664673f638"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk13NonlocalForce2vlE" title="mdk::NonlocalForce::vl"><span class="n"><span class="pre">vl</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">List</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">vl</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><br /></dt>
+<dd><p>A pointer to the VL list. It’s not const chiefly because the update hooks may modify the list, in particular create exclusions, like for example the native contacts’ forcefield removing the native contacts </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="gomodel.html" class="btn btn-neutral float-right" title="Go-model native contacts potential" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="chiral.html" class="btn btn-neutral float-left" title="Chirality potential" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, IF PAN &amp; ZPP Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

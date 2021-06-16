@@ -1,0 +1,680 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>PDB record fields &mdash; mdk  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="PDB record parsers" href="recordparsers.html" />
+    <link rel="prev" title="PDB parsing framework" href="parsing.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> mdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sections:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Preparation layer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../cmap.html">Contact map files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../seq.html">Sequence files</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">PDB objects and parsing</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="records.html">PDB file records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="raw.html">Raw PDB data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="model.html">PDB atomic model</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="parsing.html">PDB parsing framework</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="parsing.html#adding-a-new-record-type">Adding a new record type</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../model.html">Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../param.html">Parameter files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../simul/index.html">Simulation layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/index.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../entire.html">Entire namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Preparation layer</a> &raquo;</li>
+        
+          <li><a href="index.html">PDB objects and parsing</a> &raquo;</li>
+        
+          <li><a href="parsing.html">PDB parsing framework</a> &raquo;</li>
+        
+      <li>PDB record fields</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/src/prep/pdb/fields.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pdb-record-fields">
+<h1>PDB record fields<a class="headerlink" href="#pdb-record-fields" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv43mdk">
+<span id="_CPPv33mdk"></span><span id="_CPPv23mdk"></span><span id="mdk"></span><span class="target" id="namespacemdk"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mdk</span></span></span><br /></dt>
+<dd><dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdbE">
+<span id="_CPPv3N3mdk3pdbE"></span><span id="_CPPv2N3mdk3pdbE"></span><span id="mdk::pdb"></span><span class="target" id="namespacemdk_1_1pdb"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pdb</span></span></span><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb4ModeE">
+<span id="_CPPv3N3mdk3pdb4ModeE"></span><span id="_CPPv2N3mdk3pdb4ModeE"></span><span class="target" id="Field_8hpp_1a87d5cb10daab2eb561603f21c0324527"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Mode</span></span></span><br /></dt>
+<dd><p>A mode enum, which modifies how to position and parse strings. Note: most enums in the program are enum classes; here we need a standard enum in order for combining via <code class="docutils literal notranslate"></code>| to work </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb4Mode5ExactE">
+<span id="_CPPv3N3mdk3pdb4Mode5ExactE"></span><span id="_CPPv2N3mdk3pdb4Mode5ExactE"></span><span class="target" id="Field_8hpp_1a87d5cb10daab2eb561603f21c0324527ab3cc729d520038412085e03fee6e08af"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Exact</span></span></span><br /></dt>
+<dd><p>Beginning of the field in the line. Inclusive and 1-indexed, as in the PDB format docs, in order to make writing new fields easier. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb4Mode4TrimE">
+<span id="_CPPv3N3mdk3pdb4Mode4TrimE"></span><span id="_CPPv2N3mdk3pdb4Mode4TrimE"></span><span class="target" id="Field_8hpp_1a87d5cb10daab2eb561603f21c0324527a1d75ad2a273cb3d5e639d25e93462f53"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Trim</span></span></span><br /></dt>
+<dd><p>When parsing, the final value is a trimmed string read from the line. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb4Mode4LeftE">
+<span id="_CPPv3N3mdk3pdb4Mode4LeftE"></span><span id="_CPPv2N3mdk3pdb4Mode4LeftE"></span><span class="target" id="Field_8hpp_1a87d5cb10daab2eb561603f21c0324527abc2f06bb4cb07bae988f9d84a8f489ab"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Left</span></span></span><br /></dt>
+<dd><p>When writing, the string is written left-aligned in the line. </p>
+</dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb4Mode5RightE">
+<span id="_CPPv3N3mdk3pdb4Mode5RightE"></span><span id="_CPPv2N3mdk3pdb4Mode5RightE"></span><span class="target" id="Field_8hpp_1a87d5cb10daab2eb561603f21c0324527ab7605352ed077ee2a6f78a38650abc3c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Right</span></span></span><br /></dt>
+<dd><p>When writing, the string is written right-aligned in the line. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb4CharE">
+<span id="_CPPv3N3mdk3pdb4CharE"></span><span id="_CPPv2N3mdk3pdb4CharE"></span><span id="mdk::pdb::Char"></span><span class="target" id="classmdk_1_1pdb_1_1Char"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Char</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdbE" title="mdk::pdb"><span class="n"><span class="pre">pdb</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb5FieldE" title="mdk::pdb::Field"><span class="n"><span class="pre">Field</span></span></a><br /></dt>
+<dd><em>#include &lt;Field.hpp&gt;</em><p>(Single) character field. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb4Char4CharEiRc">
+<span id="_CPPv3N3mdk3pdb4Char4CharEiRc"></span><span id="_CPPv2N3mdk3pdb4Char4CharEiRc"></span><span id="mdk::pdb::Char::Char__i.cR"></span><span class="target" id="classmdk_1_1pdb_1_1Char_1a0a9d8332ffa68a412d6779a60698c9ef"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Char</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">v</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb4Char4readERKNSt6stringE">
+<span id="_CPPv3N3mdk3pdb4Char4readERKNSt6stringE"></span><span id="_CPPv2N3mdk3pdb4Char4readERKNSt6stringE"></span><span id="mdk::pdb::Char::read__ssCR"></span><span class="target" id="classmdk_1_1pdb_1_1Char_1a14b408e792853b94e217d314de0b2f12"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">s</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Read the value from a string (usually a line of a PDB file). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>s</strong> – <a class="reference internal" href="#classmdk_1_1pdb_1_1String"><span class="std std-ref">String</span></a> to read the value from. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk3pdb4Char5writeERNSt6stringE">
+<span id="_CPPv3NK3mdk3pdb4Char5writeERNSt6stringE"></span><span id="_CPPv2NK3mdk3pdb4Char5writeERNSt6stringE"></span><span id="mdk::pdb::Char::write__ssRC"></span><span class="target" id="classmdk_1_1pdb_1_1Char_1a8316c0dee7211f49e8f13f2e3ab5def1"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">s</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Write the value to a string (usually a line of a PDB file). Overflows are handled depending on the type of field. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>s</strong> – <a class="reference internal" href="#classmdk_1_1pdb_1_1String"><span class="std std-ref">String</span></a> to write the value to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb4Char1iE">
+<span id="_CPPv3N3mdk3pdb4Char1iE"></span><span id="_CPPv2N3mdk3pdb4Char1iE"></span><span id="mdk::pdb::Char::i__i"></span><span class="target" id="classmdk_1_1pdb_1_1Char_1a7d247978c9850960cc3ed1fdf3eb1d68"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">i</span></span></span><br /></dt>
+<dd><p>The location of the character in the line. Inclusive and 1-indexed, as in the PDB format docs, in order to make writing new fields easier. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb4Char1vE">
+<span id="_CPPv3N3mdk3pdb4Char1vE"></span><span id="_CPPv2N3mdk3pdb4Char1vE"></span><span id="mdk::pdb::Char::v__cP"></span><span class="target" id="classmdk_1_1pdb_1_1Char_1a65049c3e16987671e637972176c43774"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">v</span></span></span><br /></dt>
+<dd><p>A pointer to the character to save the value to and load the value from. It allows us in particular to have the same field class for many different PDB records, only having to provide different pointer to the underlying value. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5FieldE">
+<span id="_CPPv3N3mdk3pdb5FieldE"></span><span id="_CPPv2N3mdk3pdb5FieldE"></span><span id="mdk::pdb::Field"></span><span class="target" id="classmdk_1_1pdb_1_1Field"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Field</span></span></span><br /></dt>
+<dd><em>#include &lt;Field.hpp&gt;</em><p>An object representing a single field of a PDB record, along with the means of parsing and printing it. The field objects signal parsing failure by throwing. </p>
+<p>Subclassed by <a class="reference internal" href="#classmdk_1_1pdb_1_1Char"><span class="std std-ref">mdk::pdb::Char</span></a>, <a class="reference internal" href="#classmdk_1_1pdb_1_1Integer"><span class="std std-ref">mdk::pdb::Integer</span></a>, <a class="reference internal" href="#classmdk_1_1pdb_1_1Literal"><span class="std std-ref">mdk::pdb::Literal</span></a>, <a class="reference internal" href="#classmdk_1_1pdb_1_1Real"><span class="std std-ref">mdk::pdb::Real</span></a>, <a class="reference internal" href="#classmdk_1_1pdb_1_1String"><span class="std std-ref">mdk::pdb::String</span></a>, <a class="reference internal" href="#classmdk_1_1pdb_1_1SymOp"><span class="std std-ref">mdk::pdb::SymOp</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Field4readERKNSt6stringE">
+<span id="_CPPv3N3mdk3pdb5Field4readERKNSt6stringE"></span><span id="_CPPv2N3mdk3pdb5Field4readERKNSt6stringE"></span><span id="mdk::pdb::Field::read__ssCR"></span><span class="target" id="classmdk_1_1pdb_1_1Field_1a56ad425ae229c71be0cd496a1a534a97"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">s</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd><p>Read the value from a string (usually a line of a PDB file). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>s</strong> – <a class="reference internal" href="#classmdk_1_1pdb_1_1String"><span class="std std-ref">String</span></a> to read the value from. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk3pdb5Field5writeERNSt6stringE">
+<span id="_CPPv3NK3mdk3pdb5Field5writeERNSt6stringE"></span><span id="_CPPv2NK3mdk3pdb5Field5writeERNSt6stringE"></span><span id="mdk::pdb::Field::write__ssRC"></span><span class="target" id="classmdk_1_1pdb_1_1Field_1a287fc27833de234186d38ceafa74640b"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">s</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd><p>Write the value to a string (usually a line of a PDB file). Overflows are handled depending on the type of field. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>s</strong> – <a class="reference internal" href="#classmdk_1_1pdb_1_1String"><span class="std std-ref">String</span></a> to write the value to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7IntegerE">
+<span id="_CPPv3N3mdk3pdb7IntegerE"></span><span id="_CPPv2N3mdk3pdb7IntegerE"></span><span id="mdk::pdb::Integer"></span><span class="target" id="classmdk_1_1pdb_1_1Integer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Integer</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdbE" title="mdk::pdb"><span class="n"><span class="pre">pdb</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb5FieldE" title="mdk::pdb::Field"><span class="n"><span class="pre">Field</span></span></a><br /></dt>
+<dd><em>#include &lt;Field.hpp&gt;</em><p><a class="reference internal" href="#classmdk_1_1pdb_1_1Integer"><span class="std std-ref">Integer</span></a> field. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7Integer7IntegerEiiRii">
+<span id="_CPPv3N3mdk3pdb7Integer7IntegerEiiRii"></span><span id="_CPPv2N3mdk3pdb7Integer7IntegerEiiRii"></span><span id="mdk::pdb::Integer::Integer__i.i.iR.i"></span><span class="target" id="classmdk_1_1pdb_1_1Integer_1a6e367c19d883c40bde9b32d7b26d326c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Integer</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">j</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">v</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">offset</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7Integer4readERKNSt6stringE">
+<span id="_CPPv3N3mdk3pdb7Integer4readERKNSt6stringE"></span><span id="_CPPv2N3mdk3pdb7Integer4readERKNSt6stringE"></span><span id="mdk::pdb::Integer::read__ssCR"></span><span class="target" id="classmdk_1_1pdb_1_1Integer_1a352feb35a5983be2aeba24af3e4558e0"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">s</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Read the value from a string (usually a line of a PDB file). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>s</strong> – <a class="reference internal" href="#classmdk_1_1pdb_1_1String"><span class="std std-ref">String</span></a> to read the value from. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk3pdb7Integer5writeERNSt6stringE">
+<span id="_CPPv3NK3mdk3pdb7Integer5writeERNSt6stringE"></span><span id="_CPPv2NK3mdk3pdb7Integer5writeERNSt6stringE"></span><span id="mdk::pdb::Integer::write__ssRC"></span><span class="target" id="classmdk_1_1pdb_1_1Integer_1ad8c8036d0dbce23c910aef53ef9f40fe"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">s</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Write the value to a string (usually a line of a PDB file). Overflows are handled depending on the type of field. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>s</strong> – <a class="reference internal" href="#classmdk_1_1pdb_1_1String"><span class="std std-ref">String</span></a> to write the value to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7Integer1iE">
+<span id="_CPPv3N3mdk3pdb7Integer1iE"></span><span id="_CPPv2N3mdk3pdb7Integer1iE"></span><span id="mdk::pdb::Integer::i__i"></span><span class="target" id="classmdk_1_1pdb_1_1Integer_1a08c18328a62d5e014d7a8cab1d88de02"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">i</span></span></span><br /></dt>
+<dd><p>Beginning of the field in the line. Inclusive and 1-indexed, as in the PDB format docs, in order to make writing new fields easier. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7Integer1jE">
+<span id="_CPPv3N3mdk3pdb7Integer1jE"></span><span id="_CPPv2N3mdk3pdb7Integer1jE"></span><span id="mdk::pdb::Integer::j__i"></span><span class="target" id="classmdk_1_1pdb_1_1Integer_1afa9a18b7511c941986162354847d91c6"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">j</span></span></span><br /></dt>
+<dd><p>End of the field in the line. Inclusive and 1-indexed, as in the PDB format docs, in order to make writing new fields easier. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7Integer6offsetE">
+<span id="_CPPv3N3mdk3pdb7Integer6offsetE"></span><span id="_CPPv2N3mdk3pdb7Integer6offsetE"></span><span id="mdk::pdb::Integer::offset__i"></span><span class="target" id="classmdk_1_1pdb_1_1Integer_1a434917683dc91d42ef504afcef8e1c0b"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">offset</span></span></span><br /></dt>
+<dd><p>A value that is added to the read value and subtracted when a value is written. It’s chiefly used to convert 0-indexed ordinals to 1-indexed and vice versa. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7Integer1vE">
+<span id="_CPPv3N3mdk3pdb7Integer1vE"></span><span id="_CPPv2N3mdk3pdb7Integer1vE"></span><span id="mdk::pdb::Integer::v__iP"></span><span class="target" id="classmdk_1_1pdb_1_1Integer_1a49ec253ba14ed8a1b35b33f2f1dcab5f"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">v</span></span></span><br /></dt>
+<dd><p>A pointer to the integer to save the value to and load the value from. It allows us in particular to have the same field class for many different PDB records, only having to provide different pointer to the underlying value. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7LiteralE">
+<span id="_CPPv3N3mdk3pdb7LiteralE"></span><span id="_CPPv2N3mdk3pdb7LiteralE"></span><span id="mdk::pdb::Literal"></span><span class="target" id="classmdk_1_1pdb_1_1Literal"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Literal</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdbE" title="mdk::pdb"><span class="n"><span class="pre">pdb</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb5FieldE" title="mdk::pdb::Field"><span class="n"><span class="pre">Field</span></span></a><br /></dt>
+<dd><em>#include &lt;Field.hpp&gt;</em><p>A literal. As opposed to a normal field, here there’s no reading or writing values by pointers, rather comparing the read value with the literal and printing out the literal. It’s chiefly used for parsing the record headers, like “ATOM  ” or “MODEL “. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7Literal7LiteralEiiNSt6stringE">
+<span id="_CPPv3N3mdk3pdb7Literal7LiteralEiiNSt6stringE"></span><span id="_CPPv2N3mdk3pdb7Literal7LiteralEiiNSt6stringE"></span><span id="mdk::pdb::Literal::Literal__i.i.ss"></span><span class="target" id="classmdk_1_1pdb_1_1Literal_1ae6d3a77fee64f22e3dd28fb0288c8245"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Literal</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">j</span></span>, <a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">lit</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7Literal4readERKNSt6stringE">
+<span id="_CPPv3N3mdk3pdb7Literal4readERKNSt6stringE"></span><span id="_CPPv2N3mdk3pdb7Literal4readERKNSt6stringE"></span><span id="mdk::pdb::Literal::read__ssCR"></span><span class="target" id="classmdk_1_1pdb_1_1Literal_1a3220fa4ff518f865278965f887b59520"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">s</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Read the value from a string (usually a line of a PDB file). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>s</strong> – <a class="reference internal" href="#classmdk_1_1pdb_1_1String"><span class="std std-ref">String</span></a> to read the value from. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk3pdb7Literal5writeERNSt6stringE">
+<span id="_CPPv3NK3mdk3pdb7Literal5writeERNSt6stringE"></span><span id="_CPPv2NK3mdk3pdb7Literal5writeERNSt6stringE"></span><span id="mdk::pdb::Literal::write__ssRC"></span><span class="target" id="classmdk_1_1pdb_1_1Literal_1a7ee29925507de0d8f0da83ac601a3554"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">s</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Write the value to a string (usually a line of a PDB file). Overflows are handled depending on the type of field. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>s</strong> – <a class="reference internal" href="#classmdk_1_1pdb_1_1String"><span class="std std-ref">String</span></a> to write the value to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7Literal1iE">
+<span id="_CPPv3N3mdk3pdb7Literal1iE"></span><span id="_CPPv2N3mdk3pdb7Literal1iE"></span><span id="mdk::pdb::Literal::i__i"></span><span class="target" id="classmdk_1_1pdb_1_1Literal_1a4287f71d738fd4594c6da28cf9429884"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">i</span></span></span><br /></dt>
+<dd><p>Beginning of the field in the line. Inclusive and 1-indexed, as in the PDB format docs, in order to make writing new fields easier. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7Literal1jE">
+<span id="_CPPv3N3mdk3pdb7Literal1jE"></span><span id="_CPPv2N3mdk3pdb7Literal1jE"></span><span id="mdk::pdb::Literal::j__i"></span><span class="target" id="classmdk_1_1pdb_1_1Literal_1ae729542bc68585d2c43a6a84886b4564"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">j</span></span></span><br /></dt>
+<dd><p>End of the field in the line. Inclusive and 1-indexed, as in the PDB format docs, in order to make writing new fields easier. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7Literal3litE">
+<span id="_CPPv3N3mdk3pdb7Literal3litE"></span><span id="_CPPv2N3mdk3pdb7Literal3litE"></span><span id="mdk::pdb::Literal::lit__ss"></span><span class="target" id="classmdk_1_1pdb_1_1Literal_1ac16f9324fa846459faefe9b631a4741a"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">lit</span></span></span><br /></dt>
+<dd><p><a class="reference internal" href="#classmdk_1_1pdb_1_1Literal"><span class="std std-ref">Literal</span></a> to compare the read value with and print out to the line when writing. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb4RealE">
+<span id="_CPPv3N3mdk3pdb4RealE"></span><span id="_CPPv2N3mdk3pdb4RealE"></span><span id="mdk::pdb::Real"></span><span class="target" id="classmdk_1_1pdb_1_1Real"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Real</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdbE" title="mdk::pdb"><span class="n"><span class="pre">pdb</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb5FieldE" title="mdk::pdb::Field"><span class="n"><span class="pre">Field</span></span></a><br /></dt>
+<dd><em>#include &lt;Field.hpp&gt;</em><p><a class="reference internal" href="#classmdk_1_1pdb_1_1Real"><span class="std std-ref">Real</span></a> (floating number) field. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb4Real4RealEiiiiRdd">
+<span id="_CPPv3N3mdk3pdb4Real4RealEiiiiRdd"></span><span id="_CPPv2N3mdk3pdb4Real4RealEiiiiRdd"></span><span id="mdk::pdb::Real::Real__i.i.i.i.doubleR.double"></span><span class="target" id="classmdk_1_1pdb_1_1Real_1a98fba662dcd612fc21077172872271c3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Real</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">j</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">n</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">m</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">v</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">scalar</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1.0</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb4Real4readERKNSt6stringE">
+<span id="_CPPv3N3mdk3pdb4Real4readERKNSt6stringE"></span><span id="_CPPv2N3mdk3pdb4Real4readERKNSt6stringE"></span><span id="mdk::pdb::Real::read__ssCR"></span><span class="target" id="classmdk_1_1pdb_1_1Real_1addb545fbab3300322db7a2558094fe28"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">s</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Read the value from a string (usually a line of a PDB file). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>s</strong> – <a class="reference internal" href="#classmdk_1_1pdb_1_1String"><span class="std std-ref">String</span></a> to read the value from. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk3pdb4Real5writeERNSt6stringE">
+<span id="_CPPv3NK3mdk3pdb4Real5writeERNSt6stringE"></span><span id="_CPPv2NK3mdk3pdb4Real5writeERNSt6stringE"></span><span id="mdk::pdb::Real::write__ssRC"></span><span class="target" id="classmdk_1_1pdb_1_1Real_1a943872ce576e24c0885e59b15368f0f8"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">s</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Write the value to a string (usually a line of a PDB file). Overflows are handled depending on the type of field. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>s</strong> – <a class="reference internal" href="#classmdk_1_1pdb_1_1String"><span class="std std-ref">String</span></a> to write the value to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb4Real1iE">
+<span id="_CPPv3N3mdk3pdb4Real1iE"></span><span id="_CPPv2N3mdk3pdb4Real1iE"></span><span id="mdk::pdb::Real::i__i"></span><span class="target" id="classmdk_1_1pdb_1_1Real_1a2e9297bbbc5ef3836ed97475eee350a8"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">i</span></span></span><br /></dt>
+<dd><p>Beginning of the field in the line. Inclusive and 1-indexed, as in the PDB format docs, in order to make writing new fields easier. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb4Real1jE">
+<span id="_CPPv3N3mdk3pdb4Real1jE"></span><span id="_CPPv2N3mdk3pdb4Real1jE"></span><span id="mdk::pdb::Real::j__i"></span><span class="target" id="classmdk_1_1pdb_1_1Real_1ac6fc81a9d8b181514be450a8f1a4b688"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">j</span></span></span><br /></dt>
+<dd><p>End of the field in the line. Inclusive and 1-indexed, as in the PDB format docs, in order to make writing new fields easier. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb4Real1nE">
+<span id="_CPPv3N3mdk3pdb4Real1nE"></span><span id="_CPPv2N3mdk3pdb4Real1nE"></span><span id="mdk::pdb::Real::n__i"></span><span class="target" id="classmdk_1_1pdb_1_1Real_1a5a7af745cf2709983d1d19224a371399"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">n</span></span></span><br /></dt>
+<dd><p>Width of the read real number. Follows the conventions from the PDB format docs and Fortran specifiers (it’s n in f{n}.{m}) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb4Real1mE">
+<span id="_CPPv3N3mdk3pdb4Real1mE"></span><span id="_CPPv2N3mdk3pdb4Real1mE"></span><span id="mdk::pdb::Real::m__i"></span><span class="target" id="classmdk_1_1pdb_1_1Real_1a6b2717c4d73914c8a7377e45f48f5bda"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m</span></span></span><br /></dt>
+<dd><p>Precision of the read real number. Follows the conventions from the PDB format docs and Fortran specifiers (it’s m in f{n}.{m}) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb4Real1vE">
+<span id="_CPPv3N3mdk3pdb4Real1vE"></span><span id="_CPPv2N3mdk3pdb4Real1vE"></span><span id="mdk::pdb::Real::v__doubleP"></span><span class="target" id="classmdk_1_1pdb_1_1Real_1ae2b6ecb4ed1b578867f3a2755893272b"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">v</span></span></span><br /></dt>
+<dd><p>A pointer to the double to save the value to and load the value from. It allows us in particular to have the same field class for many different PDB records, only having to provide different pointer to the underlying value. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb4Real6scalarE">
+<span id="_CPPv3N3mdk3pdb4Real6scalarE"></span><span id="_CPPv2N3mdk3pdb4Real6scalarE"></span><span id="mdk::pdb::Real::scalar__double"></span><span class="target" id="classmdk_1_1pdb_1_1Real_1a4af3f31f63c206c7c387a3fbf02bfd9f"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">scalar</span></span></span><br /></dt>
+<dd><p>Scalar by which to multiply a read value and divide a written value. In particular, it allows us to convert PDB file formats to internal units and back. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb6StringE">
+<span id="_CPPv3N3mdk3pdb6StringE"></span><span id="_CPPv2N3mdk3pdb6StringE"></span><span id="mdk::pdb::String"></span><span class="target" id="classmdk_1_1pdb_1_1String"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">String</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdbE" title="mdk::pdb"><span class="n"><span class="pre">pdb</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb5FieldE" title="mdk::pdb::Field"><span class="n"><span class="pre">Field</span></span></a><br /></dt>
+<dd><em>#include &lt;Field.hpp&gt;</em><p><a class="reference internal" href="#classmdk_1_1pdb_1_1String"><span class="std std-ref">String</span></a> field. By default read values are trimmed, and written values are right-aligned. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb6String6StringEiiRNSt6stringE6int8_t">
+<span id="_CPPv3N3mdk3pdb6String6StringEiiRNSt6stringE6int8_t"></span><span id="_CPPv2N3mdk3pdb6String6StringEiiRNSt6stringE6int8_t"></span><span id="mdk::pdb::String::String__i.i.ssR.int8_t"></span><span class="target" id="classmdk_1_1pdb_1_1String_1a03d0d30d6598b6f0009f548974b00566"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">String</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">j</span></span>, <a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">v</span></span>, <span class="n"><span class="pre">int8_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">mode</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb4Mode4TrimE" title="mdk::pdb::Trim"><span class="n"><span class="pre">Trim</span></span></a><span class="w"> </span><span class="o"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb4Mode5RightE" title="mdk::pdb::Right"><span class="n"><span class="pre">Right</span></span></a><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb6String4readERKNSt6stringE">
+<span id="_CPPv3N3mdk3pdb6String4readERKNSt6stringE"></span><span id="_CPPv2N3mdk3pdb6String4readERKNSt6stringE"></span><span id="mdk::pdb::String::read__ssCR"></span><span class="target" id="classmdk_1_1pdb_1_1String_1aaee377ca2a7b7f6ae9d9b2d49825519a"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">s</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Read the value from a string (usually a line of a PDB file). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>s</strong> – <a class="reference internal" href="#classmdk_1_1pdb_1_1String"><span class="std std-ref">String</span></a> to read the value from. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk3pdb6String5writeERNSt6stringE">
+<span id="_CPPv3NK3mdk3pdb6String5writeERNSt6stringE"></span><span id="_CPPv2NK3mdk3pdb6String5writeERNSt6stringE"></span><span id="mdk::pdb::String::write__ssRC"></span><span class="target" id="classmdk_1_1pdb_1_1String_1a15767b7639caa84300dce336f6fd6e08"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">s</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Write the value to a string (usually a line of a PDB file). Overflows are handled depending on the type of field. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>s</strong> – <a class="reference internal" href="#classmdk_1_1pdb_1_1String"><span class="std std-ref">String</span></a> to write the value to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb6String1iE">
+<span id="_CPPv3N3mdk3pdb6String1iE"></span><span id="_CPPv2N3mdk3pdb6String1iE"></span><span id="mdk::pdb::String::i__i"></span><span class="target" id="classmdk_1_1pdb_1_1String_1a0799881faa4326bf2b0e0dd345d1e239"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">i</span></span></span><br /></dt>
+<dd><p>Beginning of the field in the line. Inclusive and 1-indexed, as in the PDB format docs, in order to make writing new fields easier. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb6String1jE">
+<span id="_CPPv3N3mdk3pdb6String1jE"></span><span id="_CPPv2N3mdk3pdb6String1jE"></span><span id="mdk::pdb::String::j__i"></span><span class="target" id="classmdk_1_1pdb_1_1String_1a947406d7af78620671b7288bc59aafdb"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">j</span></span></span><br /></dt>
+<dd><p>End of the field in the line. Inclusive and 1-indexed, as in the PDB format docs, in order to make writing new fields easier. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb6String1vE">
+<span id="_CPPv3N3mdk3pdb6String1vE"></span><span id="_CPPv2N3mdk3pdb6String1vE"></span><span id="mdk::pdb::String::v__ssP"></span><span class="target" id="classmdk_1_1pdb_1_1String_1a3ad49f33ac1061631e208e9899935859"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">v</span></span></span><br /></dt>
+<dd><p>A pointer to the string to save the value to and load the value from. It allows us in particular to have the same field class for many different PDB records, only having to provide different pointer to the underlying value. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb6String4modeE">
+<span id="_CPPv3N3mdk3pdb6String4modeE"></span><span id="_CPPv2N3mdk3pdb6String4modeE"></span><span id="mdk::pdb::String::mode__int8_t"></span><span class="target" id="classmdk_1_1pdb_1_1String_1a4be11ea541c3e91c2333779e84ae7349"></span><span class="n"><span class="pre">int8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mode</span></span></span><br /></dt>
+<dd><p>Mode of string parsing and writing. See <code class="docutils literal notranslate"><span class="pre">Mode</span></code> for details. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5SymOpE">
+<span id="_CPPv3N3mdk3pdb5SymOpE"></span><span id="_CPPv2N3mdk3pdb5SymOpE"></span><span id="mdk::pdb::SymOp"></span><span class="target" id="classmdk_1_1pdb_1_1SymOp"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SymOp</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdbE" title="mdk::pdb"><span class="n"><span class="pre">pdb</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb5FieldE" title="mdk::pdb::Field"><span class="n"><span class="pre">Field</span></span></a><br /></dt>
+<dd><em>#include &lt;Field.hpp&gt;</em><p>“Symmetry operator” field. At the moment it’s parsed just like a normal string. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5SymOp5SymOpEiiRNSt6stringE">
+<span id="_CPPv3N3mdk3pdb5SymOp5SymOpEiiRNSt6stringE"></span><span id="_CPPv2N3mdk3pdb5SymOp5SymOpEiiRNSt6stringE"></span><span id="mdk::pdb::SymOp::SymOp__i.i.ssR"></span><span class="target" id="classmdk_1_1pdb_1_1SymOp_1a57638c5524e4f62574136facf1812fd4"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SymOp</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">j</span></span>, <a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">v</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5SymOp4readERKNSt6stringE">
+<span id="_CPPv3N3mdk3pdb5SymOp4readERKNSt6stringE"></span><span id="_CPPv2N3mdk3pdb5SymOp4readERKNSt6stringE"></span><span id="mdk::pdb::SymOp::read__ssCR"></span><span class="target" id="classmdk_1_1pdb_1_1SymOp_1a2bf7216db1114bb10ad29f1273fd4175"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">s</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Read the value from a string (usually a line of a PDB file). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>s</strong> – <a class="reference internal" href="#classmdk_1_1pdb_1_1String"><span class="std std-ref">String</span></a> to read the value from. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk3pdb5SymOp5writeERNSt6stringE">
+<span id="_CPPv3NK3mdk3pdb5SymOp5writeERNSt6stringE"></span><span id="_CPPv2NK3mdk3pdb5SymOp5writeERNSt6stringE"></span><span id="mdk::pdb::SymOp::write__ssRC"></span><span class="target" id="classmdk_1_1pdb_1_1SymOp_1ac4d67643f18f564b24b50fcdec33b384"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">write</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">s</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Write the value to a string (usually a line of a PDB file). Overflows are handled depending on the type of field. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>s</strong> – <a class="reference internal" href="#classmdk_1_1pdb_1_1String"><span class="std std-ref">String</span></a> to write the value to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5SymOp1iE">
+<span id="_CPPv3N3mdk3pdb5SymOp1iE"></span><span id="_CPPv2N3mdk3pdb5SymOp1iE"></span><span id="mdk::pdb::SymOp::i__i"></span><span class="target" id="classmdk_1_1pdb_1_1SymOp_1ac9d87c199b6dc38daa04cf1c565308cb"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">i</span></span></span><br /></dt>
+<dd><p>Beginning of the field in the line. Inclusive and 1-indexed, as in the PDB format docs, in order to make writing new fields easier. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5SymOp1jE">
+<span id="_CPPv3N3mdk3pdb5SymOp1jE"></span><span id="_CPPv2N3mdk3pdb5SymOp1jE"></span><span id="mdk::pdb::SymOp::j__i"></span><span class="target" id="classmdk_1_1pdb_1_1SymOp_1a8bdfa97f96b0f032d916c741b9dbc9c1"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">j</span></span></span><br /></dt>
+<dd><p>End of the field in the line. Inclusive and 1-indexed, as in the PDB format docs, in order to make writing new fields easier. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5SymOp1vE">
+<span id="_CPPv3N3mdk3pdb5SymOp1vE"></span><span id="_CPPv2N3mdk3pdb5SymOp1vE"></span><span id="mdk::pdb::SymOp::v__ssP"></span><span class="target" id="classmdk_1_1pdb_1_1SymOp_1a3df44f71832d7fb6ea34e5d56f2499e0"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">v</span></span></span><br /></dt>
+<dd><p>A pointer to the string to save the value to and load the value from. It allows us in particular to have the same field class for many different PDB records, only having to provide different pointer to the underlying value. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="recordparsers.html" class="btn btn-neutral float-right" title="PDB record parsers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="parsing.html" class="btn btn-neutral float-left" title="PDB parsing framework" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, IF PAN &amp; ZPP Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

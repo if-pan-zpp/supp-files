@@ -1,0 +1,437 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>PDB record parsers &mdash; mdk  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Model" href="../model.html" />
+    <link rel="prev" title="PDB record fields" href="fields.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> mdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sections:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Preparation layer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../cmap.html">Contact map files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../seq.html">Sequence files</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">PDB objects and parsing</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="records.html">PDB file records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="raw.html">Raw PDB data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="model.html">PDB atomic model</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="parsing.html">PDB parsing framework</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="parsing.html#adding-a-new-record-type">Adding a new record type</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../model.html">Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../param.html">Parameter files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../simul/index.html">Simulation layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/index.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../entire.html">Entire namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Preparation layer</a> &raquo;</li>
+        
+          <li><a href="index.html">PDB objects and parsing</a> &raquo;</li>
+        
+          <li><a href="parsing.html">PDB parsing framework</a> &raquo;</li>
+        
+      <li>PDB record parsers</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/src/prep/pdb/recordparsers.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pdb-record-parsers">
+<h1>PDB record parsers<a class="headerlink" href="#pdb-record-parsers" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv43mdk">
+<span id="_CPPv33mdk"></span><span id="_CPPv23mdk"></span><span id="mdk"></span><span class="target" id="namespacemdk"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mdk</span></span></span><br /></dt>
+<dd><dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdbE">
+<span id="_CPPv3N3mdk3pdbE"></span><span id="_CPPv2N3mdk3pdbE"></span><span id="mdk::pdb"></span><span class="target" id="namespacemdk_1_1pdb"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pdb</span></span></span><br /></dt>
+<dd><dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb10AtomParserE">
+<span id="_CPPv3N3mdk3pdb10AtomParserE"></span><span id="_CPPv2N3mdk3pdb10AtomParserE"></span><span id="mdk::pdb::AtomParser"></span><span class="target" id="classmdk_1_1pdb_1_1AtomParser"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AtomParser</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdbE" title="mdk::pdb"><span class="n"><span class="pre">pdb</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb12RecordParserE" title="mdk::pdb::RecordParser"><span class="n"><span class="pre">RecordParser</span></span></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb10AtomParser10AtomParserEv">
+<span id="_CPPv3N3mdk3pdb10AtomParser10AtomParserEv"></span><span id="_CPPv2N3mdk3pdb10AtomParser10AtomParserEv"></span><span id="mdk::pdb::AtomParser::AtomParser"></span><span class="target" id="classmdk_1_1pdb_1_1AtomParser_1a0a683d90a5ecabd0ba3c804c1b7fe003"></span><span class="sig-name descname"><span class="n"><span class="pre">AtomParser</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb12Cryst1ParserE">
+<span id="_CPPv3N3mdk3pdb12Cryst1ParserE"></span><span id="_CPPv2N3mdk3pdb12Cryst1ParserE"></span><span id="mdk::pdb::Cryst1Parser"></span><span class="target" id="classmdk_1_1pdb_1_1Cryst1Parser"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Cryst1Parser</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdbE" title="mdk::pdb"><span class="n"><span class="pre">pdb</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb12RecordParserE" title="mdk::pdb::RecordParser"><span class="n"><span class="pre">RecordParser</span></span></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb12Cryst1Parser12Cryst1ParserEv">
+<span id="_CPPv3N3mdk3pdb12Cryst1Parser12Cryst1ParserEv"></span><span id="_CPPv2N3mdk3pdb12Cryst1Parser12Cryst1ParserEv"></span><span id="mdk::pdb::Cryst1Parser::Cryst1Parser"></span><span class="target" id="classmdk_1_1pdb_1_1Cryst1Parser_1a24ac1334e0e345e881f772a40cac1a0e"></span><span class="sig-name descname"><span class="n"><span class="pre">Cryst1Parser</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb12EndmdlParserE">
+<span id="_CPPv3N3mdk3pdb12EndmdlParserE"></span><span id="_CPPv2N3mdk3pdb12EndmdlParserE"></span><span id="mdk::pdb::EndmdlParser"></span><span class="target" id="classmdk_1_1pdb_1_1EndmdlParser"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">EndmdlParser</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdbE" title="mdk::pdb"><span class="n"><span class="pre">pdb</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb12RecordParserE" title="mdk::pdb::RecordParser"><span class="n"><span class="pre">RecordParser</span></span></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb12EndmdlParser12EndmdlParserEv">
+<span id="_CPPv3N3mdk3pdb12EndmdlParser12EndmdlParserEv"></span><span id="_CPPv2N3mdk3pdb12EndmdlParser12EndmdlParserEv"></span><span id="mdk::pdb::EndmdlParser::EndmdlParser"></span><span class="target" id="classmdk_1_1pdb_1_1EndmdlParser_1acaefc251fd520c921c42d41f738fe3c5"></span><span class="sig-name descname"><span class="n"><span class="pre">EndmdlParser</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb9EndParserE">
+<span id="_CPPv3N3mdk3pdb9EndParserE"></span><span id="_CPPv2N3mdk3pdb9EndParserE"></span><span id="mdk::pdb::EndParser"></span><span class="target" id="classmdk_1_1pdb_1_1EndParser"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">EndParser</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdbE" title="mdk::pdb"><span class="n"><span class="pre">pdb</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb12RecordParserE" title="mdk::pdb::RecordParser"><span class="n"><span class="pre">RecordParser</span></span></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb9EndParser9EndParserEv">
+<span id="_CPPv3N3mdk3pdb9EndParser9EndParserEv"></span><span id="_CPPv2N3mdk3pdb9EndParser9EndParserEv"></span><span id="mdk::pdb::EndParser::EndParser"></span><span class="target" id="classmdk_1_1pdb_1_1EndParser_1a0ab5ccf8e7b48dc1dc2d849a2e27fdfe"></span><span class="sig-name descname"><span class="n"><span class="pre">EndParser</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb12HetatmParserE">
+<span id="_CPPv3N3mdk3pdb12HetatmParserE"></span><span id="_CPPv2N3mdk3pdb12HetatmParserE"></span><span id="mdk::pdb::HetatmParser"></span><span class="target" id="classmdk_1_1pdb_1_1HetatmParser"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">HetatmParser</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdbE" title="mdk::pdb"><span class="n"><span class="pre">pdb</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb12RecordParserE" title="mdk::pdb::RecordParser"><span class="n"><span class="pre">RecordParser</span></span></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb12HetatmParser12HetatmParserEv">
+<span id="_CPPv3N3mdk3pdb12HetatmParser12HetatmParserEv"></span><span id="_CPPv2N3mdk3pdb12HetatmParser12HetatmParserEv"></span><span id="mdk::pdb::HetatmParser::HetatmParser"></span><span class="target" id="classmdk_1_1pdb_1_1HetatmParser_1a3dfdfc18b98775cb33d4204ff40e1083"></span><span class="sig-name descname"><span class="n"><span class="pre">HetatmParser</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb10LinkParserE">
+<span id="_CPPv3N3mdk3pdb10LinkParserE"></span><span id="_CPPv2N3mdk3pdb10LinkParserE"></span><span id="mdk::pdb::LinkParser"></span><span class="target" id="classmdk_1_1pdb_1_1LinkParser"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LinkParser</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdbE" title="mdk::pdb"><span class="n"><span class="pre">pdb</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb12RecordParserE" title="mdk::pdb::RecordParser"><span class="n"><span class="pre">RecordParser</span></span></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb10LinkParser10LinkParserEv">
+<span id="_CPPv3N3mdk3pdb10LinkParser10LinkParserEv"></span><span id="_CPPv2N3mdk3pdb10LinkParser10LinkParserEv"></span><span id="mdk::pdb::LinkParser::LinkParser"></span><span class="target" id="classmdk_1_1pdb_1_1LinkParser_1a2a1e6cf4c4297789acb474cd4800ae37"></span><span class="sig-name descname"><span class="n"><span class="pre">LinkParser</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb11ModelParserE">
+<span id="_CPPv3N3mdk3pdb11ModelParserE"></span><span id="_CPPv2N3mdk3pdb11ModelParserE"></span><span id="mdk::pdb::ModelParser"></span><span class="target" id="classmdk_1_1pdb_1_1ModelParser"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ModelParser</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdbE" title="mdk::pdb"><span class="n"><span class="pre">pdb</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb12RecordParserE" title="mdk::pdb::RecordParser"><span class="n"><span class="pre">RecordParser</span></span></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb11ModelParser11ModelParserEv">
+<span id="_CPPv3N3mdk3pdb11ModelParser11ModelParserEv"></span><span id="_CPPv2N3mdk3pdb11ModelParser11ModelParserEv"></span><span id="mdk::pdb::ModelParser::ModelParser"></span><span class="target" id="classmdk_1_1pdb_1_1ModelParser_1aed0c59ec370785d4e22702fe42dfa14d"></span><span class="sig-name descname"><span class="n"><span class="pre">ModelParser</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb12RecordParserE">
+<span id="_CPPv3N3mdk3pdb12RecordParserE"></span><span id="_CPPv2N3mdk3pdb12RecordParserE"></span><span id="mdk::pdb::RecordParser"></span><span class="target" id="classmdk_1_1pdb_1_1RecordParser"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RecordParser</span></span></span><br /></dt>
+<dd><em>#include &lt;RecordParsers.hpp&gt;</em><p>A parser of a single record. Because of the “bidirectionality” of <code class="docutils literal notranslate"><a class="reference internal" href="fields.html#classmdk_1_1pdb_1_1Field"><span class="std std-ref"><span class="pre">Field</span></span></a></code> structures and ability to swap out the pointers, we can elegantly represent as a list of the fields in the line of a record, and the parsing and writing of the record are essentially provided out-of-the-box. </p>
+<p>Subclassed by <a class="reference internal" href="#classmdk_1_1pdb_1_1AtomParser"><span class="std std-ref">mdk::pdb::AtomParser</span></a>, <a class="reference internal" href="#classmdk_1_1pdb_1_1Cryst1Parser"><span class="std std-ref">mdk::pdb::Cryst1Parser</span></a>, <a class="reference internal" href="#classmdk_1_1pdb_1_1EndmdlParser"><span class="std std-ref">mdk::pdb::EndmdlParser</span></a>, <a class="reference internal" href="#classmdk_1_1pdb_1_1EndParser"><span class="std std-ref">mdk::pdb::EndParser</span></a>, <a class="reference internal" href="#classmdk_1_1pdb_1_1HetatmParser"><span class="std std-ref">mdk::pdb::HetatmParser</span></a>, <a class="reference internal" href="#classmdk_1_1pdb_1_1LinkParser"><span class="std std-ref">mdk::pdb::LinkParser</span></a>, <a class="reference internal" href="#classmdk_1_1pdb_1_1ModelParser"><span class="std std-ref">mdk::pdb::ModelParser</span></a>, <a class="reference internal" href="#classmdk_1_1pdb_1_1RemarkParser"><span class="std std-ref">mdk::pdb::RemarkParser</span></a>, <a class="reference internal" href="#classmdk_1_1pdb_1_1SSBondParser"><span class="std std-ref">mdk::pdb::SSBondParser</span></a>, <a class="reference internal" href="#classmdk_1_1pdb_1_1TerParser"><span class="std std-ref">mdk::pdb::TerParser</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk3pdb12RecordParser8tryParseERKNSt6stringE">
+<span id="_CPPv3NK3mdk3pdb12RecordParser8tryParseERKNSt6stringE"></span><span id="_CPPv2NK3mdk3pdb12RecordParser8tryParseERKNSt6stringE"></span><span id="mdk::pdb::RecordParser::tryParse__ssCRC"></span><span class="target" id="classmdk_1_1pdb_1_1RecordParser_1a7618b153ab570d639a03b30b39ebeac7"></span><span class="n"><span class="pre">Record</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">tryParse</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">s</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Try to parse a string into a PDB record. If unsuccessful, a <code class="docutils literal notranslate"><span class="pre">std::monostate()</span></code> is returned. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>s</strong> – <a class="reference internal" href="fields.html#classmdk_1_1pdb_1_1String"><span class="std std-ref">String</span></a> to parse into a PDB record. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Either a parsed PDB record or a <code class="docutils literal notranslate"><span class="pre">std::monostate()</span></code> if the parsing was unsuccessful. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb12RecordParser5writeERNSt7ostreamERK6Record">
+<span id="_CPPv3N3mdk3pdb12RecordParser5writeERNSt7ostreamERK6Record"></span><span id="_CPPv2N3mdk3pdb12RecordParser5writeERNSt7ostreamERK6Record"></span><span id="mdk::pdb::RecordParser::write__osR.RecordCR"></span><span class="target" id="classmdk_1_1pdb_1_1RecordParser_1a989183f8cb340a3e98365d8e579db936"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">write</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">os</span></span>, <span class="n"><span class="pre">Record</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Write out the record (in the text form) to an output stream. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>os</strong> – Output stream to write the PDB record to. </p></li>
+<li><p><strong>other</strong> – PDB record to write to the stream. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">os</span></code> </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb12RecordParser6fieldsE">
+<span id="_CPPv3N3mdk3pdb12RecordParser6fieldsE"></span><span id="_CPPv2N3mdk3pdb12RecordParser6fieldsE"></span><span id="mdk::pdb::RecordParser::fields__std::vector:std::shared_ptr:Field::"></span><span class="target" id="classmdk_1_1pdb_1_1RecordParser_1a5d8c6392e0e060a1106900e751e10039"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb5FieldE" title="mdk::pdb::Field"><span class="n"><span class="pre">Field</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">fields</span></span></span><br /></dt>
+<dd><p>A list of fields comprising the record. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-protected-attributes">Protected Attributes</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb12RecordParser6recordE">
+<span id="_CPPv3N3mdk3pdb12RecordParser6recordE"></span><span id="_CPPv2N3mdk3pdb12RecordParser6recordE"></span><span id="mdk::pdb::RecordParser::record__Record"></span><span class="target" id="classmdk_1_1pdb_1_1RecordParser_1a785f8a807ce7fdeaee8252b196105b7d"></span><span class="n"><span class="pre">Record</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">record</span></span></span><br /></dt>
+<dd><p>Underlying record, which serves as a base of variable (integers, strings etc. of a record) to which field parsers write parsed values and from which the field parsers read the values to write. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb12RemarkParserE">
+<span id="_CPPv3N3mdk3pdb12RemarkParserE"></span><span id="_CPPv2N3mdk3pdb12RemarkParserE"></span><span id="mdk::pdb::RemarkParser"></span><span class="target" id="classmdk_1_1pdb_1_1RemarkParser"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RemarkParser</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdbE" title="mdk::pdb"><span class="n"><span class="pre">pdb</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb12RecordParserE" title="mdk::pdb::RecordParser"><span class="n"><span class="pre">RecordParser</span></span></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb12RemarkParser12RemarkParserEv">
+<span id="_CPPv3N3mdk3pdb12RemarkParser12RemarkParserEv"></span><span id="_CPPv2N3mdk3pdb12RemarkParser12RemarkParserEv"></span><span id="mdk::pdb::RemarkParser::RemarkParser"></span><span class="target" id="classmdk_1_1pdb_1_1RemarkParser_1aec104f97d4aaee85ab2b6159568d3ba3"></span><span class="sig-name descname"><span class="n"><span class="pre">RemarkParser</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb12SSBondParserE">
+<span id="_CPPv3N3mdk3pdb12SSBondParserE"></span><span id="_CPPv2N3mdk3pdb12SSBondParserE"></span><span id="mdk::pdb::SSBondParser"></span><span class="target" id="classmdk_1_1pdb_1_1SSBondParser"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SSBondParser</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdbE" title="mdk::pdb"><span class="n"><span class="pre">pdb</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb12RecordParserE" title="mdk::pdb::RecordParser"><span class="n"><span class="pre">RecordParser</span></span></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb12SSBondParser12SSBondParserEv">
+<span id="_CPPv3N3mdk3pdb12SSBondParser12SSBondParserEv"></span><span id="_CPPv2N3mdk3pdb12SSBondParser12SSBondParserEv"></span><span id="mdk::pdb::SSBondParser::SSBondParser"></span><span class="target" id="classmdk_1_1pdb_1_1SSBondParser_1ad0c68f40bfd6499fb6c32fdbc661397d"></span><span class="sig-name descname"><span class="n"><span class="pre">SSBondParser</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb9TerParserE">
+<span id="_CPPv3N3mdk3pdb9TerParserE"></span><span id="_CPPv2N3mdk3pdb9TerParserE"></span><span id="mdk::pdb::TerParser"></span><span class="target" id="classmdk_1_1pdb_1_1TerParser"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TerParser</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdbE" title="mdk::pdb"><span class="n"><span class="pre">pdb</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb12RecordParserE" title="mdk::pdb::RecordParser"><span class="n"><span class="pre">RecordParser</span></span></a><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb9TerParser9TerParserEv">
+<span id="_CPPv3N3mdk3pdb9TerParser9TerParserEv"></span><span id="_CPPv2N3mdk3pdb9TerParser9TerParserEv"></span><span id="mdk::pdb::TerParser::TerParser"></span><span class="target" id="classmdk_1_1pdb_1_1TerParser_1aa40646a0124ec59ebc8751aa27fe0e50"></span><span class="sig-name descname"><span class="n"><span class="pre">TerParser</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../model.html" class="btn btn-neutral float-right" title="Model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="fields.html" class="btn btn-neutral float-left" title="PDB record fields" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, IF PAN &amp; ZPP Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

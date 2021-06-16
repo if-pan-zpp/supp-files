@@ -1,0 +1,314 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Shifted and truncated Lennard-Jones potential kernel &mdash; mdk  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Sidechain Lennard-Jones potential kernel" href="sidechainlj.html" />
+    <link rel="prev" title="Lennard-Jones potential kernel" href="lj.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> mdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sections:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prep/index.html">Preparation layer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Simulation layer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../simulation.html">Simulation object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">Data objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../primitives.html">Primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../simulvar.html">Simulation variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forces/index.html">Forces</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Kernels</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="harmonic.html">Harmonic potential kernel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lj.html">Lennard-Jones potential kernel</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Shifted and truncated Lennard-Jones potential kernel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sidechainlj.html">Sidechain Lennard-Jones potential kernel</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../verlet.html">Verlet list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stats.html">Coordination stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../state.html">Physical state object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integrator/index.html">Integrators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hooks/index.html">Hooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/index.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../entire.html">Entire namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Simulation layer</a> &raquo;</li>
+        
+          <li><a href="index.html">Kernels</a> &raquo;</li>
+        
+      <li>Shifted and truncated Lennard-Jones potential kernel</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/src/simul/kernels/stlj.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="shifted-and-truncated-lennard-jones-potential-kernel">
+<h1>Shifted and truncated Lennard-Jones potential kernel<a class="headerlink" href="#shifted-and-truncated-lennard-jones-potential-kernel" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk18ShiftedTruncatedLJE">
+<span id="_CPPv3N3mdk18ShiftedTruncatedLJE"></span><span id="_CPPv2N3mdk18ShiftedTruncatedLJE"></span><span id="mdk::ShiftedTruncatedLJ"></span><span class="target" id="classmdk_1_1ShiftedTruncatedLJ"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">ShiftedTruncatedLJ</span></span></span><br /></dt>
+<dd><p>A shifted and truncated version of the L-J potential, used chiefly by the Pauli exclusion force field. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk18ShiftedTruncatedLJ18ShiftedTruncatedLJEv">
+<span id="_CPPv3N3mdk18ShiftedTruncatedLJ18ShiftedTruncatedLJEv"></span><span id="_CPPv2N3mdk18ShiftedTruncatedLJ18ShiftedTruncatedLJEv"></span><span id="mdk::ShiftedTruncatedLJ::ShiftedTruncatedLJ"></span><span class="target" id="classmdk_1_1ShiftedTruncatedLJ_1a570f3a3217aeb2d48462e305b556074e"></span><span class="sig-name descname"><span class="n"><span class="pre">ShiftedTruncatedLJ</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk18ShiftedTruncatedLJ18ShiftedTruncatedLJEdd">
+<span id="_CPPv3N3mdk18ShiftedTruncatedLJ18ShiftedTruncatedLJEdd"></span><span id="_CPPv2N3mdk18ShiftedTruncatedLJ18ShiftedTruncatedLJEdd"></span><span id="mdk::ShiftedTruncatedLJ::ShiftedTruncatedLJ__double.double"></span><span class="target" id="classmdk_1_1ShiftedTruncatedLJ_1a58cc3d96b20221cfbeb767b7c148d7a9"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ShiftedTruncatedLJ</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">r_cut</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">depth</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk18ShiftedTruncatedLJ6cutoffEv">
+<span id="_CPPv3NK3mdk18ShiftedTruncatedLJ6cutoffEv"></span><span id="_CPPv2NK3mdk18ShiftedTruncatedLJ6cutoffEv"></span><span id="mdk::ShiftedTruncatedLJ::cutoffC"></span><span class="target" id="classmdk_1_1ShiftedTruncatedLJ_1ab65a79d274d9c2b02196e1691132afda"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cutoff</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk18ShiftedTruncatedLJ8computeVEdRdRd">
+<span id="_CPPv3NK3mdk18ShiftedTruncatedLJ8computeVEdRdRd"></span><span id="_CPPv2NK3mdk18ShiftedTruncatedLJ8computeVEdRdRd"></span><span id="mdk::ShiftedTruncatedLJ::computeV__double.doubleR.doubleRC"></span><span class="target" id="classmdk_1_1ShiftedTruncatedLJ_1ab73a47e09d4c5c25fabc711e5429540c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">computeV</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">norm</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">V</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">dV_dn</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Compute the potential energy of the force field. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>norm</strong> – Distance between the residues. </p></li>
+<li><p><strong>V</strong> – Variable to add the potential to. </p></li>
+<li><p><strong>dV_dn</strong> – Variable to add the derivative to. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I00ENK3mdk18ShiftedTruncatedLJ8computeFEv4VRefdRd2T12T2">
+<span id="_CPPv3I00ENK3mdk18ShiftedTruncatedLJ8computeFE4VRefdRd2T12T2"></span><span id="_CPPv2I00ENK3mdk18ShiftedTruncatedLJ8computeFE4VRefdRd2T12T2"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T1</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T2</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classmdk_1_1ShiftedTruncatedLJ_1a9ded073231b8ea0c0c5f63a9ce76b046"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">computeF</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk4VRefE" title="mdk::VRef"><span class="n"><span class="pre">VRef</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">unit</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">norm</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">V</span></span>, <a class="reference internal" href="../../entire.html#_CPPv4I00ENK3mdk18ShiftedTruncatedLJ8computeFEv4VRefdRd2T12T2" title="mdk::ShiftedTruncatedLJ::computeF::T1"><span class="n"><span class="pre">T1</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">F1</span></span>, <a class="reference internal" href="../../entire.html#_CPPv4I00ENK3mdk18ShiftedTruncatedLJ8computeFEv4VRefdRd2T12T2" title="mdk::ShiftedTruncatedLJ::computeF::T2"><span class="n"><span class="pre">T2</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">F2</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Compute and add the L-J force between two residues. The templates are here in order for us to be able to pass Eigen expressions to it. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T1</strong> – Type of an lvalue to add the force on the first residue to. </p></li>
+<li><p><strong>T2</strong> – Type of an lvalue to add the force on the second residue to. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>unit</strong> – Normalized vector between the residues. </p></li>
+<li><p><strong>norm</strong> – Distance between the residues. </p></li>
+<li><p><strong>V</strong> – Variable to add the potential to. </p></li>
+<li><p><strong>F1</strong> – Lvalue to add the force on the first residue to. </p></li>
+<li><p><strong>F2</strong> – Lvalue to add the force on the second residue to. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk18ShiftedTruncatedLJ5r_cutE">
+<span id="_CPPv3N3mdk18ShiftedTruncatedLJ5r_cutE"></span><span id="_CPPv2N3mdk18ShiftedTruncatedLJ5r_cutE"></span><span id="mdk::ShiftedTruncatedLJ::r_cut__double"></span><span class="target" id="classmdk_1_1ShiftedTruncatedLJ_1a5c7c783f49627c67f3cf09602a1431ff"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">r_cut</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">4.0</span></span><span class="w"> </span><span class="o"><span class="pre">*</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk8angstromE" title="mdk::angstrom"><span class="n"><span class="pre">angstrom</span></span></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk18ShiftedTruncatedLJ5depthE">
+<span id="_CPPv3N3mdk18ShiftedTruncatedLJ5depthE"></span><span id="_CPPv2N3mdk18ShiftedTruncatedLJ5depthE"></span><span id="mdk::ShiftedTruncatedLJ::depth__double"></span><span class="target" id="classmdk_1_1ShiftedTruncatedLJ_1adf4a2e968800d6fe7f06f0d7f5fe26bc"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">depth</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1.0</span></span><span class="w"> </span><span class="o"><span class="pre">*</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3epsE" title="mdk::eps"><span class="n"><span class="pre">eps</span></span></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="sidechainlj.html" class="btn btn-neutral float-right" title="Sidechain Lennard-Jones potential kernel" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="lj.html" class="btn btn-neutral float-left" title="Lennard-Jones potential kernel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, IF PAN &amp; ZPP Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

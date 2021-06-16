@@ -1,0 +1,398 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Data objects &mdash; mdk  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Primitives" href="../primitives.html" />
+    <link rel="prev" title="Data objects factory" href="factory.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> mdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sections:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prep/index.html">Preparation layer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Simulation layer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../simulation.html">Simulation object</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Data objects</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="factory.html">Data objects factory</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Data objects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../primitives.html">Primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../simulvar.html">Simulation variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forces/index.html">Forces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kernels/index.html">Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../verlet.html">Verlet list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stats.html">Coordination stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../state.html">Physical state object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integrator/index.html">Integrators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hooks/index.html">Hooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/index.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../entire.html">Entire namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Simulation layer</a> &raquo;</li>
+        
+          <li><a href="index.html">Data objects</a> &raquo;</li>
+        
+      <li>Data objects</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/src/simul/data/objects.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="data-objects">
+<h1>Data objects<a class="headerlink" href="#data-objects" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk6ChainsE">
+<span id="_CPPv3N3mdk6ChainsE"></span><span id="_CPPv2N3mdk6ChainsE"></span><span id="mdk::Chains"></span><span class="target" id="classmdk_1_1Chains"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">Chains</span></span></span><br /></dt>
+<dd><p>This data structure contains all the data pertaining to chains, especially the pairs, triples etc. in the model. It’s here due to similarity of computation and some degree of reuse of the same data.</p>
+<p>The definitions of pairs, triples etc. follow convention from CPC14.pdf. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk6Chains6ChainsEv">
+<span id="_CPPv3N3mdk6Chains6ChainsEv"></span><span id="_CPPv2N3mdk6Chains6ChainsEv"></span><span id="mdk::Chains::Chains"></span><span class="target" id="classmdk_1_1Chains_1ac5c99a745889ce1bded654c89b49297d"></span><span class="sig-name descname"><span class="n"><span class="pre">Chains</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk6Chains6ChainsERK5Model">
+<span id="_CPPv3N3mdk6Chains6ChainsERK5Model"></span><span id="_CPPv2N3mdk6Chains6ChainsERK5Model"></span><span id="mdk::Chains::Chains__ModelCR"></span><span class="target" id="classmdk_1_1Chains_1a67e1f81b520c5cd40631e92b782dd742"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Chains</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5ModelE" title="mdk::Model"><span class="n"><span class="pre">Model</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">model</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Generate a <a class="reference internal" href="#classmdk_1_1Chains"><span class="std std-ref">Chains</span></a> structure for a given model. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>model</strong> – The model, chain data whereof we wish to obtain. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk6Chains13sepByAtLeastNEiii">
+<span id="_CPPv3NK3mdk6Chains13sepByAtLeastNEiii"></span><span id="_CPPv2NK3mdk6Chains13sepByAtLeastNEiii"></span><span id="mdk::Chains::sepByAtLeastN__i.i.iC"></span><span class="target" id="classmdk_1_1Chains_1ad6add637c02468b3f98f103b1baa8298"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sepByAtLeastN</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i1</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i2</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">n</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Check bond distance between residues. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i1</strong> – First residue </p></li>
+<li><p><strong>i2</strong> – Second residue </p></li>
+<li><p><strong>n</strong> – Bond offset </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>true if residues i1 and i2 are either in separate chains or in a single chain but separated by at least n bonds. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk6Chains6tuplesEi">
+<span id="_CPPv3NK3mdk6Chains6tuplesEi"></span><span id="_CPPv2NK3mdk6Chains6tuplesEi"></span><span id="mdk::Chains::tuples__iC"></span><span class="target" id="classmdk_1_1Chains_1acf79013e658ae7449b98f746d16c0764"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5BytesE" title="mdk::Bytes"><span class="n"><span class="pre">Bytes</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">tuples</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">k</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Create an array of tuple indicators. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>k</strong> – Tuple size </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An array of size model-&gt;n, where tuples(k)[i] is 1 if a tuple (i-k+2, …, i+1) is entirely contained in a chain, and 0 otherwise. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk6Chains12nativeTuplesEi">
+<span id="_CPPv3NK3mdk6Chains12nativeTuplesEi"></span><span id="_CPPv2NK3mdk6Chains12nativeTuplesEi"></span><span id="mdk::Chains::nativeTuples__iC"></span><span class="target" id="classmdk_1_1Chains_1a21b556b0448c117d161be38469df6fad"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5BytesE" title="mdk::Bytes"><span class="n"><span class="pre">Bytes</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nativeTuples</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">k</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Create an array of native tuple indicators. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>k</strong> – Tuple size </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An array of size model-&gt;n where tuples(k)[i] is 1 if a tuple (i-k+2, …, i+1) is entirely contained in a structured part, and 0 otherwise. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk6Chains5modelE">
+<span id="_CPPv3N3mdk6Chains5modelE"></span><span id="_CPPv2N3mdk6Chains5modelE"></span><span id="mdk::Chains::model__ModelCP"></span><span class="target" id="classmdk_1_1Chains_1a66e8a9c6285b1aa2a428def796cbe348"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5ModelE" title="mdk::Model"><span class="n"><span class="pre">Model</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">model</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><br /></dt>
+<dd><p>Const ptr to an underlying model (necessarily it must have at least as long a lifetime as this class). </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk6Chains8chainIdxE">
+<span id="_CPPv3N3mdk6Chains8chainIdxE"></span><span id="_CPPv2N3mdk6Chains8chainIdxE"></span><span id="mdk::Chains::chainIdx__Integers"></span><span class="target" id="classmdk_1_1Chains_1ac879d9450ef26acb545676f0fd41f4f8"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk8IntegersE" title="mdk::Integers"><span class="n"><span class="pre">Integers</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">chainIdx</span></span></span><br /></dt>
+<dd><p>chainIdx[i] is the index of the chain for residue i, or -1 if a residue is in no chain. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk6Chains10isTerminalE">
+<span id="_CPPv3N3mdk6Chains10isTerminalE"></span><span id="_CPPv2N3mdk6Chains10isTerminalE"></span><span id="mdk::Chains::isTerminal__Bytes"></span><span class="target" id="classmdk_1_1Chains_1a2c2805206ef8fc7bd6e4d5c97a3ca7c8"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5BytesE" title="mdk::Bytes"><span class="n"><span class="pre">Bytes</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isTerminal</span></span></span><br /></dt>
+<dd><p>isTerminal[i] = 1 if the i’th residue is first or last in the chain (and thus lacks a neighbor), or 0 otherwise. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk6Chains5pairsE">
+<span id="_CPPv3N3mdk6Chains5pairsE"></span><span id="_CPPv2N3mdk6Chains5pairsE"></span><span id="mdk::Chains::pairs__Bytes"></span><span class="target" id="classmdk_1_1Chains_1a357069ba69f7ce46b2c99f7f3c6521d5"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5BytesE" title="mdk::Bytes"><span class="n"><span class="pre">Bytes</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pairs</span></span></span><br /></dt>
+<dd><p>pairs[i] = 1 if the pair (i, i+1) is entirely in one chain, or 0 otherwise. Result of tuples(2). Used in harmonic tether forcefield. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk6Chains7triplesE">
+<span id="_CPPv3N3mdk6Chains7triplesE"></span><span id="_CPPv2N3mdk6Chains7triplesE"></span><span id="mdk::Chains::triples__Bytes"></span><span class="target" id="classmdk_1_1Chains_1a043320dec65c416a8aaa98f129b867d7"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5BytesE" title="mdk::Bytes"><span class="n"><span class="pre">Bytes</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">triples</span></span></span><br /></dt>
+<dd><p>triples[i] = 1 if the triple (i-1, i, i+1) is entirely in one chain, or 0 otherwise. Result of tuples(3). Used for QA (in computing n, h) and for bond angle potentials. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk6Chains5quadsE">
+<span id="_CPPv3N3mdk6Chains5quadsE"></span><span id="_CPPv2N3mdk6Chains5quadsE"></span><span id="mdk::Chains::quads__Bytes"></span><span class="target" id="classmdk_1_1Chains_1a8ffa2e361ab460dd21096e4ea12c4100"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5BytesE" title="mdk::Bytes"><span class="n"><span class="pre">Bytes</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">quads</span></span></span><br /></dt>
+<dd><p>quads[i] = 1 if the quadruple (i-2, i-1, i, i+1) is entirely in one chain, or 0 otherwise. Result of tuples(4). Used in dihedral potential. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk6Chains13nativeTriplesE">
+<span id="_CPPv3N3mdk6Chains13nativeTriplesE"></span><span id="_CPPv2N3mdk6Chains13nativeTriplesE"></span><span id="mdk::Chains::nativeTriples__Bytes"></span><span class="target" id="classmdk_1_1Chains_1a8286a64f40ad11bf735d7599d079425e"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5BytesE" title="mdk::Bytes"><span class="n"><span class="pre">Bytes</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nativeTriples</span></span></span><br /></dt>
+<dd><p>nativeTriples[i] = 1 if the triple (i-1, i, i+1) is entirely in a structured part, or 0 otherwise. Result of nativeTuples(3). Used in native bond angle potential. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk6Chains11nativeQuadsE">
+<span id="_CPPv3N3mdk6Chains11nativeQuadsE"></span><span id="_CPPv2N3mdk6Chains11nativeQuadsE"></span><span id="mdk::Chains::nativeQuads__Bytes"></span><span class="target" id="classmdk_1_1Chains_1acbae78589944a4f41b3acff7441b4e86"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5BytesE" title="mdk::Bytes"><span class="n"><span class="pre">Bytes</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nativeQuads</span></span></span><br /></dt>
+<dd><p>nativeQuads[i] = 1 if the quadruple (i-2, i-1, i, i+1) is entirely in a structured part, or 0 otherwise. Result of nativeTuples(4). Used in native dihedral potentials. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk7ChargesE">
+<span id="_CPPv3N3mdk7ChargesE"></span><span id="_CPPv2N3mdk7ChargesE"></span><span id="mdk::Charges"></span><span class="target" id="classmdk_1_1Charges"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">Charges</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk7ScalarsE" title="mdk::Scalars"><span class="n"><span class="pre">Scalars</span></span></a><br /></dt>
+<dd><p>A data structure containing the charges of residues in a model, as derived from a parameter file, in an array form. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk7Charges7ChargesEv">
+<span id="_CPPv3N3mdk7Charges7ChargesEv"></span><span id="_CPPv2N3mdk7Charges7ChargesEv"></span><span id="mdk::Charges::Charges"></span><span class="target" id="classmdk_1_1Charges_1ad7165737b432bc52b3ac16ce775e8e70"></span><span class="sig-name descname"><span class="n"><span class="pre">Charges</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk7Charges7ChargesERK5ModelRKN5param10ParametersE">
+<span id="_CPPv3N3mdk7Charges7ChargesERK5ModelRKN5param10ParametersE"></span><span id="_CPPv2N3mdk7Charges7ChargesERK5ModelRKN5param10ParametersE"></span><span id="mdk::Charges::Charges__ModelCR.param::ParametersCR"></span><span class="target" id="classmdk_1_1Charges_1a76f330cccd85e40f0e95b0da22fa90c6"></span><span class="sig-name descname"><span class="n"><span class="pre">Charges</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5ModelE" title="mdk::Model"><span class="n"><span class="pre">Model</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">model</span></span>, <a class="reference internal" href="../../entire.html#_CPPv4N3mdk5paramE" title="mdk::param"><span class="n"><span class="pre">param</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5param10ParametersE" title="mdk::param::Parameters"><span class="n"><span class="pre">Parameters</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">params</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk6MassesE">
+<span id="_CPPv3N3mdk6MassesE"></span><span id="_CPPv2N3mdk6MassesE"></span><span id="mdk::Masses"></span><span class="target" id="classmdk_1_1Masses"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">Masses</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk7ScalarsE" title="mdk::Scalars"><span class="n"><span class="pre">Scalars</span></span></a><br /></dt>
+<dd><p>Data class containing masses associated with residues, in an array form. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk6Masses6MassesEv">
+<span id="_CPPv3N3mdk6Masses6MassesEv"></span><span id="_CPPv2N3mdk6Masses6MassesEv"></span><span id="mdk::Masses::Masses"></span><span class="target" id="classmdk_1_1Masses_1a329f5b5a48fdd144cf940dbe8d3d624b"></span><span class="sig-name descname"><span class="n"><span class="pre">Masses</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk6Masses6MassesERK5Model">
+<span id="_CPPv3N3mdk6Masses6MassesERK5Model"></span><span id="_CPPv2N3mdk6Masses6MassesERK5Model"></span><span id="mdk::Masses::Masses__ModelCR"></span><span class="target" id="classmdk_1_1Masses_1ab686e0607f78afc9f0e25b2e1a938985"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Masses</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5ModelE" title="mdk::Model"><span class="n"><span class="pre">Model</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">model</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../primitives.html" class="btn btn-neutral float-right" title="Primitives" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="factory.html" class="btn btn-neutral float-left" title="Data objects factory" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, IF PAN &amp; ZPP Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

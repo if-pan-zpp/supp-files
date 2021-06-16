@@ -1,0 +1,13 @@
+klenstr 7
+file discard
+ntraj 1
+mstep 5
+lpdb T
+pdbfile 1ubq.pdb
+lconftm T
+lallatom T
+lcpot F
+lnatend F
+lparam F
+cut 5.0
+cntfct 1.5

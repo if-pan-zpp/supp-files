@@ -1,0 +1,334 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>PDB export hook &mdash; mdk  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Position diff hook" href="positiondiff.html" />
+    <link rel="prev" title="Hooks" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> mdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sections:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prep/index.html">Preparation layer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Simulation layer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../simulation.html">Simulation object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">Data objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../primitives.html">Primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../simulvar.html">Simulation variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forces/index.html">Forces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kernels/index.html">Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../verlet.html">Verlet list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stats.html">Coordination stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../state.html">Physical state object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integrator/index.html">Integrators</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Hooks</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">PDB export hook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="positiondiff.html">Position diff hook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="progressbar.html">Progress bar hook</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/index.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../entire.html">Entire namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Simulation layer</a> &raquo;</li>
+        
+          <li><a href="index.html">Hooks</a> &raquo;</li>
+        
+      <li>PDB export hook</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/src/simul/hooks/exportpdb.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pdb-export-hook">
+<h1>PDB export hook<a class="headerlink" href="#pdb-export-hook" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9ExportPDBE">
+<span id="_CPPv3N3mdk9ExportPDBE"></span><span id="_CPPv2N3mdk9ExportPDBE"></span><span id="mdk::ExportPDB"></span><span class="target" id="classmdk_1_1ExportPDB"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">ExportPDB</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk4HookE" title="mdk::Hook"><span class="n"><span class="pre">Hook</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">private</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk8SimulVarE" title="mdk::SimulVar"><span class="n"><span class="pre">SimulVar</span></span></a><br /></dt>
+<dd><p>The hook for exporting current positions of the residues to a PDB file. The positions are stored as MODELs within the PDB file; (at this moment) the file is output only after the resolution of the simulation, i.e. in the destructor. Also, at the moment only the positions (and not for example REMARKs with QA stats or contacts) are saved. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9ExportPDB9ExportPDBENSt10filesystem4pathEd">
+<span id="_CPPv3N3mdk9ExportPDB9ExportPDBENSt10filesystem4pathEd"></span><span id="_CPPv2N3mdk9ExportPDB9ExportPDBENSt10filesystem4pathEd"></span><span id="mdk::ExportPDB::ExportPDB__std::filesystem::path.double"></span><span class="target" id="classmdk_1_1ExportPDB_1a0f5ee1e0756ad27de2b9a17b160042cc"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ExportPDB</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">filesystem</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">path</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">modelPath</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">period</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1000.0</span></span><span class="w"> </span><span class="o"><span class="pre">*</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk11microsecondE" title="mdk::microsecond"><span class="n"><span class="pre">microsecond</span></span></a><span class="sig-paren">)</span><br /></dt>
+<dd><p>Construct a <code class="docutils literal notranslate"><a class="reference internal" href="#classmdk_1_1ExportPDB"><span class="std std-ref"><span class="pre">ExportPDB</span></span></a></code> hook with a model path and the period. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>modelPath</strong> – Path to the file to which to output the positions. </p></li>
+<li><p><strong>period</strong> – Span between consecutive exports. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9ExportPDBD0Ev">
+<span id="_CPPv3N3mdk9ExportPDBD0Ev"></span><span id="_CPPv2N3mdk9ExportPDBD0Ev"></span><span id="mdk::ExportPDB::~ExportPDB"></span><span class="target" id="classmdk_1_1ExportPDB_1ae59771205db47326f7859cea9a90ddfc"></span><span class="sig-name descname"><span class="n"><span class="pre">~ExportPDB</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>This destructor saves the <code class="docutils literal notranslate"><span class="pre">to</span></code> the file. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9ExportPDB4bindER10Simulation">
+<span id="_CPPv3N3mdk9ExportPDB4bindER10Simulation"></span><span id="_CPPv2N3mdk9ExportPDB4bindER10Simulation"></span><span id="mdk::ExportPDB::bind__SimulationR"></span><span class="target" id="classmdk_1_1ExportPDB_1a9e506358cbc221c5a03f2204ae7a4b99"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bind</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk10SimulationE" title="mdk::Simulation"><span class="n"><span class="pre">Simulation</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">simulation</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Bind the hook to the simulation. Also, fetch the state. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>simulation</strong> – <a class="reference internal" href="../simulation.html#classmdk_1_1Simulation"><span class="std std-ref">Simulation</span></a> to bind to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9ExportPDB7executeEi">
+<span id="_CPPv3N3mdk9ExportPDB7executeEi"></span><span id="_CPPv2N3mdk9ExportPDB7executeEi"></span><span id="mdk::ExportPDB::execute__i"></span><span class="target" id="classmdk_1_1ExportPDB_1af46853f64d12876f665168328c277277"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">execute</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">step_nr</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Execute the hook, i.e. check if the span since the last time the positions were exported is greater than <code class="docutils literal notranslate"><span class="pre">period</span></code> and if it is, export the positions and set the last time to current time. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>step_nr</strong> – Number of the step of the simulation when the hook is invoked. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9ExportPDB4baseE">
+<span id="_CPPv3N3mdk9ExportPDB4baseE"></span><span id="_CPPv2N3mdk9ExportPDB4baseE"></span><span id="mdk::ExportPDB::base__Model"></span><span class="target" id="classmdk_1_1ExportPDB_1ab6d14e519ab1c129f1ff4b2d86ee4e95"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5ModelE" title="mdk::Model"><span class="n"><span class="pre">Model</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">base</span></span></span><br /></dt>
+<dd><p>Reference model to export the current positions to. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9ExportPDB4dataE">
+<span id="_CPPv3N3mdk9ExportPDB4dataE"></span><span id="_CPPv2N3mdk9ExportPDB4dataE"></span><span id="mdk::ExportPDB::data__pdb::Data"></span><span class="target" id="classmdk_1_1ExportPDB_1a95d1ce1ca2f0c994ef1266589090a7e8"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdbE" title="mdk::pdb"><span class="n"><span class="pre">pdb</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb4DataE" title="mdk::pdb::Data"><span class="n"><span class="pre">Data</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">data</span></span></span><br /></dt>
+<dd><p>A PDB data object containing the currently stored records (in particular the positions). </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9ExportPDB8modelIdxE">
+<span id="_CPPv3N3mdk9ExportPDB8modelIdxE"></span><span id="_CPPv2N3mdk9ExportPDB8modelIdxE"></span><span id="mdk::ExportPDB::modelIdx__i"></span><span class="target" id="classmdk_1_1ExportPDB_1a7eaa7e6879c112ccf6c7949c3570de7f"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">modelIdx</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><br /></dt>
+<dd><p>Current model serial number (1-indexed). </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9ExportPDB5stateE">
+<span id="_CPPv3N3mdk9ExportPDB5stateE"></span><span id="_CPPv2N3mdk9ExportPDB5stateE"></span><span id="mdk::ExportPDB::state__StateCP"></span><span class="target" id="classmdk_1_1ExportPDB_1a39d3bc2a811658d6ffd91070c6f145a9"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5StateE" title="mdk::State"><span class="n"><span class="pre">State</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">state</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><br /></dt>
+<dd><p>Const pointer to the state. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9ExportPDB9modelPathE">
+<span id="_CPPv3N3mdk9ExportPDB9modelPathE"></span><span id="_CPPv2N3mdk9ExportPDB9modelPathE"></span><span id="mdk::ExportPDB::modelPath__std::filesystem::path"></span><span class="target" id="classmdk_1_1ExportPDB_1a254cf4927ccd842dd20966f8ccd2a053"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">filesystem</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">path</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">modelPath</span></span></span><br /></dt>
+<dd><p>Path to the PDB file. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9ExportPDB6periodE">
+<span id="_CPPv3N3mdk9ExportPDB6periodE"></span><span id="_CPPv2N3mdk9ExportPDB6periodE"></span><span id="mdk::ExportPDB::period__double"></span><span class="target" id="classmdk_1_1ExportPDB_1aa1bf66016048736fa335675f2c2a1f31"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">period</span></span></span><br /></dt>
+<dd><p>Span betwen consecutive exports (in internal time). </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9ExportPDB5tprevE">
+<span id="_CPPv3N3mdk9ExportPDB5tprevE"></span><span id="_CPPv2N3mdk9ExportPDB5tprevE"></span><span id="mdk::ExportPDB::tprev__double"></span><span class="target" id="classmdk_1_1ExportPDB_1a2b629bc61bfae04f106b7d90622efe78"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">tprev</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">numeric_limits</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">lowest</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><br /></dt>
+<dd><p>Time point when the record was last exported (in internal time). This one is initialized to minimum value so that the first execution always exports. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="positiondiff.html" class="btn btn-neutral float-right" title="Position diff hook" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Hooks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, IF PAN &amp; ZPP Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

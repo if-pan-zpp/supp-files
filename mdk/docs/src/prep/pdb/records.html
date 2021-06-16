@@ -1,0 +1,530 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>PDB file records &mdash; mdk  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Raw PDB data" href="raw.html" />
+    <link rel="prev" title="PDB objects and parsing" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> mdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sections:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Preparation layer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../cmap.html">Contact map files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../seq.html">Sequence files</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">PDB objects and parsing</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">PDB file records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="raw.html">Raw PDB data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="model.html">PDB atomic model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="parsing.html">PDB parsing framework</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../model.html">Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../param.html">Parameter files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../simul/index.html">Simulation layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/index.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../entire.html">Entire namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Preparation layer</a> &raquo;</li>
+        
+          <li><a href="index.html">PDB objects and parsing</a> &raquo;</li>
+        
+      <li>PDB file records</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/src/prep/pdb/records.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pdb-file-records">
+<h1>PDB file records<a class="headerlink" href="#pdb-file-records" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7recordsE">
+<span id="_CPPv3N3mdk3pdb7recordsE"></span><span id="_CPPv2N3mdk3pdb7recordsE"></span><span id="mdk::pdb::records"></span><span class="target" id="namespacemdk_1_1pdb_1_1records"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdbE" title="mdk::pdb"><span class="n"><span class="pre">pdb</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">records</span></span></span><br /></dt>
+<dd><p>A namespace containing PODs of PDB records. For reference, see PDB format report. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records6RecordE">
+<span id="_CPPv3N3mdk3pdb7records6RecordE"></span><span id="_CPPv2N3mdk3pdb7records6RecordE"></span><span class="target" id="namespacemdk_1_1pdb_1_1records_1af424f242c3e019ab7a00d8e7d8c4348b"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Record</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">variant</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">monostate</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb7records6RemarkE" title="mdk::pdb::records::Remark"><span class="n"><span class="pre">Remark</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb7records4AtomE" title="mdk::pdb::records::Atom"><span class="n"><span class="pre">Atom</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb7records6SSBondE" title="mdk::pdb::records::SSBond"><span class="n"><span class="pre">SSBond</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb7records6Cryst1E" title="mdk::pdb::records::Cryst1"><span class="n"><span class="pre">Cryst1</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb7records3EndE" title="mdk::pdb::records::End"><span class="n"><span class="pre">End</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb7records4LinkE" title="mdk::pdb::records::Link"><span class="n"><span class="pre">Link</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb7records5ModelE" title="mdk::pdb::records::Model"><span class="n"><span class="pre">Model</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb7records6EndmdlE" title="mdk::pdb::records::Endmdl"><span class="n"><span class="pre">Endmdl</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb7records3TerE" title="mdk::pdb::records::Ter"><span class="n"><span class="pre">Ter</span></span></a><span class="p"><span class="pre">&gt;</span></span><br /></dt>
+<dd><p>A variant type denoting either a record of some type, or no record <code class="docutils literal notranslate"><span class="pre">std::monostate</span></code> in the case of a parsing failure. </p>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records4AtomE">
+<span id="_CPPv3N3mdk3pdb7records4AtomE"></span><span id="_CPPv2N3mdk3pdb7records4AtomE"></span><span id="mdk::pdb::records::Atom"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Atom"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Atom</span></span></span><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records4Atom9serialNumE">
+<span id="_CPPv3N3mdk3pdb7records4Atom9serialNumE"></span><span id="_CPPv2N3mdk3pdb7records4Atom9serialNumE"></span><span id="mdk::pdb::records::Atom::serialNum__i"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Atom_1aaf55d19d9e7b510b966d7150dd75f215"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">serialNum</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records4Atom8atomNameE">
+<span id="_CPPv3N3mdk3pdb7records4Atom8atomNameE"></span><span id="_CPPv2N3mdk3pdb7records4Atom8atomNameE"></span><span id="mdk::pdb::records::Atom::atomName__ss"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Atom_1a1a0fa32f82cdd7ece696244fae041589"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">atomName</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records4Atom11altLocationE">
+<span id="_CPPv3N3mdk3pdb7records4Atom11altLocationE"></span><span id="_CPPv2N3mdk3pdb7records4Atom11altLocationE"></span><span id="mdk::pdb::records::Atom::altLocation__c"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Atom_1aacb377608db395bc9d757446e8d27bbd"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">altLocation</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="sc"><span class="pre">'</span> <span class="pre">'</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records4Atom11residueNameE">
+<span id="_CPPv3N3mdk3pdb7records4Atom11residueNameE"></span><span id="_CPPv2N3mdk3pdb7records4Atom11residueNameE"></span><span id="mdk::pdb::records::Atom::residueName__ss"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Atom_1a36dd7f008c87cb40bb2a015d69df8a36"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">residueName</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records4Atom7chainIDE">
+<span id="_CPPv3N3mdk3pdb7records4Atom7chainIDE"></span><span id="_CPPv2N3mdk3pdb7records4Atom7chainIDE"></span><span id="mdk::pdb::records::Atom::chainID__c"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Atom_1a1bebb382da0e3398820d7a45059eaeef"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">chainID</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="sc"><span class="pre">'A'</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records4Atom13residueSeqNumE">
+<span id="_CPPv3N3mdk3pdb7records4Atom13residueSeqNumE"></span><span id="_CPPv2N3mdk3pdb7records4Atom13residueSeqNumE"></span><span id="mdk::pdb::records::Atom::residueSeqNum__i"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Atom_1aa420e2d42af764e27bc2c8c2cbe76b30"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">residueSeqNum</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records4Atom13insertionCodeE">
+<span id="_CPPv3N3mdk3pdb7records4Atom13insertionCodeE"></span><span id="_CPPv2N3mdk3pdb7records4Atom13insertionCodeE"></span><span id="mdk::pdb::records::Atom::insertionCode__c"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Atom_1ae27a03fe8584e91ed4f9f2d0c6a4bac6"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">insertionCode</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="sc"><span class="pre">'</span> <span class="pre">'</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records4Atom3posE">
+<span id="_CPPv3N3mdk3pdb7records4Atom3posE"></span><span id="_CPPv2N3mdk3pdb7records4Atom3posE"></span><span id="mdk::pdb::records::Atom::pos__Eigen::Vector3d"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Atom_1af8e18d283a09701ef2614de81b960ba4"></span><span class="n"><span class="pre">Eigen</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Vector3d</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pos</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records4Atom9occupancyE">
+<span id="_CPPv3N3mdk3pdb7records4Atom9occupancyE"></span><span id="_CPPv2N3mdk3pdb7records4Atom9occupancyE"></span><span id="mdk::pdb::records::Atom::occupancy__double"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Atom_1a37dccc7d1d4024dbf727d137109e6ada"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">occupancy</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1.0</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records4Atom10tempFactorE">
+<span id="_CPPv3N3mdk3pdb7records4Atom10tempFactorE"></span><span id="_CPPv2N3mdk3pdb7records4Atom10tempFactorE"></span><span id="mdk::pdb::records::Atom::tempFactor__double"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Atom_1a7f99b151ab422e7ed964e017081caf47"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">tempFactor</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0.0</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records4Atom7elementE">
+<span id="_CPPv3N3mdk3pdb7records4Atom7elementE"></span><span id="_CPPv2N3mdk3pdb7records4Atom7elementE"></span><span id="mdk::pdb::records::Atom::element__ss"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Atom_1a2bd2e8527a6e61fc538bdac2803042aa"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">element</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records4Atom6chargeE">
+<span id="_CPPv3N3mdk3pdb7records4Atom6chargeE"></span><span id="_CPPv2N3mdk3pdb7records4Atom6chargeE"></span><span id="mdk::pdb::records::Atom::charge__ss"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Atom_1a69d25fa9c80b0cf9eafa4eaaf7bfee5e"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">charge</span></span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records6Cryst1E">
+<span id="_CPPv3N3mdk3pdb7records6Cryst1E"></span><span id="_CPPv2N3mdk3pdb7records6Cryst1E"></span><span id="mdk::pdb::records::Cryst1"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Cryst1"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Cryst1</span></span></span><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records6Cryst14sizeE">
+<span id="_CPPv3N3mdk3pdb7records6Cryst14sizeE"></span><span id="_CPPv2N3mdk3pdb7records6Cryst14sizeE"></span><span id="mdk::pdb::records::Cryst1::size__Eigen::Vector3d"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Cryst1_1a677b14b93776fd4f364f0475b1421246"></span><span class="n"><span class="pre">Eigen</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Vector3d</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">size</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records6Cryst16anglesE">
+<span id="_CPPv3N3mdk3pdb7records6Cryst16anglesE"></span><span id="_CPPv2N3mdk3pdb7records6Cryst16anglesE"></span><span id="mdk::pdb::records::Cryst1::angles__Eigen::Vector3d"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Cryst1_1a5b104bacfdc1193b2c654f943c087409"></span><span class="n"><span class="pre">Eigen</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Vector3d</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">angles</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="m"><span class="pre">90</span></span><span class="w"> </span><span class="o"><span class="pre">*</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk6degreeE" title="mdk::degree"><span class="n"><span class="pre">degree</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">90</span></span><span class="w"> </span><span class="o"><span class="pre">*</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk6degreeE" title="mdk::degree"><span class="n"><span class="pre">degree</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">90</span></span><span class="w"> </span><span class="o"><span class="pre">*</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk6degreeE" title="mdk::degree"><span class="n"><span class="pre">degree</span></span></a><span class="p"><span class="pre">}</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records6Cryst110spaceGroupE">
+<span id="_CPPv3N3mdk3pdb7records6Cryst110spaceGroupE"></span><span id="_CPPv2N3mdk3pdb7records6Cryst110spaceGroupE"></span><span id="mdk::pdb::records::Cryst1::spaceGroup__ss"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Cryst1_1a139765371c3473634541d79db40e5378"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">spaceGroup</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records6Cryst11zE">
+<span id="_CPPv3N3mdk3pdb7records6Cryst11zE"></span><span id="_CPPv2N3mdk3pdb7records6Cryst11zE"></span><span id="mdk::pdb::records::Cryst1::z__i"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Cryst1_1a9ac76656440d2f890f7416bbbe2e34fa"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">z</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records3EndE">
+<span id="_CPPv3N3mdk3pdb7records3EndE"></span><span id="_CPPv2N3mdk3pdb7records3EndE"></span><span id="mdk::pdb::records::End"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1End"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">End</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records6EndmdlE">
+<span id="_CPPv3N3mdk3pdb7records6EndmdlE"></span><span id="_CPPv2N3mdk3pdb7records6EndmdlE"></span><span id="mdk::pdb::records::Endmdl"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Endmdl"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Endmdl</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records4LinkE">
+<span id="_CPPv3N3mdk3pdb7records4LinkE"></span><span id="_CPPv2N3mdk3pdb7records4LinkE"></span><span id="mdk::pdb::records::Link"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Link"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Link</span></span></span><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records4Link3resE">
+<span id="_CPPv3N3mdk3pdb7records4Link3resE"></span><span id="_CPPv2N3mdk3pdb7records4Link3resE"></span><span id="mdk::pdb::records::Link::res__PerResidueDataA"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Link_1a0d366cdf1f26ee0d4a90a52880c948b9"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb7records4Link14PerResidueDataE" title="mdk::pdb::records::Link::PerResidueData"><span class="n"><span class="pre">PerResidueData</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">res</span></span></span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">]</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records4Link10linkLengthE">
+<span id="_CPPv3N3mdk3pdb7records4Link10linkLengthE"></span><span id="_CPPv2N3mdk3pdb7records4Link10linkLengthE"></span><span id="mdk::pdb::records::Link::linkLength__double"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Link_1ab81855a9dd79bfd4294b61992cced4ec"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">linkLength</span></span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records4Link14PerResidueDataE">
+<span id="_CPPv3N3mdk3pdb7records4Link14PerResidueDataE"></span><span id="_CPPv2N3mdk3pdb7records4Link14PerResidueDataE"></span><span id="mdk::pdb::records::Link::PerResidueData"></span><span class="target" id="structmdk_1_1pdb_1_1records_1_1Link_1_1PerResidueData"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PerResidueData</span></span></span><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records4Link14PerResidueData8atomNameE">
+<span id="_CPPv3N3mdk3pdb7records4Link14PerResidueData8atomNameE"></span><span id="_CPPv2N3mdk3pdb7records4Link14PerResidueData8atomNameE"></span><span id="mdk::pdb::records::Link::PerResidueData::atomName__ss"></span><span class="target" id="structmdk_1_1pdb_1_1records_1_1Link_1_1PerResidueData_1ac43711e634539b9604f2e95815d4d797"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">atomName</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records4Link14PerResidueData11altLocationE">
+<span id="_CPPv3N3mdk3pdb7records4Link14PerResidueData11altLocationE"></span><span id="_CPPv2N3mdk3pdb7records4Link14PerResidueData11altLocationE"></span><span id="mdk::pdb::records::Link::PerResidueData::altLocation__c"></span><span class="target" id="structmdk_1_1pdb_1_1records_1_1Link_1_1PerResidueData_1a2692a2a64640f8429bf39a24e37e70cd"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">altLocation</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="sc"><span class="pre">'</span> <span class="pre">'</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records4Link14PerResidueData11residueNameE">
+<span id="_CPPv3N3mdk3pdb7records4Link14PerResidueData11residueNameE"></span><span id="_CPPv2N3mdk3pdb7records4Link14PerResidueData11residueNameE"></span><span id="mdk::pdb::records::Link::PerResidueData::residueName__ss"></span><span class="target" id="structmdk_1_1pdb_1_1records_1_1Link_1_1PerResidueData_1a30bf574c397c2847aca868319a667613"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">residueName</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records4Link14PerResidueData7chainIdE">
+<span id="_CPPv3N3mdk3pdb7records4Link14PerResidueData7chainIdE"></span><span id="_CPPv2N3mdk3pdb7records4Link14PerResidueData7chainIdE"></span><span id="mdk::pdb::records::Link::PerResidueData::chainId__c"></span><span class="target" id="structmdk_1_1pdb_1_1records_1_1Link_1_1PerResidueData_1ae8a2d0b3a5f55aff2f771ba2f5274bf3"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">chainId</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="sc"><span class="pre">'A'</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records4Link14PerResidueData13residueSeqNumE">
+<span id="_CPPv3N3mdk3pdb7records4Link14PerResidueData13residueSeqNumE"></span><span id="_CPPv2N3mdk3pdb7records4Link14PerResidueData13residueSeqNumE"></span><span id="mdk::pdb::records::Link::PerResidueData::residueSeqNum__i"></span><span class="target" id="structmdk_1_1pdb_1_1records_1_1Link_1_1PerResidueData_1abb5bf79c39942a34aab9deeedda0379c"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">residueSeqNum</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records4Link14PerResidueData13insertionCodeE">
+<span id="_CPPv3N3mdk3pdb7records4Link14PerResidueData13insertionCodeE"></span><span id="_CPPv2N3mdk3pdb7records4Link14PerResidueData13insertionCodeE"></span><span id="mdk::pdb::records::Link::PerResidueData::insertionCode__c"></span><span class="target" id="structmdk_1_1pdb_1_1records_1_1Link_1_1PerResidueData_1a8ee1f5d9243efac7be7dcfc44eaaea88"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">insertionCode</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="sc"><span class="pre">'</span> <span class="pre">'</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records4Link14PerResidueData10symmetryOpE">
+<span id="_CPPv3N3mdk3pdb7records4Link14PerResidueData10symmetryOpE"></span><span id="_CPPv2N3mdk3pdb7records4Link14PerResidueData10symmetryOpE"></span><span id="mdk::pdb::records::Link::PerResidueData::symmetryOp__ss"></span><span class="target" id="structmdk_1_1pdb_1_1records_1_1Link_1_1PerResidueData_1add79ba8288fca54c9eea8d82bc7b7738"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">symmetryOp</span></span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records5ModelE">
+<span id="_CPPv3N3mdk3pdb7records5ModelE"></span><span id="_CPPv2N3mdk3pdb7records5ModelE"></span><span id="mdk::pdb::records::Model"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Model"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Model</span></span></span><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records5Model9serialNumE">
+<span id="_CPPv3N3mdk3pdb7records5Model9serialNumE"></span><span id="_CPPv2N3mdk3pdb7records5Model9serialNumE"></span><span id="mdk::pdb::records::Model::serialNum__i"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Model_1a7c84cb0379d84498dd7dc75e426266ae"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">serialNum</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records6RemarkE">
+<span id="_CPPv3N3mdk3pdb7records6RemarkE"></span><span id="_CPPv2N3mdk3pdb7records6RemarkE"></span><span id="mdk::pdb::records::Remark"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Remark"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Remark</span></span></span><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records6Remark6numberE">
+<span id="_CPPv3N3mdk3pdb7records6Remark6numberE"></span><span id="_CPPv2N3mdk3pdb7records6Remark6numberE"></span><span id="mdk::pdb::records::Remark::number__i"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Remark_1a9b9eeeebd6f9dedb80eb668f0d484803"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">number</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">6</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records6Remark4textE">
+<span id="_CPPv3N3mdk3pdb7records6Remark4textE"></span><span id="_CPPv2N3mdk3pdb7records6Remark4textE"></span><span id="mdk::pdb::records::Remark::text__ss"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Remark_1a13c0c65e19cda77ca2a8f09649a5d0d9"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">text</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="s"><span class="pre">&quot;&quot;</span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records6SSBondE">
+<span id="_CPPv3N3mdk3pdb7records6SSBondE"></span><span id="_CPPv2N3mdk3pdb7records6SSBondE"></span><span id="mdk::pdb::records::SSBond"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1SSBond"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SSBond</span></span></span><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records6SSBond9serialNumE">
+<span id="_CPPv3N3mdk3pdb7records6SSBond9serialNumE"></span><span id="_CPPv2N3mdk3pdb7records6SSBond9serialNumE"></span><span id="mdk::pdb::records::SSBond::serialNum__i"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1SSBond_1ab30d080cc67eaccdbf54e170e5d46e28"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">serialNum</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records6SSBond3resE">
+<span id="_CPPv3N3mdk3pdb7records6SSBond3resE"></span><span id="_CPPv2N3mdk3pdb7records6SSBond3resE"></span><span id="mdk::pdb::records::SSBond::res__PerResidueDataA"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1SSBond_1aa368545a9d3d73a28bdcc4730923528f"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb7records6SSBond14PerResidueDataE" title="mdk::pdb::records::SSBond::PerResidueData"><span class="n"><span class="pre">PerResidueData</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">res</span></span></span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">]</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records6SSBond5dist0E">
+<span id="_CPPv3N3mdk3pdb7records6SSBond5dist0E"></span><span id="_CPPv2N3mdk3pdb7records6SSBond5dist0E"></span><span id="mdk::pdb::records::SSBond::dist0__double"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1SSBond_1ab940560a00832b18e90be7bc10cf97f9"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dist0</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0.0</span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records6SSBond14PerResidueDataE">
+<span id="_CPPv3N3mdk3pdb7records6SSBond14PerResidueDataE"></span><span id="_CPPv2N3mdk3pdb7records6SSBond14PerResidueDataE"></span><span id="mdk::pdb::records::SSBond::PerResidueData"></span><span class="target" id="structmdk_1_1pdb_1_1records_1_1SSBond_1_1PerResidueData"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PerResidueData</span></span></span><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records6SSBond14PerResidueData7chainIdE">
+<span id="_CPPv3N3mdk3pdb7records6SSBond14PerResidueData7chainIdE"></span><span id="_CPPv2N3mdk3pdb7records6SSBond14PerResidueData7chainIdE"></span><span id="mdk::pdb::records::SSBond::PerResidueData::chainId__c"></span><span class="target" id="structmdk_1_1pdb_1_1records_1_1SSBond_1_1PerResidueData_1a1dd4c6c53abfff825819557cf30a5523"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">chainId</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="sc"><span class="pre">'A'</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records6SSBond14PerResidueData13residueSeqNumE">
+<span id="_CPPv3N3mdk3pdb7records6SSBond14PerResidueData13residueSeqNumE"></span><span id="_CPPv2N3mdk3pdb7records6SSBond14PerResidueData13residueSeqNumE"></span><span id="mdk::pdb::records::SSBond::PerResidueData::residueSeqNum__i"></span><span class="target" id="structmdk_1_1pdb_1_1records_1_1SSBond_1_1PerResidueData_1a2442ab068c6337c762045ac1ae44912f"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">residueSeqNum</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records6SSBond14PerResidueData13insertionCodeE">
+<span id="_CPPv3N3mdk3pdb7records6SSBond14PerResidueData13insertionCodeE"></span><span id="_CPPv2N3mdk3pdb7records6SSBond14PerResidueData13insertionCodeE"></span><span id="mdk::pdb::records::SSBond::PerResidueData::insertionCode__c"></span><span class="target" id="structmdk_1_1pdb_1_1records_1_1SSBond_1_1PerResidueData_1a65c302006108ef84bce59ab38c181abf"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">insertionCode</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="sc"><span class="pre">'</span> <span class="pre">'</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records6SSBond14PerResidueData10symmetryOpE">
+<span id="_CPPv3N3mdk3pdb7records6SSBond14PerResidueData10symmetryOpE"></span><span id="_CPPv2N3mdk3pdb7records6SSBond14PerResidueData10symmetryOpE"></span><span id="mdk::pdb::records::SSBond::PerResidueData::symmetryOp__ss"></span><span class="target" id="structmdk_1_1pdb_1_1records_1_1SSBond_1_1PerResidueData_1a5afc8dc4bddfee9e1d375c23c328c2e8"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">symmetryOp</span></span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records3TerE">
+<span id="_CPPv3N3mdk3pdb7records3TerE"></span><span id="_CPPv2N3mdk3pdb7records3TerE"></span><span id="mdk::pdb::records::Ter"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Ter"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Ter</span></span></span><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records3Ter9serialNumE">
+<span id="_CPPv3N3mdk3pdb7records3Ter9serialNumE"></span><span id="_CPPv2N3mdk3pdb7records3Ter9serialNumE"></span><span id="mdk::pdb::records::Ter::serialNum__i"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Ter_1a35380bd5be9a68115f37edd105749dce"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">serialNum</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records3Ter11residueNameE">
+<span id="_CPPv3N3mdk3pdb7records3Ter11residueNameE"></span><span id="_CPPv2N3mdk3pdb7records3Ter11residueNameE"></span><span id="mdk::pdb::records::Ter::residueName__ss"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Ter_1a94f1c02e82ee92d600d2cd7089c3da2c"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">residueName</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records3Ter7chainIdE">
+<span id="_CPPv3N3mdk3pdb7records3Ter7chainIdE"></span><span id="_CPPv2N3mdk3pdb7records3Ter7chainIdE"></span><span id="mdk::pdb::records::Ter::chainId__c"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Ter_1a9a1565289f4a0a4fc32aed3e5328ba99"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">chainId</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="sc"><span class="pre">'A'</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records3Ter13residueSeqNumE">
+<span id="_CPPv3N3mdk3pdb7records3Ter13residueSeqNumE"></span><span id="_CPPv2N3mdk3pdb7records3Ter13residueSeqNumE"></span><span id="mdk::pdb::records::Ter::residueSeqNum__i"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Ter_1ae4edafe256e29e0bde175791660aa815"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">residueSeqNum</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb7records3Ter13insertionCodeE">
+<span id="_CPPv3N3mdk3pdb7records3Ter13insertionCodeE"></span><span id="_CPPv2N3mdk3pdb7records3Ter13insertionCodeE"></span><span id="mdk::pdb::records::Ter::insertionCode__c"></span><span class="target" id="classmdk_1_1pdb_1_1records_1_1Ter_1af0989c3d905f37c6b0bb0e723b951923"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">insertionCode</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="sc"><span class="pre">'</span> <span class="pre">'</span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="raw.html" class="btn btn-neutral float-right" title="Raw PDB data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="PDB objects and parsing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, IF PAN &amp; ZPP Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

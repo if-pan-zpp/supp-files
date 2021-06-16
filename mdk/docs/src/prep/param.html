@@ -1,0 +1,380 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Parameter files &mdash; mdk  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Simulation layer" href="../simul/index.html" />
+    <link rel="prev" title="Model" href="model.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> mdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sections:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Preparation layer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cmap.html">Contact map files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="seq.html">Sequence files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pdb/index.html">PDB objects and parsing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model.html">Model</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Parameter files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../simul/index.html">Simulation layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/index.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../entire.html">Entire namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">mdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Preparation layer</a> &raquo;</li>
+        
+      <li>Parameter files</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/src/prep/param.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="parameter-files">
+<h1>Parameter files<a class="headerlink" href="#parameter-files" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5param10ParametersE">
+<span id="_CPPv3N3mdk5param10ParametersE"></span><span id="_CPPv2N3mdk5param10ParametersE"></span><span id="mdk::param::Parameters"></span><span class="target" id="classmdk_1_1param_1_1Parameters"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk5paramE" title="mdk::param"><span class="n"><span class="pre">param</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">Parameters</span></span></span><br /></dt>
+<dd><p>A POD representing the parameters from the parameter file. Arguably the legacy file could be split so that everything wouldn’t be in one structure. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5param10Parameters6CoeffsE">
+<span id="_CPPv3N3mdk5param10Parameters6CoeffsE"></span><span id="_CPPv2N3mdk5param10Parameters6CoeffsE"></span><span class="target" id="classmdk_1_1param_1_1Parameters_1a7615330aba45bfdbce27cd468f46a984"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Coeffs</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN3mdk5param10Parameters9PerPTDataE">
+<span id="_CPPv3I0EN3mdk5param10Parameters9PerPTDataE"></span><span id="_CPPv2I0EN3mdk5param10Parameters9PerPTDataE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classmdk_1_1param_1_1Parameters_1a332beac136407abf09e3a8603f6d8e4f"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PerPTData</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unordered_map</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk8PairTypeE" title="mdk::PairType"><span class="n"><span class="pre">PairType</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../entire.html#_CPPv4I0EN3mdk5param10Parameters9PerPTDataE" title="mdk::param::Parameters::PerPTData::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN3mdk5param10Parameters11PerAcidDataE">
+<span id="_CPPv3I0EN3mdk5param10Parameters11PerAcidDataE"></span><span id="_CPPv2I0EN3mdk5param10Parameters11PerAcidDataE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classmdk_1_1param_1_1Parameters_1ad6fe5b69e1a1ff4881b2149ddc7a5884"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PerAcidData</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unordered_map</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk9AminoAcidE" title="mdk::AminoAcid"><span class="n"><span class="pre">AminoAcid</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../entire.html#_CPPv4I0EN3mdk5param10Parameters11PerAcidDataE" title="mdk::param::Parameters::PerAcidData::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN3mdk5param10Parameters11PerPairDataE">
+<span id="_CPPv3I0EN3mdk5param10Parameters11PerPairDataE"></span><span id="_CPPv2I0EN3mdk5param10Parameters11PerPairDataE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classmdk_1_1param_1_1Parameters_1a318e4a1d4e5491c603776edfbf2cd47c"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PerPairData</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unordered_map</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">pair</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk9AminoAcidE" title="mdk::AminoAcid"><span class="n"><span class="pre">AminoAcid</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../entire.html#_CPPv4N3mdk9AminoAcidE" title="mdk::AminoAcid"><span class="n"><span class="pre">AminoAcid</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../entire.html#_CPPv4I0EN3mdk5param10Parameters11PerPairDataE" title="mdk::param::Parameters::PerPairData::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5param10Parameters10ParametersEv">
+<span id="_CPPv3N3mdk5param10Parameters10ParametersEv"></span><span id="_CPPv2N3mdk5param10Parameters10ParametersEv"></span><span id="mdk::param::Parameters::Parameters"></span><span class="target" id="classmdk_1_1param_1_1Parameters_1af4d94ee360ac0157d9065f78797fe9a1"></span><span class="sig-name descname"><span class="n"><span class="pre">Parameters</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5param10Parameters14defAngleParamsE">
+<span id="_CPPv3N3mdk5param10Parameters14defAngleParamsE"></span><span id="_CPPv2N3mdk5param10Parameters14defAngleParamsE"></span><span id="mdk::param::Parameters::defAngleParams__Coeffs"></span><span class="target" id="classmdk_1_1param_1_1Parameters_1ae4ed69eefd44be52e49b17746f723724"></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk5param10Parameters6CoeffsE" title="mdk::param::Parameters::Coeffs"><span class="n"><span class="pre">Coeffs</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">defAngleParams</span></span></span><br /></dt>
+<dd><p>“Default” angle parameters. These are I assume for the simplified angle potential (option <code class="docutils literal notranslate"><span class="pre">lsimpang</span></code>). </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5param10Parameters11angleParamsE">
+<span id="_CPPv3N3mdk5param10Parameters11angleParamsE"></span><span id="_CPPv2N3mdk5param10Parameters11angleParamsE"></span><span id="mdk::param::Parameters::angleParams__PerPTData:Coeffs:"></span><span class="target" id="classmdk_1_1param_1_1Parameters_1a678650901baa56d5e7a0814245258e5a"></span><a class="reference internal" href="../entire.html#_CPPv4I0EN3mdk5param10Parameters9PerPTDataE" title="mdk::param::Parameters::PerPTData"><span class="n"><span class="pre">PerPTData</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk5param10Parameters6CoeffsE" title="mdk::param::Parameters::Coeffs"><span class="n"><span class="pre">Coeffs</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">angleParams</span></span></span><br /></dt>
+<dd><p>A set of bond angle parameters (for heurestic potential) for each pair of types of residues i, i+1 in a triple (i-1, i, i+1). </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5param10Parameters14dihedralParamsE">
+<span id="_CPPv3N3mdk5param10Parameters14dihedralParamsE"></span><span id="_CPPv2N3mdk5param10Parameters14dihedralParamsE"></span><span id="mdk::param::Parameters::dihedralParams__PerPTData:Coeffs:"></span><span class="target" id="classmdk_1_1param_1_1Parameters_1a33ee96936fc0fd7e02a09fed48a05f34"></span><a class="reference internal" href="../entire.html#_CPPv4I0EN3mdk5param10Parameters9PerPTDataE" title="mdk::param::Parameters::PerPTData"><span class="n"><span class="pre">PerPTData</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk5param10Parameters6CoeffsE" title="mdk::param::Parameters::Coeffs"><span class="n"><span class="pre">Coeffs</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dihedralParams</span></span></span><br /></dt>
+<dd><p>A set of dihedral angle parameters (for heurestic potential) for each pair of types of residues i-1, i in a quadruple (i-2, i-1, i, i+1). </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5param10Parameters11specificityE">
+<span id="_CPPv3N3mdk5param10Parameters11specificityE"></span><span id="_CPPv2N3mdk5param10Parameters11specificityE"></span><span id="mdk::param::Parameters::specificity__PerAcidData:SpecificityParams:"></span><span class="target" id="classmdk_1_1param_1_1Parameters_1afa71ee752f00c2f6360f9805e715cc78"></span><a class="reference internal" href="../entire.html#_CPPv4I0EN3mdk5param10Parameters11PerAcidDataE" title="mdk::param::Parameters::PerAcidData"><span class="n"><span class="pre">PerAcidData</span></span></a><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk5param10Parameters17SpecificityParamsE" title="mdk::param::Parameters::SpecificityParams"><span class="n"><span class="pre">SpecificityParams</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">specificity</span></span></span><br /></dt>
+<dd><p>Specificity parameters for every amino acid type. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5param10Parameters6radiusE">
+<span id="_CPPv3N3mdk5param10Parameters6radiusE"></span><span id="_CPPv2N3mdk5param10Parameters6radiusE"></span><span id="mdk::param::Parameters::radius__PerAcidData:double:"></span><span class="target" id="classmdk_1_1param_1_1Parameters_1a7d1d30c4536028fdddb533d5c5eb756f"></span><a class="reference internal" href="../entire.html#_CPPv4I0EN3mdk5param10Parameters11PerAcidDataE" title="mdk::param::Parameters::PerAcidData"><span class="n"><span class="pre">PerAcidData</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">radius</span></span></span><br /></dt>
+<dd><p>Radii of amino acids (for use in non-full-atomic derivation of a contact map from the native structure). </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5param10Parameters15pairwiseMinDistE">
+<span id="_CPPv3N3mdk5param10Parameters15pairwiseMinDistE"></span><span id="_CPPv2N3mdk5param10Parameters15pairwiseMinDistE"></span><span id="mdk::param::Parameters::pairwiseMinDist__PerPairData:double:"></span><span class="target" id="classmdk_1_1param_1_1Parameters_1ad65b2f3ca6dabd795b0a1977edbe8033"></span><a class="reference internal" href="../entire.html#_CPPv4I0EN3mdk5param10Parameters11PerPairDataE" title="mdk::param::Parameters::PerPairData"><span class="n"><span class="pre">PerPairData</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pairwiseMinDist</span></span></span><br /></dt>
+<dd><p>A <em>maximum</em> in a distribution of sidechain-sidechain contacts between two given amino acids. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5param10Parameters8mjMatrixE">
+<span id="_CPPv3N3mdk5param10Parameters8mjMatrixE"></span><span id="_CPPv2N3mdk5param10Parameters8mjMatrixE"></span><span id="mdk::param::Parameters::mjMatrix__std::optional:PerPairData:double::"></span><span class="target" id="classmdk_1_1param_1_1Parameters_1ab4341583d479422be73e0be7cf3ad419"></span><a class="reference internal" href="../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">optional</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../entire.html#_CPPv4I0EN3mdk5param10Parameters11PerPairDataE" title="mdk::param::Parameters::PerPairData"><span class="n"><span class="pre">PerPairData</span></span></a><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mjMatrix</span></span></span><br /></dt>
+<dd><p>An optional MJ matrix of Lennard-Jones potential depths depending on the amino acid types in the pair. </p>
+</dd></dl>
+
+</div>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5param10Parameters17SpecificityParamsE">
+<span id="_CPPv3N3mdk5param10Parameters17SpecificityParamsE"></span><span id="_CPPv2N3mdk5param10Parameters17SpecificityParamsE"></span><span id="mdk::param::Parameters::SpecificityParams"></span><span class="target" id="structmdk_1_1param_1_1Parameters_1_1SpecificityParams"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SpecificityParams</span></span></span><br /></dt>
+<dd><p>Specificity parameters POD. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5param10Parameters17SpecificityParams12polarizationE">
+<span id="_CPPv3N3mdk5param10Parameters17SpecificityParams12polarizationE"></span><span id="_CPPv2N3mdk5param10Parameters17SpecificityParams12polarizationE"></span><span id="mdk::param::Parameters::SpecificityParams::polarization__Polarization"></span><span class="target" id="structmdk_1_1param_1_1Parameters_1_1SpecificityParams_1ad4004bd3d2a07a02ccadc715a5a6f046"></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk5param12PolarizationE" title="mdk::param::Polarization"><span class="n"><span class="pre">Polarization</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">polarization</span></span></span><br /></dt>
+<dd><p>Polarization of an amino acid. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5param10Parameters17SpecificityParams12maxSidechainE">
+<span id="_CPPv3N3mdk5param10Parameters17SpecificityParams12maxSidechainE"></span><span id="_CPPv2N3mdk5param10Parameters17SpecificityParams12maxSidechainE"></span><span id="mdk::param::Parameters::SpecificityParams::maxSidechain__i"></span><span class="target" id="structmdk_1_1param_1_1Parameters_1_1SpecificityParams_1a1ebf3db55ac0ff34f2d323fbcadd5002"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">maxSidechain</span></span></span><br /></dt>
+<dd><p>Maximum number of sidechain contacts an amino acid can form. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5param10Parameters17SpecificityParams16maxHydrophobicSSE">
+<span id="_CPPv3N3mdk5param10Parameters17SpecificityParams16maxHydrophobicSSE"></span><span id="_CPPv2N3mdk5param10Parameters17SpecificityParams16maxHydrophobicSSE"></span><span id="mdk::param::Parameters::SpecificityParams::maxHydrophobicSS__i"></span><span class="target" id="structmdk_1_1param_1_1Parameters_1_1SpecificityParams_1acffc4c8fb3adf6fabd61ec10191d388a"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">maxHydrophobicSS</span></span></span><br /></dt>
+<dd><p>Maximum number of sidechain contacts an amino acid can form with hydrophobic amino acids. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5param10Parameters17SpecificityParams10maxPolarSSE">
+<span id="_CPPv3N3mdk5param10Parameters17SpecificityParams10maxPolarSSE"></span><span id="_CPPv2N3mdk5param10Parameters17SpecificityParams10maxPolarSSE"></span><span id="mdk::param::Parameters::SpecificityParams::maxPolarSS__i"></span><span class="target" id="structmdk_1_1param_1_1Parameters_1_1SpecificityParams_1a3a5b631ae7445d2798a561e0123b1daa"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">maxPolarSS</span></span></span><br /></dt>
+<dd><p>Maximum number of sidechain contacts an amino acid can form with polar amino acids. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5param12LegacyParserE">
+<span id="_CPPv3N3mdk5param12LegacyParserE"></span><span id="_CPPv2N3mdk5param12LegacyParserE"></span><span id="mdk::param::LegacyParser"></span><span class="target" id="classmdk_1_1param_1_1LegacyParser"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk5paramE" title="mdk::param"><span class="n"><span class="pre">param</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">LegacyParser</span></span></span><br /></dt>
+<dd><p>A parser of parameter files in the legacy format (as described in legacy README.txt). </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5param12LegacyParser4readERNSt7istreamE">
+<span id="_CPPv3N3mdk5param12LegacyParser4readERNSt7istreamE"></span><span id="_CPPv2N3mdk5param12LegacyParser4readERNSt7istreamE"></span><span id="mdk::param::LegacyParser::read__isR"></span><span class="target" id="classmdk_1_1param_1_1LegacyParser_1accfef45abb57c799e9d256f435ec5b59"></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk5param10ParametersE" title="mdk::param::Parameters"><span class="n"><span class="pre">Parameters</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">istream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">is</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Read parameter file from a stream. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>is</strong> – Input stream wherefrom to read the contact map </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Parsed parameter file. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5param12LegacyParser5writeERNSt7ostreamERK10Parameters">
+<span id="_CPPv3N3mdk5param12LegacyParser5writeERNSt7ostreamERK10Parameters"></span><span id="_CPPv2N3mdk5param12LegacyParser5writeERNSt7ostreamERK10Parameters"></span><span id="mdk::param::LegacyParser::write__osR.ParametersCR"></span><span class="target" id="classmdk_1_1param_1_1LegacyParser_1a432b7330eddc4f1429d0be01c694eca4"></span><a class="reference internal" href="../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">write</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">os</span></span>, <a class="reference internal" href="../entire.html#_CPPv4N3mdk5param10ParametersE" title="mdk::param::Parameters"><span class="n"><span class="pre">Parameters</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">data</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Write parameter file to a stream. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>os</strong> – Output stream whereto to write the contact map </p></li>
+<li><p><strong>data</strong> – Parameter file to write </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">os</span></code> </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../simul/index.html" class="btn btn-neutral float-right" title="Simulation layer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="model.html" class="btn btn-neutral float-left" title="Model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, IF PAN &amp; ZPP Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

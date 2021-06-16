@@ -1,0 +1,2005 @@
+
+README.md,0
+
+mdk/src/stats/Stats.cpp,53
+void Stats::bind(Simulation &simulation) {bind5,81
+
+mdk/src/simul/Simulation.cpp,125
+void Simulation::calcForces() {calcForces9,204
+void Simulation::init() {init25,481
+void Simulation::step() {step38,662
+
+mdk/src/forces/go/NativeContacts.cpp,618
+void NativeContacts::bind(Simulation &simulation) {bind5,98
+         [](Contact const& a, Contact const& b) -> bool {__anona4b03014010223,740
+                        [](Contact const& a, Contact const& b) -> bool {__anona4b03014020230,1021
+vl::Spec NativeContacts::spec() const {spec37,1214
+bool operator<(NativeContacts::Contact const& p1, std::pair<int, int> const& p2)  {operator <47,1424
+bool operator==(NativeContacts::Contact const& p1, std::pair<int, int> const& p2) {operator ==51,1557
+void NativeContacts::vlUpdateHook() {vlUpdateHook55,1691
+void NativeContacts::asyncPart() {asyncPart77,2208
+
+mdk/src/forces/es/ConstDH.cpp,93
+vl::Spec mdk::ConstDH::spec() const {spec4,55
+void ConstDH::asyncPart() {asyncPart11,197
+
+mdk/src/forces/es/ESBase.cpp,104
+void ESBase::bind(Simulation &simulation) {bind5,86
+void ESBase::vlUpdateHook() {vlUpdateHook30,725
+
+mdk/src/forces/es/RelativeDH.cpp,94
+void RelativeDH::asyncPart() {asyncPart4,58
+vl::Spec RelativeDH::spec() const {spec24,635
+
+mdk/src/forces/angle/NativeBA.cpp,57
+void NativeBA::bind(Simulation &simulation) {bind6,130
+
+mdk/src/forces/angle/BondAngles.cpp,106
+void BondAngles::bind(Simulation &simulation) {bind5,82
+void BondAngles::asyncPart() {asyncPart17,425
+
+mdk/src/forces/angle/HeuresticBA.cpp,60
+void HeuresticBA::bind(Simulation &simulation) {bind6,133
+
+mdk/src/forces/Chirality.cpp,106
+void Chirality::bind(Simulation &simulation) {bind6,114
+void Chirality::asyncPart() {asyncPart35,1058
+
+mdk/src/forces/PseudoImproperDihedral.cpp,580
+bool LambdaPeak::supp(double psi) const {supp5,99
+void LambdaPeak::eval(double psi, double &L, double &dL_dpsi) const {eval10,217
+void perLambda(LambdaPeak const& lambda, LJ const& lj, double psi[2],perLambda26,677
+void PseudoImproperDihedral::deriveAngles(int _i1, int _i2, double norm,deriveAngles42,1176
+void PseudoImproperDihedral::bind(Simulation &simulation) {bind87,2656
+vl::Spec PseudoImproperDihedral::spec() const {spec119,3660
+void PseudoImproperDihedral::asyncPart() {asyncPart136,4168
+void PseudoImproperDihedral::vlUpdateHook() {vlUpdateHook171,5232
+
+mdk/src/forces/Force.cpp,138
+void Force::bind(Simulation &simulation) {bind5,82
+void Force::asyncPart() {}asyncPart9,166
+void Force::syncPart() {}syncPart11,194
+
+mdk/src/forces/Tether.cpp,148
+Tether::Tether(bool fromNative) {Tether7,138
+void Tether::bind(Simulation &simulation) {bind11,210
+void Tether::asyncPart() {asyncPart36,1147
+
+mdk/src/forces/qa/QuasiAdiabatic.cpp,628
+void QuasiAdiabatic::bind(Simulation &simulation) {bind7,133
+void QuasiAdiabatic::asyncPart() {asyncPart41,1302
+vl::Spec QuasiAdiabatic::spec() const {spec97,3202
+static bool operator<(QAContact const& p1, std::pair<int, int> const& p2) {operator <114,3694
+static bool operator==(QAContact const& p1, std::pair<int, int> const& p2) {operator ==118,3819
+void QuasiAdiabatic::vlUpdateHook() {vlUpdateHook122,3946
+bool QuasiAdiabatic::geometryPhase(PairInfo const& p, QADiff &diff) const {geometryPhase154,4843
+void QuasiAdiabatic::syncPart() {syncPart194,6019
+void QuasiAdiabatic::computeNH() {computeNH254,7728
+
+mdk/src/forces/NonlocalForce.cpp,120
+void NonlocalForce::bind(Simulation &simulation) {bind5,90
+void NonlocalForce::installIntoVL() {installIntoVL10,211
+
+mdk/src/forces/PauliExclusion.cpp,280
+PauliExclusion::PauliExclusion() :PauliExclusion5,90
+void PauliExclusion::bind(Simulation &simulation) {bind8,165
+vl::Spec PauliExclusion::spec() const {spec14,319
+void PauliExclusion::asyncPart() {asyncPart21,460
+void PauliExclusion::vlUpdateHook() {vlUpdateHook37,906
+
+mdk/src/forces/dihedral/ComplexNativeDihedral.cpp,70
+void ComplexNativeDihedral::bind(Simulation &simulation) {bind5,121
+
+mdk/src/forces/dihedral/HeuresticDihedral.cpp,66
+void HeuresticDihedral::bind(Simulation &simulation) {bind5,117
+
+mdk/src/forces/dihedral/NativeDihedralBase.cpp,66
+void NativeDihedralBase::bind(Simulation &simulation) {bind4,72
+
+mdk/src/forces/dihedral/SimpleNativeDihedral.cpp,69
+void SimpleNativeDihedral::bind(Simulation &simulation) {bind5,120
+
+mdk/src/forces/dihedral/DihedralAngles.cpp,114
+void DihedralAngles::bind(Simulation &simulation) {bind4,68
+void DihedralAngles::asyncPart() {asyncPart16,415
+
+mdk/src/utils/Text.hpp,25
+namespace mdk {mdk7,92
+
+mdk/src/utils/Topology.cpp,50
+void Topology::setCell(VRef _cell) {setCell4,52
+
+mdk/src/utils/ResType.cpp,228
+ResType::ResType(const std::string &name) {ResType10,169
+ResType::operator int8_t() const {operator int8_t14,261
+ResType::operator std::string() const {operator std::string18,324
+double ResType::mass() const {mass22,411
+
+mdk/src/utils/ContactType.cpp,205
+ContactType::ContactType(const std::string &name) {ContactType10,175
+ContactType::operator int8_t() const {operator int8_t22,607
+ContactType::operator std::string() const {operator std::string26,674
+
+mdk/src/utils/Math.hpp,221
+namespace mdk {mdk4,37
+    using VRef = Eigen::Vector3d const&;VRef5,53
+    inline double angle(VRef v1, VRef v2, VRef v3) {angle7,95
+    inline double dihedral(VRef v1, VRef v2, VRef v3, VRef v4) {dihedral12,255
+
+mdk/src/utils/Text.cpp,631
+string_view mdk::view(string const& s, int i, int j) {view6,84
+char mdk::view(string const& s, int i) {view10,192
+string_view mdk::ltrim(string_view s) {ltrim14,257
+    auto beg = find_if(s.begin(), s.end(), [](unsigned char c) -> auto {__anon3e18bd7d010215,297
+string_view mdk::rtrim(string_view s) {rtrim23,479
+    auto end = find_if(s.rbegin(), s.rend(), [](unsigned char c) -> auto {__anon3e18bd7d020225,545
+string_view mdk::trim(string_view s) {trim32,712
+string mdk::line(istream& is) {line36,782
+void mdk::skipLine(istream& is) {skipLine42,865
+stringstream mdk::lineStream(istream& is) {lineStream47,942
+
+mdk/src/utils/AminoAcid.cpp,1328
+std::vector<AminoAcidIdx> AminoAcid::types() {types7,122
+std::vector<AminoAcid> AminoAcid::aminoAcids() {aminoAcids16,603
+AminoAcid::operator int8_t() const {operator int8_t28,866
+bool AminoAcid::isProper(char code) {isProper32,931
+AminoAcid::AminoAcid(char code) {AminoAcid37,1059
+std::string AminoAcid::codes() {codes42,1180
+    static const auto _codes = codes();_codes47,1293
+bool AminoAcid::isProper(std::string const& name) {isProper51,1369
+AminoAcid::AminoAcid(std::string const& name) {AminoAcid56,1533
+std::vector<std::string> AminoAcid::names() {names66,1843
+AminoAcid::operator string() const {operator string73,2067
+bool AminoAcid::operator==(const AminoAcid &other) const {operator ==78,2180
+bool AminoAcid::operator!=(const AminoAcid &other) const {operator !=82,2273
+bool AminoAcid::operator<(const AminoAcid &other) const {operator <86,2366
+bool AminoAcid::operator<=(const AminoAcid &other) const {operator <=90,2457
+bool AminoAcid::operator>(const AminoAcid &other) const {operator >94,2550
+bool AminoAcid::operator>=(const AminoAcid &other) const {operator >=98,2641
+using ResidueData = std::unordered_map<AminoAcid, AminoAcidInfo>;ResidueData102,2734
+static ResidueData createResData() {createResData103,2800
+AminoAcidInfo const &AminoAcid::info() const {info278,8382
+
+mdk/src/utils/PairType.cpp,201
+vector<PairType> mdk::pairTypes() {pairTypes6,104
+static int8_t encode(AminoAcid const& acid) {encode14,312
+PairType mdk::pairType(const AminoAcid &acid1, const AminoAcid &acid2) {pairType20,503
+
+mdk/src/model/Model.cpp,1248
+Model::Residue& Model::addResidue(Chain *chain) {addResidue7,127
+Model::Chain& Model::addChain() {addChain22,467
+Model::Contact &Model::addContact() {addContact29,630
+Model::StructuredPart& Model::addSP() {addSP35,764
+void Model::morphIntoLine() {morphIntoLine41,908
+static Eigen::Vector3d sampleBox(Eigen::AlignedBox3d const& box, Random& rand) {sampleBox50,1095
+static Eigen::Vector3d sampleSphere(Random& rand) {sampleSphere58,1313
+static Eigen::Vector3d findPerp(Eigen::Vector3d const& v) {findPerp66,1488
+void Model::morphIntoSAW(Random& rand, bool useTop, double density,morphIntoSAW73,1747
+Vectors genSAW(int n, double bondLen, Random& rand) {genSAW137,3593
+void Model::legacyMorphIntoSAW(Random& rand, bool useTop, double density,legacyMorphIntoSAW179,4949
+void Model::initVelocity(Random& rand, double temperature, bool useMass) {initVelocity249,7275
+Model::StructuredPart& Model::addContactMap(cmap::ContactMap const& contactMap) {addContactMap295,8412
+void Model::addCMapContacts(cmap::ContactMap const& contactMap, Chain &chain) {addCMapContacts304,8669
+vector<pair<Model::Residue*, Model::Residue*>> Model::nonlocalPairs() {nonlocalPairs316,9117
+void Model::useAverageMasses() {useAverageMasses332,9556
+
+mdk/src/files/pdb/Field.cpp,681
+void Integer::read(const string &s) {read8,135
+void format(string_view sv, const char *fmt, Args const&... args) {format13,250
+void Integer::write(string &s) const {write19,452
+void Real::read(const string &s) {read24,570
+void Real::write(string &s) const {write28,655
+void String::read(const string &s) {read33,767
+void String::write(string &s) const {write38,884
+void Char::read(const string &s) {read47,1162
+void Char::write(string &s) const {write51,1221
+void SymOp::read(const string &s) {read55,1277
+void SymOp::write(string &s) const {write59,1346
+void Literal::read(const string &s) {read64,1465
+void Literal::write(string &s) const {write69,1590
+
+mdk/src/files/pdb/Parser.cpp,157
+Parser::Parser() {Parser8,170
+Data Parser::read(std::istream& is) {read19,609
+std::ostream &Parser::write(ostream &os, const Data &data) {write40,1151
+
+mdk/src/files/pdb/Model.cpp,696
+Model::Atom& Model::addAtom(int serial, Residue *res) {addAtom7,136
+Model::Residue& Model::addResidue(int serial, Chain *chain) {addResidue18,391
+Model::Atom *Model::Residue::find(std::string const& type) {find29,667
+        [&type](auto const& x) -> auto {__anon0c282c10010231,780
+Model::Chain& Model::addChain(char serial) {addChain39,941
+Model::Contact& Model::addContact() {addContact45,1068
+Model::Model(mdk::Model const& coarse) {Model51,1204
+void Model::addContactsFromAtomOverlap() {addContactsFromAtomOverlap80,2109
+void Model::addContactsFromResOverlap(const param::Parameters &params) {addContactsFromResOverlap121,3601
+mdk::Model Model::coarsen() {coarsen154,4787
+
+mdk/src/files/pdb/Data.cpp,101
+pdb::Model Data::asModel() const {asModel10,215
+Data::Data(const pdb::Model &model) {Data80,2571
+
+mdk/src/files/pdb/Field.hpp,1829
+namespace mdk::pdb {mdk5,50
+namespace mdk::pdb {pdb5,50
+    class Field {Field6,71
+    class Integer: public Field {Integer12,216
+        int i, j, offset;i14,263
+        int i, j, offset;j14,263
+        int i, j, offset;offset14,263
+        int *v;v15,289
+        Integer(int i, int j, int& v, int offset = 0):Integer18,318
+    class Real: public Field {Real25,533
+        int i, j, n, m;i27,577
+        int i, j, n, m;j27,577
+        int i, j, n, m;n27,577
+        int i, j, n, m;m27,577
+        double *v, scalar;v28,601
+        double *v, scalar;scalar28,601
+        Real(int i, int j, int n, int m, double& v, double scalar = 1.0):Real31,641
+    enum Mode {Mode38,887
+        Exact = 0x1, Trim = 0x2, Left = 0x4, Right = 0x8Exact39,903
+        Exact = 0x1, Trim = 0x2, Left = 0x4, Right = 0x8Trim39,903
+        Exact = 0x1, Trim = 0x2, Left = 0x4, Right = 0x8Left39,903
+        Exact = 0x1, Trim = 0x2, Left = 0x4, Right = 0x8Right39,903
+    class String: public Field {String42,968
+        int i, j, n;i44,1014
+        int i, j, n;j44,1014
+        int i, j, n;n44,1014
+        std::string *v;v45,1035
+        int mode;mode46,1059
+        String(int i, int j, std::string& v, int n = -1, int mode = Trim|Right):String49,1090
+    class Char: public Field {Char56,1333
+        int i;i58,1377
+        char *v;v59,1392
+        Char(int i, char& v):Char62,1422
+    class SymOp: public Field {SymOp69,1590
+        int i, j;i71,1635
+        int i, j;j71,1635
+        std::string *v;v72,1653
+        SymOp(int i, int j, std::string& v):SymOp75,1690
+    class Literal: public Field {Literal82,1879
+        int i, j;i84,1926
+        int i, j;j84,1926
+        std::string lit;lit85,1944
+        Literal(int i, int j, std::string lit):Literal88,1982
+
+mdk/src/files/pdb/RecordParsers.cpp,441
+std::ostream& RecordParser::write(std::ostream& os, Record const& other) {write7,125
+Record RecordParser::tryParse(const string &s) const {tryParse20,431
+AtomParser::AtomParser() {AtomParser32,680
+SSBondParser::SSBondParser() {SSBondParser55,1637
+Cryst1Parser::Cryst1Parser() {Cryst1Parser75,2455
+LinkParser::LinkParser() {LinkParser92,3131
+EndParser::EndParser() {EndParser116,4179
+TerParser::TerParser() {TerParser123,4294
+
+mdk/src/files/pdb/RecordParsers.hpp,649
+namespace mdk::pdb {mdk6,85
+namespace mdk::pdb {pdb6,85
+    class RecordParser {RecordParser9,136
+        Record record;record11,176
+        std::vector<std::shared_ptr<Field>> fields;fields14,212
+    class AtomParser: public RecordParser {AtomParser20,394
+    class HetatmParser: public RecordParser {HetatmParser25,480
+    class SSBondParser: public RecordParser {SSBondParser30,570
+    class Cryst1Parser: public RecordParser {Cryst1Parser35,660
+    class LinkParser: public RecordParser {LinkParser40,750
+    class EndParser: public RecordParser {EndParser45,836
+    class TerParser: public RecordParser {TerParser50,920
+
+mdk/src/files/seq/LegacyParser.cpp,76
+Sequence LegacyParser::read(const std::filesystem::path &path) {read7,144
+
+mdk/src/files/seq/Sequence.cpp,48
+Model Sequence::asModel() const {asModel6,103
+
+mdk/src/files/param/LegacyParser.cpp,578
+static void fetchDefAngleParams(istream &is, Parameters &data) {fetchDefAngleParams9,183
+static void fetchAngleParams(istream &is, Parameters &data) {fetchAngleParams16,363
+static void fetchDihedralParams(istream &is, Parameters &data) {fetchDihedralParams25,594
+static void fetchSpecificity(istream &is, Parameters &data) {fetchSpecificity34,831
+static void fetchRadii(istream &is, Parameters &data) {fetchRadii59,1530
+static void fetchPairwiseData(istream &is, Parameters &data) {fetchPairwiseData67,1723
+Parameters LegacyParser::read(istream &is) {read101,2671
+
+mdk/src/files/param/Parameters.cpp,43
+Parameters::Parameters() {Parameters5,88
+
+mdk/src/files/cmap/LegacyParser.cpp,147
+ContactMap LegacyParser::read(std::istream &is) {read8,135
+std::ostream &LegacyParser::write(ostream &os, ContactMap const& cmap) {write38,944
+
+mdk/src/files/tab/LegacyParser.cpp,55
+TabEnergy LegacyParser::read(istream &is) {read7,132
+
+mdk/src/system/Integrator.cpp,58
+void Integrator::bind(Simulation &simulation) {bind4,55
+
+mdk/src/system/State.cpp,146
+void State::exportTo(Model &model) {exportTo5,82
+void State::bind(Simulation &simul) {bind13,251
+void State::prepareDyn() {prepareDyn29,561
+
+mdk/src/system/Leapfrog.cpp,137
+void Leapfrog::init() {init5,85
+void Leapfrog::integrate() {integrate9,117
+void Leapfrog::bind(Simulation &simulation) {bind19,410
+
+mdk/src/system/LangPredictorCorrector.cpp,250
+void LangPredictorCorrector::init() {init6,127
+void LangPredictorCorrector::generateNoise() {generateNoise12,267
+void LangPredictorCorrector::integrate() {integrate21,506
+void LangPredictorCorrector::bind(Simulation &simulation) {bind56,1584
+
+mdk/src/data/Chains.cpp,49
+Chains::Chains(const Model &model) {Chains5,77
+
+mdk/src/data/DataFactory.cpp,526
+BondAngleRanges DataFactory::create<BondAngleRanges>() const {create11,244
+Chains DataFactory::create<Chains>() const {create16,357
+Charges DataFactory::create<Charges>() const {create21,443
+DihedralRanges DataFactory::create<DihedralRanges>() const {create26,541
+Masses DataFactory::create<Masses>() const {create31,651
+Types DataFactory::create<Types>() const {create36,737
+Model DataFactory::create<Model>() const {create41,820
+param::Parameters DataFactory::create<param::Parameters>() const {create46,896
+
+mdk/src/data/Charges.cpp,85
+Charges::Charges(const Model &model, param::Parameters const& params) {Charges4,50
+
+mdk/src/data/Types.cpp,46
+Types::Types(const Model &model) {Types4,48
+
+mdk/src/data/Masses.cpp,49
+Masses::Masses(const Model &model) {Masses4,49
+
+mdk/src/data/BondAngleRanges.cpp,76
+BondAngleRanges::BondAngleRanges(const Model &model) {BondAngleRanges5,86
+
+mdk/src/data/DihedralRanges.cpp,73
+DihedralRanges::DihedralRanges(const Model &model) {DihedralRanges5,85
+
+mdk/src/verlet/List.cpp,260
+void List::update() {update7,142
+bool List::needToReset() const {needToReset30,763
+void List::bind(Simulation &simulation) {bind45,1193
+void List::check() {check51,1337
+void List::registerNF(NonlocalForce& force, Spec const& spec) {registerNF61,1504
+
+mdk/src/hooks/ExportPDB.cpp,118
+void mdk::ExportPDB::bind(Simulation &simulation) {bind10,198
+void ExportPDB::execute(int step_nr) {execute15,328
+
+mdk/src/hooks/ProgressBar.cpp,191
+ProgressBar::ProgressBar(double totalTime, int width) {ProgressBar9,174
+void ProgressBar::bind(Simulation &simulation) {bind15,337
+void ProgressBar::execute(int step_nr) {execute20,452
+
+mdk/src/hooks/PositionDiff.cpp,233
+PositionDiff::PositionDiff(Model const& model, std::string inputPath, std::string outputPath):PositionDiff8,147
+void PositionDiff::bind(Simulation& simulation) {bind28,643
+void PositionDiff::execute(int step_nr) {execute32,734
+
+mdk/include/mdk/stats/Stat.hpp,640
+namespace mdk {mdk4,33
+    struct Stat {Stat5,49
+        int8_t backbone = 0;backbone6,67
+        int8_t sidechain = 0;sidechain7,96
+        int8_t hydrophobicSS = 0;hydrophobicSS8,126
+        int8_t polarSS = 0;polarSS9,160
+        inline bool valid() const {valid11,189
+        inline Stat& operator+=(Stat const& other) {operator +=16,345
+        inline Stat operator+(Stat const& other) const {operator +24,605
+        inline Stat operator-() const {operator -30,753
+        inline Stat& operator-=(Stat const& other) {operator -=39,1036
+        inline Stat operator-(Stat const& other) const {operator -44,1155
+
+mdk/include/mdk/stats/Stats.hpp,583
+namespace mdk {mdk8,155
+    class Stats: public SimulVar {Stats9,171
+        Types const *types = nullptr;types11,219
+        std::vector<param::Polarization> polarization;polarization12,257
+        std::vector<Stat> stats;stats15,325
+        bool used = false;used16,358
+        enum class Type: int8_t {Type20,439
+            BB, BS, SB, SSBB21,473
+            BB, BS, SB, SSBS21,473
+            BB, BS, SB, SSSB21,473
+            BB, BS, SB, SSSS21,473
+        inline void creationDiffs(int i1, int i2, Type type, Stat diffs[2]) const {creationDiffs24,512
+
+mdk/include/mdk/simul/Simulation.hpp,739
+namespace mdk {mdk10,209
+    class Simulation {Simulation16,306
+        Simulation(Model model, param::Parameters params):Simulation18,341
+        Data const& data() {data23,543
+        Var& var() {var28,650
+        Model model;model78,2173
+        param::Parameters params;params79,2194
+        DataFactory df;df80,2228
+        std::unordered_map<std::type_index, std::shared_ptr<void>> vars;vars82,2253
+        std::vector<Force*> forces;forces83,2326
+        std::vector<NonlocalForce*> nonlocalForces;nonlocalForces84,2362
+        std::vector<Hook*> hooks;hooks85,2414
+        Integrator *integrator;integrator86,2448
+        bool initialized = false;initialized88,2481
+        int step_nr;step_nr89,2515
+
+mdk/include/mdk/simul/SimulVar.hpp,60
+namespace mdk {mdk3,14
+    class SimulVar {SimulVar6,53
+
+mdk/include/mdk/kernels/Harmonic.hpp,378
+namespace mdk {mdk5,78
+    class Harmonic {Harmonic6,94
+        double H1 = 50.0 * eps/pow(angstrom, 2.0);H18,127
+        double H2 = 0.0;H29,178
+        Harmonic(double H1, double H2):Harmonic12,234
+        inline void computeV(double dx, double& V, double& dV_dx) const {computeV15,306
+        inline void computeF(VRef unit, double dx, double& V,computeF22,559
+
+mdk/include/mdk/kernels/SidechainLJ.hpp,460
+namespace mdk {mdk5,76
+    class SidechainLJ {SidechainLJ6,92
+        double depth = 1.0 * eps;depth8,128
+        double sink_max = 10.0 * angstrom;sink_max9,162
+        SidechainLJ(double depth, double sink_max):SidechainLJ12,239
+        inline double cutoff() const {cutoff15,341
+        inline void kernel(double norm, double& V, double& dV_dn) const {kernel19,450
+        inline void asForce(VRef unit, double norm, double& V,asForce25,695
+
+mdk/include/mdk/kernels/LennardJones.hpp,489
+namespace mdk {mdk5,78
+    class LennardJones {LennardJones6,94
+        double r_min = 5.0*angstrom, depth = 1.0*eps;r_min8,131
+        double r_min = 5.0*angstrom, depth = 1.0*eps;depth8,131
+        LennardJones(double r_min, double depth):LennardJones11,220
+        inline double cutoff() const {cutoff14,314
+        inline void kernel(double norm, double& V, double& dV_dn) const {kernel18,417
+        inline void asForce(VRef unit, double norm, double& V,asForce26,755
+
+mdk/include/mdk/kernels/ShiftedTruncatedLJ.hpp,521
+namespace mdk {mdk5,78
+    class ShiftedTruncatedLJ {ShiftedTruncatedLJ6,94
+        double r_cut = 4.0 * angstrom, depth = 1.0 * eps;r_cut8,137
+        double r_cut = 4.0 * angstrom, depth = 1.0 * eps;depth8,137
+        ShiftedTruncatedLJ(double r_cut, double depth):ShiftedTruncatedLJ11,237
+        inline double cutoff() const {cutoff14,337
+        inline void kernel(double norm, double& V, double& dV_dn) const {kernel18,413
+        inline void asForce(VRef unit, double norm, double& V,asForce26,758
+
+mdk/include/mdk/forces/Force.hpp,117
+namespace mdk {mdk6,113
+    class Force: public SimulVar {Force7,129
+        State *state = nullptr;state9,179
+
+mdk/include/mdk/forces/go/NativeContacts.hpp,457
+namespace mdk {mdk4,46
+    class NativeContacts: public NonlocalForce {NativeContacts5,62
+        struct Contact {Contact7,123
+            int i1, i2;i18,148
+            int i1, i2;i28,148
+            double r_min;r_min9,172
+        Pairs newVL;newVL19,390
+        std::vector<Contact> allContacts, curPairs;allContacts20,411
+        std::vector<Contact> allContacts, curPairs;curPairs20,411
+        double depth = 1.0 * eps;depth22,464
+
+mdk/include/mdk/forces/es/RelativeDH.hpp,194
+namespace mdk {mdk4,36
+    class RelativeDH: public ESBase {RelativeDH5,52
+        double screeningDist = 10.0 * angstrom;screeningDist10,158
+        double r0 = 4.0 * angstrom;r011,206
+
+mdk/include/mdk/forces/es/ConstDH.hpp,210
+namespace mdk {mdk4,36
+    class ConstDH: public ESBase {ConstDH5,52
+        double screeningDist = 10.0 * angstrom;screeningDist10,155
+        double permittivity = 80.0 * epsilon_0;permittivity11,203
+
+mdk/include/mdk/forces/es/ESBase.hpp,345
+namespace mdk {mdk4,46
+    class ESBase: public NonlocalForce {ESBase5,62
+        struct Contact {Contact7,118
+            int i1, i2;i18,143
+            int i1, i2;i28,143
+            double q1_x_q2;q1_x_q29,167
+        std::vector<Contact> pairs;pairs11,206
+        Eigen::Matrix<int8_t, Eigen::Dynamic, 1> charge;charge12,242
+
+mdk/include/mdk/forces/angle/HeuresticBA.hpp,351
+namespace mdk {mdk6,123
+    class HeuresticBA: public SimulVar {HeuresticBA7,139
+        static constexpr const int D = 6;D10,226
+        double coeff[numOfPTs][D+1];coeff11,268
+        Eigen::Matrix<int8_t, Eigen::Dynamic, 1> angleTypes;angleTypes12,305
+        void term(int i, double theta, double& V, double& dV_dth) const {term17,432
+
+mdk/include/mdk/forces/angle/NativeBA.hpp,299
+namespace mdk {mdk6,120
+    class NativeBA: public SimulVar {NativeBA7,136
+        Bytes isNative;isNative10,220
+        Scalars theta0;theta011,244
+        double CBA = 30.0 * eps/pow(rad, 2);CBA12,268
+        void term(int i, double theta, double& V, double& dV_dth) const {term17,379
+
+mdk/include/mdk/forces/angle/BondAngles.hpp,219
+namespace mdk {mdk8,146
+    class BondAngles: public Force {BondAngles9,162
+        HeuresticBA* heurBA = nullptr;heurBA12,246
+        NativeBA* natBA = nullptr;natBA15,317
+        Bytes inRange;inRange17,353
+
+mdk/include/mdk/forces/PseudoImproperDihedral.hpp,765
+namespace mdk {mdk9,213
+    class LambdaPeak {LambdaPeak10,229
+        double alpha, psi0;alpha12,264
+        double alpha, psi0;psi012,264
+        bool cosineVersion;cosineVersion13,292
+    class PseudoImproperDihedral: public NonlocalForce {PseudoImproperDihedral19,431
+        Types const* types = nullptr;types24,624
+        Chains const* seqs = nullptr;seqs25,662
+        LambdaPeak bb_pos, bb_neg, ss;bb_pos28,713
+        LambdaPeak bb_pos, bb_neg, ss;bb_neg28,713
+        LambdaPeak bb_pos, bb_neg, ss;ss28,713
+        LennardJones bb_neg_lj, bb_pos_lj;bb_neg_lj29,752
+        LennardJones bb_neg_lj, bb_pos_lj;bb_pos_lj29,752
+        SidechainLJ ss_ljs[AminoAcid::N][AminoAcid::N];ss_ljs30,795
+        Pairs pairs;pairs40,1047
+
+mdk/include/mdk/forces/NonlocalForce.hpp,179
+namespace mdk {mdk6,95
+    class NonlocalForce: public Force {NonlocalForce7,111
+        mutable vl::Spec savedSpec;savedSpec9,166
+        vl::List *vl = nullptr;vl11,245
+
+mdk/include/mdk/forces/PauliExclusion.hpp,219
+namespace mdk {mdk6,118
+    class PauliExclusion: public NonlocalForce {PauliExclusion7,134
+        ShiftedTruncatedLJ stlj;stlj9,195
+        Pairs exclPairs;exclPairs20,450
+	Chains const* chains;chains21,475
+
+mdk/include/mdk/forces/qa/QuasiAdiabatic.hpp,2923
+namespace mdk {mdk13,358
+    struct QAContact {QAContact14,374
+        int i1, i2;i115,397
+        int i1, i2;i215,397
+        enum class Status: int8_t { FORMING, BREAKING, REMOVED } status;Status16,417
+        enum class Status: int8_t { FORMING, BREAKING, REMOVED } status;FORMING16,417
+        enum class Status: int8_t { FORMING, BREAKING, REMOVED } status;BREAKING16,417
+        enum class Status: int8_t { FORMING, BREAKING, REMOVED } status;REMOVED16,417
+        enum class Status: int8_t { FORMING, BREAKING, REMOVED } status;status16,417
+        Stats::Type type;type17,490
+        double t0;t018,516
+    struct QAFreePair {QAFreePair21,543
+        int i1, i2;i122,567
+        int i1, i2;i222,567
+        enum class Status: int8_t { FREE, TAKEN } status;Status23,587
+        enum class Status: int8_t { FREE, TAKEN } status;FREE23,587
+        enum class Status: int8_t { FREE, TAKEN } status;TAKEN23,587
+        enum class Status: int8_t { FREE, TAKEN } status;status23,587
+    struct QADiff {QADiff26,653
+        QAContact cont;cont27,673
+        int oldIdx;oldIdx28,697
+        Stat statDiffs[2];statDiffs29,717
+        bool operator<(QADiff const& other) const {operator <31,745
+    class QuasiAdiabatic: public NonlocalForce {QuasiAdiabatic36,857
+        Types const *types = nullptr;types46,1132
+        Chains const *chains = nullptr;chains47,1170
+        LennardJones bb_lj = LennardJones(5.0 * angstrom, 1.0 * eps);bb_lj49,1211
+        LennardJones bs_lj = LennardJones(6.8 * angstrom, 1.0 * eps);bs_lj50,1281
+        SidechainLJ ss_ljs[AminoAcid::N][AminoAcid::N];ss_ljs51,1351
+        Vectors n, h;n53,1408
+        Vectors n, h;h53,1408
+        double formationMaxDistSq;formationMaxDistSq54,1430
+        double hr_abs_min = 0.92, hh_abs_min = 0.75, nr_max = 0.5;hr_abs_min55,1465
+        double hr_abs_min = 0.92, hh_abs_min = 0.75, nr_max = 0.5;hh_abs_min55,1465
+        double hr_abs_min = 0.92, hh_abs_min = 0.75, nr_max = 0.5;nr_max55,1465
+        double formationTolerance = 1.0, formationTime = 10.0 * tau;formationTolerance57,1533
+        double formationTolerance = 1.0, formationTime = 10.0 * tau;formationTime57,1533
+        double breakingTolerance = 1.0, breakingTime = 10.0 * tau;breakingTolerance58,1602
+        double breakingTolerance = 1.0, breakingTime = 10.0 * tau;breakingTime58,1602
+        std::vector<QAContact> oldPairs, pairs;oldPairs60,1670
+        std::vector<QAContact> oldPairs, pairs;pairs60,1670
+        std::vector<QAFreePair> freePairs;freePairs61,1718
+        Stats *stats;stats63,1762
+        std::mutex qaDiffsMutex;qaDiffsMutex64,1784
+        std::vector<QADiff> qaDiffs;qaDiffs65,1817
+        struct PairInfo {PairInfo67,1855
+            int i1, i2;i168,1881
+            int i1, i2;i268,1881
+            Vector unit;unit69,1905
+            double norm;norm70,1930
+
+mdk/include/mdk/forces/All.hpp,0
+
+mdk/include/mdk/forces/Tether.hpp,222
+namespace mdk {mdk6,100
+    class Tether: public Force {Tether7,116
+        bool fromNative;fromNative9,162
+        Scalars dist0;dist010,187
+        Ranges ranges;ranges11,210
+        Harmonic harm;harm12,233
+
+mdk/include/mdk/forces/Chirality.hpp,261
+namespace mdk {mdk4,35
+    class Chirality: public Force {Chirality5,51
+        Scalars d0_cube_inv, C_nat;d0_cube_inv7,100
+        Scalars d0_cube_inv, C_nat;C_nat7,100
+        Ranges ranges;ranges8,136
+        double e_chi = 1.0 * eps;e_chi11,172
+
+mdk/include/mdk/forces/dihedral/HeuresticDihedral.hpp,309
+namespace mdk {mdk6,132
+    class HeuresticDihedral: public SimulVar {HeuresticDihedral7,148
+        double coeff[numOfPTs][6];coeff10,245
+        Eigen::Matrix<int8_t, Eigen::Dynamic, 1> angleTypes;angleTypes11,280
+        void term(int i, double phi, double& V, double& dV_dphi) const {term16,407
+
+mdk/include/mdk/forces/dihedral/ComplexNativeDihedral.hpp,316
+namespace mdk {mdk4,48
+    class ComplexNativeDihedral: public NativeDihedralBase {ComplexNativeDihedral5,64
+        double CDA = 0.66 * eps / pow(rad, 2.0);CDA8,174
+        double CDB = 0.66 * eps / pow(rad, 2.0);CDB9,223
+        void term(int i, double phi, double& V, double& dV_dphi) const {term13,326
+
+mdk/include/mdk/forces/dihedral/SimpleNativeDihedral.hpp,251
+namespace mdk {mdk4,48
+    class SimpleNativeDihedral: public NativeDihedralBase {SimpleNativeDihedral5,64
+        double CDH = 3.33 * eps/pow(rad, 2);CDH8,173
+        void term(int i, double phi, double& V, double& dV_dphi) const {term12,272
+
+mdk/include/mdk/forces/dihedral/NativeDihedralBase.hpp,170
+namespace mdk {mdk5,88
+    class NativeDihedralBase: public SimulVar {NativeDihedralBase6,104
+        Bytes isNative;isNative8,167
+        Scalars phi0;phi09,191
+
+mdk/include/mdk/forces/dihedral/DihedralAngles.hpp,328
+namespace mdk {mdk8,181
+    class DihedralAngles: public Force {DihedralAngles9,197
+        ComplexNativeDihedral *compNatDih = nullptr;compNatDih12,295
+        SimpleNativeDihedral *simpNatDih = nullptr;simpNatDih15,392
+        HeuresticDihedral *heurDih = nullptr;heurDih18,485
+        Bytes inRange;inRange20,532
+
+mdk/include/mdk/utils/TupleHash.hpp,566
+class HashMixer {HashMixer9,226
+    T const &value;value11,252
+    explicit HashMixer(T const &value): value {value} {};HashMixer12,272
+    size_t operator,(size_t seed) const {operator ,14,331
+namespace std {std20,487
+    struct hash<tuple<Types...>> {hash22,535
+        size_t operator()(tuple<Types...> const &t) const {operator ()23,570
+            return std::apply([](Types const&... tx) -> size_t {__anonfad7d3f2010224,630
+    struct hash<pair<T1, T2>> {hash31,819
+        size_t operator()(pair<T1, T2> const &t) const {operator ()32,851
+
+mdk/include/mdk/utils/ResType.hpp,1815
+namespace mdk {mdk6,69
+    enum class ResTypeIdx: int8_t {ResTypeIdx7,85
+        ALA, ARG, ASN, ASP, CYS, GLU, GLN, GLY, HIS, ILE,ALA8,121
+        ALA, ARG, ASN, ASP, CYS, GLU, GLN, GLY, HIS, ILE,ARG8,121
+        ALA, ARG, ASN, ASP, CYS, GLU, GLN, GLY, HIS, ILE,ASN8,121
+        ALA, ARG, ASN, ASP, CYS, GLU, GLN, GLY, HIS, ILE,ASP8,121
+        ALA, ARG, ASN, ASP, CYS, GLU, GLN, GLY, HIS, ILE,CYS8,121
+        ALA, ARG, ASN, ASP, CYS, GLU, GLN, GLY, HIS, ILE,GLU8,121
+        ALA, ARG, ASN, ASP, CYS, GLU, GLN, GLY, HIS, ILE,GLN8,121
+        ALA, ARG, ASN, ASP, CYS, GLU, GLN, GLY, HIS, ILE,GLY8,121
+        ALA, ARG, ASN, ASP, CYS, GLU, GLN, GLY, HIS, ILE,HIS8,121
+        ALA, ARG, ASN, ASP, CYS, GLU, GLN, GLY, HIS, ILE,ILE8,121
+        LEU, LYS, MET, PHE, PRO, SER, THR, TRP, TYR, VALLEU9,179
+        LEU, LYS, MET, PHE, PRO, SER, THR, TRP, TYR, VALLYS9,179
+        LEU, LYS, MET, PHE, PRO, SER, THR, TRP, TYR, VALMET9,179
+        LEU, LYS, MET, PHE, PRO, SER, THR, TRP, TYR, VALPHE9,179
+        LEU, LYS, MET, PHE, PRO, SER, THR, TRP, TYR, VALPRO9,179
+        LEU, LYS, MET, PHE, PRO, SER, THR, TRP, TYR, VALSER9,179
+        LEU, LYS, MET, PHE, PRO, SER, THR, TRP, TYR, VALTHR9,179
+        LEU, LYS, MET, PHE, PRO, SER, THR, TRP, TYR, VALTRP9,179
+        LEU, LYS, MET, PHE, PRO, SER, THR, TRP, TYR, VALTYR9,179
+        LEU, LYS, MET, PHE, PRO, SER, THR, TRP, TYR, VALVAL9,179
+    class ResType {ResType12,244
+        constexpr explicit ResType(ResTypeIdx code): code {code} {};ResType16,306
+        constexpr ResType(int8_t x): ResType((ResTypeIdx)x) {};ResType19,429
+        ResTypeIdx code;code28,669
+namespace std {std33,746
+    struct hash<mdk::ResType> {hash35,777
+        size_t operator()(mdk::ResType const &resType) const {operator ()36,809
+
+mdk/include/mdk/utils/Units.hpp,1645
+namespace mdkmdk4,32
+#define Unit Unit6,48
+    Unit f77unit = 1.0;f77unit9,105
+    Unit angstrom = f77unit / 5.0;angstrom10,129
+    Unit nanometer = 10.0 * angstrom;nanometer11,164
+    Unit meter = nanometer * 1.0e9;meter12,202
+    Unit nanosecond = 1.0;nanosecond15,254
+    Unit tau = 1.0 * nanosecond;tau16,281
+    Unit microsecond = nanosecond * 1.0e3;microsecond17,314
+    Unit millisecond = nanosecond * 1.0e6;millisecond18,357
+    Unit second = nanosecond * 1.0e9;second19,400
+    Unit atom = 1.0;atom22,458
+    Unit mol = 6.02214076e23 / atom;mol23,479
+    Unit eps = 1.0; /* \approx 1.5kcal/mol */eps26,534
+    Unit kcal = eps * mol / 1.57824959;kcal27,580
+    Unit Joule = kcal / 4184.0;Joule28,620
+    Unit eps_kB = 1.0;eps_kB31,675
+    Unit kB = eps / eps_kB;kB32,698
+    Unit Kelvin = 1.380649e-23 * Joule / kB;Kelvin33,726
+    Unit reducedMass = 1.0;reducedMass36,787
+    Unit kg = Joule * second * second / (meter * meter);kg37,815
+    Unit au = kg * 0.99999999965e-3 / mol;au38,872
+    Unit f77mass = eps * tau * tau / (f77unit * f77unit);f77mass39,915
+    Unit echarge = 1.0;echarge42,993
+    Unit Coulomb = echarge / 1.602176634e-19;Coulomb43,1017
+    Unit Ampere = Coulomb / second;Ampere44,1063
+    Unit cspeed = 299792458.0 * meter / second;cspeed45,1099
+    Unit Henry = kg * meter * meter / (second * second * Ampere * Ampere);Henry46,1147
+    Unit mu_0 = 1.25663706212e-6 * Henry / meter;mu_047,1222
+    Unit epsilon_0 = 1.0 / (mu_0 * cspeed * cspeed);epsilon_048,1272
+    Unit rad = 1.0;rad51,1344
+    Unit degree = (2.0 * M_PI / 360.0) * rad;degree52,1364
+
+mdk/include/mdk/utils/Random.hpp,1147
+namespace mdk {mdk6,72
+    class Random {Random7,88
+            im1 = 2147483563,im110,149
+            im2 = 2147483399,im211,179
+            imm1 = im1-1,imm112,209
+            ia1 = 40014,ia113,235
+            ia2 = 40692,ia214,260
+            iq1 = 53668,iq115,285
+            iq2 = 52774,iq216,310
+            ir1 = 12211,ir117,335
+            ir2 = 3791,ir218,360
+            ntab = 32,ntab19,384
+            ndiv = 1+imm1/ntab;ndiv20,407
+            eps = 1.2e-7,eps23,472
+            rnmx = 1.-eps,rnmx24,498
+            am = (float) 1.0/im1;am25,525
+        int iy = 0, idum = -448, idum2 = 123456789;iy27,560
+        int iy = 0, idum = -448, idum2 = 123456789;idum27,560
+        int iy = 0, idum = -448, idum2 = 123456789;idum227,560
+        int iv[ntab];iv28,612
+        Random(int seed) {Random31,647
+        inline double uniform() {uniform38,794
+        inline double uniform(double a, double b) {uniform67,1657
+        inline double normal() {normal71,1764
+        inline double normal(double mu, double sigma) {normal77,1943
+        inline Eigen::Vector3d sphere() {sphere81,2052
+
+mdk/include/mdk/utils/PairType.hpp,596
+namespace mdk {mdk6,75
+    enum class PairType: int8_t {PairType7,91
+        GG, GP, GX, PG, PP, PX, XG, XP, XXGG8,125
+        GG, GP, GX, PG, PP, PX, XG, XP, XXGP8,125
+        GG, GP, GX, PG, PP, PX, XG, XP, XXGX8,125
+        GG, GP, GX, PG, PP, PX, XG, XP, XXPG8,125
+        GG, GP, GX, PG, PP, PX, XG, XP, XXPP8,125
+        GG, GP, GX, PG, PP, PX, XG, XP, XXPX8,125
+        GG, GP, GX, PG, PP, PX, XG, XP, XXXG8,125
+        GG, GP, GX, PG, PP, PX, XG, XP, XXXP8,125
+        GG, GP, GX, PG, PP, PX, XG, XP, XXXX8,125
+    constexpr inline int numOfPTs = 9;numOfPTs11,176
+
+mdk/include/mdk/utils/Topology.hpp,267
+namespace mdk {mdk4,48
+    class Topology {Topology5,64
+        Vector cell, cellInv;cell7,97
+        Vector cell, cellInv;cellInv7,97
+        inline void fix(Vector& v) const {fix12,209
+        inline Vector operator()(Vector v) const {operator ()19,411
+
+mdk/include/mdk/utils/ContactType.hpp,908
+namespace mdk {mdk6,69
+    enum class ContactTypeIdx: int8_t {ContactTypeIdx7,85
+        NAT, NAT_BB, NAT_BS, NAT_SB, NAT_SS, SSBONDNAT8,125
+        NAT, NAT_BB, NAT_BS, NAT_SB, NAT_SS, SSBONDNAT_BB8,125
+        NAT, NAT_BB, NAT_BS, NAT_SB, NAT_SS, SSBONDNAT_BS8,125
+        NAT, NAT_BB, NAT_BS, NAT_SB, NAT_SS, SSBONDNAT_SB8,125
+        NAT, NAT_BB, NAT_BS, NAT_SB, NAT_SS, SSBONDNAT_SS8,125
+        NAT, NAT_BB, NAT_BS, NAT_SB, NAT_SS, SSBONDSSBOND8,125
+    class ContactType {ContactType11,185
+        constexpr explicit ContactType(ContactTypeIdx code): code {code} {};ContactType15,255
+        constexpr ContactType(int8_t x): ContactType((ContactTypeIdx)x) {};ContactType18,390
+        ContactTypeIdx code;code25,616
+namespace std {std30,701
+    struct hash<mdk::ContactType> {hash32,732
+        size_t operator()(mdk::ContactType const &resType) const {operator ()33,768
+
+mdk/include/mdk/utils/AminoAcid.hpp,2272
+namespace mdk {mdk7,100
+    enum class AminoAcidIdx: int8_t {AminoAcidIdx8,116
+        ALA, ARG, ASN, ASP, CYS, GLU, GLN, GLY, HIS, ILE,ALA9,154
+        ALA, ARG, ASN, ASP, CYS, GLU, GLN, GLY, HIS, ILE,ARG9,154
+        ALA, ARG, ASN, ASP, CYS, GLU, GLN, GLY, HIS, ILE,ASN9,154
+        ALA, ARG, ASN, ASP, CYS, GLU, GLN, GLY, HIS, ILE,ASP9,154
+        ALA, ARG, ASN, ASP, CYS, GLU, GLN, GLY, HIS, ILE,CYS9,154
+        ALA, ARG, ASN, ASP, CYS, GLU, GLN, GLY, HIS, ILE,GLU9,154
+        ALA, ARG, ASN, ASP, CYS, GLU, GLN, GLY, HIS, ILE,GLN9,154
+        ALA, ARG, ASN, ASP, CYS, GLU, GLN, GLY, HIS, ILE,GLY9,154
+        ALA, ARG, ASN, ASP, CYS, GLU, GLN, GLY, HIS, ILE,HIS9,154
+        ALA, ARG, ASN, ASP, CYS, GLU, GLN, GLY, HIS, ILE,ILE9,154
+        LEU, LYS, MET, PHE, PRO, SER, THR, TRP, TYR, VALLEU10,212
+        LEU, LYS, MET, PHE, PRO, SER, THR, TRP, TYR, VALLYS10,212
+        LEU, LYS, MET, PHE, PRO, SER, THR, TRP, TYR, VALMET10,212
+        LEU, LYS, MET, PHE, PRO, SER, THR, TRP, TYR, VALPHE10,212
+        LEU, LYS, MET, PHE, PRO, SER, THR, TRP, TYR, VALPRO10,212
+        LEU, LYS, MET, PHE, PRO, SER, THR, TRP, TYR, VALSER10,212
+        LEU, LYS, MET, PHE, PRO, SER, THR, TRP, TYR, VALTHR10,212
+        LEU, LYS, MET, PHE, PRO, SER, THR, TRP, TYR, VALTRP10,212
+        LEU, LYS, MET, PHE, PRO, SER, THR, TRP, TYR, VALTYR10,212
+        LEU, LYS, MET, PHE, PRO, SER, THR, TRP, TYR, VALVAL10,212
+    struct AAAtomInfo {AAAtomInfo13,277
+        double radius;radius14,301
+        bool inBackbone = false;inBackbone15,324
+    struct AminoAcidInfo {AminoAcidInfo18,365
+        double mass;mass19,392
+        std::unordered_set<std::string> heavyAtoms;heavyAtoms20,413
+        std::unordered_map<std::string, AAAtomInfo> atomInfo;atomInfo21,465
+    class AminoAcid {AminoAcid24,535
+        constexpr explicit AminoAcid(AminoAcidIdx type): type{type} {};AminoAcid30,703
+        constexpr AminoAcid(int8_t x): AminoAcid((AminoAcidIdx)x) {};AminoAcid33,831
+        static constexpr const int N = 20;N55,1677
+        AminoAcidIdx type;type58,1734
+namespace std {std63,1815
+    struct hash<mdk::AminoAcid> {hash65,1846
+        size_t operator()(mdk::AminoAcid const &aminoAcid) const {operator ()66,1880
+
+mdk/include/mdk/model/Model.hpp,1381
+namespace mdk {mdk13,294
+    class Model {Model14,310
+        int n = 0;n16,340
+        struct Residue {Residue21,407
+            int idx, chainIdx;idx22,432
+            int idx, chainIdx;chainIdx22,432
+            Vector r, v;r23,463
+            Vector r, v;v23,463
+            double mass;mass24,488
+            ResType type;type25,513
+            std::optional<Vector> nat_r;nat_r26,539
+        std::vector<Residue> residues;residues28,591
+        struct Chain {Chain31,684
+            int idx;idx32,707
+            int start, end;start33,728
+            int start, end;end33,728
+            std::vector<int> structuredParts;structuredParts34,756
+        std::vector<Chain> chains;chains36,813
+        struct Contact {Contact39,876
+            int idx;idx40,901
+            int res[2];res41,922
+            ContactType type;type42,946
+            double dist0;dist043,976
+        std::vector<Contact> contacts;contacts45,1013
+        struct StructuredPart {StructuredPart48,1084
+            int idx;idx49,1116
+            int off, len;off50,1137
+            int off, len;len50,1137
+            std::vector<double> angle, dihedral;angle51,1163
+            std::vector<double> angle, dihedral;dihedral51,1163
+        std::vector<StructuredPart> structuredParts;structuredParts53,1223
+        Topology top;top56,1310
+
+mdk/include/mdk/files/pdb/Parser.hpp,180
+namespace mdk::pdb {mdk7,95
+namespace mdk::pdb {pdb7,95
+    class Parser {Parser10,141
+        std::unordered_map<int, std::shared_ptr<RecordParser>> parsers;parsers12,173
+
+mdk/include/mdk/files/pdb/Data.hpp,147
+namespace mdk::pdb {mdk6,75
+namespace mdk::pdb {pdb6,75
+    class Data {Data7,96
+        std::vector<records::Record> records;records9,125
+
+mdk/include/mdk/files/pdb/Record.hpp,2306
+namespace mdk::pdb::records {mdk7,106
+namespace mdk::pdb::records {pdb7,106
+namespace mdk::pdb::records {records7,106
+    class Atom {Atom8,136
+        int serialNum = 0;serialNum10,165
+        std::string atomName;atomName11,192
+        char altLocation = ' ';altLocation12,222
+        std::string residueName;residueName13,254
+        char chainID = 'A';chainID14,287
+        int residueSeqNum = 0;residueSeqNum15,315
+        char insertionCode = ' ';insertionCode16,346
+        Eigen::Vector3d pos;pos17,380
+        double occupancy = 1.0;occupancy18,409
+        double tempFactor = 0.0;tempFactor19,441
+        std::string element;element20,474
+        std::string charge;charge21,503
+    class SSBond {SSBond24,539
+        int serialNum = 0;serialNum26,570
+        struct PerResidueData {PerResidueData28,598
+            char chainId = 'A';chainId29,630
+            int residueSeqNum = 0;residueSeqNum30,662
+            char insertionCode = ' ';insertionCode31,697
+            std::string symmetryOp;symmetryOp32,735
+        PerResidueData res[2];res34,782
+        double dist0 = 0.0;dist036,814
+    class Cryst1 {Cryst139,850
+        Eigen::Vector3d size;size41,881
+        std::string spaceGroup;spaceGroup43,981
+        int z = 0;z44,1013
+    class Ter {Ter47,1040
+        int serialNum = 0;serialNum49,1068
+        std::string residueName;residueName50,1095
+        char chainId = 'A';chainId51,1128
+        int residueSeqNum = 0;residueSeqNum52,1156
+        char insertionCode = ' ';insertionCode53,1187
+    class Link {Link56,1229
+        struct PerResidueData {PerResidueData58,1258
+            std::string atomName;atomName59,1290
+            char altLocation = ' ';altLocation60,1324
+            std::string residueName;residueName61,1360
+            char chainId = 'A';chainId62,1397
+            int residueSeqNum;residueSeqNum63,1429
+            char insertionCode = ' ';insertionCode64,1460
+            std::string symmetryOp;symmetryOp65,1498
+        PerResidueData res[2];res67,1545
+        double linkLength;linkLength68,1576
+    class Model {Model71,1611
+        int serialNum = 0;serialNum73,1641
+    class End {End76,1676
+    using Record = std::variant<std::monostate,Record80,1712
+
+mdk/include/mdk/files/pdb/Model.hpp,1229
+namespace mdk::pdb {mdk9,160
+namespace mdk::pdb {pdb9,160
+    class Model {Model10,181
+        struct Atom {Atom16,279
+            int serial, idxInRes;serial17,301
+            int serial, idxInRes;idxInRes17,301
+            Residue *res;res18,335
+            Eigen::Vector3d r;r19,361
+            std::string type;type20,392
+        std::unordered_map<int, Atom> atoms;atoms22,433
+        struct Residue {Residue26,536
+            int serial, idxInChain;serial27,561
+            int serial, idxInChain;idxInChain27,561
+            Chain *chain;chain28,597
+            std::string type;type29,623
+            std::vector<Atom*> atoms;atoms30,653
+        std::unordered_map<int, Residue> residues;residues34,752
+        struct Chain {Chain38,867
+            char serial;serial39,890
+            std::vector<Residue*> residues;residues40,915
+        std::unordered_map<char, Chain> chains;chains42,970
+        struct Contact {Contact46,1055
+            int idx;idx47,1080
+            Atom* atom[2];atom48,1101
+            std::string type;type49,1128
+            double dist0;dist050,1158
+        std::vector<Contact> contacts;contacts52,1195
+        Topology top;top56,1267
+
+mdk/include/mdk/files/seq/LegacyParser.hpp,106
+namespace mdk::seq {mdk6,104
+namespace mdk::seq {seq6,104
+    class LegacyParser {LegacyParser7,125
+
+mdk/include/mdk/files/seq/Sequence.hpp,462
+namespace mdk::seq {mdk6,118
+namespace mdk::seq {seq6,118
+    class Sequence {Sequence7,139
+        struct Chain {Chain9,172
+            std::vector<AminoAcid> codes;codes10,195
+            std::vector<std::string> contactMaps;contactMaps11,237
+        std::optional<double> screeningDist;screeningDist14,299
+        std::vector<Chain> chains;chains15,344
+        std::unordered_map<std::string, cmap::ContactMap> contactMaps;contactMaps16,379
+
+mdk/include/mdk/files/param/LegacyParser.hpp,109
+namespace mdk::param {mdk5,60
+namespace mdk::param {param5,60
+    class LegacyParser {LegacyParser6,83
+
+mdk/include/mdk/files/param/Parameters.hpp,1566
+namespace mdk::param {mdk9,187
+namespace mdk::param {param9,187
+    enum class Polarization: int8_t {Polarization10,210
+        GLY_PRO, HYDROPHOBIC, MISSING,GLY_PRO11,248
+        GLY_PRO, HYDROPHOBIC, MISSING,HYDROPHOBIC11,248
+        GLY_PRO, HYDROPHOBIC, MISSING,MISSING11,248
+        POLAR, POLAR_NEG, POLAR_POSPOLAR12,287
+        POLAR, POLAR_NEG, POLAR_POSPOLAR_NEG12,287
+        POLAR, POLAR_NEG, POLAR_POSPOLAR_POS12,287
+    class Parameters {Parameters15,331
+        using Coeffs = std::vector<double>;Coeffs19,389
+        Coeffs defAngleParams;defAngleParams20,433
+        using PerPTData = std::unordered_map<PairType, T>;PerPTData23,494
+        PerPTData<Coeffs> angleParams;angleParams25,554
+        PerPTData<Coeffs> dihedralParams;dihedralParams26,593
+        struct SpecificityParams {SpecificityParams28,636
+            Polarization polarization;polarization29,671
+            int maxSidechain, maxHydrophobicSS, maxPolarSS;maxSidechain30,710
+            int maxSidechain, maxHydrophobicSS, maxPolarSS;maxHydrophobicSS30,710
+            int maxSidechain, maxHydrophobicSS, maxPolarSS;maxPolarSS30,710
+        using PerAcidData = std::unordered_map<AminoAcid, T>;PerAcidData34,811
+        PerAcidData<SpecificityParams> specificity;specificity36,874
+        PerAcidData<double> radius;radius37,926
+        using PerPairData = std::unordered_map<PerPairData40,992
+        PerPairData<double> pairwiseMinDist;pairwiseMinDist43,1090
+        std::optional<PerPairData<double>> mjMatrix;mjMatrix44,1135
+
+mdk/include/mdk/files/cmap/LegacyParser.hpp,106
+namespace mdk::cmap {mdk5,60
+namespace mdk::cmap {cmap5,60
+    class LegacyParser {LegacyParser6,82
+
+mdk/include/mdk/files/cmap/ContactMap.hpp,459
+namespace mdk::cmap {mdk4,32
+namespace mdk::cmap {cmap4,32
+    class ContactMap {ContactMap5,54
+        int len, offset;len7,89
+        int len, offset;offset7,89
+        struct Contact {Contact8,114
+            int res[2];res9,139
+            double dist0;dist010,163
+        std::vector<Contact> contacts;contacts13,201
+        std::vector<double> angle, dihedral;angle14,240
+        std::vector<double> angle, dihedral;dihedral14,240
+
+mdk/include/mdk/files/tab/LegacyParser.hpp,103
+namespace mdk::tab {mdk5,59
+namespace mdk::tab {tab5,59
+    class LegacyParser {LegacyParser6,80
+
+mdk/include/mdk/files/tab/TabEnergy.hpp,397
+namespace mdk::tab {mdk5,68
+namespace mdk::tab {tab5,68
+    class TabFunction {TabFunction6,89
+        double a, b;a8,125
+        double a, b;b8,125
+        std::vector<double> values;values9,146
+    class TabEnergy {TabEnergy12,190
+        std::unordered_map<PairType, TabFunction> angleV;angleV14,224
+        std::unordered_map<PairType, TabFunction> dihedralV;dihedralV15,282
+
+mdk/include/mdk/system/LangPredictorCorrector.hpp,756
+namespace mdk {mdk6,100
+    class LangPredictorCorrector: public Integrator {LangPredictorCorrector7,116
+        explicit LangPredictorCorrector(double dt):LangPredictorCorrector9,182
+        double gamma = 2.0 * f77mass / tau;gamma16,375
+        double dt;dt19,433
+        Masses m;m20,452
+        Vectors y0, y1, y2, y3, y4, y5;y021,470
+        Vectors y0, y1, y2, y3, y4, y5;y121,470
+        Vectors y0, y1, y2, y3, y4, y5;y221,470
+        Vectors y0, y1, y2, y3, y4, y5;y321,470
+        Vectors y0, y1, y2, y3, y4, y5;y421,470
+        Vectors y0, y1, y2, y3, y4, y5;y521,470
+        Random *random;random22,510
+        Vectors gaussianNoise;gaussianNoise23,534
+        double temperature = 0.35 * eps_kB;temperature26,596
+
+mdk/include/mdk/system/State.hpp,350
+namespace mdk {mdk7,144
+    class Dynamics {Dynamics8,160
+        double V = 0.0;V10,193
+        Vectors F;F11,217
+    class State: public SimulVar {State14,244
+        int n;n16,291
+        Vectors r, v;r17,306
+        Vectors r, v;v17,306
+        double t;t18,328
+        Topology top;top19,346
+        Dynamics dyn;dyn21,369
+
+mdk/include/mdk/system/Leapfrog.hpp,254
+namespace mdk {mdk7,133
+    class Leapfrog: public Integrator {Leapfrog8,149
+        explicit Leapfrog(double dt): dt(dt) {};Leapfrog10,201
+        double dt = 0.005 * tau;dt17,382
+        Masses m;m18,415
+        Vectors a_prev;a_prev19,433
+
+mdk/include/mdk/system/Integrator.hpp,127
+namespace mdk {mdk6,103
+    class Integrator: public SimulVar {Integrator7,119
+        State *state = nullptr;state9,174
+
+mdk/include/mdk/data/Vectors.hpp,585
+namespace mdk {mdk4,36
+    using Vector = Eigen::Vector3d;Vector5,52
+    using VRef = Vector const&;VRef6,88
+    using VectorBase = Eigen::Matrix<double, 3, Eigen::Dynamic, Eigen::RowMajor>;VectorBase8,121
+    class Vectors: public VectorBase {Vectors9,203
+        explicit Vectors(int n):Vectors13,284
+        Vectors(int n, Vector const& init) {Vectors16,351
+        int size() {size21,463
+        inline auto operator[](int i) {operator []25,522
+        inline auto operator[](int i) const {operator []29,600
+        inline auto vectorwise() {vectorwise33,684
+
+mdk/include/mdk/data/Types.hpp,104
+namespace mdk {mdk5,70
+    class Types: public Eigen::Matrix<ResType, Eigen::Dynamic, 1> {Types6,86
+
+mdk/include/mdk/data/DihedralRanges.hpp,263
+namespace mdk {mdk5,70
+    class DihedralRanges {DihedralRanges6,86
+        Ranges all, native, nonNative;all8,125
+        Ranges all, native, nonNative;native8,125
+        Ranges all, native, nonNative;nonNative8,125
+        Scalars phi_0;phi_09,164
+
+mdk/include/mdk/data/Primitives.hpp,316
+namespace mdk {mdk6,82
+    using Scalars = Eigen::VectorXd;Scalars7,98
+    using Vector = Eigen::Vector3d;Vector8,135
+    using VRef = Vector const&;VRef9,171
+    using Bytes = Eigen::Matrix<int8_t, Eigen::Dynamic, 1>;Bytes11,204
+    using Integers = Eigen::Matrix<int, Eigen::Dynamic, 1>;Integers12,264
+
+mdk/include/mdk/data/Masses.hpp,72
+namespace mdk {mdk5,70
+    class Masses: public Scalars {Masses6,86
+
+mdk/include/mdk/data/BondAngleRanges.hpp,269
+namespace mdk {mdk5,70
+    class BondAngleRanges {BondAngleRanges6,86
+        Ranges all, native, nonNative;all8,126
+        Ranges all, native, nonNative;native8,126
+        Ranges all, native, nonNative;nonNative8,126
+        Scalars theta_0;theta_09,165
+
+mdk/include/mdk/data/Chains.hpp,500
+namespace mdk {mdk5,78
+    class Chains {Chains6,94
+        Bytes isNative, isConnected, isTerminal;isNative8,125
+        Bytes isNative, isConnected, isTerminal;isConnected8,125
+        Bytes isNative, isConnected, isTerminal;isTerminal8,125
+        Integers chainIdx;chainIdx9,174
+        Ranges chainBounds;chainBounds10,201
+        inline bool sepByN(int i1, int i2, int n) const {sepByN15,304
+        inline bool sepByAtLeastN(int i1, int i2, int n) const {sepByAtLeastN20,481
+
+mdk/include/mdk/data/Ranges.hpp,151
+namespace mdk {mdk5,70
+    using Pairs = std::vector<std::pair<int, int>>;Pairs6,86
+    using Ranges = boost::icl::interval_set<int>;Ranges7,138
+
+mdk/include/mdk/data/Charges.hpp,76
+namespace mdk {mdk6,111
+    class Charges: public Scalars {Charges7,127
+
+mdk/include/mdk/data/DataFactory.hpp,393
+namespace mdk {mdk8,149
+    class DataFactory {DataFactory9,165
+        DataFactory(Model const& model, param::Parameters const& params):DataFactory11,201
+        Data const& data() {data15,355
+        Model const *model;model24,672
+        param::Parameters const *params;params25,700
+        std::unordered_map<std::type_index, std::shared_ptr<void>> savedData;savedData26,741
+
+mdk/include/mdk/verlet/List.hpp,624
+namespace mdk {mdk8,158
+namespace mdk::vl {mdk12,202
+namespace mdk::vl {vl12,202
+    class List: public SimulVar {List13,222
+        State const *state = nullptr;state15,269
+        Chains const* chains = nullptr;chains16,307
+        double t0 = 0.0;t017,347
+        Vectors r0;r018,372
+        Topology top0;top019,392
+        std::vector<NonlocalForce*> forces;forces21,416
+        bool initial = false;initial23,461
+        double cutoff = 0.0 * angstrom;cutoff24,491
+        double pad = 10.0 * angstrom;pad25,531
+        int minBondSep = 0;minBondSep26,569
+        Pairs pairs;pairs34,734
+
+mdk/include/mdk/verlet/Spec.hpp,174
+namespace mdk::vl {mdk3,14
+namespace mdk::vl {vl3,14
+    struct Spec {Spec4,34
+        double cutoffSq = 0.0;cutoffSq5,52
+        int minBondSep = 3;minBondSep6,83
+
+mdk/include/mdk/hooks/ExportPDB.hpp,399
+namespace mdk {mdk9,180
+    class ExportPDB: public Hook, SimulVar {ExportPDB10,196
+        Model base;base12,254
+        State *state = nullptr;state13,274
+        std::filesystem::path modelPath;modelPath15,307
+        double period, tprev = 0.0;period16,348
+        double period, tprev = 0.0;tprev16,348
+        explicit ExportPDB(std::filesystem::path modelPath,ExportPDB19,397
+
+mdk/include/mdk/hooks/PositionDiff.hpp,288
+namespace mdk {mdk10,182
+    class PositionDiff : public Hook, SimulVar {PositionDiff11,198
+        std::ifstream input;input17,457
+        std::ofstream output;output18,486
+        std::map<int, Vectors> refPositions;refPositions19,516
+        State const* state;state21,562
+
+mdk/include/mdk/hooks/Hook.hpp,52
+namespace mdk {mdk3,14
+    class Hook {Hook4,30
+
+mdk/include/mdk/hooks/ProgressBar.hpp,451
+namespace mdk {mdk7,116
+    class ProgressBar: public Hook, SimulVar {ProgressBar8,132
+        using time_point = std::chrono::high_resolution_clock::time_point;time_point16,366
+        Simulation *simul = nullptr;simul18,442
+        State *state = nullptr;state19,479
+        time_point realTime0;realTime020,511
+        double totalTime;totalTime21,541
+        int width, pct = -1;width22,567
+        int width, pct = -1;pct22,567
+
+mdk/CMakeLists.txt,27
+set(TARGET mdk)TARGET1,0
+
+tests/posDiff/9aac/main.cpp,25
+int main() {main10,257
+
+tests/posDiff/9aac/data/cg_patch,0
+
+tests/posDiff/9aac/data/inputfile,0
+
+tests/posDiff/9aac/data/9AAC.txt,0
+
+tests/posDiff/9aac/data/parametersMD05.txt,0
+
+tests/posDiff/9aac/CMakeLists.txt,33
+set(TARGET test-9aac)TARGET1,0
+
+tests/posDiff/README,0
+
+tests/posDiff/cg.f,28520
+        program cgcg3,45
+        character aseq*aseq7,178
+        character aseq*3,pdbfile*pdbfile7,178
+        character aseq*3,pdbfile*32,outfile*outfile7,178
+        character aseq*3,pdbfile*32,outfile*32,savfile*savfile7,178
+        character aseq*3,pdbfile*32,outfile*32,savfile*32,state*state7,178
+        character aseq*3,pdbfile*32,outfile*32,savfile*32,state*2,buf1*buf17,178
+        character rstfile*rstfile8,251
+        character rstfile*64,seqfile*seqfile8,251
+        character rstfile*64,seqfile*32,arg*arg8,251
+        character rstfile*64,seqfile*32,arg*32,stafile*stafile8,251
+        character rstfile*64,seqfile*32,arg*32,stafile*32,filname*filname8,251
+        character buffer*buffer9,320
+        character buffer*128,buf2*buf29,320
+        character buffer*128,buf2*4,paramfile*paramfile9,320
+        character buffer*128,buf2*4,paramfile*32,mapfile*mapfile9,320
+        character buffer*128,buf2*4,paramfile*32,mapfile*32,cmapf*cmapf9,320
+        logical lconftm,lconftm11,398
+        logical lconftm,lmedian,lmedian11,398
+        logical lconftm,lmedian,lthermo,lthermo11,398
+        logical lconftm,lmedian,lthermo,lforce,lforce11,398
+        logical lconftm,lmedian,lthermo,lforce,lunfold,lunfold11,398
+        logical lconftm,lmedian,lthermo,lforce,lunfold,lvelo,lvelo11,398
+        logical lconftm,lmedian,lthermo,lforce,lunfold,lvelo,lmass,lmass11,398
+        logical lconftm,lmedian,lthermo,lforce,lunfold,lvelo,lmass,ldispldisp11,398
+        logical lchiral,lchiral12,471
+        logical lchiral,lpullrel,lpullrel12,471
+        logical lchiral,lpullrel,lallatom,lallatom12,471
+        logical lchiral,lpullrel,lallatom,langle,langle12,471
+        logical lchiral,lpullrel,lallatom,langle,lj1012,lj101212,471
+        logical lchiral,lpullrel,lallatom,langle,lj1012,lconstvol,lconstvol12,471
+        logical lchiral,lpullrel,lallatom,langle,lj1012,lconstvol,lradiilradii12,471
+        logical loscillate,loscillate13,544
+        logical loscillate,l3rdcn(l3rdcn13,544
+        logical loscillate,l3rdcn(len),lfrmscrtch,lfrmscrtch13,544
+        logical loscillate,l3rdcn(len),lfrmscrtch,lwarmup,lwarmup13,544
+        logical loscillate,l3rdcn(len),lfrmscrtch,lwarmup,lshear,lshear13,544
+        logical loscillate,l3rdcn(len),lfrmscrtch,lwarmup,lshear,ldelrstldelrst13,544
+        logical lfrompdb(lfrompdb14,617
+        logical lfrompdb(len),lwritemap,lwritemap14,617
+        logical lfrompdb(len),lwritemap,lsimpang,lsimpang14,617
+        logical lfrompdb(len),lwritemap,lsimpang,ldi,ldi14,617
+        logical lfrompdb(len),lwritemap,lsimplsim14,617
+        logical lfrompdb(len),lwritemap,lsimpang,ldi,lsim,lstartpdb,lstartpdb14,617
+        logical lfrompdb(len),lwritemap,lsimpang,ldi,lsim,lstartpdb,lpbclpbc14,617
+        logical lgln,lgln15,690
+        logical lgln,lmrs,lmrs15,690
+        logical lgln,lmrs,lparam,lparam15,690
+        logical lgln,lmrs,lparam,lchargend,lchargend15,690
+        logical lgln,lmrs,lparam,lchargend,ldet,ldet15,690
+        logical lgln,lmrs,lparam,lchargend,ldet,lpbcx,lpbcx15,690
+        logical lgln,lmrs,lparam,lchargend,ldet,lpbcx,lpbcy,lpbcy15,690
+        logical lgln,lmrs,lparam,lchargend,ldet,lpbcx,lpbcy,lpbcz,lpbcz15,690
+        logical lgln,lmrs,lparam,lchargend,ldet,lpbcx,lpbcy,lpbcz,lcintrlcintr15,690
+        logical lcoilang,lcoilang16,763
+        logical lcoilang,lcoildih,lcoildih16,763
+        logical lcoilang,lcoildih,lsawconftm,lsawconftm16,763
+        logical lcoilang,lcoildih,lsawconftm,lpid,lpid16,763
+        logical lcoilang,lcoildih,lsawconftm,lpid,lsqpbc,lsqpbc16,763
+        logical lcoilang,lcoildih,lsawconftm,lpid,lsqpbc,ldynss,ldynss16,763
+        logical lcoilang,lcoildih,lsawconftm,lpid,lsqpbc,ldynss,lpullfinlpullfin16,763
+        logical lteql,lteql17,836
+        logical lteql,lposcrd,lposcrd17,836
+        logical lteql,lposcrd,lsslj,lsslj17,836
+        logical lteql,lposcrd,lsslj,lnatend,lnatend17,836
+        logical lteql,lposcrd,lsslj,lnatend,ldisimp,ldisimp17,836
+        logical lteql,lposcrd,lsslj,lnatend,ldisimp,lkmt,lkmt17,836
+        logical lteql,lposcrd,lsslj,lnatend,ldisimp,lkmt,lsselj,lsselj17,836
+        logical lteql,lposcrd,lsslj,lnatend,ldisimp,lkmt,lsselj,lminfboxlminfbox17,836
+        logical lunwrap,lunwrap18,909
+        logical lunwrap,lampstrict,lampstrict18,909
+        logical lunwrap,lampstrict,ljwal,ljwal18,909
+        logical lunwrap,lampstrict,ljwal,lenetab,lenetab18,909
+        logical lunwrap,lampstrict,ljwal,lenetab,lfcc,lfcc18,909
+        logical lunwrap,lampstrict,ljwal,lenetab,lfcc,lcleanrst,lcleanrst18,909
+        logical lunwrap,lampstrict,ljwal,lenetab,lfcc,lcleanrst,lrepcoullrepcoul18,909
+        logical lnowal,lnowal19,982
+        logical lnowal,lmj,lmj19,982
+        logical lnowal,lmj,lbar,lbar19,982
+        logical lnowal,lmj,lbar,lcmap,lcmap19,982
+        logical lnowal,lmj,lbar,lcmap,lwals,lwals19,982
+        logical lnowal,lmj,lbar,lcmap,lwals,lsink,lsink19,982
+        logical lnowal,lmj,lbar,lcmap,lwals,lsink,lwrtang,lwrtang19,982
+        logical lnowal,lmj,lbar,lcmap,lwalslwal19,982
+        logical lnowal,lmj,lbar,lcmap,lwals,lsink,lwrtang,lwal,lcpb,lcpb19,982
+        logical lnowal,lmj,lbar,lcmap,lwals,lsink,lwrtang,lwal,lcpb,lii4lii419,982
+        logical lobo,lobo20,1055
+        logical lobo,lwritego,lwritego20,1055
+        logical lobo,lwritego,lcdnat,lcdnat20,1055
+        logical lobo,lwritego,lcdnat,lcospid,lcospid20,1055
+        logical lobo,lwritego,lcdnat,lcospid,lepid,lepid20,1055
+        logical lobo,lwritego,lcdnat,lcospid,lepid,lrmsmax,lrmsmax20,1055
+        logical lobo,lwritego,lcdnat,lcospid,lepid,lrmsmax,lecperm,lecperm20,1055
+        logical lobo,lwritego,lcdnat,lcospid,lepid,lrmsmax,lecperm,lsldhlsldh20,1055
+        logical lrst,lrst21,1128
+        logical lrst,lcontin,lcontin21,1128
+        logical lrst,lcontin,lconect(lconect21,1128
+        logical lrst,lcontin,lconect(len),lpdb,lpdb21,1128
+        logical lrst,lcontin,lconect(len),lpdb,ldens,ldens21,1128
+        logical lrst,lcontin,lconect(len),lpdb,ldens,lmaxforce,lmaxforce21,1128
+        logical lrst,lcontin,lconect(len),lpdb,ldens,lmaxforce,lwritexyzlwritexyz21,1128
+        logical lcpotlcpot22,1201
+        common/pos/pos25,1290
+        common/vel/vel26,1363
+        common/der/der27,1406
+        common/der2/der228,1473
+        common/for/for29,1541
+        common/parm/parm30,1614
+        common/sig/sig31,1654
+        common/verl/verl32,1727
+        common/cmap/cmap33,1799
+        common/cmp2/cmp234,1871
+        common/sdch/sdch35,1943
+        common/cmapi/cmapi36,2011
+        common/equil/equil37,2084
+        common/bon/bon38,2148
+        common/nat/nat39,2221
+        common/hhar/hhar40,2291
+        common/misc/misc41,2364
+        common/wal/wal42,2437
+        common/bas/bas43,2510
+        common/kier/kier44,2583
+        common/pull/pull45,2655
+        common/mass/mass46,2728
+        common/pid/pid47,2770
+        common/masscenter/masscenter48,2842
+        common/gyr/gyr49,2895
+        common/chiral/chiral50,2966
+        common/ang/ang51,3039
+        common/angnat/angnat52,3112
+        common/angtemp/angtemp53,3181
+        common/restr/restr54,3249
+        common/restart/restart55,3319
+        common/ssb/ssb56,3390
+        common/ssb2/ssb257,3462
+        common/respul/respul58,3528
+        common/plates/plates59,3599
+        common/xyforces/xyforces60,3672
+        common/nmapi/nmapi61,3728
+        common/neigh/neigh62,3801
+        common/mr/mr63,3872
+11      read(7,'(a)',end=12, err=12) buffer11279,17575
+12      close(7)12620,31714
+47      continue47850,39153
+530     continue5301477,60186
+533     continue5331553,62930
+540     continue5401918,78223
+1525    continue15251962,79869
+1526    continue15261963,79886
+9997    continue99972105,85205
+544     continue5442181,87794
+1000    continue10002272,90616
+1001    continue10012275,90673
+2000    continue20002370,93667
+        subroutine predct(predct2387,94026
+        common/pos/pos2394,94241
+        common/vel/vel2395,94314
+        common/der/der2396,94357
+        common/der2/der22397,94424
+        common/for/for2398,94492
+        common/bas/bas2399,94565
+300     continue3002418,95442
+        subroutine corr(corr2428,95593
+        common/pos/pos2434,95764
+        common/vel/vel2435,95837
+        common/der/der2436,95880
+        common/der2/der22437,95947
+        common/for/for2438,96015
+        common/parm/parm2439,96088
+        common/bas/bas2440,96128
+670       continue6702465,96942
+        subroutine prepare(prepare2475,97172
+        common/bas/bas2478,97277
+        common/cmapi/cmapi2479,97350
+        common/sdch/sdch2480,97423
+        common/pos/pos2481,97491
+        common/for/for2482,97564
+        common/wal/wal2483,97637
+        common/plates/plates2484,97710
+        common/misc/misc2485,97783
+        common/xyforces/xyforces2486,97856
+        common/nmapi/nmapi2487,97912
+        common/neigh/neigh2488,97985
+        subroutine evalwall(evalwall2553,99717
+        common/sig/sig2558,99938
+        common/kier/kier2559,100011
+        common/pos/pos2560,100083
+        common/cmp2/cmp22561,100156
+        common/cmapi/cmapi2562,100228
+        common/for/for2563,100301
+        common/misc/misc2564,100374
+        common/equil/equil2565,100447
+        common/wal/wal2566,100511
+        common/bas/bas2567,100584
+        common/respul/respul2568,100657
+        common/plates/plates2569,100728
+        common/verl/verl2570,100801
+        common/pull/pull2571,100873
+        common/xyforces/xyforces2572,100946
+737                             continue7372591,101623
+        subroutine evalcpot(evalcpot2668,104771
+        common/sig/sig2677,105234
+        common/cmp2/cmp22678,105307
+        common/cmapi/cmapi2679,105379
+        common/sdch/sdch2680,105452
+        common/angnat/angnat2681,105520
+        common/restr/restr2682,105589
+        common/kier/kier2683,105659
+        common/bon/bon2684,105731
+        common/pos/pos2685,105804
+        common/for/for2686,105877
+        common/nat/nat2687,105950
+        common/hhar/hhar2688,106020
+        common/misc/misc2689,106093
+        common/wal/wal2690,106166
+        common/bas/bas2691,106239
+        common/ssb/ssb2692,106312
+        common/ssb2/ssb22693,106384
+        common/pid/pid2694,106450
+        common/nmapi/nmapi2695,106522
+        common/neigh/neigh2696,106595
+465         continue4653053,122243
+466     continue4663080,123458
+        subroutine evalimproper(evalimproper3090,123682
+        common/sig/sig3099,124177
+        common/cmp2/cmp23100,124250
+        common/cmapi/cmapi3101,124322
+        common/sdch/sdch3102,124395
+        common/angnat/angnat3103,124463
+        common/restr/restr3104,124532
+        common/kier/kier3105,124602
+        common/bon/bon3106,124674
+        common/pos/pos3107,124747
+        common/for/for3108,124820
+        common/nat/nat3109,124893
+        common/hhar/hhar3110,124963
+        common/misc/misc3111,125036
+        common/wal/wal3112,125109
+        common/bas/bas3113,125182
+        common/ssb/ssb3114,125255
+        common/ssb2/ssb23115,125327
+        common/nmapi/nmapi3116,125393
+        common/pid/pid3117,125466
+        common/neigh/neigh3118,125538
+465     continue4653391,136193
+        subroutine evalgo(evalgo3399,136383
+        common/sig/sig3408,136864
+        common/cmap/cmap3409,136937
+        common/cmp2/cmp23410,137009
+        common/cmapi/cmapi3411,137081
+        common/sdch/sdch3412,137154
+        common/angnat/angnat3413,137222
+        common/kier/kier3414,137291
+        common/bon/bon3415,137363
+        common/pos/pos3416,137436
+        common/for/for3417,137509
+        common/nat/nat3418,137582
+        common/restr/restr3419,137652
+        common/hhar/hhar3420,137722
+        common/misc/misc3421,137795
+        common/wal/wal3422,137868
+        common/bas/bas3423,137941
+        common/ssb/ssb3424,138014
+        common/ssb2/ssb23425,138086
+        common/nmapi/nmapi3426,138152
+        common/neigh/neigh3427,138225
+495     continue4953499,140776
+446     continue4463539,142049
+496     continue4963786,152995
+        subroutine intvel3d(intvel3d3795,153148
+        common/vel/vel3798,153265
+        common/der/der3799,153308
+        common/der2/der23800,153375
+        common/bas/bas3801,153443
+200     continue2003829,154093
+210     continue2103838,154347
+220     continue2203846,154545
+        subroutine lang(lang3853,154677
+        common/vel/vel3856,154799
+        common/for/for3857,154842
+        common/bas/bas3858,154915
+10      continue103867,155191
+20      continue203876,155411
+30      continue303885,155631
+        subroutine lang_mass(lang_mass3892,155807
+        common/vel/vel3895,155934
+        common/for/for3896,155977
+        common/mass/mass3897,156050
+        common/bas/bas3898,156092
+10        continue103918,156704
+        subroutine make_fcc(make_fcc3926,156862
+        common/pos/pos3929,156965
+        common/bas/bas3930,157038
+        common/respul/respul3931,157111
+        common/plates/plates3932,157182
+        common/verl/verl3933,157255
+        common/pull/pull3934,157327
+        subroutine connect_to_wal(connect_to_wal3963,158502
+        common/pos/pos3966,158611
+        common/bas/bas3967,158684
+        common/respul/respul3968,158757
+        common/plates/plates3969,158828
+        common/verl/verl3970,158901
+        common/pull/pull3971,158973
+        subroutine connect_to_wal_one_by_one(connect_to_wal_one_by_one4007,160145
+        common/pos/pos4010,160265
+        common/bas/bas4011,160338
+        common/respul/respul4012,160411
+        common/pull/pull4013,160482
+        common/plates/plates4014,160555
+        common/wal/wal4015,160628
+9876    continue98764045,161748
+        subroutine displace(displace4049,161842
+        common/pos/pos4053,162032
+        common/bon/bon4054,162105
+        common/bas/bas4055,162178
+801     format(a,6x,3(f6.2,2x),4x,3(f6.2))8014107,163994
+        subroutine update_verlet_list(update_verlet_list4150,165189
+        common/verl/verl4158,165588
+        common/sig/sig4159,165660
+        common/wal/wal4160,165733
+        common/plates/plates4161,165806
+        common/misc/misc4162,165879
+        common/ssb/ssb4163,165952
+        common/cmap/cmap4164,166024
+        common/kier/kier4165,166096
+        common/cmp2/cmp24166,166168
+        common/cmapi/cmapi4167,166240
+        common/nmapi/nmapi4168,166313
+        common/bon/bon4169,166386
+        common/for/for4170,166459
+        common/pos/pos4171,166532
+        common/bas/bas4172,166605
+        common/sdch/sdch4173,166678
+        common/ssb2/ssb24174,166746
+9129                    continue91294214,168062
+9219                    continue92194245,169353
+9797                continue97974294,171087
+9898                continue98984320,172352
+9696                continue96964338,173232
+3579                continue35794356,173990
+3580                continue35804366,174461
+3581                continue35814377,174934
+1129            continue11294385,175235
+        subroutine confstart(confstart4395,175443
+        common/for/for4399,175616
+        common/plates/plates4400,175689
+        common/bon/bon4401,175762
+        common/misc/misc4402,175835
+        common/wal/wal4403,175908
+        common/pos/pos4404,175981
+        common/bas/bas4405,176054
+        common/pid/pid4406,176127
+100     continue1004449,177431
+1000    continue10004536,180188
+        subroutine gyration(gyration4543,180354
+        common/pos/pos4546,180459
+        common/plates/plates4547,180532
+        common/masscenter/masscenter4548,180605
+        common/bas/bas4549,180658
+        common/mass/mass4550,180731
+        subroutine cgyration(cgyration4585,181509
+        common/pos/pos4590,181656
+        common/plates/plates4591,181729
+        common/bas/bas4592,181802
+        common/mass/mass4593,181875
+        common/gyr/gyr4594,181917
+        common/bon/bon4595,181988
+        subroutine compute_details(compute_details4668,184092
+        common/sig/sig4672,184238
+        common/for/for4673,184311
+        common/pos/pos4674,184384
+        common/bas/bas4675,184457
+        common/nmapi/nmapi4676,184530
+        common/kier/kier4677,184603
+        common/ssb2/ssb24678,184675
+        subroutine compute_ssbonds(compute_ssbonds4739,186492
+        common/pos/pos4743,186629
+        common/cmap/cmap4744,186702
+        common/ssb/ssb4745,186774
+        common/sig/sig4746,186846
+        common/cmapi/cmapi4747,186919
+        common/bas/bas4748,186992
+496     continue4964774,187872
+        subroutine compute_cmap(compute_cmap4804,188817
+        common/kier/kier4808,188988
+        common/for/for4810,189133
+        common/sig/sig4811,189206
+        common/bon/bon4812,189279
+        common/cmap/cmap4813,189352
+        common/nat/nat4814,189424
+        common/bas/bas4816,189552
+        common/pid/pid4817,189625
+2000            continue20004849,190972
+10000   continue100004850,190997
+        subroutine load_cmap(load_cmap4858,191187
+        common/cmap/cmap4863,191352
+        common/angnat/angnat4864,191424
+        common/sig/sig4865,191493
+        subroutine compute_contact_map(compute_contact_map4893,192313
+        common/rall/rall4899,192566
+        common/nall/nall4900,192625
+        common/radi/radi4901,192667
+        common/cmap/cmap4902,192700
+        common/bon/bon4903,192772
+        common/bas/bas4904,192845
+200                     continue2004958,195037
+2000            continue20004974,195818
+10000   continue100004975,195843
+      function ran2(ran24982,195965
+      common/rans/rans4990,196354
+11      continue115003,196714
+        subroutine load_protein(load_protein5024,197288
+        common/nat/nat5031,197671
+        common/for/for5032,197741
+        common/kier/kier5033,197814
+        common/bas/bas5034,197886
+        common/bon/bon5035,197959
+        common/angnat/angnat5036,198032
+        common/plates/plates5037,198101
+        common/ssb/ssb5038,198174
+15      read(8,'(a)',end=20) buffer155057,198686
+20      continue205145,201542
+16      read(8,'(a)',end=21) buffer165153,201715
+21      continue215169,202250
+        subroutine load_sequence(load_sequence5351,209746
+        common/bon/bon5355,209918
+        common/sig/sig5356,209991
+        common/cmap/cmap5357,210064
+        common/angnat/angnat5360,210266
+        common/nat/nat5361,210335
+        common/bas/bas5362,210405
+        common/hhar/hhar5363,210478
+        subroutine load_paramfile(load_paramfile5498,215467
+        common/ang/ang5503,215686
+        common/angnat/angnat5504,215759
+        common/sdch/sdch5505,215828
+        common/sig/sig5506,215896
+        common/misc/misc5507,215969
+        common/bas/bas5508,216042
+        common/nmapi/nmapi5509,216115
+        common/mr/mr5510,216188
+       subroutine kmt(kmt5627,220479
+       common/pos/pos5630,220597
+566    continue   5665660,221227
+        subroutine compute_rmsd(compute_rmsd5892,228171
+        common/bas/bas5895,228280
+        common/nat/nat5896,228353
+        common/pos/pos5897,228423
+      subroutine kabsch(kabsch5911,228770
+      subroutine norma norma6040,232547
+        subroutine pvector(pvector6055,232870
+      SUBROUTINE jacobi(jacobi6065,233161
+11      continue116074,233439
+12    continue126076,233476
+13    continue136081,233570
+14        continue146088,233712
+15      continue156089,233731
+16            continue166125,234793
+17            continue176131,234976
+18            continue186137,235156
+19            continue196143,235333
+21        continue216146,235400
+22      continue226147,235419
+23      continue236152,235526
+24    continue246153,235543
+      SUBROUTINE eigsrt(eigsrt6160,235695
+11      continue116173,235959
+12        continue126181,236126
+13    continue136183,236159
+        SUBROUTINE sort(sort6189,236318
+1       if(ir-l.lt.M)then16199,236629
+11        continue116205,236782
+2         arr(i+1)=a26207,236815
+12      continue126208,236836
+3       continue36236,237465
+4       continue46239,237528
+5       arr(l)=arr(j)56247,237693
+        subroutine print_cmap(print_cmap6270,238233
+        common/cmap/cmap6275,238401
+        common/sig/sig6276,238473
+        common/angtemp/angtemp6277,238546
+        common/angnat/angnat6278,238614
+        common/pid/pid6280,238741
+        common/bas/bas6281,238813
+        subroutine print_map(print_map6309,239679
+        common/cmap/cmap6315,239933
+        common/kier/kier6316,240005
+        common/for/for6317,240077
+        common/pos/pos6318,240150
+        common/sig/sig6319,240223
+        common/restr/restr6320,240296
+        common/bon/bon6321,240366
+        common/angnat/angnat6322,240439
+        common/angtemp/angtemp6323,240508
+        common/cmp2/cmp26325,240634
+        common/cmapi/cmapi6326,240706
+        common/chiral/chiral6327,240779
+        common/bas/bas6328,240852
+        common/nmapi/nmapi6329,240925
+        common/neigh/neigh6330,240998
+        common/ssb2/ssb26331,241069
+        common/ssb/ssb6332,241135
+        common/pid/pid6333,241207
+        subroutine print_conformation(print_conformation6477,246628
+        common/pos/pos6483,246893
+        common/misc/misc6484,246966
+        common/wal/wal6485,247039
+        common/bas/bas6487,247170
+        common/gyr/gyr6488,247243
+        common/bon/bon6489,247314
+        common/ssb/ssb6490,247387
+        common/plates/plates6491,247459
+        common/neigh/neigh6492,247532
+1532    continue15326533,248765
+1000    continue10006587,251070
+1100    continue        11006597,251440
+        subroutine print_conf_xyz(print_conf_xyz6605,251660
+        common/pos/pos6609,251817
+        common/bas/bas6611,251948
+1000    continue10006618,252302
+        subroutine print_restart(print_restart6625,252457
+        common/pos/pos6630,252656
+        common/vel/vel6631,252729
+        common/cmapi/cmapi6632,252772
+        common/wal/wal6633,252845
+        common/restart/restart6634,252918
+        common/plates/plates6635,252989
+        common/ssb/ssb6636,253062
+        common/ssb2/ssb26637,253134
+        common/respul/respul6638,253200
+        common/pull/pull6639,253271
+        common/kier/kier6640,253344
+        common/bas/bas6641,253416
+        subroutine afm(afm6672,254520
+        common/pos/pos6675,254628
+        common/for/for6676,254701
+        common/nat/nat6677,254774
+        common/hhar/hhar6678,254844
+        common/bas/bas6679,254917
+        common/kier/kier6680,254990
+        common/respul/respul6681,255062
+        subroutine vafm(vafm6716,256068
+        common/pos/pos6720,256258
+        common/for/for6721,256331
+        common/nat/nat6722,256404
+        common/vel/vel6723,256474
+        common/hhar/hhar6724,256517
+        common/bas/bas6725,256590
+        common/cmp2/cmp26726,256663
+        common/sig/sig6727,256735
+        common/cmapi/cmapi6728,256808
+        common/misc/misc6729,256881
+        common/verl/verl6730,256954
+        common/equil/equil6731,257026
+        common/kier/kier6732,257090
+        common/pull/pull6733,257162
+        common/respul/respul6734,257235
+        common/wal/wal6735,257306
+        common/plates/plates6736,257379
+7865        continue78656882,262747
+        subroutine build_titin(build_titin6940,264608
+        common/bon/bon6947,264844
+        common/nat/nat6948,264917
+        common/bas/bas6949,264987
+        common/cmap/cmap6950,265060
+1000        continue10006991,266038
+        subroutine interdomain(interdomain7002,266242
+        common/sig/sig7007,266437
+        common/cmap/cmap7008,266510
+        common/bas/bas7009,266582
+1000        continue10007026,267043
+        subroutine amino_acid_massamino_acid_mass7039,267349
+        common/mass/mass7044,267546
+        common/bas/bas7045,267588
+1000        continue10007090,268938
+        subroutine model_chiralitymodel_chirality7111,269341
+        common/bon/bon7116,269540
+        common/nat/nat7117,269613
+        common/angnat/angnat7118,269683
+        common/sig/sig7119,269752
+        common/bas/bas7121,269883
+        common/chiral/chiral7122,269956
+1000    continue10007130,270206
+2000    continue20007145,270649
+        subroutine eval_chirality(eval_chirality7156,270927
+        common/bon/bon7160,271085
+        common/nat/nat7161,271158
+        common/bas/bas7162,271228
+        common/chiral/chiral7163,271301
+        common/angtemp/angtemp7164,271374
+        common/pos/pos7165,271442
+        common/for/for7166,271515
+1000    continue10007174,271801
+2000    continue20007186,272190
+3000    continue30007235,273699
+        subroutine load_allatom(load_allatom7245,273964
+        common/rall/rall7251,274228
+        common/nall/nall7252,274287
+        common/bas/bas7253,274329
+15        read(15,'(a)',end=20) buffer157266,274709
+20        continue207291,275457
+        subroutine assign_VdW_radiusassign_VdW_radius7299,275605
+        common/rall/rall7305,275864
+        common/nall/nall7306,275923
+        common/radi/radi7307,275965
+        common/bas/bas7308,275998
+1000        continue10007446,279781
+        subroutine gopotential(gopotential7489,281097
+        common/sig/sig7493,281255
+        common/cmap/cmap7494,281328
+        common/bon/bon7495,281400
+        common/nat/nat7496,281473
+        common/pos/pos7497,281543
+        common/kier/kier7498,281616
+        common/for/for7499,281688
+        common/vel/vel7500,281761
+        common/bas/bas7501,281804
+2000    continue20007537,282806
+        subroutine compute_native_anglescompute_native_angles7569,283552
+        common/nat/nat7573,283704
+        common/four/four7574,283774
+        common/bas/bas7575,283812
+        common/angnat/angnat7576,283885
+100        continue1007587,284160
+200        continue2007598,284381
+        subroutine angeval(angeval7605,284501
+        common/bon/bon7610,284707
+        common/pos/pos7612,284838
+        common/for/for7613,284911
+        common/ang/ang7614,284984
+        common/chiral/chiral7615,285057
+        common/four/four7616,285130
+        common/angnat/angnat7617,285168
+        common/angtemp/angtemp7618,285237
+        common/bas/bas7619,285305
+101        continue1017711,288204
+100        continue1007714,288252
+201     continue2017797,290709
+200     continue2007800,290754
+        subroutine countpid(countpid7807,290882
+        common/bon/bon7811,291025
+        common/pos/pos7812,291098
+        common/ang/ang7813,291171
+        common/misc/misc7814,291244
+        common/for/for7815,291317
+        subroutine evalangles(evalangles7886,293478
+        common/bon/bon7892,293739
+        common/pos/pos7894,293870
+        common/for/for7895,293943
+        common/ang/ang7896,294016
+        common/chiral/chiral7897,294089
+        common/four/four7898,294162
+        common/angnat/angnat7899,294200
+        common/angtemp/angtemp7900,294269
+        common/bas/bas7901,294337
+        common/mr/mr7902,294410
+100     continue1008001,297929
+200     continue2008119,301624
+        subroutine bondangle(bondangle8128,301811
+        common/four/four8131,301919
+        common/bas/bas8132,301957
+        subroutine dihedral(dihedral8156,302494
+        common/four/four8159,302599
+        common/bas/bas8160,302637
+      SUBROUTINE sort2(sort28198,303482
+1     if(ir-l.lt.M)then18210,303837
+11        continue118218,304035
+2         arr(i+1)=a28220,304068
+12      continue128222,304109
+3       continue38263,305049
+4       continue48266,305112
+5       arr(l)=arr(j)58277,305347
+
+tests/posDiff/genDiffs.sh,0
+
+tests/posDiff/CMakeLists.txt,0
+
+tests/posDiff/1ubq/main.cpp,25
+int main() {main16,516
+
+tests/posDiff/1ubq/data/1ubq.pdb,0
+
+tests/posDiff/1ubq/data/cg_patch,0
+
+tests/posDiff/1ubq/data/parametersMJ96.txt,0
+
+tests/posDiff/1ubq/data/inputfile,0
+
+tests/posDiff/1ubq/CMakeLists.txt,33
+set(TARGET test-1ubq)TARGET1,0
+
+tests/CMakeLists.txt,0
+
+LICENSE,0
+
+CMakeLists.txt,36
+project(mdk LANGUAGES CXX)mdk2,37
+
+examples/9aac/main.cpp,24
+int main() {main7,140
+
+examples/9aac/data/9AAC.txt,0
+
+examples/9aac/data/parametersMD05.txt,0
+
+examples/9aac/data/inputfile2,0
+
+examples/9aac/CMakeLists.txt,28
+set(TARGET 9aac)TARGET1,0
+
+examples/glut/main.cpp,24
+int main() {main7,140
+
+examples/glut/data/lmwc.map,0
+
+examples/glut/data/yhmc.map,0
+
+examples/glut/data/xhmn.map,0
+
+examples/glut/data/yhmn.map,0
+
+examples/glut/data/inputfile3,0
+
+examples/glut/data/xhmc.map,0
+
+examples/glut/data/glut.txt,0
+
+examples/glut/data/parameters.txt,0
+
+examples/glut/data/agli.map,0
+
+examples/glut/data/ygli.map,0
+
+examples/glut/CMakeLists.txt,28
+set(TARGET glut)TARGET1,0
+
+examples/CMakeLists.txt,0
+
+examples/1ubq/main.cpp,25
+int main() {main10,257
+
+examples/1ubq/data/1ubq.pdb,0
+
+examples/1ubq/data/parametersMJ96.txt,0
+
+examples/1ubq/data/inputfile1,0
+
+examples/1ubq/CMakeLists.txt,28
+set(TARGET 1ubq)TARGET1,0

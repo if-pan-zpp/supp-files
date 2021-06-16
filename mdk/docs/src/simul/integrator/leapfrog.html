@@ -1,0 +1,291 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Leapfrog integrator &mdash; mdk  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Predictor-corrector integrator with Langevin noise" href="langpc.html" />
+    <link rel="prev" title="Integrators" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> mdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sections:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prep/index.html">Preparation layer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Simulation layer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../simulation.html">Simulation object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">Data objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../primitives.html">Primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../simulvar.html">Simulation variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forces/index.html">Forces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kernels/index.html">Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../verlet.html">Verlet list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stats.html">Coordination stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../state.html">Physical state object</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Integrators</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Leapfrog integrator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="langpc.html">Predictor-corrector integrator with Langevin noise</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../hooks/index.html">Hooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/index.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../entire.html">Entire namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Simulation layer</a> &raquo;</li>
+        
+          <li><a href="index.html">Integrators</a> &raquo;</li>
+        
+      <li>Leapfrog integrator</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/src/simul/integrator/leapfrog.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="leapfrog-integrator">
+<h1>Leapfrog integrator<a class="headerlink" href="#leapfrog-integrator" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk8LeapfrogE">
+<span id="_CPPv3N3mdk8LeapfrogE"></span><span id="_CPPv2N3mdk8LeapfrogE"></span><span id="mdk::Leapfrog"></span><span class="target" id="classmdk_1_1Leapfrog"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">Leapfrog</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk10IntegratorE" title="mdk::Integrator"><span class="n"><span class="pre">Integrator</span></span></a><br /></dt>
+<dd><p><a class="reference internal" href="#classmdk_1_1Leapfrog"><span class="std std-ref">Leapfrog</span></a> integration algorithm. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk8Leapfrog8LeapfrogEd">
+<span id="_CPPv3N3mdk8Leapfrog8LeapfrogEd"></span><span id="_CPPv2N3mdk8Leapfrog8LeapfrogEd"></span><span id="mdk::Leapfrog::Leapfrog__double"></span><span class="target" id="classmdk_1_1Leapfrog_1ac3263218f4d86f2fb6137aa1abe5d26a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Leapfrog</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">dt</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk8Leapfrog4bindER10Simulation">
+<span id="_CPPv3N3mdk8Leapfrog4bindER10Simulation"></span><span id="_CPPv2N3mdk8Leapfrog4bindER10Simulation"></span><span id="mdk::Leapfrog::bind__SimulationR"></span><span class="target" id="classmdk_1_1Leapfrog_1a3ef9cb590537d84687dfa03c4250dcc7"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bind</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk10SimulationE" title="mdk::Simulation"><span class="n"><span class="pre">Simulation</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">simulation</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Bind an object to a simulation. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>simulation</strong> – <a class="reference internal" href="../simulation.html#classmdk_1_1Simulation"><span class="std std-ref">Simulation</span></a> to bind the object to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk8Leapfrog4initEv">
+<span id="_CPPv3N3mdk8Leapfrog4initEv"></span><span id="_CPPv2N3mdk8Leapfrog4initEv"></span><span id="mdk::Leapfrog::init"></span><span class="target" id="classmdk_1_1Leapfrog_1a9e9114cb24b3675ca5c448d6024a14bf"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">init</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Initialize the state of the integrator. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk8Leapfrog9integrateEv">
+<span id="_CPPv3N3mdk8Leapfrog9integrateEv"></span><span id="_CPPv2N3mdk8Leapfrog9integrateEv"></span><span id="mdk::Leapfrog::integrate"></span><span class="target" id="classmdk_1_1Leapfrog_1aa2cded708fa18a7619fd0744127b49ef"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">integrate</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk8Leapfrog2dtE">
+<span id="_CPPv3N3mdk8Leapfrog2dtE"></span><span id="_CPPv2N3mdk8Leapfrog2dtE"></span><span id="mdk::Leapfrog::dt__double"></span><span class="target" id="classmdk_1_1Leapfrog_1a238418ef1e5d26e4aab8b9642246451b"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dt</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0.005</span></span><span class="w"> </span><span class="o"><span class="pre">*</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3tauE" title="mdk::tau"><span class="n"><span class="pre">tau</span></span></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk8Leapfrog1mE">
+<span id="_CPPv3N3mdk8Leapfrog1mE"></span><span id="_CPPv2N3mdk8Leapfrog1mE"></span><span id="mdk::Leapfrog::m__Masses"></span><span class="target" id="classmdk_1_1Leapfrog_1ab2eb211e6de4b926c01e0930ec3fced2"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk6MassesE" title="mdk::Masses"><span class="n"><span class="pre">Masses</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk8Leapfrog6a_prevE">
+<span id="_CPPv3N3mdk8Leapfrog6a_prevE"></span><span id="_CPPv2N3mdk8Leapfrog6a_prevE"></span><span id="mdk::Leapfrog::a_prev__Vectors"></span><span class="target" id="classmdk_1_1Leapfrog_1ada5bb8e07081561b22a28bfc56a377d7"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk7VectorsE" title="mdk::Vectors"><span class="n"><span class="pre">Vectors</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">a_prev</span></span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="langpc.html" class="btn btn-neutral float-right" title="Predictor-corrector integrator with Langevin noise" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Integrators" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, IF PAN &amp; ZPP Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

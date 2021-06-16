@@ -1,0 +1,547 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Dihedral angle potentials &mdash; mdk  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Chirality potential" href="chiral.html" />
+    <link rel="prev" title="Bond angle potential" href="bondangle.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> mdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sections:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prep/index.html">Preparation layer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Simulation layer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../simulation.html">Simulation object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">Data objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../primitives.html">Primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../simulvar.html">Simulation variables</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Forces</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="tether.html">Chain tether forces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bondangle.html">Bond angle potential</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Dihedral angle potentials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chiral.html">Chirality potential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nonlocal.html">Nonlocal function interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gomodel.html">Go-model native contacts potential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="es.html">Electrostatic forces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pauli.html">Pauli exclusion forces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pid.html">Pseudo-improper-dihedral custom potential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qa.html">Quasi-adiabatic custom potential</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kernels/index.html">Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../verlet.html">Verlet list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stats.html">Coordination stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../state.html">Physical state object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integrator/index.html">Integrators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hooks/index.html">Hooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/index.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../entire.html">Entire namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Simulation layer</a> &raquo;</li>
+        
+          <li><a href="index.html">Forces</a> &raquo;</li>
+        
+      <li>Dihedral angle potentials</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/src/simul/forces/dihedral.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dihedral-angle-potentials">
+<h1>Dihedral angle potentials<a class="headerlink" href="#dihedral-angle-potentials" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv43mdk">
+<span id="_CPPv33mdk"></span><span id="_CPPv23mdk"></span><span id="mdk"></span><span class="target" id="namespacemdk"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mdk</span></span></span><br /></dt>
+<dd><dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk14DihedralAnglesE">
+<span id="_CPPv3N3mdk14DihedralAnglesE"></span><span id="_CPPv2N3mdk14DihedralAnglesE"></span><span id="mdk::DihedralAngles"></span><span class="target" id="classmdk_1_1DihedralAngles"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DihedralAngles</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5ForceE" title="mdk::Force"><span class="n"><span class="pre">Force</span></span></a><br /></dt>
+<dd><em>#include &lt;DihedralAngles.hpp&gt;</em><p>A force field for dihedral angles, composed of:<ul class="simple">
+<li><p>the “native” part, which exists in two mutually exclusive variants (simple and complex);</p></li>
+<li><p>the “heurestic” part. The native part supercedes heurestic part whenever native dihedral angle is defined for a quadruple. </p></li>
+</ul>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk14DihedralAngles4bindER10Simulation">
+<span id="_CPPv3N3mdk14DihedralAngles4bindER10Simulation"></span><span id="_CPPv2N3mdk14DihedralAngles4bindER10Simulation"></span><span id="mdk::DihedralAngles::bind__SimulationR"></span><span class="target" id="classmdk_1_1DihedralAngles_1a223fd66b582e06cd1bcc5820b8772b7a"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bind</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk10SimulationE" title="mdk::Simulation"><span class="n"><span class="pre">Simulation</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">simulation</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Bind the force field to a simulation. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>simulation</strong> – <a class="reference internal" href="../simulation.html#classmdk_1_1Simulation"><span class="std std-ref">Simulation</span></a> to bind to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk14DihedralAngles9asyncPartER8Dynamics">
+<span id="_CPPv3N3mdk14DihedralAngles9asyncPartER8Dynamics"></span><span id="_CPPv2N3mdk14DihedralAngles9asyncPartER8Dynamics"></span><span id="mdk::DihedralAngles::asyncPart__DynamicsR"></span><span class="target" id="classmdk_1_1DihedralAngles_1a7f7efb68b5be33d5677095e7ae44954c"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">asyncPart</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk8DynamicsE" title="mdk::Dynamics"><span class="n"><span class="pre">Dynamics</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">dynamics</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>“Asynchronous” part of the potential. Here it’s the only part. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dynamics</strong> – <a class="reference internal" href="../../entire.html#structmdk_1_1Dynamics"><span class="std std-ref">Dynamics</span></a> object to add potential energy and forces to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk14DihedralAngles6natDihE">
+<span id="_CPPv3N3mdk14DihedralAngles6natDihE"></span><span id="_CPPv2N3mdk14DihedralAngles6natDihE"></span><span id="mdk::DihedralAngles::natDih__std::variant:std::monostate.ComplexNativeDihedralP.SimpleNativeDihedralP:"></span><span class="target" id="classmdk_1_1DihedralAngles_1a72aca4666e2341b93bc4cd8acee7c0f2"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">variant</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">monostate</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk21ComplexNativeDihedralE" title="mdk::ComplexNativeDihedral"><span class="n"><span class="pre">ComplexNativeDihedral</span></span></a><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk20SimpleNativeDihedralE" title="mdk::SimpleNativeDihedral"><span class="n"><span class="pre">SimpleNativeDihedral</span></span></a><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">natDih</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">monostate</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><br /></dt>
+<dd><p>The “native” part, i.e. either nothing, complex variant or the simple variant. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk14DihedralAngles7heurDihE">
+<span id="_CPPv3N3mdk14DihedralAngles7heurDihE"></span><span id="_CPPv2N3mdk14DihedralAngles7heurDihE"></span><span id="mdk::DihedralAngles::heurDih__HeuresticDihedralP"></span><span class="target" id="classmdk_1_1DihedralAngles_1a03ef8d67e1d624dcbb1bc3f1706811c6"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk17HeuresticDihedralE" title="mdk::HeuresticDihedral"><span class="n"><span class="pre">HeuresticDihedral</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">heurDih</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><br /></dt>
+<dd><p>The “heurestic” part of the potential. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk14DihedralAngles7inRangeE">
+<span id="_CPPv3N3mdk14DihedralAngles7inRangeE"></span><span id="_CPPv2N3mdk14DihedralAngles7inRangeE"></span><span id="mdk::DihedralAngles::inRange__Bytes"></span><span class="target" id="classmdk_1_1DihedralAngles_1aabf9936c140ba4d6f037e72690fee3c0"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5BytesE" title="mdk::Bytes"><span class="n"><span class="pre">Bytes</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">inRange</span></span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-friends">Friends</p>
+<dl>
+<dt class="sig sig-object cpp">
+<em class="property"><span class="pre">friend</span> <span class="pre">class</span></em> <span class="pre">ComplexNativeDihedral</span></dt>
+</dl>
+
+<dl>
+<dt class="sig sig-object cpp">
+<em class="property"><span class="pre">friend</span> <span class="pre">class</span></em> <span class="pre">SimpleNativeDihedral</span></dt>
+</dl>
+
+<dl>
+<dt class="sig sig-object cpp">
+<em class="property"><span class="pre">friend</span> <span class="pre">class</span></em> <span class="pre">HeuresticDihedral</span></dt>
+</dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp">
+<span class="target" id="namespacemdk"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mdk</span></span></span><br /></dt>
+<dd><dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk18NativeDihedralBaseE">
+<span id="_CPPv3N3mdk18NativeDihedralBaseE"></span><span id="_CPPv2N3mdk18NativeDihedralBaseE"></span><span id="mdk::NativeDihedralBase"></span><span class="target" id="classmdk_1_1NativeDihedralBase"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NativeDihedralBase</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk8SimulVarE" title="mdk::SimulVar"><span class="n"><span class="pre">SimulVar</span></span></a><br /></dt>
+<dd><em>#include &lt;NativeDihedralBase.hpp&gt;</em><p>A common part of simple and complex native dihedral variants. In particular, it stores whether a quadruple (i-2, i-1, i, i+1) has an associated native dihedral angle, and its value if it is the case. </p>
+<p>Subclassed by <a class="reference internal" href="#classmdk_1_1ComplexNativeDihedral"><span class="std std-ref">mdk::ComplexNativeDihedral</span></a>, <a class="reference internal" href="#classmdk_1_1SimpleNativeDihedral"><span class="std std-ref">mdk::SimpleNativeDihedral</span></a></p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk18NativeDihedralBase4bindER10Simulation">
+<span id="_CPPv3N3mdk18NativeDihedralBase4bindER10Simulation"></span><span id="_CPPv2N3mdk18NativeDihedralBase4bindER10Simulation"></span><span id="mdk::NativeDihedralBase::bind__SimulationR"></span><span class="target" id="classmdk_1_1NativeDihedralBase_1a01c14964d511fd93751edb6267fb5eaa"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bind</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk10SimulationE" title="mdk::Simulation"><span class="n"><span class="pre">Simulation</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">simulation</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Bind the variant to the simulation. Technically one shouldn’t add this base to the simulation itself; it serves as a prototype for <code class="docutils literal notranslate"><span class="pre">bind</span></code> in <code class="docutils literal notranslate"><a class="reference internal" href="#classmdk_1_1ComplexNativeDihedral"><span class="std std-ref"><span class="pre">ComplexNativeDihedral</span></span></a></code> and <code class="docutils literal notranslate"><a class="reference internal" href="#classmdk_1_1SimpleNativeDihedral"><span class="std std-ref"><span class="pre">SimpleNativeDihedral</span></span></a></code>  in particular, it retrieves and computes <code class="docutils literal notranslate"><span class="pre">isNative</span></code> and <code class="docutils literal notranslate"><span class="pre">phi0</span></code>. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>simulation</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-protected-attributes">Protected Attributes</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk18NativeDihedralBase8isNativeE">
+<span id="_CPPv3N3mdk18NativeDihedralBase8isNativeE"></span><span id="_CPPv2N3mdk18NativeDihedralBase8isNativeE"></span><span id="mdk::NativeDihedralBase::isNative__Bytes"></span><span class="target" id="classmdk_1_1NativeDihedralBase_1a5b9df61a3952220cd2f8c4b72db167a6"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5BytesE" title="mdk::Bytes"><span class="n"><span class="pre">Bytes</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isNative</span></span></span><br /></dt>
+<dd><p>isNative[i] = 1 if a quadruple (i-2, i-1, i, i+1) has an associated native dihedral angle, 0 otherwise. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk18NativeDihedralBase4phi0E">
+<span id="_CPPv3N3mdk18NativeDihedralBase4phi0E"></span><span id="_CPPv2N3mdk18NativeDihedralBase4phi0E"></span><span id="mdk::NativeDihedralBase::phi0__Scalars"></span><span class="target" id="classmdk_1_1NativeDihedralBase_1a1c9e8aafeba50cfaae3daba622784d6d"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk7ScalarsE" title="mdk::Scalars"><span class="n"><span class="pre">Scalars</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">phi0</span></span></span><br /></dt>
+<dd><p>phi0[i] has the value of an associated native dihedral angle, if such exists for the quadruple (i-2, i-1, i, i+1); otherwise, the value is undefined. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp">
+<span class="target" id="namespacemdk"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mdk</span></span></span><br /></dt>
+<dd><dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk21ComplexNativeDihedralE">
+<span id="_CPPv3N3mdk21ComplexNativeDihedralE"></span><span id="_CPPv2N3mdk21ComplexNativeDihedralE"></span><span id="mdk::ComplexNativeDihedral"></span><span class="target" id="classmdk_1_1ComplexNativeDihedral"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ComplexNativeDihedral</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk18NativeDihedralBaseE" title="mdk::NativeDihedralBase"><span class="n"><span class="pre">NativeDihedralBase</span></span></a><br /></dt>
+<dd><em>#include &lt;ComplexNativeDihedral.hpp&gt;</em><p>The complex variant of the native part of the dihedral angle potential. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk21ComplexNativeDihedral4bindER10Simulation">
+<span id="_CPPv3N3mdk21ComplexNativeDihedral4bindER10Simulation"></span><span id="_CPPv2N3mdk21ComplexNativeDihedral4bindER10Simulation"></span><span id="mdk::ComplexNativeDihedral::bind__SimulationR"></span><span class="target" id="classmdk_1_1ComplexNativeDihedral_1a121ed92eac21e3d2fc98b3eaefca0f3e"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bind</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk10SimulationE" title="mdk::Simulation"><span class="n"><span class="pre">Simulation</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">simulation</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Bind the part to the simulation - in particular, find (and possibly create) <code class="docutils literal notranslate"><a class="reference internal" href="#classmdk_1_1DihedralAngles"><span class="std std-ref"><span class="pre">DihedralAngles</span></span></a></code> force field and add itself to it. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>simulation</strong> – <a class="reference internal" href="../simulation.html#classmdk_1_1Simulation"><span class="std std-ref">Simulation</span></a> to bind to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk21ComplexNativeDihedral4termEidRdRd">
+<span id="_CPPv3NK3mdk21ComplexNativeDihedral4termEidRdRd"></span><span id="_CPPv2NK3mdk21ComplexNativeDihedral4termEidRdRd"></span><span id="mdk::ComplexNativeDihedral::term__i.double.doubleR.doubleRC"></span><span class="target" id="classmdk_1_1ComplexNativeDihedral_1ab56578cd674afd1f8b79f3de991d857a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">term</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">phi</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">V</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">dV_dphi</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Term of the formula for the dihedral angle potential of a single quadruple. Note: it’s inline in order for the compiler to inline it in <code class="docutils literal notranslate"><span class="pre">DihedralAngles.cpp</span></code> file. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> – The index i in the quadruple (i-2, i-1, i, i+1). </p></li>
+<li><p><strong>phi</strong> – Dihedral angle between planes defined by sequences i-2, i-1, i and i-1, i, i+1. </p></li>
+<li><p><strong>V</strong> – Potential energy reference to add to. </p></li>
+<li><p><strong>dV_dphi</strong> – Derivative of potential energy wrt the angle phi to add to. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk21ComplexNativeDihedral3CDAE">
+<span id="_CPPv3N3mdk21ComplexNativeDihedral3CDAE"></span><span id="_CPPv2N3mdk21ComplexNativeDihedral3CDAE"></span><span id="mdk::ComplexNativeDihedral::CDA__double"></span><span class="target" id="classmdk_1_1ComplexNativeDihedral_1a00335b07fb7f48793afbe2ae4a5e4db1"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CDA</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0.66</span></span><span class="w"> </span><span class="o"><span class="pre">*</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3epsE" title="mdk::eps"><span class="n"><span class="pre">eps</span></span></a><span class="w"> </span><span class="o"><span class="pre">/</span></span><span class="w"> </span><span class="n"><span class="pre">pow</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3radE" title="mdk::rad"><span class="n"><span class="pre">rad</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">2.0</span></span><span class="p"><span class="pre">)</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk21ComplexNativeDihedral3CDBE">
+<span id="_CPPv3N3mdk21ComplexNativeDihedral3CDBE"></span><span id="_CPPv2N3mdk21ComplexNativeDihedral3CDBE"></span><span id="mdk::ComplexNativeDihedral::CDB__double"></span><span class="target" id="classmdk_1_1ComplexNativeDihedral_1a9a9b1c1b4e79db1c18d3588da970312e"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CDB</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0.66</span></span><span class="w"> </span><span class="o"><span class="pre">*</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3epsE" title="mdk::eps"><span class="n"><span class="pre">eps</span></span></a><span class="w"> </span><span class="o"><span class="pre">/</span></span><span class="w"> </span><span class="n"><span class="pre">pow</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3radE" title="mdk::rad"><span class="n"><span class="pre">rad</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">2.0</span></span><span class="p"><span class="pre">)</span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-friends">Friends</p>
+<dl>
+<dt class="sig sig-object cpp">
+<em class="property"><span class="pre">friend</span> <span class="pre">class</span></em> <span class="pre">DihedralAngles</span></dt>
+</dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp">
+<span class="target" id="namespacemdk"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mdk</span></span></span><br /></dt>
+<dd><dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk20SimpleNativeDihedralE">
+<span id="_CPPv3N3mdk20SimpleNativeDihedralE"></span><span id="_CPPv2N3mdk20SimpleNativeDihedralE"></span><span id="mdk::SimpleNativeDihedral"></span><span class="target" id="classmdk_1_1SimpleNativeDihedral"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SimpleNativeDihedral</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk18NativeDihedralBaseE" title="mdk::NativeDihedralBase"><span class="n"><span class="pre">NativeDihedralBase</span></span></a><br /></dt>
+<dd><em>#include &lt;SimpleNativeDihedral.hpp&gt;</em><p>The simple variant of the native part of the dihedral angle potential. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk20SimpleNativeDihedral4bindER10Simulation">
+<span id="_CPPv3N3mdk20SimpleNativeDihedral4bindER10Simulation"></span><span id="_CPPv2N3mdk20SimpleNativeDihedral4bindER10Simulation"></span><span id="mdk::SimpleNativeDihedral::bind__SimulationR"></span><span class="target" id="classmdk_1_1SimpleNativeDihedral_1a425fa5c7aa22782d684ffed68f24b1ed"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bind</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk10SimulationE" title="mdk::Simulation"><span class="n"><span class="pre">Simulation</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">simulation</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Bind the part to the simulation - in particular, find (and possibly create) <code class="docutils literal notranslate"><a class="reference internal" href="#classmdk_1_1DihedralAngles"><span class="std std-ref"><span class="pre">DihedralAngles</span></span></a></code> force field and add itself to it. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>simulation</strong> – <a class="reference internal" href="../simulation.html#classmdk_1_1Simulation"><span class="std std-ref">Simulation</span></a> to bind to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk20SimpleNativeDihedral4termEidRdRd">
+<span id="_CPPv3NK3mdk20SimpleNativeDihedral4termEidRdRd"></span><span id="_CPPv2NK3mdk20SimpleNativeDihedral4termEidRdRd"></span><span id="mdk::SimpleNativeDihedral::term__i.double.doubleR.doubleRC"></span><span class="target" id="classmdk_1_1SimpleNativeDihedral_1a49c37622c1e3dea0a1f42fe46f1bc25c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">term</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">phi</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">V</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">dV_dphi</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Term of the formula for the dihedral angle potential of a single quadruple. Note: it’s inline in order for the compiler to inline it in <code class="docutils literal notranslate"><span class="pre">DihedralAngles.cpp</span></code> file. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> – The index i in the quadruple (i-2, i-1, i, i+1). </p></li>
+<li><p><strong>phi</strong> – Dihedral angle between planes defined by sequences i-2, i-1, i and i-1, i, i+1. </p></li>
+<li><p><strong>V</strong> – Potential energy reference to add to. </p></li>
+<li><p><strong>dV_dphi</strong> – Derivative of potential energy wrt the angle phi to add to. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk20SimpleNativeDihedral3CDHE">
+<span id="_CPPv3N3mdk20SimpleNativeDihedral3CDHE"></span><span id="_CPPv2N3mdk20SimpleNativeDihedral3CDHE"></span><span id="mdk::SimpleNativeDihedral::CDH__double"></span><span class="target" id="classmdk_1_1SimpleNativeDihedral_1aa0382b76ce9e1ab6f56d3052809f54a0"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CDH</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">3.33</span></span><span class="w"> </span><span class="o"><span class="pre">*</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3epsE" title="mdk::eps"><span class="n"><span class="pre">eps</span></span></a><span class="w"> </span><span class="o"><span class="pre">/</span></span><span class="w"> </span><span class="n"><span class="pre">pow</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3radE" title="mdk::rad"><span class="n"><span class="pre">rad</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">)</span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-friends">Friends</p>
+<dl>
+<dt class="sig sig-object cpp">
+<em class="property"><span class="pre">friend</span> <span class="pre">class</span></em> <span class="pre">DihedralAngles</span></dt>
+</dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp">
+<span class="target" id="namespacemdk"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mdk</span></span></span><br /></dt>
+<dd><dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk17HeuresticDihedralE">
+<span id="_CPPv3N3mdk17HeuresticDihedralE"></span><span id="_CPPv2N3mdk17HeuresticDihedralE"></span><span id="mdk::HeuresticDihedral"></span><span class="target" id="classmdk_1_1HeuresticDihedral"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">HeuresticDihedral</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk8SimulVarE" title="mdk::SimulVar"><span class="n"><span class="pre">SimulVar</span></span></a><br /></dt>
+<dd><em>#include &lt;HeuresticDihedral.hpp&gt;</em><p>Heurestic part of the dihedral potential, applied when with the quadruple (i-2, i-1, i, i+1) is not associated a native dihedral angle. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk17HeuresticDihedral4bindER10Simulation">
+<span id="_CPPv3N3mdk17HeuresticDihedral4bindER10Simulation"></span><span id="_CPPv2N3mdk17HeuresticDihedral4bindER10Simulation"></span><span id="mdk::HeuresticDihedral::bind__SimulationR"></span><span class="target" id="classmdk_1_1HeuresticDihedral_1a6915cd32f6724b0d2142b56cc68c76bd"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bind</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk10SimulationE" title="mdk::Simulation"><span class="n"><span class="pre">Simulation</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">simulation</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Bind the part to the simulation - in particular, find (and possibly create) <code class="docutils literal notranslate"><a class="reference internal" href="#classmdk_1_1DihedralAngles"><span class="std std-ref"><span class="pre">DihedralAngles</span></span></a></code> force field and add itself to it. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>simulation</strong> – <a class="reference internal" href="../simulation.html#classmdk_1_1Simulation"><span class="std std-ref">Simulation</span></a> to bind to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk17HeuresticDihedral4termEidRdRd">
+<span id="_CPPv3NK3mdk17HeuresticDihedral4termEidRdRd"></span><span id="_CPPv2NK3mdk17HeuresticDihedral4termEidRdRd"></span><span id="mdk::HeuresticDihedral::term__i.double.doubleR.doubleRC"></span><span class="target" id="classmdk_1_1HeuresticDihedral_1a7813afb5638d58161c402aef49eb3d01"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">term</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">phi</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">V</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">dV_dphi</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Term of the formula for the dihedral angle potential of a single quadruple. Note: it’s inline in order for the compiler to inline it in <code class="docutils literal notranslate"><span class="pre">DihedralAngles.cpp</span></code> file. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> – The index i in the quadruple (i-2, i-1, i, i+1). </p></li>
+<li><p><strong>phi</strong> – Dihedral angle between planes defined by sequences i-2, i-1, i and i-1, i, i+1. </p></li>
+<li><p><strong>V</strong> – Potential energy reference to add to. </p></li>
+<li><p><strong>dV_dphi</strong> – Derivative of potential energy wrt the angle phi to add to. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk17HeuresticDihedral5coeffE">
+<span id="_CPPv3N3mdk17HeuresticDihedral5coeffE"></span><span id="_CPPv2N3mdk17HeuresticDihedral5coeffE"></span><span id="mdk::HeuresticDihedral::coeff__doubleAA"></span><span class="target" id="classmdk_1_1HeuresticDihedral_1a24b8eb88358c2ebab7e546fa8a0ca9f4"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">coeff</span></span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk8numOfPTsE" title="mdk::numOfPTs"><span class="n"><span class="pre">numOfPTs</span></span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">6</span></span><span class="p"><span class="pre">]</span></span><br /></dt>
+<dd><p>Coefficients per pair type (where pair is (i-1, i) from the quadruple. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk17HeuresticDihedral10angleTypesE">
+<span id="_CPPv3N3mdk17HeuresticDihedral10angleTypesE"></span><span id="_CPPv2N3mdk17HeuresticDihedral10angleTypesE"></span><span id="mdk::HeuresticDihedral::angleTypes__Eigen::Matrix:int8_t.Eigen::Dynamic.1:"></span><span class="target" id="classmdk_1_1HeuresticDihedral_1ae09132660e40576d82fbf6a09f0c9879"></span><span class="n"><span class="pre">Eigen</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Matrix</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int8_t</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">Eigen</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Dynamic</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">angleTypes</span></span></span><br /></dt>
+<dd><p><a class="reference internal" href="../primitives.html#classmdk_1_1Types"><span class="std std-ref">Types</span></a> of angles (i.e. pair types for each pair (i-1, i)). </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-friends">Friends</p>
+<dl>
+<dt class="sig sig-object cpp">
+<em class="property"><span class="pre">friend</span> <span class="pre">class</span></em> <span class="pre">DihedralAngles</span></dt>
+</dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="chiral.html" class="btn btn-neutral float-right" title="Chirality potential" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="bondangle.html" class="btn btn-neutral float-left" title="Bond angle potential" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, IF PAN &amp; ZPP Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,319 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Pauli exclusion forces &mdash; mdk  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Pseudo-improper-dihedral custom potential" href="pid.html" />
+    <link rel="prev" title="Electrostatic forces" href="es.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> mdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sections:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prep/index.html">Preparation layer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Simulation layer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../simulation.html">Simulation object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">Data objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../primitives.html">Primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../simulvar.html">Simulation variables</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Forces</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="tether.html">Chain tether forces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bondangle.html">Bond angle potential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dihedral.html">Dihedral angle potentials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chiral.html">Chirality potential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nonlocal.html">Nonlocal function interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gomodel.html">Go-model native contacts potential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="es.html">Electrostatic forces</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Pauli exclusion forces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pid.html">Pseudo-improper-dihedral custom potential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qa.html">Quasi-adiabatic custom potential</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kernels/index.html">Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../verlet.html">Verlet list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stats.html">Coordination stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../state.html">Physical state object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integrator/index.html">Integrators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hooks/index.html">Hooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/index.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../entire.html">Entire namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Simulation layer</a> &raquo;</li>
+        
+          <li><a href="index.html">Forces</a> &raquo;</li>
+        
+      <li>Pauli exclusion forces</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/src/simul/forces/pauli.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pauli-exclusion-forces">
+<h1>Pauli exclusion forces<a class="headerlink" href="#pauli-exclusion-forces" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk14PauliExclusionE">
+<span id="_CPPv3N3mdk14PauliExclusionE"></span><span id="_CPPv2N3mdk14PauliExclusionE"></span><span id="mdk::PauliExclusion"></span><span class="target" id="classmdk_1_1PauliExclusion"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">PauliExclusion</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk13NonlocalForceE" title="mdk::NonlocalForce"><span class="n"><span class="pre">NonlocalForce</span></span></a><br /></dt>
+<dd><p>A “Pauli exclusion force” that keeps the residues from overlapping. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk14PauliExclusion14PauliExclusionEv">
+<span id="_CPPv3N3mdk14PauliExclusion14PauliExclusionEv"></span><span id="_CPPv2N3mdk14PauliExclusion14PauliExclusionEv"></span><span id="mdk::PauliExclusion::PauliExclusion"></span><span class="target" id="classmdk_1_1PauliExclusion_1a1b7b44b9c3fdfb1161c36bd6cdf4dc1b"></span><span class="sig-name descname"><span class="n"><span class="pre">PauliExclusion</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk14PauliExclusion4bindER10Simulation">
+<span id="_CPPv3N3mdk14PauliExclusion4bindER10Simulation"></span><span id="_CPPv2N3mdk14PauliExclusion4bindER10Simulation"></span><span id="mdk::PauliExclusion::bind__SimulationR"></span><span class="target" id="classmdk_1_1PauliExclusion_1a832895c79430d37d1a4306739f412a73"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bind</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk10SimulationE" title="mdk::Simulation"><span class="n"><span class="pre">Simulation</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">simulation</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Bind the object to the simulation. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>simulation</strong> – <a class="reference internal" href="../simulation.html#classmdk_1_1Simulation"><span class="std std-ref">Simulation</span></a> to bind to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk14PauliExclusion9asyncPartER8Dynamics">
+<span id="_CPPv3N3mdk14PauliExclusion9asyncPartER8Dynamics"></span><span id="_CPPv2N3mdk14PauliExclusion9asyncPartER8Dynamics"></span><span id="mdk::PauliExclusion::asyncPart__DynamicsR"></span><span class="target" id="classmdk_1_1PauliExclusion_1a25ded613b6fc5eea6e01874c9512e265"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">asyncPart</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk8DynamicsE" title="mdk::Dynamics"><span class="n"><span class="pre">Dynamics</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">dynamics</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Asynchronous part of the force computation. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dynamics</strong> – <a class="reference internal" href="../../entire.html#structmdk_1_1Dynamics"><span class="std std-ref">Dynamics</span></a> object to add potential energy and forces to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk14PauliExclusion12vlUpdateHookEv">
+<span id="_CPPv3N3mdk14PauliExclusion12vlUpdateHookEv"></span><span id="_CPPv2N3mdk14PauliExclusion12vlUpdateHookEv"></span><span id="mdk::PauliExclusion::vlUpdateHook"></span><span class="target" id="classmdk_1_1PauliExclusion_1abf6e51a96a2da7904be43ccee7917d5f"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">vlUpdateHook</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>An action performed when a Verlet list is reconstructed; here we simply copy the list verbatim. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk14PauliExclusion4stljE">
+<span id="_CPPv3N3mdk14PauliExclusion4stljE"></span><span id="_CPPv2N3mdk14PauliExclusion4stljE"></span><span id="mdk::PauliExclusion::stlj__ShiftedTruncatedLJ"></span><span class="target" id="classmdk_1_1PauliExclusion_1aaad8c40d262dee2229c8a58266a929ed"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk18ShiftedTruncatedLJE" title="mdk::ShiftedTruncatedLJ"><span class="n"><span class="pre">ShiftedTruncatedLJ</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">stlj</span></span></span><br /></dt>
+<dd><p>A shifted and truncated version of the Lennard-Jones potential that is used as the actual force. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-protected-functions">Protected Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk14PauliExclusion4specEv">
+<span id="_CPPv3NK3mdk14PauliExclusion4specEv"></span><span id="_CPPv2NK3mdk14PauliExclusion4specEv"></span><span id="mdk::PauliExclusion::specC"></span><span class="target" id="classmdk_1_1PauliExclusion_1a32542b5e2f4a9df2096abcfc7bf40c7d"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk2vlE" title="mdk::vl"><span class="n"><span class="pre">vl</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk2vl4SpecE" title="mdk::vl::Spec"><span class="n"><span class="pre">Spec</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">spec</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Generate a VL spec. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Generated VL spec. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk14PauliExclusion9exclPairsE">
+<span id="_CPPv3N3mdk14PauliExclusion9exclPairsE"></span><span id="_CPPv2N3mdk14PauliExclusion9exclPairsE"></span><span id="mdk::PauliExclusion::exclPairs__Pairs"></span><span class="target" id="classmdk_1_1PauliExclusion_1ae169ad846d863d3a58184c3f0bfe8577"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5PairsE" title="mdk::Pairs"><span class="n"><span class="pre">Pairs</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">exclPairs</span></span></span><br /></dt>
+<dd><p>A local copy of the Verlet list. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="pid.html" class="btn btn-neutral float-right" title="Pseudo-improper-dihedral custom potential" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="es.html" class="btn btn-neutral float-left" title="Electrostatic forces" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, IF PAN &amp; ZPP Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

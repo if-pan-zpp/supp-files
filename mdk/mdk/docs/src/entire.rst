@@ -1,0 +1,4 @@
+Entire namespace
+================
+
+.. doxygennamespace:: mdk

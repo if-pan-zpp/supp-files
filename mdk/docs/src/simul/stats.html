@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Coordination stats &mdash; mdk  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Physical state object" href="state.html" />
+    <link rel="prev" title="Verlet list" href="verlet.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> mdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sections:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prep/index.html">Preparation layer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Simulation layer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="simulation.html">Simulation object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/index.html">Data objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="primitives.html">Primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simulvar.html">Simulation variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forces/index.html">Forces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kernels/index.html">Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="verlet.html">Verlet list</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Coordination stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="state.html">Physical state object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integrator/index.html">Integrators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hooks/index.html">Hooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/index.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../entire.html">Entire namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">mdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Simulation layer</a> &raquo;</li>
+        
+      <li>Coordination stats</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/src/simul/stats.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="coordination-stats">
+<h1>Coordination stats<a class="headerlink" href="#coordination-stats" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv43mdk">
+<span id="_CPPv33mdk"></span><span id="_CPPv23mdk"></span><span id="mdk"></span><span class="target" id="namespacemdk"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mdk</span></span></span><br /></dt>
+<dd><dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk4StatE">
+<span id="_CPPv3N3mdk4StatE"></span><span id="_CPPv2N3mdk4StatE"></span><span id="mdk::Stat"></span><span class="target" id="structmdk_1_1Stat"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Stat</span></span></span><br /></dt>
+<dd><em>#include &lt;Stat.hpp&gt;</em><p>An object containing the coordination stats for a given residue. As opposed to the Fortran version, where the numbers represent the number of contacts formed, here it’s the number of slots remaining. This simplifies the checking procedure, as we can simply compare the coordination numbers with zero. We also provide facilities for manipulating these stats, such as addition etc. This object can also naturally represent a stat difference. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk4Stat5validEv">
+<span id="_CPPv3NK3mdk4Stat5validEv"></span><span id="_CPPv2NK3mdk4Stat5validEv"></span><span id="mdk::Stat::validC"></span><span class="target" id="structmdk_1_1Stat_1a769d7fbf0785ea7af2dde947e3cab0b5"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">valid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Checks whether a stat is valid; in particular, one can check whether the formation of a contact will exceed the number of available slots this way. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Whether a stat is valid. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk4StatpLERK4Stat">
+<span id="_CPPv3N3mdk4StatpLERK4Stat"></span><span id="_CPPv2N3mdk4StatpLERK4Stat"></span><span id="mdk::Stat::add-assign-operator__StatCR"></span><span class="target" id="structmdk_1_1Stat_1adaab758df230a727322ab714ee9f6197"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="../entire.html#_CPPv4N3mdk4StatE" title="mdk::Stat"><span class="n"><span class="pre">Stat</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+=</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../entire.html#_CPPv4N3mdk4StatE" title="mdk::Stat"><span class="n"><span class="pre">Stat</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk4StatplERK4Stat">
+<span id="_CPPv3NK3mdk4StatplERK4Stat"></span><span id="_CPPv2NK3mdk4StatplERK4Stat"></span><span id="mdk::Stat::add-operator__StatCRC"></span><span class="target" id="structmdk_1_1Stat_1a82cf23a0f9ba9509ba8a7f8bda38bf46"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="../entire.html#_CPPv4N3mdk4StatE" title="mdk::Stat"><span class="n"><span class="pre">Stat</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">+</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../entire.html#_CPPv4N3mdk4StatE" title="mdk::Stat"><span class="n"><span class="pre">Stat</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk4StatmiEv">
+<span id="_CPPv3NK3mdk4StatmiEv"></span><span id="_CPPv2NK3mdk4StatmiEv"></span><span id="mdk::Stat::sub-operatorC"></span><span class="target" id="structmdk_1_1Stat_1a00edc8b6f7fba0b6b681af2d37750400"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="../entire.html#_CPPv4N3mdk4StatE" title="mdk::Stat"><span class="n"><span class="pre">Stat</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">-</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk4StatmIERK4Stat">
+<span id="_CPPv3N3mdk4StatmIERK4Stat"></span><span id="_CPPv2N3mdk4StatmIERK4Stat"></span><span id="mdk::Stat::sub-assign-operator__StatCR"></span><span class="target" id="structmdk_1_1Stat_1aa646d0d2e893c3fc69e90136d1ecb288"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="../entire.html#_CPPv4N3mdk4StatE" title="mdk::Stat"><span class="n"><span class="pre">Stat</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">-=</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../entire.html#_CPPv4N3mdk4StatE" title="mdk::Stat"><span class="n"><span class="pre">Stat</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk4StatmiERK4Stat">
+<span id="_CPPv3NK3mdk4StatmiERK4Stat"></span><span id="_CPPv2NK3mdk4StatmiERK4Stat"></span><span id="mdk::Stat::sub-operator__StatCRC"></span><span class="target" id="structmdk_1_1Stat_1a8acc7e0772904cde9f3092b0f5adb9ec"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="../entire.html#_CPPv4N3mdk4StatE" title="mdk::Stat"><span class="n"><span class="pre">Stat</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">-</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../entire.html#_CPPv4N3mdk4StatE" title="mdk::Stat"><span class="n"><span class="pre">Stat</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk4Stat8backboneE">
+<span id="_CPPv3N3mdk4Stat8backboneE"></span><span id="_CPPv2N3mdk4Stat8backboneE"></span><span id="mdk::Stat::backbone__int8_t"></span><span class="target" id="structmdk_1_1Stat_1aac1f48932979529b588d69f7a95c4003"></span><span class="n"><span class="pre">int8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">backbone</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd><p>Number of remaining backbone contacts that can be formed. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk4Stat9sidechainE">
+<span id="_CPPv3N3mdk4Stat9sidechainE"></span><span id="_CPPv2N3mdk4Stat9sidechainE"></span><span id="mdk::Stat::sidechain__int8_t"></span><span class="target" id="structmdk_1_1Stat_1a48abea5c9f6c4619be27c4a40f07db79"></span><span class="n"><span class="pre">int8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sidechain</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd><p>Number of remaining sidechain contacts that can be formed. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk4Stat13hydrophobicSSE">
+<span id="_CPPv3N3mdk4Stat13hydrophobicSSE"></span><span id="_CPPv2N3mdk4Stat13hydrophobicSSE"></span><span id="mdk::Stat::hydrophobicSS__int8_t"></span><span class="target" id="structmdk_1_1Stat_1a187bdbdb082824260cb7003164eaf2c0"></span><span class="n"><span class="pre">int8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">hydrophobicSS</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd><p>Number of remaining sidechain contacts that can be formed with hydrophobic residues. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk4Stat7polarSSE">
+<span id="_CPPv3N3mdk4Stat7polarSSE"></span><span id="_CPPv2N3mdk4Stat7polarSSE"></span><span id="mdk::Stat::polarSS__int8_t"></span><span class="target" id="structmdk_1_1Stat_1aa9ba3f2864656c23d0bc737569552652"></span><span class="n"><span class="pre">int8_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">polarSS</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd><p>Number of remaining sidechain contacts that can be formed with polar residues. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp">
+<span class="target" id="namespacemdk"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mdk</span></span></span><br /></dt>
+<dd><dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5StatsE">
+<span id="_CPPv3N3mdk5StatsE"></span><span id="_CPPv2N3mdk5StatsE"></span><span id="mdk::Stats"></span><span class="target" id="classmdk_1_1Stats"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Stats</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk8SimulVarE" title="mdk::SimulVar"><span class="n"><span class="pre">SimulVar</span></span></a><br /></dt>
+<dd><em>#include &lt;Stats.hpp&gt;</em><p>An object containing stats for the residues. Also initializes these numbers in one place. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5Stats4TypeE">
+<span id="_CPPv3N3mdk5Stats4TypeE"></span><span id="_CPPv2N3mdk5Stats4TypeE"></span><span class="target" id="classmdk_1_1Stats_1ad1aa788a1c874b861b0658052c05fe19"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Type</span></span></span><br /></dt>
+<dd><p>Type of a contact (backbone-backbone etc.). </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5Stats4Type2BBE">
+<span id="_CPPv3N3mdk5Stats4Type2BBE"></span><span id="_CPPv2N3mdk5Stats4Type2BBE"></span><span class="target" id="classmdk_1_1Stats_1ad1aa788a1c874b861b0658052c05fe19a9d3d9048db16a7eee539e93e3618cbe7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">BB</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5Stats4Type2BSE">
+<span id="_CPPv3N3mdk5Stats4Type2BSE"></span><span id="_CPPv2N3mdk5Stats4Type2BSE"></span><span class="target" id="classmdk_1_1Stats_1ad1aa788a1c874b861b0658052c05fe19a9a231c14a3416b1055b8ffb960151aee"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">BS</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5Stats4Type2SBE">
+<span id="_CPPv3N3mdk5Stats4Type2SBE"></span><span id="_CPPv2N3mdk5Stats4Type2SBE"></span><span class="target" id="classmdk_1_1Stats_1ad1aa788a1c874b861b0658052c05fe19aa06b33d1ea28e90733617ec889d4e76e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SB</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5Stats4Type2SSE">
+<span id="_CPPv3N3mdk5Stats4Type2SSE"></span><span id="_CPPv2N3mdk5Stats4Type2SSE"></span><span class="target" id="classmdk_1_1Stats_1ad1aa788a1c874b861b0658052c05fe19ad53aeb78abc83a52ab8982f5c82a3d5b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SS</span></span></span><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5Stats4bindER10Simulation">
+<span id="_CPPv3N3mdk5Stats4bindER10Simulation"></span><span id="_CPPv2N3mdk5Stats4bindER10Simulation"></span><span id="mdk::Stats::bind__SimulationR"></span><span class="target" id="classmdk_1_1Stats_1ac00510b3db495f6bc4bd0f1e97d6e5ee"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bind</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../entire.html#_CPPv4N3mdk10SimulationE" title="mdk::Simulation"><span class="n"><span class="pre">Simulation</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">simulation</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Bind an object to a simulation. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>simulation</strong> – <a class="reference internal" href="simulation.html#classmdk_1_1Simulation"><span class="std std-ref">Simulation</span></a> to bind the object to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk5Stats13creationDiffsEii4TypeAL2E_4Stat">
+<span id="_CPPv3NK3mdk5Stats13creationDiffsEii4TypeAL2E_4Stat"></span><span id="_CPPv2NK3mdk5Stats13creationDiffsEii4TypeA2_4Stat"></span><span id="mdk::Stats::creationDiffs__i.i.Type.StatAC"></span><span class="target" id="classmdk_1_1Stats_1a074d885ded75061979848aac4e18c1f2"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">creationDiffs</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i1</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i2</span></span>, <a class="reference internal" href="../entire.html#_CPPv4N3mdk5Stats4TypeE" title="mdk::Stats::Type"><span class="n"><span class="pre">Type</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">type</span></span>, <a class="reference internal" href="../entire.html#_CPPv4N3mdk4StatE" title="mdk::Stat"><span class="n"><span class="pre">Stat</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">diffs</span></span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Generate diffs for if a contact between residues <code class="docutils literal notranslate"><span class="pre">i1</span></code> and <code class="docutils literal notranslate"><span class="pre">i2</span></code> of type <code class="docutils literal notranslate"><span class="pre">type</span></code> were created. It’s inline so as for the compiler to insert it and not have to call the function. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i1</strong> – First residue. </p></li>
+<li><p><strong>i2</strong> – Second residue. </p></li>
+<li><p><strong>type</strong> – Type of a contact. </p></li>
+<li><p><strong>diffs</strong> – An array of diffs; diffs[0] is the diff for the first residue, diffs[1] is the diff for the second residue. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5Stats5statsE">
+<span id="_CPPv3N3mdk5Stats5statsE"></span><span id="_CPPv2N3mdk5Stats5statsE"></span><span id="mdk::Stats::stats__std::vector:Stat:"></span><span class="target" id="classmdk_1_1Stats_1ac330dc893ae069d75d29cd5128773e17"></span><a class="reference internal" href="../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk4StatE" title="mdk::Stat"><span class="n"><span class="pre">Stat</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">stats</span></span></span><br /></dt>
+<dd><p>List of stats for each residue. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5Stats5typesE">
+<span id="_CPPv3N3mdk5Stats5typesE"></span><span id="_CPPv2N3mdk5Stats5typesE"></span><span id="mdk::Stats::types__TypesCP"></span><span class="target" id="classmdk_1_1Stats_1ad56f29202e730cd3c5c1929bd25719e2"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../entire.html#_CPPv4N3mdk5TypesE" title="mdk::Types"><span class="n"><span class="pre">Types</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">types</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><br /></dt>
+<dd><p><a class="reference internal" href="primitives.html#classmdk_1_1Types"><span class="std std-ref">Types</span></a> of amino acids. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5Stats12polarizationE">
+<span id="_CPPv3N3mdk5Stats12polarizationE"></span><span id="_CPPv2N3mdk5Stats12polarizationE"></span><span id="mdk::Stats::polarization__std::vector:param::Polarization:"></span><span class="target" id="classmdk_1_1Stats_1ad416a681cf03cf11404ba886796ac560"></span><a class="reference internal" href="../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk5paramE" title="mdk::param"><span class="n"><span class="pre">param</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk5param12PolarizationE" title="mdk::param::Polarization"><span class="n"><span class="pre">Polarization</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">polarization</span></span></span><br /></dt>
+<dd><p>List of polarization values taken from the <code class="docutils literal notranslate"><a class="reference internal" href="../prep/param.html#classmdk_1_1param_1_1Parameters"><span class="std std-ref"><span class="pre">param::Parameters</span></span></a></code> object. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="state.html" class="btn btn-neutral float-right" title="Physical state object" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="verlet.html" class="btn btn-neutral float-left" title="Verlet list" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, IF PAN &amp; ZPP Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

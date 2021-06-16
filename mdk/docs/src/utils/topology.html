@@ -1,0 +1,274 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Topology class &mdash; mdk  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Physical unit definitions" href="units.html" />
+    <link rel="prev" title="Residue type class" href="restype.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> mdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sections:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prep/index.html">Preparation layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simul/index.html">Simulation layer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Utilities</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="aminoacid.html">Amino acid class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contacttype.html">Contact type class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pairtype.html">Pair type class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random.html">Random number generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restype.html">Residue type class</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Topology class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="units.html">Physical unit definitions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../entire.html">Entire namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">mdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Utilities</a> &raquo;</li>
+        
+      <li>Topology class</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/src/utils/topology.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="topology-class">
+<h1>Topology class<a class="headerlink" href="#topology-class" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv43mdk">
+<span id="_CPPv33mdk"></span><span id="_CPPv23mdk"></span><span id="mdk"></span><span class="target" id="namespacemdk"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mdk</span></span></span><br /></dt>
+<dd><dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk8TopologyE">
+<span id="_CPPv3N3mdk8TopologyE"></span><span id="_CPPv2N3mdk8TopologyE"></span><span id="mdk::Topology"></span><span class="target" id="classmdk_1_1Topology"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Topology</span></span></span><br /></dt>
+<dd><em>#include &lt;Topology.hpp&gt;</em><p>An object representing the “topology” of the simulation box. In particular, we want to compute PBC-adjusted distances between residues. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk8Topology7setCellE4VRef">
+<span id="_CPPv3N3mdk8Topology7setCellE4VRef"></span><span id="_CPPv2N3mdk8Topology7setCellE4VRef"></span><span id="mdk::Topology::setCell__VRef"></span><span class="target" id="classmdk_1_1Topology_1ace05b97569ca627735f9948f05ec2d76"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">setCell</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../entire.html#_CPPv4N3mdk4VRefE" title="mdk::VRef"><span class="n"><span class="pre">VRef</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">cell</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk8Topology3fixER6Vector">
+<span id="_CPPv3NK3mdk8Topology3fixER6Vector"></span><span id="_CPPv2NK3mdk8Topology3fixER6Vector"></span><span id="mdk::Topology::fix__VectorRC"></span><span class="target" id="classmdk_1_1Topology_1a7c7d15803588fb6f9e6f62815fa8c585"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">fix</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../entire.html#_CPPv4N3mdk6VectorE" title="mdk::Vector"><span class="n"><span class="pre">Vector</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">v</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk8TopologyclE6Vector">
+<span id="_CPPv3NK3mdk8TopologyclE6Vector"></span><span id="_CPPv2NK3mdk8TopologyclE6Vector"></span><span id="mdk::Topology::call-operator__VectorC"></span><span class="target" id="classmdk_1_1Topology_1a932c8ce44091cc8975f79b815e2160e1"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="../entire.html#_CPPv4N3mdk6VectorE" title="mdk::Vector"><span class="n"><span class="pre">Vector</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">()</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../entire.html#_CPPv4N3mdk6VectorE" title="mdk::Vector"><span class="n"><span class="pre">Vector</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">v</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk8Topology4cellE">
+<span id="_CPPv3N3mdk8Topology4cellE"></span><span id="_CPPv2N3mdk8Topology4cellE"></span><span id="mdk::Topology::cell__Vector"></span><span class="target" id="classmdk_1_1Topology_1a2cb7f5dc107f1324ae67ec53224e7b1f"></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk6VectorE" title="mdk::Vector"><span class="n"><span class="pre">Vector</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cell</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk8Topology7cellInvE">
+<span id="_CPPv3N3mdk8Topology7cellInvE"></span><span id="_CPPv2N3mdk8Topology7cellInvE"></span><span id="mdk::Topology::cellInv__Vector"></span><span class="target" id="classmdk_1_1Topology_1ac4a777649cf6ddbbef4027c9b61b1a51"></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk6VectorE" title="mdk::Vector"><span class="n"><span class="pre">Vector</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cellInv</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk8Topology3useE">
+<span id="_CPPv3N3mdk8Topology3useE"></span><span id="_CPPv2N3mdk8Topology3useE"></span><span id="mdk::Topology::use__bA"></span><span class="target" id="classmdk_1_1Topology_1ab7177d7be9b4b35b5bd9ea3d28ece0ac"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">use</span></span></span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">3</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="k"><span class="pre">false</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><span class="p"><span class="pre">}</span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="units.html" class="btn btn-neutral float-right" title="Physical unit definitions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="restype.html" class="btn btn-neutral float-left" title="Residue type class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, IF PAN &amp; ZPP Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

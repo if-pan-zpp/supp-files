@@ -1,0 +1,458 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Bond angle potential &mdash; mdk  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Dihedral angle potentials" href="dihedral.html" />
+    <link rel="prev" title="Chain tether forces" href="tether.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> mdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sections:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prep/index.html">Preparation layer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Simulation layer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../simulation.html">Simulation object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">Data objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../primitives.html">Primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../simulvar.html">Simulation variables</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Forces</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="tether.html">Chain tether forces</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Bond angle potential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dihedral.html">Dihedral angle potentials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chiral.html">Chirality potential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nonlocal.html">Nonlocal function interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gomodel.html">Go-model native contacts potential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="es.html">Electrostatic forces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pauli.html">Pauli exclusion forces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pid.html">Pseudo-improper-dihedral custom potential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qa.html">Quasi-adiabatic custom potential</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kernels/index.html">Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../verlet.html">Verlet list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stats.html">Coordination stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../state.html">Physical state object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integrator/index.html">Integrators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hooks/index.html">Hooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/index.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../entire.html">Entire namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Simulation layer</a> &raquo;</li>
+        
+          <li><a href="index.html">Forces</a> &raquo;</li>
+        
+      <li>Bond angle potential</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/src/simul/forces/bondangle.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bond-angle-potential">
+<h1>Bond angle potential<a class="headerlink" href="#bond-angle-potential" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv43mdk">
+<span id="_CPPv33mdk"></span><span id="_CPPv23mdk"></span><span id="mdk"></span><span class="target" id="namespacemdk"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mdk</span></span></span><br /></dt>
+<dd><dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10BondAnglesE">
+<span id="_CPPv3N3mdk10BondAnglesE"></span><span id="_CPPv2N3mdk10BondAnglesE"></span><span id="mdk::BondAngles"></span><span class="target" id="classmdk_1_1BondAngles"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">BondAngles</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5ForceE" title="mdk::Force"><span class="n"><span class="pre">Force</span></span></a><br /></dt>
+<dd><em>#include &lt;BondAngles.hpp&gt;</em><p>A force field for bond angles (both heurestic and native variants, depending on whether a triple has an associated native bond angle (in such cases the native variant supercedes the heurestic variant). </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10BondAngles4bindER10Simulation">
+<span id="_CPPv3N3mdk10BondAngles4bindER10Simulation"></span><span id="_CPPv2N3mdk10BondAngles4bindER10Simulation"></span><span id="mdk::BondAngles::bind__SimulationR"></span><span class="target" id="classmdk_1_1BondAngles_1aea112c97f7586d8a0d5406c2ad8032bb"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bind</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk10SimulationE" title="mdk::Simulation"><span class="n"><span class="pre">Simulation</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">simulation</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Bind the force field to a simulation. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>simulation</strong> – <a class="reference internal" href="../simulation.html#classmdk_1_1Simulation"><span class="std std-ref">Simulation</span></a> to bind to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10BondAngles9asyncPartER8Dynamics">
+<span id="_CPPv3N3mdk10BondAngles9asyncPartER8Dynamics"></span><span id="_CPPv2N3mdk10BondAngles9asyncPartER8Dynamics"></span><span id="mdk::BondAngles::asyncPart__DynamicsR"></span><span class="target" id="classmdk_1_1BondAngles_1aa7f81e37f43a69ea4c83c9bcca75e3ca"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">asyncPart</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk8DynamicsE" title="mdk::Dynamics"><span class="n"><span class="pre">Dynamics</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">dynamics</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>“Asynchronous” part of the potential. Here it’s the only part. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dynamics</strong> – <a class="reference internal" href="../../entire.html#structmdk_1_1Dynamics"><span class="std std-ref">Dynamics</span></a> object to add potential energy and forces to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10BondAngles6heurBAE">
+<span id="_CPPv3N3mdk10BondAngles6heurBAE"></span><span id="_CPPv2N3mdk10BondAngles6heurBAE"></span><span id="mdk::BondAngles::heurBA__HeuresticBAP"></span><span class="target" id="classmdk_1_1BondAngles_1a3913099c0bab7d8b2bccb1ad7d161bc1"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk11HeuresticBAE" title="mdk::HeuresticBA"><span class="n"><span class="pre">HeuresticBA</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">heurBA</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><br /></dt>
+<dd><p>The “heurestic” part of the potential. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10BondAngles5natBAE">
+<span id="_CPPv3N3mdk10BondAngles5natBAE"></span><span id="_CPPv2N3mdk10BondAngles5natBAE"></span><span id="mdk::BondAngles::natBA__NativeBAP"></span><span class="target" id="classmdk_1_1BondAngles_1a5d73578368af357bcef160c0f00b1120"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk8NativeBAE" title="mdk::NativeBA"><span class="n"><span class="pre">NativeBA</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">natBA</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><br /></dt>
+<dd><p>The “native” part of the potential. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10BondAngles7inRangeE">
+<span id="_CPPv3N3mdk10BondAngles7inRangeE"></span><span id="_CPPv2N3mdk10BondAngles7inRangeE"></span><span id="mdk::BondAngles::inRange__Bytes"></span><span class="target" id="classmdk_1_1BondAngles_1a56a0db1461bbfdd73a9e86639da267c2"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5BytesE" title="mdk::Bytes"><span class="n"><span class="pre">Bytes</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">inRange</span></span></span><br /></dt>
+<dd><p>Whether a triple (i-1, i, i+1) is connected, i.e. in one chain. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-friends">Friends</p>
+<dl>
+<dt class="sig sig-object cpp">
+<em class="property"><span class="pre">friend</span> <span class="pre">class</span></em> <span class="pre">HeuresticBA</span></dt>
+</dl>
+
+<dl>
+<dt class="sig sig-object cpp">
+<em class="property"><span class="pre">friend</span> <span class="pre">class</span></em> <span class="pre">NativeBA</span></dt>
+</dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp">
+<span class="target" id="namespacemdk"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mdk</span></span></span><br /></dt>
+<dd><dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk11HeuresticBAE">
+<span id="_CPPv3N3mdk11HeuresticBAE"></span><span id="_CPPv2N3mdk11HeuresticBAE"></span><span id="mdk::HeuresticBA"></span><span class="target" id="classmdk_1_1HeuresticBA"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">HeuresticBA</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk8SimulVarE" title="mdk::SimulVar"><span class="n"><span class="pre">SimulVar</span></span></a><br /></dt>
+<dd><em>#include &lt;HeuresticBA.hpp&gt;</em><p>“Heurestic” part of the bond angle potential, applied when a triple has no associated native bond angle. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk11HeuresticBA4bindER10Simulation">
+<span id="_CPPv3N3mdk11HeuresticBA4bindER10Simulation"></span><span id="_CPPv2N3mdk11HeuresticBA4bindER10Simulation"></span><span id="mdk::HeuresticBA::bind__SimulationR"></span><span class="target" id="classmdk_1_1HeuresticBA_1a0f5813e85b119acdd63830454c015d73"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bind</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk10SimulationE" title="mdk::Simulation"><span class="n"><span class="pre">Simulation</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">simulation</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Bind the part to the simulation - in particular, find (and possibly create) <code class="docutils literal notranslate"><a class="reference internal" href="#classmdk_1_1BondAngles"><span class="std std-ref"><span class="pre">BondAngles</span></span></a></code> force field and add itself to it. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>simulation</strong> – <a class="reference internal" href="../simulation.html#classmdk_1_1Simulation"><span class="std std-ref">Simulation</span></a> to bind to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk11HeuresticBA4termEidRdRd">
+<span id="_CPPv3NK3mdk11HeuresticBA4termEidRdRd"></span><span id="_CPPv2NK3mdk11HeuresticBA4termEidRdRd"></span><span id="mdk::HeuresticBA::term__i.double.doubleR.doubleRC"></span><span class="target" id="classmdk_1_1HeuresticBA_1af760030ab246ae337b4a6b0f59d70169"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">term</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">theta</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">V</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">dV_dth</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Term of the formula for bond angle potential. Note: it’s inline in order for the compiler to inline it in <code class="docutils literal notranslate"><span class="pre">BondAngles.cpp</span></code> file. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> – The index i in the triple (i-1, i, i+1). </p></li>
+<li><p><strong>theta</strong> – Value of the bond angle between i-1, i and i+1. </p></li>
+<li><p><strong>V</strong> – Potential energy reference to add to. </p></li>
+<li><p><strong>dV_dth</strong> – Derivative of potential energy wrt the angle theta to add to. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk11HeuresticBA5coeffE">
+<span id="_CPPv3N3mdk11HeuresticBA5coeffE"></span><span id="_CPPv2N3mdk11HeuresticBA5coeffE"></span><span id="mdk::HeuresticBA::coeff__doubleAA"></span><span class="target" id="classmdk_1_1HeuresticBA_1a09423c574166900a1cdfeb0e28406aca"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">coeff</span></span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk8numOfPTsE" title="mdk::numOfPTs"><span class="n"><span class="pre">numOfPTs</span></span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk11HeuresticBA1DE" title="mdk::HeuresticBA::D"><span class="n"><span class="pre">D</span></span></a><span class="w"> </span><span class="o"><span class="pre">+</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">]</span></span><br /></dt>
+<dd><p>Polynomial coefficients. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk11HeuresticBA10angleTypesE">
+<span id="_CPPv3N3mdk11HeuresticBA10angleTypesE"></span><span id="_CPPv2N3mdk11HeuresticBA10angleTypesE"></span><span id="mdk::HeuresticBA::angleTypes__Bytes"></span><span class="target" id="classmdk_1_1HeuresticBA_1a1421b3129f23602511b66209222ba5e1"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5BytesE" title="mdk::Bytes"><span class="n"><span class="pre">Bytes</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">angleTypes</span></span></span><br /></dt>
+<dd><p>List of “types of triples”, or rather pair types for (i, i+1) for a triple (i-1, i, i+1). </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-static-attributes">Private Static Attributes</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk11HeuresticBA1DE">
+<span id="_CPPv3N3mdk11HeuresticBA1DE"></span><span id="_CPPv2N3mdk11HeuresticBA1DE"></span><span id="mdk::HeuresticBA::D__iC"></span><span class="target" id="classmdk_1_1HeuresticBA_1a7ca416dd8dd00e51ece8dbd10cfeb031"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">D</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">6</span></span><br /></dt>
+<dd><p>Degree of the polynomial. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-friends">Friends</p>
+<dl>
+<dt class="sig sig-object cpp">
+<em class="property"><span class="pre">friend</span> <span class="pre">class</span></em> <span class="pre">BondAngles</span></dt>
+</dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp">
+<span class="target" id="namespacemdk"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mdk</span></span></span><br /></dt>
+<dd><dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk8NativeBAE">
+<span id="_CPPv3N3mdk8NativeBAE"></span><span id="_CPPv2N3mdk8NativeBAE"></span><span id="mdk::NativeBA"></span><span class="target" id="classmdk_1_1NativeBA"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NativeBA</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk8SimulVarE" title="mdk::SimulVar"><span class="n"><span class="pre">SimulVar</span></span></a><br /></dt>
+<dd><em>#include &lt;NativeBA.hpp&gt;</em><p>“Native” part of the bond angle potential, applied when a triple has an associated native bond angle. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk8NativeBA4bindER10Simulation">
+<span id="_CPPv3N3mdk8NativeBA4bindER10Simulation"></span><span id="_CPPv2N3mdk8NativeBA4bindER10Simulation"></span><span id="mdk::NativeBA::bind__SimulationR"></span><span class="target" id="classmdk_1_1NativeBA_1a53049b831d237d19df06c974f6855d99"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bind</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk10SimulationE" title="mdk::Simulation"><span class="n"><span class="pre">Simulation</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">simulation</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Bind the part to the simulation - in particular, find (and possibly create) <code class="docutils literal notranslate"><a class="reference internal" href="#classmdk_1_1BondAngles"><span class="std std-ref"><span class="pre">BondAngles</span></span></a></code> force field and add itself to it. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>simulation</strong> – <a class="reference internal" href="../simulation.html#classmdk_1_1Simulation"><span class="std std-ref">Simulation</span></a> to bind to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk8NativeBA4termEidRdRd">
+<span id="_CPPv3NK3mdk8NativeBA4termEidRdRd"></span><span id="_CPPv2NK3mdk8NativeBA4termEidRdRd"></span><span id="mdk::NativeBA::term__i.double.doubleR.doubleRC"></span><span class="target" id="classmdk_1_1NativeBA_1a6528cd1e3b61abca93c235ce287e40e8"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">term</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">theta</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">V</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">dV_dth</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Term of the formula for bond angle potential. Note: it’s inline in order for the compiler to inline it in <code class="docutils literal notranslate"><span class="pre">BondAngles.cpp</span></code> file. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>i</strong> – The index i in the triple (i-1, i, i+1). </p></li>
+<li><p><strong>theta</strong> – Value of the bond angle between i-1, i and i+1. </p></li>
+<li><p><strong>V</strong> – Potential energy reference to add to. </p></li>
+<li><p><strong>dV_dth</strong> – Derivative of potential energy wrt the angle theta to add to. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk8NativeBA8isNativeE">
+<span id="_CPPv3N3mdk8NativeBA8isNativeE"></span><span id="_CPPv2N3mdk8NativeBA8isNativeE"></span><span id="mdk::NativeBA::isNative__Bytes"></span><span class="target" id="classmdk_1_1NativeBA_1a22cd730ebd3bfe40e7db9e3938cd4373"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5BytesE" title="mdk::Bytes"><span class="n"><span class="pre">Bytes</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isNative</span></span></span><br /></dt>
+<dd><p>isNative[i] is 1 if (i-1, i, i+1) has an associated native bond angle, 0 otherwise. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk8NativeBA6theta0E">
+<span id="_CPPv3N3mdk8NativeBA6theta0E"></span><span id="_CPPv2N3mdk8NativeBA6theta0E"></span><span id="mdk::NativeBA::theta0__Scalars"></span><span class="target" id="classmdk_1_1NativeBA_1a9cab76b92e4a7458ef61af707a837f5d"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk7ScalarsE" title="mdk::Scalars"><span class="n"><span class="pre">Scalars</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">theta0</span></span></span><br /></dt>
+<dd><p>theta0[i] contains the native bond angle whenever such is defined. For triples (i-1, i, i+1) which have no such associated angle, the value is undefined. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk8NativeBA3CBAE">
+<span id="_CPPv3N3mdk8NativeBA3CBAE"></span><span id="_CPPv2N3mdk8NativeBA3CBAE"></span><span id="mdk::NativeBA::CBA__double"></span><span class="target" id="classmdk_1_1NativeBA_1abe8a6f06d72160fb5ad1a57ae3569073"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CBA</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">30.0</span></span><span class="w"> </span><span class="o"><span class="pre">*</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3epsE" title="mdk::eps"><span class="n"><span class="pre">eps</span></span></a><span class="w"> </span><span class="o"><span class="pre">/</span></span><span class="w"> </span><span class="n"><span class="pre">pow</span></span><span class="p"><span class="pre">(</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3radE" title="mdk::rad"><span class="n"><span class="pre">rad</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">)</span></span><br /></dt>
+<dd><p>Value of $k_\theta$. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-friends">Friends</p>
+<dl>
+<dt class="sig sig-object cpp">
+<em class="property"><span class="pre">friend</span> <span class="pre">class</span></em> <span class="pre">BondAngles</span></dt>
+</dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="dihedral.html" class="btn btn-neutral float-right" title="Dihedral angle potentials" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="tether.html" class="btn btn-neutral float-left" title="Chain tether forces" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, IF PAN &amp; ZPP Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

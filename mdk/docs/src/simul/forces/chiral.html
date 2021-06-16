@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Chirality potential &mdash; mdk  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Nonlocal function interface" href="nonlocal.html" />
+    <link rel="prev" title="Dihedral angle potentials" href="dihedral.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> mdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sections:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prep/index.html">Preparation layer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Simulation layer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../simulation.html">Simulation object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">Data objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../primitives.html">Primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../simulvar.html">Simulation variables</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Forces</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="tether.html">Chain tether forces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bondangle.html">Bond angle potential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dihedral.html">Dihedral angle potentials</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Chirality potential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nonlocal.html">Nonlocal function interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gomodel.html">Go-model native contacts potential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="es.html">Electrostatic forces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pauli.html">Pauli exclusion forces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pid.html">Pseudo-improper-dihedral custom potential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qa.html">Quasi-adiabatic custom potential</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kernels/index.html">Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../verlet.html">Verlet list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stats.html">Coordination stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../state.html">Physical state object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integrator/index.html">Integrators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hooks/index.html">Hooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/index.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../entire.html">Entire namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Simulation layer</a> &raquo;</li>
+        
+          <li><a href="index.html">Forces</a> &raquo;</li>
+        
+      <li>Chirality potential</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/src/simul/forces/chiral.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="chirality-potential">
+<h1>Chirality potential<a class="headerlink" href="#chirality-potential" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv43mdk">
+<span id="_CPPv33mdk"></span><span id="_CPPv23mdk"></span><span id="mdk"></span><span class="target" id="namespacemdk"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mdk</span></span></span><br /></dt>
+<dd><dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9ChiralityE">
+<span id="_CPPv3N3mdk9ChiralityE"></span><span id="_CPPv2N3mdk9ChiralityE"></span><span id="mdk::Chirality"></span><span class="target" id="classmdk_1_1Chirality"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Chirality</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5ForceE" title="mdk::Force"><span class="n"><span class="pre">Force</span></span></a><br /></dt>
+<dd><em>#include &lt;Chirality.hpp&gt;</em><p><a class="reference internal" href="#classmdk_1_1Chirality"><span class="std std-ref">Chirality</span></a> potential for the models with a native structure (in particular the positions of the residues). It’s supposed to be a more replacement for bond and dihedral potentials, if the native structure is provided. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9Chirality4bindER10Simulation">
+<span id="_CPPv3N3mdk9Chirality4bindER10Simulation"></span><span id="_CPPv2N3mdk9Chirality4bindER10Simulation"></span><span id="mdk::Chirality::bind__SimulationR"></span><span class="target" id="classmdk_1_1Chirality_1a78c14a79dd2ff04d94fe4e49a0e2da2a"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bind</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk10SimulationE" title="mdk::Simulation"><span class="n"><span class="pre">Simulation</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">simulation</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Bind the force field to the simulation. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>simulation</strong> – <a class="reference internal" href="../simulation.html#classmdk_1_1Simulation"><span class="std std-ref">Simulation</span></a> to bind to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9Chirality9asyncPartER8Dynamics">
+<span id="_CPPv3N3mdk9Chirality9asyncPartER8Dynamics"></span><span id="_CPPv2N3mdk9Chirality9asyncPartER8Dynamics"></span><span id="mdk::Chirality::asyncPart__DynamicsR"></span><span class="target" id="classmdk_1_1Chirality_1ac4e6ee6face94db568feea8dfe87e5bd"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">asyncPart</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk8DynamicsE" title="mdk::Dynamics"><span class="n"><span class="pre">Dynamics</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">dynamics</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Asynchronous part of the computation. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dynamics</strong> – <a class="reference internal" href="../../entire.html#structmdk_1_1Dynamics"><span class="std std-ref">Dynamics</span></a> object to add potential energy and forces to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9Chirality5e_chiE">
+<span id="_CPPv3N3mdk9Chirality5e_chiE"></span><span id="_CPPv2N3mdk9Chirality5e_chiE"></span><span id="mdk::Chirality::e_chi__double"></span><span class="target" id="classmdk_1_1Chirality_1a7aca6c4f8b6dccc39dd1d0f364a9ab18"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">e_chi</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1.0</span></span><span class="w"> </span><span class="o"><span class="pre">*</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3epsE" title="mdk::eps"><span class="n"><span class="pre">eps</span></span></a><br /></dt>
+<dd><p>The amplitude of the potential. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9Chirality11d0_cube_invE">
+<span id="_CPPv3N3mdk9Chirality11d0_cube_invE"></span><span id="_CPPv2N3mdk9Chirality11d0_cube_invE"></span><span id="mdk::Chirality::d0_cube_inv__Scalars"></span><span class="target" id="classmdk_1_1Chirality_1aaa5d675b1d8b7bb5adf5e145e7de07fa"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk7ScalarsE" title="mdk::Scalars"><span class="n"><span class="pre">Scalars</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">d0_cube_inv</span></span></span><br /></dt>
+<dd><p>A list of cube inverses of $d_0$, where $d_0$ is the length of $v_i = r_{i+1} - r_i$ in the native structure. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9Chirality5C_natE">
+<span id="_CPPv3N3mdk9Chirality5C_natE"></span><span id="_CPPv2N3mdk9Chirality5C_natE"></span><span id="mdk::Chirality::C_nat__Scalars"></span><span class="target" id="classmdk_1_1Chirality_1a8b70fd0484aab7ce8d69e10d9e85f18e"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk7ScalarsE" title="mdk::Scalars"><span class="n"><span class="pre">Scalars</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">C_nat</span></span></span><br /></dt>
+<dd><p>A list of the values of C_i in the native structure. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9Chirality7inRangeE">
+<span id="_CPPv3N3mdk9Chirality7inRangeE"></span><span id="_CPPv2N3mdk9Chirality7inRangeE"></span><span id="mdk::Chirality::inRange__Bytes"></span><span class="target" id="classmdk_1_1Chirality_1ac93b98e91df24a20128eaf475e08385b"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5BytesE" title="mdk::Bytes"><span class="n"><span class="pre">Bytes</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">inRange</span></span></span><br /></dt>
+<dd><p>inRange[i] = 1 if a quadruple (i-2, i+1, i, i+1) is connected, i.e. in a single chain. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="nonlocal.html" class="btn btn-neutral float-right" title="Nonlocal function interface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="dihedral.html" class="btn btn-neutral float-left" title="Dihedral angle potentials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, IF PAN &amp; ZPP Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

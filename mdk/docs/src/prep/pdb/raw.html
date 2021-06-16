@@ -1,0 +1,386 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Raw PDB data &mdash; mdk  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="PDB atomic model" href="model.html" />
+    <link rel="prev" title="PDB file records" href="records.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> mdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sections:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Preparation layer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../cmap.html">Contact map files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../seq.html">Sequence files</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">PDB objects and parsing</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="records.html">PDB file records</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Raw PDB data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="model.html">PDB atomic model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="parsing.html">PDB parsing framework</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../model.html">Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../param.html">Parameter files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../simul/index.html">Simulation layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/index.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../entire.html">Entire namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Preparation layer</a> &raquo;</li>
+        
+          <li><a href="index.html">PDB objects and parsing</a> &raquo;</li>
+        
+      <li>Raw PDB data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/src/prep/pdb/raw.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="raw-pdb-data">
+<h1>Raw PDB data<a class="headerlink" href="#raw-pdb-data" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb4DataE">
+<span id="_CPPv3N3mdk3pdb4DataE"></span><span id="_CPPv2N3mdk3pdb4DataE"></span><span id="mdk::pdb::Data"></span><span class="target" id="classmdk_1_1pdb_1_1Data"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdbE" title="mdk::pdb"><span class="n"><span class="pre">pdb</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">Data</span></span></span><br /></dt>
+<dd><p>PDB file in the “raw format”, i.e. as a list of PDB records. Certain utility functions, like parsing from/to <code class="docutils literal notranslate"><a class="reference internal" href="model.html#classmdk_1_1pdb_1_1Model"><span class="std std-ref"><span class="pre">pdb::Model</span></span></a></code> and retrieving only atom positions, are provided. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb4Data4DataEv">
+<span id="_CPPv3N3mdk3pdb4Data4DataEv"></span><span id="_CPPv2N3mdk3pdb4Data4DataEv"></span><span id="mdk::pdb::Data::Data"></span><span class="target" id="classmdk_1_1pdb_1_1Data_1a24f9a526e020fab6936a9d844df2759b"></span><span class="sig-name descname"><span class="n"><span class="pre">Data</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb4Data4DataERKN3pdb5ModelE">
+<span id="_CPPv3N3mdk3pdb4Data4DataERKN3pdb5ModelE"></span><span id="_CPPv2N3mdk3pdb4Data4DataERKN3pdb5ModelE"></span><span id="mdk::pdb::Data::Data__pdb::ModelCR"></span><span class="target" id="classmdk_1_1pdb_1_1Data_1a24bd65ff04aa1f8619f1fe5d27400409"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Data</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdbE" title="mdk::pdb"><span class="n"><span class="pre">pdb</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb5ModelE" title="mdk::pdb::Model"><span class="n"><span class="pre">Model</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">model</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Convert a PDB model into a set of records. In particular, extracts atom positions into ATOM records, contacts into SSBOND and LINK records, cell shape into CRYST1. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>model</strong> – PDB model to convert. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk3pdb4Data7asModelEv">
+<span id="_CPPv3NK3mdk3pdb4Data7asModelEv"></span><span id="_CPPv2NK3mdk3pdb4Data7asModelEv"></span><span id="mdk::pdb::Data::asModelC"></span><span class="target" id="classmdk_1_1pdb_1_1Data_1af3d825087b0a46b2955220398c944052"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdbE" title="mdk::pdb"><span class="n"><span class="pre">pdb</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb5ModelE" title="mdk::pdb::Model"><span class="n"><span class="pre">Model</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">asModel</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Convert the data into a PDB model (ATOM records into atoms, SSBOND and LINK records into contacts, CRYST1 into cell shape). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>PDB model generated from the data. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb4Data7recordsE">
+<span id="_CPPv3N3mdk3pdb4Data7recordsE"></span><span id="_CPPv2N3mdk3pdb4Data7recordsE"></span><span id="mdk::pdb::Data::records__std::vector:records::Record:"></span><span class="target" id="classmdk_1_1pdb_1_1Data_1abfbe9a767d8d548ca0879fae03f69410"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb4Data7recordsE" title="mdk::pdb::Data::records"><span class="n"><span class="pre">records</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Record</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">records</span></span></span><br /></dt>
+<dd><p>List of PDB records in the PDB file. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-functions">Public Static Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb4Data9onlyAtomsERKN3pdb5ModelE">
+<span id="_CPPv3N3mdk3pdb4Data9onlyAtomsERKN3pdb5ModelE"></span><span id="_CPPv2N3mdk3pdb4Data9onlyAtomsERKN3pdb5ModelE"></span><span id="mdk::pdb::Data::onlyAtoms__pdb::ModelCR"></span><span class="target" id="classmdk_1_1pdb_1_1Data_1a39a421b4f6f27e7d2d808a87d4cce77b"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb4DataE" title="mdk::pdb::Data"><span class="n"><span class="pre">Data</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">onlyAtoms</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdbE" title="mdk::pdb"><span class="n"><span class="pre">pdb</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb5ModelE" title="mdk::pdb::Model"><span class="n"><span class="pre">Model</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">model</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Extract only ATOM records from a PDB model. Useful for outputting a single file with lots of conformations of the same amino acid chain, for example when we output PDB model with consecutive positions in the simulation. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>model</strong> – PDB model to convert. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>PDB data object containing only ATOM records. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-friends">Friends</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="classmdk_1_1pdb_1_1Data_1acd4fa5239bc98130d66dd3c52d7d2bd9"></span><span class="sig-name descname"><span class="pre">friend</span> <span class="pre">friend</span> <span class="pre">Data</span> <span class="pre">&amp;</span> <span class="pre">operator&lt;&lt;</span> <span class="pre">(Data</span> <span class="pre">&amp;data,</span> <span class="pre">records::Record</span> <span class="pre">const</span> <span class="pre">&amp;record)</span></span></dt>
+<dd><p>Add a record to the PDB data object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – PDB data object. </p></li>
+<li><p><strong>record</strong> – PDB record to add. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">data</span></code> but with added <code class="docutils literal notranslate"><span class="pre">record</span></code> </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp">
+<span class="target" id="classmdk_1_1pdb_1_1Data_1aaa44e7cb9730b584cd2eb074ce822330"></span><span class="sig-name descname"><span class="pre">friend</span> <span class="pre">friend</span> <span class="pre">Data</span> <span class="pre">&amp;</span> <span class="pre">operator&lt;&lt;</span> <span class="pre">(Data</span> <span class="pre">&amp;data,</span> <span class="pre">Data</span> <span class="pre">const</span> <span class="pre">&amp;other)</span></span></dt>
+<dd><p>Append a list of records from another PDB data object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – PDB data object </p></li>
+<li><p><strong>other</strong> – Another PDB data object from where to get the records </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">data</span></code> but with added records from <code class="docutils literal notranslate"><span class="pre">other</span></code> </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb6ParserE">
+<span id="_CPPv3N3mdk3pdb6ParserE"></span><span id="_CPPv2N3mdk3pdb6ParserE"></span><span id="mdk::pdb::Parser"></span><span class="target" id="classmdk_1_1pdb_1_1Parser"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdbE" title="mdk::pdb"><span class="n"><span class="pre">pdb</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">Parser</span></span></span><br /></dt>
+<dd><p>A parser of PDB files. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb6Parser6ParserEv">
+<span id="_CPPv3N3mdk3pdb6Parser6ParserEv"></span><span id="_CPPv2N3mdk3pdb6Parser6ParserEv"></span><span id="mdk::pdb::Parser::Parser"></span><span class="target" id="classmdk_1_1pdb_1_1Parser_1a12234f6cd36b61af4b50c94a179422c1"></span><span class="sig-name descname"><span class="n"><span class="pre">Parser</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb6Parser4readERNSt7istreamE">
+<span id="_CPPv3N3mdk3pdb6Parser4readERNSt7istreamE"></span><span id="_CPPv2N3mdk3pdb6Parser4readERNSt7istreamE"></span><span id="mdk::pdb::Parser::read__isR"></span><span class="target" id="classmdk_1_1pdb_1_1Parser_1ae280b7a0075958dd039564b6ea90d3f5"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb4DataE" title="mdk::pdb::Data"><span class="n"><span class="pre">Data</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">read</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">istream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">is</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Read PDB data from an input stream. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>is</strong> – Input stream wherefrom to read the data. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Read PDB data. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb6Parser5writeERNSt7ostreamERK4Data">
+<span id="_CPPv3N3mdk3pdb6Parser5writeERNSt7ostreamERK4Data"></span><span id="_CPPv2N3mdk3pdb6Parser5writeERNSt7ostreamERK4Data"></span><span id="mdk::pdb::Parser::write__osR.DataCR"></span><span class="target" id="classmdk_1_1pdb_1_1Parser_1ac3773b0a07958a093ab06df66fef820d"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">write</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">os</span></span>, <a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb4DataE" title="mdk::pdb::Data"><span class="n"><span class="pre">Data</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">data</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Write formatted PDB data to an output stream. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>os</strong> – Output stream whereto to write the PDB data. </p></li>
+<li><p><strong>data</strong> – PDB data to write. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><code class="docutils literal notranslate"><span class="pre">os</span></code>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb6Parser7parsersE">
+<span id="_CPPv3N3mdk3pdb6Parser7parsersE"></span><span id="_CPPv2N3mdk3pdb6Parser7parsersE"></span><span id="mdk::pdb::Parser::parsers__std::unordered_map:i.std::shared_ptr:RecordParser::"></span><span class="target" id="classmdk_1_1pdb_1_1Parser_1a6634aabd9232c33e9b905220429c4237"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unordered_map</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb12RecordParserE" title="mdk::pdb::RecordParser"><span class="n"><span class="pre">RecordParser</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">parsers</span></span></span><br /></dt>
+<dd><p>(Internal) set of record parsers. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="model.html" class="btn btn-neutral float-right" title="PDB atomic model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="records.html" class="btn btn-neutral float-left" title="PDB file records" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, IF PAN &amp; ZPP Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

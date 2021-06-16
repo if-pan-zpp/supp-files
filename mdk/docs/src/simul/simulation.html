@@ -1,0 +1,429 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Simulation object &mdash; mdk  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Data objects" href="data/index.html" />
+    <link rel="prev" title="Simulation layer" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> mdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sections:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prep/index.html">Preparation layer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Simulation layer</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Simulation object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/index.html">Data objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="primitives.html">Primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simulvar.html">Simulation variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forces/index.html">Forces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kernels/index.html">Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="verlet.html">Verlet list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stats.html">Coordination stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="state.html">Physical state object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integrator/index.html">Integrators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hooks/index.html">Hooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/index.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../entire.html">Entire namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">mdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Simulation layer</a> &raquo;</li>
+        
+      <li>Simulation object</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/src/simul/simulation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="simulation-object">
+<h1>Simulation object<a class="headerlink" href="#simulation-object" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10SimulationE">
+<span id="_CPPv3N3mdk10SimulationE"></span><span id="_CPPv2N3mdk10SimulationE"></span><span id="mdk::Simulation"></span><span class="target" id="classmdk_1_1Simulation"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">Simulation</span></span></span><br /></dt>
+<dd><p>The main class of the library, responsible for:<ul class="simple">
+<li><p>storing the simulation state;</p></li>
+<li><p>storing the forces and other associated objects, and (optionally) binding them to the simulation;</p></li>
+<li><p>running, or rather stepping through, the simulation. </p></li>
+</ul>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10Simulation10SimulationE5ModelN5param10ParametersE">
+<span id="_CPPv3N3mdk10Simulation10SimulationE5ModelN5param10ParametersE"></span><span id="_CPPv2N3mdk10Simulation10SimulationE5ModelN5param10ParametersE"></span><span id="mdk::Simulation::Simulation__Model.param::Parameters"></span><span class="target" id="classmdk_1_1Simulation_1a146288c0f04b4e476e4250f95cde7cbb"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Simulation</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../entire.html#_CPPv4N3mdk5ModelE" title="mdk::Model"><span class="n"><span class="pre">Model</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">model</span></span>, <a class="reference internal" href="../entire.html#_CPPv4N3mdk5paramE" title="mdk::param"><span class="n"><span class="pre">param</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk5param10ParametersE" title="mdk::param::Parameters"><span class="n"><span class="pre">Parameters</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">params</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Initialize simulation from a <code class="docutils literal notranslate"><a class="reference internal" href="../prep/model.html#classmdk_1_1Model"><span class="std std-ref"><span class="pre">Model</span></span></a></code> object and the parameters. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> – <a class="reference internal" href="../prep/model.html#classmdk_1_1Model"><span class="std std-ref">Model</span></a> of the simulation. </p></li>
+<li><p><strong>params</strong> – Parameters of the simulation. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN3mdk10Simulation4dataERK4Datav">
+<span id="_CPPv3I0EN3mdk10Simulation4dataEv"></span><span id="_CPPv2I0EN3mdk10Simulation4dataEv"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Data</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classmdk_1_1Simulation_1af0b1870efd1da39a05bf5e4963443a6d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="../entire.html#_CPPv4I0EN3mdk10Simulation4dataERK4Datav" title="mdk::Simulation::data::Data"><span class="n"><span class="pre">Data</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">data</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Access the “static” data as created by the <code class="docutils literal notranslate"><a class="reference internal" href="data/factory.html#classmdk_1_1DataFactory"><span class="std std-ref"><span class="pre">DataFactory</span></span></a></code>. We access the data by the type, but insofar as these objects represent functions of the state and the simulation, this is (in my estimation) appropriate. Providing an invalid type will lead to linker error. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters</dt>
+<dd class="field-odd"><p><strong>Data</strong> – Type of static data to access. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Const reference to the data object. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN3mdk10Simulation3varER3Varv">
+<span id="_CPPv3I0EN3mdk10Simulation3varEv"></span><span id="_CPPv2I0EN3mdk10Simulation3varEv"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Var</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classmdk_1_1Simulation_1adbc17db203117ec486fc8fc8f5494f9f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="../entire.html#_CPPv4I0EN3mdk10Simulation3varER3Varv" title="mdk::Simulation::var::Var"><span class="n"><span class="pre">Var</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">var</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Accesses the variables associated with the simulation. The access is by type, thus it’s most suited to variables that are effectively functions of the simulation (for example the physical state or the Verlet list). If the referenced variable has not been yet added, the function tries to emplace it (if it’s default-constructible)  such is, for example, the case with <code class="docutils literal notranslate"><a class="reference internal" href="state.html#classmdk_1_1State"><span class="std std-ref"><span class="pre">State</span></span></a></code> or <code class="docutils literal notranslate"><a class="reference internal" href="verlet.html#classmdk_1_1vl_1_1List"><span class="std std-ref"><span class="pre">vl::List</span></span></a></code>. Cannot be run after simulation initialization. The reference is never invalidated. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters</dt>
+<dd class="field-odd"><p><strong>Var</strong> – Type of the variable to access. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Accessed variable. The function returns a non-const reference, thus care must be taken as to modify the variables only on agreed-upon points of the simulation (say, integration of forces). </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0DpEN3mdk10Simulation3addER1TDpRR4Args">
+<span id="_CPPv3I0DpEN3mdk10Simulation3addEDpRR4Args"></span><span id="_CPPv2I0DpEN3mdk10Simulation3addEDpRR4Args"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="sig-name descname"><span class="n"><span class="pre">Args</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="classmdk_1_1Simulation_1a7351ccd0153d05284379f65c468f9150"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="../entire.html#_CPPv4I0DpEN3mdk10Simulation3addER1TDpRR4Args" title="mdk::Simulation::add::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">add</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../entire.html#_CPPv4I0DpEN3mdk10Simulation3addER1TDpRR4Args" title="mdk::Simulation::add::Args"><span class="n"><span class="pre">Args</span></span></a><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">&amp;</span></span><span class="p"><span class="pre">...</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">args</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Add a variable to the simulation. Depending on the type of the variable, additional actions may be performed (such as binding to the simulation or adding forces and/or nonlocal forces to appropriate lists). Cannot be run after simulation initialization. The reference is never invalidated. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Template Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>T</strong> – Type of the variable to add. </p></li>
+<li><p><strong>Args</strong> – <a class="reference internal" href="primitives.html#classmdk_1_1Types"><span class="std std-ref">Types</span></a> of arguments to use in construction. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters</dt>
+<dd class="field-even"><p><strong>args</strong> – Values of arguments to use in construction. </p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Reference to a constructed and emplaced <code class="docutils literal notranslate"><span class="pre">T</span></code>(<code class="docutils literal notranslate"><span class="pre">Args</span></code>…). </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10Simulation12addAsyncTaskERKNSt8functionIFvvEEE">
+<span id="_CPPv3N3mdk10Simulation12addAsyncTaskERKNSt8functionIFvvEEE"></span><span id="_CPPv2N3mdk10Simulation12addAsyncTaskERKNSt8functionIFvvEEE"></span><span class="target" id="classmdk_1_1Simulation_1a19a2e8a16ff4d7c7ef1e64f4f951f422"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">addAsyncTask</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">f</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Add an “async task”. Cannot be run after simulation initialization. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>f</strong> – Function/lambda to add. (Seemingly the lambda cannot capture the environment, i.e. must be trivial) </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10Simulation4initEv">
+<span id="_CPPv3N3mdk10Simulation4initEv"></span><span id="_CPPv2N3mdk10Simulation4initEv"></span><span id="mdk::Simulation::init"></span><span class="target" id="classmdk_1_1Simulation_1a10d9646039f5bffba768c3abd0b558c7"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">init</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Initialize the simulation. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10Simulation4stepEv">
+<span id="_CPPv3N3mdk10Simulation4stepEv"></span><span id="_CPPv2N3mdk10Simulation4stepEv"></span><span id="mdk::Simulation::step"></span><span class="target" id="classmdk_1_1Simulation_1ae05737c1f277df72042103490e72aba0"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">step</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Step once through the simulation; the time step is as determined by the used integrator (usually 5 ps). </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10Simulation4stepEd">
+<span id="_CPPv3N3mdk10Simulation4stepEd"></span><span id="_CPPv2N3mdk10Simulation4stepEd"></span><span id="mdk::Simulation::step__double"></span><span class="target" id="classmdk_1_1Simulation_1a4b0dcc994783aab9fd1ae8d390edc911"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">step</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">t</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Step a total of time <code class="docutils literal notranslate"><span class="pre">t</span></code> through the simulation. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>t</strong> – Time to advance. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10Simulation10calcForcesEv">
+<span id="_CPPv3N3mdk10Simulation10calcForcesEv"></span><span id="_CPPv2N3mdk10Simulation10calcForcesEv"></span><span id="mdk::Simulation::calcForces"></span><span class="target" id="classmdk_1_1Simulation_1ad58795d71151cc7a4067a56f5c1f073b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">calcForces</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Internal function for invoking force fields. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10Simulation5modelE">
+<span id="_CPPv3N3mdk10Simulation5modelE"></span><span id="_CPPv2N3mdk10Simulation5modelE"></span><span id="mdk::Simulation::model__Model"></span><span class="target" id="classmdk_1_1Simulation_1a29bcfede9d09624f70740a445c965763"></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk5ModelE" title="mdk::Model"><span class="n"><span class="pre">Model</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">model</span></span></span><br /></dt>
+<dd><p><a class="reference internal" href="../prep/model.html#classmdk_1_1Model"><span class="std std-ref">Model</span></a> of the simulation. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10Simulation6paramsE">
+<span id="_CPPv3N3mdk10Simulation6paramsE"></span><span id="_CPPv2N3mdk10Simulation6paramsE"></span><span id="mdk::Simulation::params__param::Parameters"></span><span class="target" id="classmdk_1_1Simulation_1a626712f823ea763145da9c4f86c94723"></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk5paramE" title="mdk::param"><span class="n"><span class="pre">param</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk5param10ParametersE" title="mdk::param::Parameters"><span class="n"><span class="pre">Parameters</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">params</span></span></span><br /></dt>
+<dd><p>Parameters of the simulation. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10Simulation2dfE">
+<span id="_CPPv3N3mdk10Simulation2dfE"></span><span id="_CPPv2N3mdk10Simulation2dfE"></span><span id="mdk::Simulation::df__DataFactory"></span><span class="target" id="classmdk_1_1Simulation_1ab46a030d48f1780e7a4b3ed4d13aecb5"></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk11DataFactoryE" title="mdk::DataFactory"><span class="n"><span class="pre">DataFactory</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">df</span></span></span><br /></dt>
+<dd><p>Data factory. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10Simulation4varsE">
+<span id="_CPPv3N3mdk10Simulation4varsE"></span><span id="_CPPv2N3mdk10Simulation4varsE"></span><span id="mdk::Simulation::vars__std::unordered_map:std::type_index.std::shared_ptr:void::"></span><span class="target" id="classmdk_1_1Simulation_1a8bdaa5c7c50f666979206119d5564193"></span><a class="reference internal" href="../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unordered_map</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">type_index</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">shared_ptr</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">vars</span></span></span><br /></dt>
+<dd><p>A heterogeneous collection of objects (stored as shared pointers to void) indexed by their types. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10Simulation6forcesE">
+<span id="_CPPv3N3mdk10Simulation6forcesE"></span><span id="_CPPv2N3mdk10Simulation6forcesE"></span><span id="mdk::Simulation::forces__std::vector:ForceP:"></span><span class="target" id="classmdk_1_1Simulation_1a038a97547ad4cc046bca527af556072a"></span><a class="reference internal" href="../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk5ForceE" title="mdk::Force"><span class="n"><span class="pre">Force</span></span></a><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">forces</span></span></span><br /></dt>
+<dd><p><a class="reference internal" href="forces/index.html#classmdk_1_1Force"><span class="std std-ref">Force</span></a> fields of the simulation. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10Simulation14nonlocalForcesE">
+<span id="_CPPv3N3mdk10Simulation14nonlocalForcesE"></span><span id="_CPPv2N3mdk10Simulation14nonlocalForcesE"></span><span id="mdk::Simulation::nonlocalForces__std::vector:NonlocalForceP:"></span><span class="target" id="classmdk_1_1Simulation_1a09241bd7cd24831f05c51383a22b57da"></span><a class="reference internal" href="../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk13NonlocalForceE" title="mdk::NonlocalForce"><span class="n"><span class="pre">NonlocalForce</span></span></a><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">nonlocalForces</span></span></span><br /></dt>
+<dd><p>List of nonlocal forces of the simulation - the distinction is used when the Verlet list is updated, so as to invoke appropriate update functions. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10Simulation5hooksE">
+<span id="_CPPv3N3mdk10Simulation5hooksE"></span><span id="_CPPv2N3mdk10Simulation5hooksE"></span><span id="mdk::Simulation::hooks__std::vector:HookP:"></span><span class="target" id="classmdk_1_1Simulation_1af96ec814672e10f33b2ce9401de0540c"></span><a class="reference internal" href="../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk4HookE" title="mdk::Hook"><span class="n"><span class="pre">Hook</span></span></a><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">hooks</span></span></span><br /></dt>
+<dd><p>Hooks of the simulation. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10Simulation10asyncTasksE">
+<span id="_CPPv3N3mdk10Simulation10asyncTasksE"></span><span id="_CPPv2N3mdk10Simulation10asyncTasksE"></span><span class="target" id="classmdk_1_1Simulation_1a7498cc481db1e7d91ffdc162b1f7c212"></span><a class="reference internal" href="../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">function</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">void</span></span><span class="p"><span class="pre">(</span></span><span class="p"><span class="pre">)</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">asyncTasks</span></span></span><br /></dt>
+<dd><p>Async tasks. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10Simulation10integratorE">
+<span id="_CPPv3N3mdk10Simulation10integratorE"></span><span id="_CPPv2N3mdk10Simulation10integratorE"></span><span id="mdk::Simulation::integrator__IntegratorP"></span><span class="target" id="classmdk_1_1Simulation_1a574b2af6e0390002e2dd47b97562b660"></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk10IntegratorE" title="mdk::Integrator"><span class="n"><span class="pre">Integrator</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">integrator</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><br /></dt>
+<dd><p>Pointer to the integrator used in the simulation. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10Simulation5stateE">
+<span id="_CPPv3N3mdk10Simulation5stateE"></span><span id="_CPPv2N3mdk10Simulation5stateE"></span><span id="mdk::Simulation::state__StateP"></span><span class="target" id="classmdk_1_1Simulation_1a094059b2ca5d280faa65697afc0739ac"></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk5StateE" title="mdk::State"><span class="n"><span class="pre">State</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">state</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10Simulation11verlet_listE">
+<span id="_CPPv3N3mdk10Simulation11verlet_listE"></span><span id="_CPPv2N3mdk10Simulation11verlet_listE"></span><span id="mdk::Simulation::verlet_list__vl::ListP"></span><span class="target" id="classmdk_1_1Simulation_1a01714b9b3b26cbfa8c72ac59764692ed"></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk2vlE" title="mdk::vl"><span class="n"><span class="pre">vl</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk2vl4ListE" title="mdk::vl::List"><span class="n"><span class="pre">List</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">verlet_list</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10Simulation11initializedE">
+<span id="_CPPv3N3mdk10Simulation11initializedE"></span><span id="_CPPv2N3mdk10Simulation11initializedE"></span><span id="mdk::Simulation::initialized__b"></span><span class="target" id="classmdk_1_1Simulation_1ac05c4594bfafa8a4aa39e3cc9cc678d0"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">initialized</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><br /></dt>
+<dd><p>Whether simulation has yet been initialized; used for running the init function only once. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10Simulation7step_nrE">
+<span id="_CPPv3N3mdk10Simulation7step_nrE"></span><span id="_CPPv2N3mdk10Simulation7step_nrE"></span><span id="mdk::Simulation::step_nr__i"></span><span class="target" id="classmdk_1_1Simulation_1a1e3ceca1a061bce65ad4e0286b624f54"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">step_nr</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd><p>Number of steps performed. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="data/index.html" class="btn btn-neutral float-right" title="Data objects" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Simulation layer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, IF PAN &amp; ZPP Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

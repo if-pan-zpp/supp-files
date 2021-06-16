@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Chain tether forces &mdash; mdk  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Bond angle potential" href="bondangle.html" />
+    <link rel="prev" title="Forces" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> mdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sections:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prep/index.html">Preparation layer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Simulation layer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../simulation.html">Simulation object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">Data objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../primitives.html">Primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../simulvar.html">Simulation variables</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Forces</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Chain tether forces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bondangle.html">Bond angle potential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dihedral.html">Dihedral angle potentials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chiral.html">Chirality potential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nonlocal.html">Nonlocal function interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gomodel.html">Go-model native contacts potential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="es.html">Electrostatic forces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pauli.html">Pauli exclusion forces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pid.html">Pseudo-improper-dihedral custom potential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qa.html">Quasi-adiabatic custom potential</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kernels/index.html">Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../verlet.html">Verlet list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stats.html">Coordination stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../state.html">Physical state object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integrator/index.html">Integrators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hooks/index.html">Hooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/index.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../entire.html">Entire namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Simulation layer</a> &raquo;</li>
+        
+          <li><a href="index.html">Forces</a> &raquo;</li>
+        
+      <li>Chain tether forces</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/src/simul/forces/tether.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="chain-tether-forces">
+<h1>Chain tether forces<a class="headerlink" href="#chain-tether-forces" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk6TetherE">
+<span id="_CPPv3N3mdk6TetherE"></span><span id="_CPPv2N3mdk6TetherE"></span><span id="mdk::Tether"></span><span class="target" id="classmdk_1_1Tether"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">Tether</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5ForceE" title="mdk::Force"><span class="n"><span class="pre">Force</span></span></a><br /></dt>
+<dd><p><a class="reference internal" href="../kernels/harmonic.html#classmdk_1_1Harmonic"><span class="std std-ref">Harmonic</span></a> tether forces between consecutive residues in a chain. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk6Tether6TetherEb">
+<span id="_CPPv3N3mdk6Tether6TetherEb"></span><span id="_CPPv2N3mdk6Tether6TetherEb"></span><span id="mdk::Tether::Tether__b"></span><span class="target" id="classmdk_1_1Tether_1a1029bd5de822c5ee1e248bec3f468db9"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Tether</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fromNative</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Construct a <code class="docutils literal notranslate"><a class="reference internal" href="#classmdk_1_1Tether"><span class="std std-ref"><span class="pre">Tether</span></span></a></code> object. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fromNative</strong> – Whether the equilibrium bond distances should be derived from the native structure or set to a default value (3.8 angstrem). </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk6Tether4bindER10Simulation">
+<span id="_CPPv3N3mdk6Tether4bindER10Simulation"></span><span id="_CPPv2N3mdk6Tether4bindER10Simulation"></span><span id="mdk::Tether::bind__SimulationR"></span><span class="target" id="classmdk_1_1Tether_1abda37de608643023712b7e8ee34fa394"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bind</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk10SimulationE" title="mdk::Simulation"><span class="n"><span class="pre">Simulation</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">simulation</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Bind the object to the simulation. Additionally we fetch the chain data to determine which of the pairs (i, i+1) are connected. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>simulation</strong> – <a class="reference internal" href="../simulation.html#classmdk_1_1Simulation"><span class="std std-ref">Simulation</span></a> to bind to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk6Tether9asyncPartER8Dynamics">
+<span id="_CPPv3N3mdk6Tether9asyncPartER8Dynamics"></span><span id="_CPPv2N3mdk6Tether9asyncPartER8Dynamics"></span><span id="mdk::Tether::asyncPart__DynamicsR"></span><span class="target" id="classmdk_1_1Tether_1a76262037b531c624eaea1d5b694ee9e1"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">asyncPart</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk8DynamicsE" title="mdk::Dynamics"><span class="n"><span class="pre">Dynamics</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">dynamics</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Asynchronous part of the force computation. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dynamics</strong> – <a class="reference internal" href="../../entire.html#structmdk_1_1Dynamics"><span class="std std-ref">Dynamics</span></a> object to add potential energy and forces to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk6Tether4harmE">
+<span id="_CPPv3N3mdk6Tether4harmE"></span><span id="_CPPv2N3mdk6Tether4harmE"></span><span id="mdk::Tether::harm__Harmonic"></span><span class="target" id="classmdk_1_1Tether_1ae4ff03f47ae0249d1328c9638e7b228a"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk8HarmonicE" title="mdk::Harmonic"><span class="n"><span class="pre">Harmonic</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">harm</span></span></span><br /></dt>
+<dd><p>The underlying harmonic force kernel. It is separated from this class because it’s used in some other places, notably for standard SSBOND interactions. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk6Tether10fromNativeE">
+<span id="_CPPv3N3mdk6Tether10fromNativeE"></span><span id="_CPPv2N3mdk6Tether10fromNativeE"></span><span id="mdk::Tether::fromNative__b"></span><span class="target" id="classmdk_1_1Tether_1a10301b532822fd6590072106a5748af3"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">fromNative</span></span></span><br /></dt>
+<dd><p>Whether the equilibrium bond distances should be derived from the native structure or set to a default value (3.8 angstrem). </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk6Tether1nE">
+<span id="_CPPv3N3mdk6Tether1nE"></span><span id="_CPPv2N3mdk6Tether1nE"></span><span id="mdk::Tether::n__i"></span><span class="target" id="classmdk_1_1Tether_1ada3d628f4209e5ca7d68c386d70858ae"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">n</span></span></span><br /></dt>
+<dd><p>Number of residues, saved for convenience. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk6Tether5dist0E">
+<span id="_CPPv3N3mdk6Tether5dist0E"></span><span id="_CPPv2N3mdk6Tether5dist0E"></span><span id="mdk::Tether::dist0__Scalars"></span><span class="target" id="classmdk_1_1Tether_1abc7ebcdcbcb68b60204134b19087d83a"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk7ScalarsE" title="mdk::Scalars"><span class="n"><span class="pre">Scalars</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dist0</span></span></span><br /></dt>
+<dd><p>A list of equilibrium distances. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk6Tether11isConnectedE">
+<span id="_CPPv3N3mdk6Tether11isConnectedE"></span><span id="_CPPv2N3mdk6Tether11isConnectedE"></span><span id="mdk::Tether::isConnected__Bytes"></span><span class="target" id="classmdk_1_1Tether_1a884f5f9789c1ea59f2ee751f5dc8acb8"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5BytesE" title="mdk::Bytes"><span class="n"><span class="pre">Bytes</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isConnected</span></span></span><br /></dt>
+<dd><p>isConnected[i] = 1 if pair (i, i+1) is entirely in a chain, i.e. is tethered; 0 otherwise. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="bondangle.html" class="btn btn-neutral float-right" title="Bond angle potential" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Forces" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, IF PAN &amp; ZPP Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

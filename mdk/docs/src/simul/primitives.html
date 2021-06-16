@@ -1,0 +1,411 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Primitives &mdash; mdk  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Simulation variables" href="simulvar.html" />
+    <link rel="prev" title="Data objects" href="data/objects.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> mdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sections:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prep/index.html">Preparation layer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Simulation layer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="simulation.html">Simulation object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/index.html">Data objects</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simulvar.html">Simulation variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forces/index.html">Forces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kernels/index.html">Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="verlet.html">Verlet list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stats.html">Coordination stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="state.html">Physical state object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integrator/index.html">Integrators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hooks/index.html">Hooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/index.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../entire.html">Entire namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">mdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Simulation layer</a> &raquo;</li>
+        
+      <li>Primitives</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/src/simul/primitives.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="primitives">
+<h1>Primitives<a class="headerlink" href="#primitives" title="Permalink to this headline">¶</a></h1>
+<p>We use a family of base (“primitive”) types.</p>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv43mdk">
+<span id="_CPPv33mdk"></span><span id="_CPPv23mdk"></span><span id="mdk"></span><span class="target" id="namespacemdk"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mdk</span></span></span><br /></dt>
+<dd><dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5TypesE">
+<span id="_CPPv3N3mdk5TypesE"></span><span id="_CPPv2N3mdk5TypesE"></span><span id="mdk::Types"></span><span class="target" id="classmdk_1_1Types"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Types</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><span class="n"><span class="pre">Eigen</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Matrix</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk7ResTypeE" title="mdk::ResType"><span class="n"><span class="pre">ResType</span></span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">Eigen</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Dynamic</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">1</span></span><span class="p"><span class="pre">&gt;</span></span><br /></dt>
+<dd><em>#include &lt;Types.hpp&gt;</em><p>Data class containing types of residues, in an array form. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5Types5TypesEv">
+<span id="_CPPv3N3mdk5Types5TypesEv"></span><span id="_CPPv2N3mdk5Types5TypesEv"></span><span id="mdk::Types::Types"></span><span class="target" id="classmdk_1_1Types_1ac9610f5f952ab1e995034f50d8beedda"></span><span class="sig-name descname"><span class="n"><span class="pre">Types</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5Types5TypesERK5Model">
+<span id="_CPPv3N3mdk5Types5TypesERK5Model"></span><span id="_CPPv2N3mdk5Types5TypesERK5Model"></span><span id="mdk::Types::Types__ModelCR"></span><span class="target" id="classmdk_1_1Types_1a606ae6477dfb05d775e9037a417e6dce"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Types</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../entire.html#_CPPv4N3mdk5ModelE" title="mdk::Model"><span class="n"><span class="pre">Model</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">model</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp">
+<span class="target" id="namespacemdk"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mdk</span></span></span><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk7ScalarsE">
+<span id="_CPPv3N3mdk7ScalarsE"></span><span id="_CPPv2N3mdk7ScalarsE"></span><span class="target" id="Primitives_8hpp_1a2c18547d7b9933fa0b1b3dd72bb1bfc1"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Scalars</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Eigen</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">VectorXd</span></span><br /></dt>
+<dd><p>A list of scalars (i.e. doubles). </p>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk6VectorE">
+<span id="_CPPv3N3mdk6VectorE"></span><span id="_CPPv2N3mdk6VectorE"></span><span id="mdk::Vector"></span><span class="target" id="Primitives_8hpp_1ad254d35a49b3bb9b55693acced0e8693"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><span class="n"><span class="pre">Eigen</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Vector3d</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Vector</span></span></span><br /></dt>
+<dd><p>A vector (writing <code class="docutils literal notranslate"><span class="pre">Eigen::Vector3d</span></code> everywhere is annoying). </p>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk4VRefE">
+<span id="_CPPv3N3mdk4VRefE"></span><span id="_CPPv2N3mdk4VRefE"></span><span id="mdk::VRef"></span><span class="target" id="Primitives_8hpp_1a6acad1aa50d4f68b32589f62d0a0a882"></span><span class="k"><span class="pre">typedef</span></span><span class="w"> </span><a class="reference internal" href="../entire.html#_CPPv4N3mdk6VectorE" title="mdk::Vector"><span class="n"><span class="pre">Vector</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">VRef</span></span></span><br /></dt>
+<dd><p>Constant reference to a vector. Given the size of a Vector, passing copies wouldn’t be inefficient; it’s here chiefly to hide the warnings. </p>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5BytesE">
+<span id="_CPPv3N3mdk5BytesE"></span><span id="_CPPv2N3mdk5BytesE"></span><span class="target" id="Primitives_8hpp_1aa40fb5968a7c6ae0165938782434ab6a"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Bytes</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">int8_t</span></span><span class="p"><span class="pre">&gt;</span></span><br /></dt>
+<dd><p>List of small integers (usually we use this to store various enums and true/false values). </p>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk8IntegersE">
+<span id="_CPPv3N3mdk8IntegersE"></span><span id="_CPPv2N3mdk8IntegersE"></span><span class="target" id="Primitives_8hpp_1aa54205a8f6a08607b5d15687600025be"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Integers</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">&gt;</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk5PairsE">
+<span id="_CPPv3N3mdk5PairsE"></span><span id="_CPPv2N3mdk5PairsE"></span><span class="target" id="Primitives_8hpp_1aef7b639036f0ae84249428a05c9aa1b6"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Pairs</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">pair</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><br /></dt>
+<dd><p>List of pairs (used in storing VL pairs). </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp">
+<span class="target" id="namespacemdk"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mdk</span></span></span><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-typedefs">Typedefs</p>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10VectorBaseE">
+<span id="_CPPv3N3mdk10VectorBaseE"></span><span id="_CPPv2N3mdk10VectorBaseE"></span><span class="target" id="Vectors_8hpp_1ad527fb5fada9843cc809289390c60ca4"></span><span class="k"><span class="pre">using</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">VectorBase</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="n"><span class="pre">Eigen</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Matrix</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="m"><span class="pre">3</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">Eigen</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Dynamic</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="n"><span class="pre">Eigen</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ColMajor</span></span><span class="p"><span class="pre">&gt;</span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk7VectorsE">
+<span id="_CPPv3N3mdk7VectorsE"></span><span id="_CPPv2N3mdk7VectorsE"></span><span id="mdk::Vectors"></span><span class="target" id="classmdk_1_1Vectors"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Vectors</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../entire.html#_CPPv4N3mdk10VectorBaseE" title="mdk::VectorBase"><span class="n"><span class="pre">VectorBase</span></span></a><br /></dt>
+<dd><em>#include &lt;Vectors.hpp&gt;</em><p>This class is a sort of a decorator over standard Eigen::Matrix3Xd. The chief difference is that this class offers an interface more appropriate for dealing with it as though it were a list of vectors (for example, one needs not use m.col(i) to get t’th vector in the matrix. Also, now <a class="reference internal" href="#classmdk_1_1Vectors_1ad3b4d0b4acc2a08b4245027a990156a7"><span class="std std-ref">size()</span></a> corresponds to the number of vectors and not the elements of the array. The array itself is not (easily) resizeable. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk7Vectors7VectorsEv">
+<span id="_CPPv3N3mdk7Vectors7VectorsEv"></span><span id="_CPPv2N3mdk7Vectors7VectorsEv"></span><span id="mdk::Vectors::Vectors"></span><span class="target" id="classmdk_1_1Vectors_1ad2ae394854fe74badd2d711d5e2d4c59"></span><span class="sig-name descname"><span class="n"><span class="pre">Vectors</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk7Vectors7VectorsEi">
+<span id="_CPPv3N3mdk7Vectors7VectorsEi"></span><span id="_CPPv2N3mdk7Vectors7VectorsEi"></span><span id="mdk::Vectors::Vectors__i"></span><span class="target" id="classmdk_1_1Vectors_1abef787e78a7b23c04e605aee9aa527a8"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Vectors</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">n</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Create an unitialized list of n vectors. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>n</strong> – Number of vectors </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk7Vectors7VectorsEiRK6Vector">
+<span id="_CPPv3N3mdk7Vectors7VectorsEiRK6Vector"></span><span id="_CPPv2N3mdk7Vectors7VectorsEiRK6Vector"></span><span id="mdk::Vectors::Vectors__i.VectorCR"></span><span class="target" id="classmdk_1_1Vectors_1a8d81b50dc5313aa2e84be3116e3fbe22"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Vectors</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">n</span></span>, <a class="reference internal" href="../entire.html#_CPPv4N3mdk6VectorE" title="mdk::Vector"><span class="n"><span class="pre">Vector</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">init</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Create an initialized list of n vectors. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>n</strong> – Number of vectors </p></li>
+<li><p><strong>init</strong> – Initial value </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk7Vectors10vectorwiseEv">
+<span id="_CPPv3N3mdk7Vectors10vectorwiseEv"></span><span id="_CPPv2N3mdk7Vectors10vectorwiseEv"></span><span id="mdk::Vectors::vectorwise"></span><span class="target" id="classmdk_1_1Vectors_1aab548ea29da6ae563085fe07ba43c463"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">vectorwise</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Returns an iterator over constituent vectors. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>An interator over constituent vectors. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk7Vectors10vectorwiseEv">
+<span id="_CPPv3NK3mdk7Vectors10vectorwiseEv"></span><span id="_CPPv2NK3mdk7Vectors10vectorwiseEv"></span><span id="mdk::Vectors::vectorwiseC"></span><span class="target" id="classmdk_1_1Vectors_1a2c2a2ef691cbfe69165901a4d8796925"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">vectorwise</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Returns a const iterator over constituent vectors. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A const interator over constituent vectors. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk7Vectors4sizeEv">
+<span id="_CPPv3NK3mdk7Vectors4sizeEv"></span><span id="_CPPv2NK3mdk7Vectors4sizeEv"></span><span id="mdk::Vectors::sizeC"></span><span class="target" id="classmdk_1_1Vectors_1ad3b4d0b4acc2a08b4245027a990156a7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">size</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A number of vectors. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk7VectorsixEi">
+<span id="_CPPv3N3mdk7VectorsixEi"></span><span id="_CPPv2N3mdk7VectorsixEi"></span><span id="mdk::Vectors::subscript-operator__i"></span><span class="target" id="classmdk_1_1Vectors_1aed07861412232de423c713e3874cea29"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">[]</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Access to vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>i</strong> – Index of a vector to access </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A slice of a matrix corresponding to i’th vector. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk7VectorsixEi">
+<span id="_CPPv3NK3mdk7VectorsixEi"></span><span id="_CPPv2NK3mdk7VectorsixEi"></span><span id="mdk::Vectors::subscript-operator__iC"></span><span class="target" id="classmdk_1_1Vectors_1a2f62fb227828ca76c02b7d306a1a650b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">auto</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">[]</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">i</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Const access to vector. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>i</strong> – Index of a vector to access </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A const slice of a matrix corresponding to i’th vector. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="simulvar.html" class="btn btn-neutral float-right" title="Simulation variables" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="data/objects.html" class="btn btn-neutral float-left" title="Data objects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, IF PAN &amp; ZPP Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

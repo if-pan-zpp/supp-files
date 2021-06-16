@@ -1,0 +1,570 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Amino acid class &mdash; mdk  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Contact type class" href="contacttype.html" />
+    <link rel="prev" title="Utilities" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> mdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sections:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prep/index.html">Preparation layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simul/index.html">Simulation layer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Utilities</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Amino acid class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contacttype.html">Contact type class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pairtype.html">Pair type class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random.html">Random number generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restype.html">Residue type class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html">Topology class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="units.html">Physical unit definitions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../entire.html">Entire namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">mdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Utilities</a> &raquo;</li>
+        
+      <li>Amino acid class</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/src/utils/aminoacid.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="amino-acid-class">
+<h1>Amino acid class<a class="headerlink" href="#amino-acid-class" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4IENSt4hashIN3mdk9AminoAcidEEE">
+<span id="_CPPv3IENSt4hashIN3mdk9AminoAcidEEE"></span><span id="_CPPv2IENSt4hashIN3mdk9AminoAcidEEE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="structstd_1_1hash_3_01mdk_1_1AminoAcid_01_4"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">hash</span></span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk9AminoAcidE" title="mdk::AminoAcid"><span class="n"><span class="pre">AminoAcid</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4IENSt4hashIN3mdk9AminoAcidEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;AminoAcid.hpp&gt;</em><p>A <code class="docutils literal notranslate"><span class="pre">std::hash</span></code> instantiation for <code class="docutils literal notranslate"><span class="pre">AminoAcid</span></code>, allows us to use <code class="docutils literal notranslate"><span class="pre">AminoAcid</span></code> as keys in STL maps. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NKSt4hashIN3mdk9AminoAcidEEclERKN3mdk9AminoAcidE">
+<span id="_CPPv3NKSt4hashIN3mdk9AminoAcidEEclERKN3mdk9AminoAcidE"></span><span id="_CPPv2NKSt4hashIN3mdk9AminoAcidEEclERKN3mdk9AminoAcidE"></span><span id="std::hash:mdk::AminoAcid:::call-operator__mdk::AminoAcidCRC"></span><span class="target" id="structstd_1_1hash_3_01mdk_1_1AminoAcid_01_4_1a56a759f332e315f261cc754358f94cf5"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">()</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk9AminoAcidE" title="mdk::AminoAcid"><span class="n"><span class="pre">AminoAcid</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">aminoAcid</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NKSt4hashIN3mdk9AminoAcidEEclERKN3mdk9AminoAcidE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv43mdk">
+<span id="_CPPv33mdk"></span><span id="_CPPv23mdk"></span><span id="mdk"></span><span class="target" id="namespacemdk"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mdk</span></span></span><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk12AminoAcidIdxE">
+<span id="_CPPv3N3mdk12AminoAcidIdxE"></span><span id="_CPPv2N3mdk12AminoAcidIdxE"></span><span class="target" id="AminoAcid_8hpp_1a238b252addffa534f718351ea6ef1876"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AminoAcidIdx</span></span></span><br /></dt>
+<dd><p>An underlying amino acid index. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk12AminoAcidIdx3ALAE">
+<span id="_CPPv3N3mdk12AminoAcidIdx3ALAE"></span><span id="_CPPv2N3mdk12AminoAcidIdx3ALAE"></span><span class="target" id="AminoAcid_8hpp_1a238b252addffa534f718351ea6ef1876a008cc01fbdd6007b55339634f182d738"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ALA</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk12AminoAcidIdx3ARGE">
+<span id="_CPPv3N3mdk12AminoAcidIdx3ARGE"></span><span id="_CPPv2N3mdk12AminoAcidIdx3ARGE"></span><span class="target" id="AminoAcid_8hpp_1a238b252addffa534f718351ea6ef1876a10c7e31bf64ba3add5cd9c21c9a964cc"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ARG</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk12AminoAcidIdx3ASNE">
+<span id="_CPPv3N3mdk12AminoAcidIdx3ASNE"></span><span id="_CPPv2N3mdk12AminoAcidIdx3ASNE"></span><span class="target" id="AminoAcid_8hpp_1a238b252addffa534f718351ea6ef1876adec20b35ad94f1a61d9de894338ba93f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ASN</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk12AminoAcidIdx3ASPE">
+<span id="_CPPv3N3mdk12AminoAcidIdx3ASPE"></span><span id="_CPPv2N3mdk12AminoAcidIdx3ASPE"></span><span class="target" id="AminoAcid_8hpp_1a238b252addffa534f718351ea6ef1876a9fb6833c8c76d238a5d70137ba288cda"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ASP</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk12AminoAcidIdx3CYSE">
+<span id="_CPPv3N3mdk12AminoAcidIdx3CYSE"></span><span id="_CPPv2N3mdk12AminoAcidIdx3CYSE"></span><span class="target" id="AminoAcid_8hpp_1a238b252addffa534f718351ea6ef1876a2488524b4bfc323d3ce02ea07827e85e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CYS</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk12AminoAcidIdx3GLUE">
+<span id="_CPPv3N3mdk12AminoAcidIdx3GLUE"></span><span id="_CPPv2N3mdk12AminoAcidIdx3GLUE"></span><span class="target" id="AminoAcid_8hpp_1a238b252addffa534f718351ea6ef1876a32277394d6cbc559f5c12b591d4468aa"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GLU</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk12AminoAcidIdx3GLNE">
+<span id="_CPPv3N3mdk12AminoAcidIdx3GLNE"></span><span id="_CPPv2N3mdk12AminoAcidIdx3GLNE"></span><span class="target" id="AminoAcid_8hpp_1a238b252addffa534f718351ea6ef1876a58d7f8552a04176a69642725e2269ee9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GLN</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk12AminoAcidIdx3GLYE">
+<span id="_CPPv3N3mdk12AminoAcidIdx3GLYE"></span><span id="_CPPv2N3mdk12AminoAcidIdx3GLYE"></span><span class="target" id="AminoAcid_8hpp_1a238b252addffa534f718351ea6ef1876af8ecd803f9e3c34d84b8a33a4f28791e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GLY</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk12AminoAcidIdx3HISE">
+<span id="_CPPv3N3mdk12AminoAcidIdx3HISE"></span><span id="_CPPv2N3mdk12AminoAcidIdx3HISE"></span><span class="target" id="AminoAcid_8hpp_1a238b252addffa534f718351ea6ef1876ad6ecf663bc8305ea1a98c775daaf4c8f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">HIS</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk12AminoAcidIdx3ILEE">
+<span id="_CPPv3N3mdk12AminoAcidIdx3ILEE"></span><span id="_CPPv2N3mdk12AminoAcidIdx3ILEE"></span><span class="target" id="AminoAcid_8hpp_1a238b252addffa534f718351ea6ef1876a40f420104502f333ebb1e9d162537b05"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ILE</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk12AminoAcidIdx3LEUE">
+<span id="_CPPv3N3mdk12AminoAcidIdx3LEUE"></span><span id="_CPPv2N3mdk12AminoAcidIdx3LEUE"></span><span class="target" id="AminoAcid_8hpp_1a238b252addffa534f718351ea6ef1876a55cbb7859b050efb5b0095c773b5a06f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LEU</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk12AminoAcidIdx3LYSE">
+<span id="_CPPv3N3mdk12AminoAcidIdx3LYSE"></span><span id="_CPPv2N3mdk12AminoAcidIdx3LYSE"></span><span class="target" id="AminoAcid_8hpp_1a238b252addffa534f718351ea6ef1876a0325a3396c62c4442b435e23e82a2dab"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LYS</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk12AminoAcidIdx3METE">
+<span id="_CPPv3N3mdk12AminoAcidIdx3METE"></span><span id="_CPPv2N3mdk12AminoAcidIdx3METE"></span><span class="target" id="AminoAcid_8hpp_1a238b252addffa534f718351ea6ef1876af99ac35a101a64b723d880070bdde14a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MET</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk12AminoAcidIdx3PHEE">
+<span id="_CPPv3N3mdk12AminoAcidIdx3PHEE"></span><span id="_CPPv2N3mdk12AminoAcidIdx3PHEE"></span><span class="target" id="AminoAcid_8hpp_1a238b252addffa534f718351ea6ef1876a4cda9c8c72fc190ad7a313fd9497dde4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PHE</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk12AminoAcidIdx3PROE">
+<span id="_CPPv3N3mdk12AminoAcidIdx3PROE"></span><span id="_CPPv2N3mdk12AminoAcidIdx3PROE"></span><span class="target" id="AminoAcid_8hpp_1a238b252addffa534f718351ea6ef1876a9e3360ac711fcd82ceea74c8eb69bda9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PRO</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk12AminoAcidIdx3SERE">
+<span id="_CPPv3N3mdk12AminoAcidIdx3SERE"></span><span id="_CPPv2N3mdk12AminoAcidIdx3SERE"></span><span class="target" id="AminoAcid_8hpp_1a238b252addffa534f718351ea6ef1876a145b18e0cb047d3fb5504472ebd1ffed"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SER</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk12AminoAcidIdx3THRE">
+<span id="_CPPv3N3mdk12AminoAcidIdx3THRE"></span><span id="_CPPv2N3mdk12AminoAcidIdx3THRE"></span><span class="target" id="AminoAcid_8hpp_1a238b252addffa534f718351ea6ef1876a83d9d4f394eb46b80cf81c51e50963d6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">THR</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk12AminoAcidIdx3TRPE">
+<span id="_CPPv3N3mdk12AminoAcidIdx3TRPE"></span><span id="_CPPv2N3mdk12AminoAcidIdx3TRPE"></span><span class="target" id="AminoAcid_8hpp_1a238b252addffa534f718351ea6ef1876aa0fc2dd4cd3b4d52dcfff9209cc74648"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TRP</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk12AminoAcidIdx3TYRE">
+<span id="_CPPv3N3mdk12AminoAcidIdx3TYRE"></span><span id="_CPPv2N3mdk12AminoAcidIdx3TYRE"></span><span class="target" id="AminoAcid_8hpp_1a238b252addffa534f718351ea6ef1876aa15fe903a74b0306dd13dce624d067d0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TYR</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk12AminoAcidIdx3VALE">
+<span id="_CPPv3N3mdk12AminoAcidIdx3VALE"></span><span id="_CPPv2N3mdk12AminoAcidIdx3VALE"></span><span class="target" id="AminoAcid_8hpp_1a238b252addffa534f718351ea6ef1876adc62baefdb2838f1e2a64f8115940ce4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">VAL</span></span></span><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10AAAtomInfoE">
+<span id="_CPPv3N3mdk10AAAtomInfoE"></span><span id="_CPPv2N3mdk10AAAtomInfoE"></span><span id="mdk::AAAtomInfo"></span><span class="target" id="structmdk_1_1AAAtomInfo"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AAAtomInfo</span></span></span><br /></dt>
+<dd><em>#include &lt;AminoAcid.hpp&gt;</em><p>Info pertaining to a single atom type in an amino acid (for example SG in cysteine). </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10AAAtomInfo6radiusE">
+<span id="_CPPv3N3mdk10AAAtomInfo6radiusE"></span><span id="_CPPv2N3mdk10AAAtomInfo6radiusE"></span><span id="mdk::AAAtomInfo::radius__double"></span><span class="target" id="structmdk_1_1AAAtomInfo_1a190c106c78e25eefccdc87a0b83d749b"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">radius</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10AAAtomInfo10inBackboneE">
+<span id="_CPPv3N3mdk10AAAtomInfo10inBackboneE"></span><span id="_CPPv2N3mdk10AAAtomInfo10inBackboneE"></span><span id="mdk::AAAtomInfo::inBackbone__b"></span><span class="target" id="structmdk_1_1AAAtomInfo_1ad8e14ee8178ef40eb997800ba79bbb67"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">inBackbone</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9AminoAcidE">
+<span id="_CPPv3N3mdk9AminoAcidE"></span><span id="_CPPv2N3mdk9AminoAcidE"></span><span id="mdk::AminoAcid"></span><span class="target" id="classmdk_1_1AminoAcid"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AminoAcid</span></span></span><br /></dt>
+<dd><em>#include &lt;AminoAcid.hpp&gt;</em><p>An object representing an amino acid type, along with a number of facilities, conversion from/to other types, general static data etc. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9AminoAcid9AminoAcidEv">
+<span id="_CPPv3N3mdk9AminoAcid9AminoAcidEv"></span><span id="_CPPv2N3mdk9AminoAcid9AminoAcidEv"></span><span id="mdk::AminoAcid::AminoAcid"></span><span class="target" id="classmdk_1_1AminoAcid_1a6ebd1d02f6e9aed31d6a2dcff6432775"></span><span class="sig-name descname"><span class="n"><span class="pre">AminoAcid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9AminoAcid9AminoAcidE12AminoAcidIdx">
+<span id="_CPPv3N3mdk9AminoAcid9AminoAcidE12AminoAcidIdx"></span><span id="_CPPv2N3mdk9AminoAcid9AminoAcidE12AminoAcidIdx"></span><span id="mdk::AminoAcid::AminoAcid__AminoAcidIdxCE"></span><span class="target" id="classmdk_1_1AminoAcid_1a52c44fac458badcf864f71ec5302f974"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AminoAcid</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../entire.html#_CPPv4N3mdk12AminoAcidIdxE" title="mdk::AminoAcidIdx"><span class="n"><span class="pre">AminoAcidIdx</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">type</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk9AminoAcidcvRK12AminoAcidIdxEv">
+<span id="_CPPv3NK3mdk9AminoAcidcvRK12AminoAcidIdxEv"></span><span id="_CPPv2NK3mdk9AminoAcidcvRK12AminoAcidIdxEv"></span><span id="mdk::AminoAcid::castto-AminoAcidIdxCR-operatorC"></span><span class="target" id="classmdk_1_1AminoAcid_1a2ece441d987a2e9900dab12c05fba5ae"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="w"> </span><a class="reference internal" href="../entire.html#_CPPv4N3mdk12AminoAcidIdxE" title="mdk::AminoAcidIdx"><span class="n"><span class="pre">AminoAcidIdx</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="p"><span class="pre">&amp;</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9AminoAcid9AminoAcidE6int8_t">
+<span id="_CPPv3N3mdk9AminoAcid9AminoAcidE6int8_t"></span><span id="_CPPv2N3mdk9AminoAcid9AminoAcidE6int8_t"></span><span id="mdk::AminoAcid::AminoAcid__int8_tCE"></span><span class="target" id="classmdk_1_1AminoAcid_1ac2dfaefc0269a07164890b390eac154d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AminoAcid</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">int8_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">x</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk9AminoAcidcv6int8_tEv">
+<span id="_CPPv3NK3mdk9AminoAcidcv6int8_tEv"></span><span id="_CPPv2NK3mdk9AminoAcidcv6int8_tEv"></span><span id="mdk::AminoAcid::castto-int8_t-operatorC"></span><span class="target" id="classmdk_1_1AminoAcid_1a33617503ce6920994c200f217251a9c8"></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="w"> </span><span class="n"><span class="pre">int8_t</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9AminoAcid9AminoAcidEc">
+<span id="_CPPv3N3mdk9AminoAcid9AminoAcidEc"></span><span id="_CPPv2N3mdk9AminoAcid9AminoAcidEc"></span><span id="mdk::AminoAcid::AminoAcid__c"></span><span class="target" id="classmdk_1_1AminoAcid_1a4b9a52011e08c9ac1e7b3add6321c46f"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AminoAcid</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">code</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk9AminoAcidcvRKcEv">
+<span id="_CPPv3NK3mdk9AminoAcidcvRKcEv"></span><span id="_CPPv2NK3mdk9AminoAcidcvRKcEv"></span><span id="mdk::AminoAcid::castto-cCR-operatorC"></span><span class="target" id="classmdk_1_1AminoAcid_1aee112627398a9ea3c5a30b51dec1926d"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="p"><span class="pre">&amp;</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9AminoAcid9AminoAcidERKNSt6stringE">
+<span id="_CPPv3N3mdk9AminoAcid9AminoAcidERKNSt6stringE"></span><span id="_CPPv2N3mdk9AminoAcid9AminoAcidERKNSt6stringE"></span><span id="mdk::AminoAcid::AminoAcid__ssCR"></span><span class="target" id="classmdk_1_1AminoAcid_1a3fdf60ad2df0030a23b6c031cf775122"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AminoAcid</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk9AminoAcidcvNSt6stringEEv">
+<span id="_CPPv3NK3mdk9AminoAcidcvNSt6stringEEv"></span><span id="_CPPv2NK3mdk9AminoAcidcvNSt6stringEEv"></span><span id="mdk::AminoAcid::castto-ss-operatorC"></span><span class="target" id="classmdk_1_1AminoAcid_1a81e8d2d9533cd90bc5b2bc7f64eda8ca"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk9AminoAcideqERK9AminoAcid">
+<span id="_CPPv3NK3mdk9AminoAcideqERK9AminoAcid"></span><span id="_CPPv2NK3mdk9AminoAcideqERK9AminoAcid"></span><span id="mdk::AminoAcid::eq-operator__AminoAcidCRC"></span><span class="target" id="classmdk_1_1AminoAcid_1a97fba1a758fc6d0b701dfabd42e556fb"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">==</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../entire.html#_CPPv4N3mdk9AminoAcidE" title="mdk::AminoAcid"><span class="n"><span class="pre">AminoAcid</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk9AminoAcidneERK9AminoAcid">
+<span id="_CPPv3NK3mdk9AminoAcidneERK9AminoAcid"></span><span id="_CPPv2NK3mdk9AminoAcidneERK9AminoAcid"></span><span id="mdk::AminoAcid::neq-operator__AminoAcidCRC"></span><span class="target" id="classmdk_1_1AminoAcid_1a50c40d518531bc27f4adb637f956ea09"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">!=</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../entire.html#_CPPv4N3mdk9AminoAcidE" title="mdk::AminoAcid"><span class="n"><span class="pre">AminoAcid</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk9AminoAcidltERK9AminoAcid">
+<span id="_CPPv3NK3mdk9AminoAcidltERK9AminoAcid"></span><span id="_CPPv2NK3mdk9AminoAcidltERK9AminoAcid"></span><span id="mdk::AminoAcid::lt-operator__AminoAcidCRC"></span><span class="target" id="classmdk_1_1AminoAcid_1a7027b551df021a271575d8426cf95270"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../entire.html#_CPPv4N3mdk9AminoAcidE" title="mdk::AminoAcid"><span class="n"><span class="pre">AminoAcid</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk9AminoAcidleERK9AminoAcid">
+<span id="_CPPv3NK3mdk9AminoAcidleERK9AminoAcid"></span><span id="_CPPv2NK3mdk9AminoAcidleERK9AminoAcid"></span><span id="mdk::AminoAcid::lte-operator__AminoAcidCRC"></span><span class="target" id="classmdk_1_1AminoAcid_1aa1843e4c1bb88b73ac84a2dbc099f1be"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&lt;=</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../entire.html#_CPPv4N3mdk9AminoAcidE" title="mdk::AminoAcid"><span class="n"><span class="pre">AminoAcid</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk9AminoAcidgtERK9AminoAcid">
+<span id="_CPPv3NK3mdk9AminoAcidgtERK9AminoAcid"></span><span id="_CPPv2NK3mdk9AminoAcidgtERK9AminoAcid"></span><span id="mdk::AminoAcid::gt-operator__AminoAcidCRC"></span><span class="target" id="classmdk_1_1AminoAcid_1a7d26d0a6ed9468ca4679bd5ede1621ff"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&gt;</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../entire.html#_CPPv4N3mdk9AminoAcidE" title="mdk::AminoAcid"><span class="n"><span class="pre">AminoAcid</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk9AminoAcidgeERK9AminoAcid">
+<span id="_CPPv3NK3mdk9AminoAcidgeERK9AminoAcid"></span><span id="_CPPv2NK3mdk9AminoAcidgeERK9AminoAcid"></span><span id="mdk::AminoAcid::gte-operator__AminoAcidCRC"></span><span class="target" id="classmdk_1_1AminoAcid_1a25be59e70f5d4118a1b3780b65c8c511"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">&gt;=</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../entire.html#_CPPv4N3mdk9AminoAcidE" title="mdk::AminoAcid"><span class="n"><span class="pre">AminoAcid</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">other</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk9AminoAcid4infoEv">
+<span id="_CPPv3NK3mdk9AminoAcid4infoEv"></span><span id="_CPPv2NK3mdk9AminoAcid4infoEv"></span><span id="mdk::AminoAcid::infoC"></span><span class="target" id="classmdk_1_1AminoAcid_1a651156f0aa83390c06ee88af502d3532"></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk13AminoAcidInfoE" title="mdk::AminoAcidInfo"><span class="n"><span class="pre">AminoAcidInfo</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">info</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-functions">Public Static Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9AminoAcid10aminoAcidsEv">
+<span id="_CPPv3N3mdk9AminoAcid10aminoAcidsEv"></span><span id="_CPPv2N3mdk9AminoAcid10aminoAcidsEv"></span><span id="mdk::AminoAcid::aminoAcids"></span><span class="target" id="classmdk_1_1AminoAcid_1a83ebbe282a1dd12381770a7259ff7214"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk9AminoAcidE" title="mdk::AminoAcid"><span class="n"><span class="pre">AminoAcid</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">aminoAcids</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9AminoAcid5typesEv">
+<span id="_CPPv3N3mdk9AminoAcid5typesEv"></span><span id="_CPPv2N3mdk9AminoAcid5typesEv"></span><span id="mdk::AminoAcid::types"></span><span class="target" id="classmdk_1_1AminoAcid_1a1fda84e718e3ac62ca7752d55d4b0a7d"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk12AminoAcidIdxE" title="mdk::AminoAcidIdx"><span class="n"><span class="pre">AminoAcidIdx</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">types</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9AminoAcid5codesEv">
+<span id="_CPPv3N3mdk9AminoAcid5codesEv"></span><span id="_CPPv2N3mdk9AminoAcid5codesEv"></span><span id="mdk::AminoAcid::codes"></span><span class="target" id="classmdk_1_1AminoAcid_1a50acc9c8396a489ddcdc55812f69cb7d"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">codes</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9AminoAcid8isProperERKNSt6stringE">
+<span id="_CPPv3N3mdk9AminoAcid8isProperERKNSt6stringE"></span><span id="_CPPv2N3mdk9AminoAcid8isProperERKNSt6stringE"></span><span id="mdk::AminoAcid::isProper__ssCR"></span><span class="target" id="classmdk_1_1AminoAcid_1a87ab1f7167a3aa578c9f36896fd12b11"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">isProper</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Check whether a string corresponds to an amino acid proper name. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>name</strong> – Text to check. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>true if <code class="docutils literal notranslate"><span class="pre">name</span></code> corresponds to an amino acid, false otherwise. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9AminoAcid5namesEv">
+<span id="_CPPv3N3mdk9AminoAcid5namesEv"></span><span id="_CPPv2N3mdk9AminoAcid5namesEv"></span><span id="mdk::AminoAcid::names"></span><span class="target" id="classmdk_1_1AminoAcid_1a35ad6af987d1d47b755c644a57ed95be"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">names</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-attributes">Public Static Attributes</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9AminoAcid1NE">
+<span id="_CPPv3N3mdk9AminoAcid1NE"></span><span id="_CPPv2N3mdk9AminoAcid1NE"></span><span id="mdk::AminoAcid::N__iC"></span><span class="target" id="classmdk_1_1AminoAcid_1a772d43a77cf7385d5c622f2d48397679"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">N</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">20</span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk9AminoAcid4typeE">
+<span id="_CPPv3N3mdk9AminoAcid4typeE"></span><span id="_CPPv2N3mdk9AminoAcid4typeE"></span><span id="mdk::AminoAcid::type__AminoAcidIdx"></span><span class="target" id="classmdk_1_1AminoAcid_1a757a4e2e8c1978af59aa8b59d8aa357e"></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk12AminoAcidIdxE" title="mdk::AminoAcidIdx"><span class="n"><span class="pre">AminoAcidIdx</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">type</span></span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-friends">Friends</p>
+<dl>
+<dt class="sig sig-object cpp">
+<em class="property"><span class="pre">friend</span> <span class="pre">struct</span></em> <span class="pre">std::hash&lt;</span> <span class="pre">AminoAcid</span> <span class="pre">&gt;</span></dt>
+</dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk13AminoAcidInfoE">
+<span id="_CPPv3N3mdk13AminoAcidInfoE"></span><span id="_CPPv2N3mdk13AminoAcidInfoE"></span><span id="mdk::AminoAcidInfo"></span><span class="target" id="structmdk_1_1AminoAcidInfo"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AminoAcidInfo</span></span></span><br /></dt>
+<dd><em>#include &lt;AminoAcid.hpp&gt;</em><p>Info pertaining to an amino acid type. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk13AminoAcidInfo4massE">
+<span id="_CPPv3N3mdk13AminoAcidInfo4massE"></span><span id="_CPPv2N3mdk13AminoAcidInfo4massE"></span><span id="mdk::AminoAcidInfo::mass__double"></span><span class="target" id="structmdk_1_1AminoAcidInfo_1a98b1c8ae282df8300c840b99b128135c"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mass</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk13AminoAcidInfo10heavyAtomsE">
+<span id="_CPPv3N3mdk13AminoAcidInfo10heavyAtomsE"></span><span id="_CPPv2N3mdk13AminoAcidInfo10heavyAtomsE"></span><span id="mdk::AminoAcidInfo::heavyAtoms__std::unordered_set:ss:"></span><span class="target" id="structmdk_1_1AminoAcidInfo_1a9c47f04bbb6b2f94843a3f7a2a2dee06"></span><a class="reference internal" href="#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unordered_set</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">heavyAtoms</span></span></span><br /></dt>
+<dd><p>A set of names of the heavy atoms for the amino acid. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk13AminoAcidInfo8atomInfoE">
+<span id="_CPPv3N3mdk13AminoAcidInfo8atomInfoE"></span><span id="_CPPv2N3mdk13AminoAcidInfo8atomInfoE"></span><span id="mdk::AminoAcidInfo::atomInfo__std::unordered_map:ss.AAAtomInfo:"></span><span class="target" id="structmdk_1_1AminoAcidInfo_1a9a04e1bdf217ec376d271142fc26dc8f"></span><a class="reference internal" href="#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unordered_map</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../entire.html#_CPPv4N3mdk10AAAtomInfoE" title="mdk::AAAtomInfo"><span class="n"><span class="pre">AAAtomInfo</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">atomInfo</span></span></span><br /></dt>
+<dd><p>A map from the heavy atom names to the atom info structures. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4St">
+<span id="_CPPv3St"></span><span id="_CPPv2St"></span><span id="std"></span><span class="target" id="namespacestd"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">std</span></span></span><a class="headerlink" href="#_CPPv4St" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="cpp struct">
+<dt class="sig sig-object cpp">
+<span class="target" id="structstd_1_1hash_3_01mdk_1_1AminoAcid_01_4"></span><span class="sig-name descname"><span class="pre">template&lt;&gt;</span> <span class="pre">AminoAcid</span> <span class="pre">&gt;</span></span></dt>
+<dd><em>#include &lt;AminoAcid.hpp&gt;</em><p>A <code class="docutils literal notranslate"><span class="pre">std::hash</span></code> instantiation for <code class="docutils literal notranslate"><span class="pre">AminoAcid</span></code>, allows us to use <code class="docutils literal notranslate"><span class="pre">AminoAcid</span></code> as keys in STL maps. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NKSt19PhonyNameDueToErrorclERKN3mdk9AminoAcidE">
+<span id="_CPPv3NKSt19PhonyNameDueToErrorclERKN3mdk9AminoAcidE"></span><span id="_CPPv2NKSt19PhonyNameDueToErrorclERKN3mdk9AminoAcidE"></span><span id="std::PhonyNameDueToError::call-operator__mdk::AminoAcidCRC"></span><span class="target" id="structstd_1_1hash_3_01mdk_1_1AminoAcid_01_4_1a56a759f332e315f261cc754358f94cf5"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">()</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk9AminoAcidE" title="mdk::AminoAcid"><span class="n"><span class="pre">AminoAcid</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">aminoAcid</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NKSt19PhonyNameDueToErrorclERKN3mdk9AminoAcidE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="contacttype.html" class="btn btn-neutral float-right" title="Contact type class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Utilities" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, IF PAN &amp; ZPP Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

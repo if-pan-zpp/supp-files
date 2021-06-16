@@ -1,0 +1,14 @@
+1552a1553,1558
+> 
+>         write(*,*) "STEP ", kb
+>         do ib=1,men
+>                 write(*,*) unit*x0(ib),unit*y0(ib),unit*z0(ib)
+>         enddo
+> 
+1565a1572,1577
+> 
+>         write(*,*) "STEP ", kb
+>         do ib=1,men
+>                 write(*,*) unit*x0(ib),unit*y0(ib),unit*z0(ib)
+>         enddo
+> 

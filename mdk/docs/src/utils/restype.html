@@ -1,0 +1,440 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Residue type class &mdash; mdk  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Topology class" href="topology.html" />
+    <link rel="prev" title="Random number generation" href="random.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> mdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sections:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prep/index.html">Preparation layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simul/index.html">Simulation layer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Utilities</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="aminoacid.html">Amino acid class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contacttype.html">Contact type class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pairtype.html">Pair type class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random.html">Random number generation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Residue type class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html">Topology class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="units.html">Physical unit definitions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../entire.html">Entire namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">mdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Utilities</a> &raquo;</li>
+        
+      <li>Residue type class</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/src/utils/restype.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="residue-type-class">
+<h1>Residue type class<a class="headerlink" href="#residue-type-class" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4IENSt4hashIN3mdk7ResTypeEEE">
+<span id="_CPPv3IENSt4hashIN3mdk7ResTypeEEE"></span><span id="_CPPv2IENSt4hashIN3mdk7ResTypeEEE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="structstd_1_1hash_3_01mdk_1_1ResType_01_4"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">hash</span></span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk7ResTypeE" title="mdk::ResType"><span class="n"><span class="pre">ResType</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4IENSt4hashIN3mdk7ResTypeEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;ResType.hpp&gt;</em><p>A <code class="docutils literal notranslate"><span class="pre">std::hash</span></code> instantiation for <code class="docutils literal notranslate"><span class="pre">ResType</span></code>, allows us to use <code class="docutils literal notranslate"><span class="pre">ResType</span></code> as keys in STL maps. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NKSt4hashIN3mdk7ResTypeEEclERKN3mdk7ResTypeE">
+<span id="_CPPv3NKSt4hashIN3mdk7ResTypeEEclERKN3mdk7ResTypeE"></span><span id="_CPPv2NKSt4hashIN3mdk7ResTypeEEclERKN3mdk7ResTypeE"></span><span id="std::hash:mdk::ResType:::call-operator__mdk::ResTypeCRC"></span><span class="target" id="structstd_1_1hash_3_01mdk_1_1ResType_01_4_1ae3083a939e56426f5b7ba5aa9f273adc"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">()</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk7ResTypeE" title="mdk::ResType"><span class="n"><span class="pre">ResType</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">resType</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NKSt4hashIN3mdk7ResTypeEEclERKN3mdk7ResTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv43mdk">
+<span id="_CPPv33mdk"></span><span id="_CPPv23mdk"></span><span id="mdk"></span><span class="target" id="namespacemdk"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mdk</span></span></span><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10ResTypeIdxE">
+<span id="_CPPv3N3mdk10ResTypeIdxE"></span><span id="_CPPv2N3mdk10ResTypeIdxE"></span><span class="target" id="ResType_8hpp_1af37f8a0ce6a65e01cf460ca38e62e2e4"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ResTypeIdx</span></span></span><br /></dt>
+<dd><p>Underlying residue type index. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10ResTypeIdx3ALAE">
+<span id="_CPPv3N3mdk10ResTypeIdx3ALAE"></span><span id="_CPPv2N3mdk10ResTypeIdx3ALAE"></span><span class="target" id="ResType_8hpp_1af37f8a0ce6a65e01cf460ca38e62e2e4a008cc01fbdd6007b55339634f182d738"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ALA</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10ResTypeIdx3ARGE">
+<span id="_CPPv3N3mdk10ResTypeIdx3ARGE"></span><span id="_CPPv2N3mdk10ResTypeIdx3ARGE"></span><span class="target" id="ResType_8hpp_1af37f8a0ce6a65e01cf460ca38e62e2e4a10c7e31bf64ba3add5cd9c21c9a964cc"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ARG</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10ResTypeIdx3ASNE">
+<span id="_CPPv3N3mdk10ResTypeIdx3ASNE"></span><span id="_CPPv2N3mdk10ResTypeIdx3ASNE"></span><span class="target" id="ResType_8hpp_1af37f8a0ce6a65e01cf460ca38e62e2e4adec20b35ad94f1a61d9de894338ba93f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ASN</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10ResTypeIdx3ASPE">
+<span id="_CPPv3N3mdk10ResTypeIdx3ASPE"></span><span id="_CPPv2N3mdk10ResTypeIdx3ASPE"></span><span class="target" id="ResType_8hpp_1af37f8a0ce6a65e01cf460ca38e62e2e4a9fb6833c8c76d238a5d70137ba288cda"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ASP</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10ResTypeIdx3CYSE">
+<span id="_CPPv3N3mdk10ResTypeIdx3CYSE"></span><span id="_CPPv2N3mdk10ResTypeIdx3CYSE"></span><span class="target" id="ResType_8hpp_1af37f8a0ce6a65e01cf460ca38e62e2e4a2488524b4bfc323d3ce02ea07827e85e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CYS</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10ResTypeIdx3GLUE">
+<span id="_CPPv3N3mdk10ResTypeIdx3GLUE"></span><span id="_CPPv2N3mdk10ResTypeIdx3GLUE"></span><span class="target" id="ResType_8hpp_1af37f8a0ce6a65e01cf460ca38e62e2e4a32277394d6cbc559f5c12b591d4468aa"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GLU</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10ResTypeIdx3GLNE">
+<span id="_CPPv3N3mdk10ResTypeIdx3GLNE"></span><span id="_CPPv2N3mdk10ResTypeIdx3GLNE"></span><span class="target" id="ResType_8hpp_1af37f8a0ce6a65e01cf460ca38e62e2e4a58d7f8552a04176a69642725e2269ee9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GLN</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10ResTypeIdx3GLYE">
+<span id="_CPPv3N3mdk10ResTypeIdx3GLYE"></span><span id="_CPPv2N3mdk10ResTypeIdx3GLYE"></span><span class="target" id="ResType_8hpp_1af37f8a0ce6a65e01cf460ca38e62e2e4af8ecd803f9e3c34d84b8a33a4f28791e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GLY</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10ResTypeIdx3HISE">
+<span id="_CPPv3N3mdk10ResTypeIdx3HISE"></span><span id="_CPPv2N3mdk10ResTypeIdx3HISE"></span><span class="target" id="ResType_8hpp_1af37f8a0ce6a65e01cf460ca38e62e2e4ad6ecf663bc8305ea1a98c775daaf4c8f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">HIS</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10ResTypeIdx3ILEE">
+<span id="_CPPv3N3mdk10ResTypeIdx3ILEE"></span><span id="_CPPv2N3mdk10ResTypeIdx3ILEE"></span><span class="target" id="ResType_8hpp_1af37f8a0ce6a65e01cf460ca38e62e2e4a40f420104502f333ebb1e9d162537b05"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ILE</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10ResTypeIdx3LEUE">
+<span id="_CPPv3N3mdk10ResTypeIdx3LEUE"></span><span id="_CPPv2N3mdk10ResTypeIdx3LEUE"></span><span class="target" id="ResType_8hpp_1af37f8a0ce6a65e01cf460ca38e62e2e4a55cbb7859b050efb5b0095c773b5a06f"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LEU</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10ResTypeIdx3LYSE">
+<span id="_CPPv3N3mdk10ResTypeIdx3LYSE"></span><span id="_CPPv2N3mdk10ResTypeIdx3LYSE"></span><span class="target" id="ResType_8hpp_1af37f8a0ce6a65e01cf460ca38e62e2e4a0325a3396c62c4442b435e23e82a2dab"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LYS</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10ResTypeIdx3METE">
+<span id="_CPPv3N3mdk10ResTypeIdx3METE"></span><span id="_CPPv2N3mdk10ResTypeIdx3METE"></span><span class="target" id="ResType_8hpp_1af37f8a0ce6a65e01cf460ca38e62e2e4af99ac35a101a64b723d880070bdde14a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MET</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10ResTypeIdx3PHEE">
+<span id="_CPPv3N3mdk10ResTypeIdx3PHEE"></span><span id="_CPPv2N3mdk10ResTypeIdx3PHEE"></span><span class="target" id="ResType_8hpp_1af37f8a0ce6a65e01cf460ca38e62e2e4a4cda9c8c72fc190ad7a313fd9497dde4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PHE</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10ResTypeIdx3PROE">
+<span id="_CPPv3N3mdk10ResTypeIdx3PROE"></span><span id="_CPPv2N3mdk10ResTypeIdx3PROE"></span><span class="target" id="ResType_8hpp_1af37f8a0ce6a65e01cf460ca38e62e2e4a9e3360ac711fcd82ceea74c8eb69bda9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PRO</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10ResTypeIdx3SERE">
+<span id="_CPPv3N3mdk10ResTypeIdx3SERE"></span><span id="_CPPv2N3mdk10ResTypeIdx3SERE"></span><span class="target" id="ResType_8hpp_1af37f8a0ce6a65e01cf460ca38e62e2e4a145b18e0cb047d3fb5504472ebd1ffed"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SER</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10ResTypeIdx3THRE">
+<span id="_CPPv3N3mdk10ResTypeIdx3THRE"></span><span id="_CPPv2N3mdk10ResTypeIdx3THRE"></span><span class="target" id="ResType_8hpp_1af37f8a0ce6a65e01cf460ca38e62e2e4a83d9d4f394eb46b80cf81c51e50963d6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">THR</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10ResTypeIdx3TRPE">
+<span id="_CPPv3N3mdk10ResTypeIdx3TRPE"></span><span id="_CPPv2N3mdk10ResTypeIdx3TRPE"></span><span class="target" id="ResType_8hpp_1af37f8a0ce6a65e01cf460ca38e62e2e4aa0fc2dd4cd3b4d52dcfff9209cc74648"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TRP</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10ResTypeIdx3TYRE">
+<span id="_CPPv3N3mdk10ResTypeIdx3TYRE"></span><span id="_CPPv2N3mdk10ResTypeIdx3TYRE"></span><span class="target" id="ResType_8hpp_1af37f8a0ce6a65e01cf460ca38e62e2e4aa15fe903a74b0306dd13dce624d067d0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">TYR</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10ResTypeIdx3VALE">
+<span id="_CPPv3N3mdk10ResTypeIdx3VALE"></span><span id="_CPPv2N3mdk10ResTypeIdx3VALE"></span><span class="target" id="ResType_8hpp_1af37f8a0ce6a65e01cf460ca38e62e2e4adc62baefdb2838f1e2a64f8115940ce4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">VAL</span></span></span><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk7ResTypeE">
+<span id="_CPPv3N3mdk7ResTypeE"></span><span id="_CPPv2N3mdk7ResTypeE"></span><span id="mdk::ResType"></span><span class="target" id="classmdk_1_1ResType"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ResType</span></span></span><br /></dt>
+<dd><em>#include &lt;ResType.hpp&gt;</em><p>An object representing a residue type, along with a number of facilities, conversions from/to other types etc. At this moment, it is equivalent with the amino acids, but one may want to add other pseudo-atoms, sites, water molecules or groups etc. so we thought it wiser to separate the two. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk7ResType7ResTypeEv">
+<span id="_CPPv3N3mdk7ResType7ResTypeEv"></span><span id="_CPPv2N3mdk7ResType7ResTypeEv"></span><span id="mdk::ResType::ResType"></span><span class="target" id="classmdk_1_1ResType_1a20c116fca57a8eaff19e463e85849487"></span><span class="sig-name descname"><span class="n"><span class="pre">ResType</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk7ResType7ResTypeE10ResTypeIdx">
+<span id="_CPPv3N3mdk7ResType7ResTypeE10ResTypeIdx"></span><span id="_CPPv2N3mdk7ResType7ResTypeE10ResTypeIdx"></span><span id="mdk::ResType::ResType__ResTypeIdxCE"></span><span class="target" id="classmdk_1_1ResType_1a6f2a1c693947e2d0ee12345f8e29242c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ResType</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../entire.html#_CPPv4N3mdk10ResTypeIdxE" title="mdk::ResTypeIdx"><span class="n"><span class="pre">ResTypeIdx</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">code</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk7ResTypecvRK10ResTypeIdxEv">
+<span id="_CPPv3NK3mdk7ResTypecvRK10ResTypeIdxEv"></span><span id="_CPPv2NK3mdk7ResTypecvRK10ResTypeIdxEv"></span><span id="mdk::ResType::castto-ResTypeIdxCR-operatorC"></span><span class="target" id="classmdk_1_1ResType_1a9fca8a37585cdcd8636b7ae4cfc2d338"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="w"> </span><a class="reference internal" href="../entire.html#_CPPv4N3mdk10ResTypeIdxE" title="mdk::ResTypeIdx"><span class="n"><span class="pre">ResTypeIdx</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="p"><span class="pre">&amp;</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk7ResType7ResTypeE6int8_t">
+<span id="_CPPv3N3mdk7ResType7ResTypeE6int8_t"></span><span id="_CPPv2N3mdk7ResType7ResTypeE6int8_t"></span><span id="mdk::ResType::ResType__int8_tCE"></span><span class="target" id="classmdk_1_1ResType_1a0b8fd137c5e37d055b203fd5f86a260e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ResType</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">int8_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">x</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk7ResTypecv6int8_tEv">
+<span id="_CPPv3NK3mdk7ResTypecv6int8_tEv"></span><span id="_CPPv2NK3mdk7ResTypecv6int8_tEv"></span><span id="mdk::ResType::castto-int8_t-operatorC"></span><span class="target" id="classmdk_1_1ResType_1a7c83333fee2ebf250dfdbefb63b30af1"></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="w"> </span><span class="n"><span class="pre">int8_t</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk7ResType7ResTypeERKNSt6stringE">
+<span id="_CPPv3N3mdk7ResType7ResTypeERKNSt6stringE"></span><span id="_CPPv2N3mdk7ResType7ResTypeERKNSt6stringE"></span><span id="mdk::ResType::ResType__ssCR"></span><span class="target" id="classmdk_1_1ResType_1a39ea57c9edd22d31b82570339417eab5"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ResType</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk7ResTypecvNSt6stringEEv">
+<span id="_CPPv3NK3mdk7ResTypecvNSt6stringEEv"></span><span id="_CPPv2NK3mdk7ResTypecvNSt6stringEEv"></span><span id="mdk::ResType::castto-ss-operatorC"></span><span class="target" id="classmdk_1_1ResType_1ae1fab2ddbe23b365a2e1779bfe0fc9b4"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="w"> </span><a class="reference internal" href="aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk7ResType4massEv">
+<span id="_CPPv3NK3mdk7ResType4massEv"></span><span id="_CPPv2NK3mdk7ResType4massEv"></span><span id="mdk::ResType::massC"></span><span class="target" id="classmdk_1_1ResType_1aac3008b6ed926384564f7d0032ef5247"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mass</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk7ResType4codeE">
+<span id="_CPPv3N3mdk7ResType4codeE"></span><span id="_CPPv2N3mdk7ResType4codeE"></span><span id="mdk::ResType::code__ResTypeIdx"></span><span class="target" id="classmdk_1_1ResType_1ace229f0b72c897b44b7af8fa076294d6"></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk10ResTypeIdxE" title="mdk::ResTypeIdx"><span class="n"><span class="pre">ResTypeIdx</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">code</span></span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-friends">Friends</p>
+<dl>
+<dt class="sig sig-object cpp">
+<em class="property"><span class="pre">friend</span> <span class="pre">struct</span></em> <span class="pre">std::hash&lt;</span> <span class="pre">ResType</span> <span class="pre">&gt;</span></dt>
+</dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4St">
+<span id="_CPPv3St"></span><span id="_CPPv2St"></span><span id="std"></span><span class="target" id="namespacestd"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">std</span></span></span><br /></dt>
+<dd><dl class="cpp struct">
+<dt class="sig sig-object cpp">
+<span class="target" id="structstd_1_1hash_3_01mdk_1_1ResType_01_4"></span><span class="sig-name descname"><span class="pre">template&lt;&gt;</span> <span class="pre">ResType</span> <span class="pre">&gt;</span></span></dt>
+<dd><em>#include &lt;ResType.hpp&gt;</em><p>A <code class="docutils literal notranslate"><span class="pre">std::hash</span></code> instantiation for <code class="docutils literal notranslate"><span class="pre">ResType</span></code>, allows us to use <code class="docutils literal notranslate"><span class="pre">ResType</span></code> as keys in STL maps. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NKSt19PhonyNameDueToErrorclERKN3mdk7ResTypeE">
+<span id="_CPPv3NKSt19PhonyNameDueToErrorclERKN3mdk7ResTypeE"></span><span id="_CPPv2NKSt19PhonyNameDueToErrorclERKN3mdk7ResTypeE"></span><span id="std::PhonyNameDueToError::call-operator__mdk::ResTypeCRC"></span><span class="target" id="structstd_1_1hash_3_01mdk_1_1ResType_01_4_1ae3083a939e56426f5b7ba5aa9f273adc"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">()</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk7ResTypeE" title="mdk::ResType"><span class="n"><span class="pre">ResType</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">resType</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NKSt19PhonyNameDueToErrorclERKN3mdk7ResTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="topology.html" class="btn btn-neutral float-right" title="Topology class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="random.html" class="btn btn-neutral float-left" title="Random number generation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, IF PAN &amp; ZPP Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

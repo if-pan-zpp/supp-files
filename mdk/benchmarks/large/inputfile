@@ -1,0 +1,8 @@
+klenstr 5
+file test3
+lcpot F
+seqfile glut.txt
+ntraj 1
+iseed 4359
+mstep 20
+paramfile parameters.txt

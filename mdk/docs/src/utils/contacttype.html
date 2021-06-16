@@ -1,0 +1,365 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Contact type class &mdash; mdk  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Pair type class" href="pairtype.html" />
+    <link rel="prev" title="Amino acid class" href="aminoacid.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> mdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sections:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prep/index.html">Preparation layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../simul/index.html">Simulation layer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Utilities</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="aminoacid.html">Amino acid class</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Contact type class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pairtype.html">Pair type class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="random.html">Random number generation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="restype.html">Residue type class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="topology.html">Topology class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="units.html">Physical unit definitions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../entire.html">Entire namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">mdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Utilities</a> &raquo;</li>
+        
+      <li>Contact type class</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/src/utils/contacttype.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="contact-type-class">
+<h1>Contact type class<a class="headerlink" href="#contact-type-class" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4IENSt4hashIN3mdk11ContactTypeEEE">
+<span id="_CPPv3IENSt4hashIN3mdk11ContactTypeEEE"></span><span id="_CPPv2IENSt4hashIN3mdk11ContactTypeEEE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="structstd_1_1hash_3_01mdk_1_1ContactType_01_4"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">hash</span></span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk11ContactTypeE" title="mdk::ContactType"><span class="n"><span class="pre">ContactType</span></span></a><span class="p"><span class="pre">&gt;</span></span><a class="headerlink" href="#_CPPv4IENSt4hashIN3mdk11ContactTypeEEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><em>#include &lt;ContactType.hpp&gt;</em><p>A <code class="docutils literal notranslate"><span class="pre">std::hash</span></code> instantiation for <code class="docutils literal notranslate"><span class="pre">ContactType</span></code>, allows us to use <code class="docutils literal notranslate"><span class="pre">ContactType</span></code> as keys in STL maps. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NKSt4hashIN3mdk11ContactTypeEEclERKN3mdk11ContactTypeE">
+<span id="_CPPv3NKSt4hashIN3mdk11ContactTypeEEclERKN3mdk11ContactTypeE"></span><span id="_CPPv2NKSt4hashIN3mdk11ContactTypeEEclERKN3mdk11ContactTypeE"></span><span id="std::hash:mdk::ContactType:::call-operator__mdk::ContactTypeCRC"></span><span class="target" id="structstd_1_1hash_3_01mdk_1_1ContactType_01_4_1a158593264541ac8239ccdd821fe39ea3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">()</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk11ContactTypeE" title="mdk::ContactType"><span class="n"><span class="pre">ContactType</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">resType</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NKSt4hashIN3mdk11ContactTypeEEclERKN3mdk11ContactTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv43mdk">
+<span id="_CPPv33mdk"></span><span id="_CPPv23mdk"></span><span id="mdk"></span><span class="target" id="namespacemdk"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mdk</span></span></span><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-enums">Enums</p>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk14ContactTypeIdxE">
+<span id="_CPPv3N3mdk14ContactTypeIdxE"></span><span id="_CPPv2N3mdk14ContactTypeIdxE"></span><span class="target" id="ContactType_8hpp_1a0a95bad920e7a0f9b4fc9b9e1c754ceb"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ContactTypeIdx</span></span></span><br /></dt>
+<dd><p>An underlying contact type index. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk14ContactTypeIdx3NATE">
+<span id="_CPPv3N3mdk14ContactTypeIdx3NATE"></span><span id="_CPPv2N3mdk14ContactTypeIdx3NATE"></span><span class="target" id="ContactType_8hpp_1a0a95bad920e7a0f9b4fc9b9e1c754cebae0ce58c026a0c0cfbddbf5b65f40cef3"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NAT</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk14ContactTypeIdx6NAT_BBE">
+<span id="_CPPv3N3mdk14ContactTypeIdx6NAT_BBE"></span><span id="_CPPv2N3mdk14ContactTypeIdx6NAT_BBE"></span><span class="target" id="ContactType_8hpp_1a0a95bad920e7a0f9b4fc9b9e1c754ceba6eca4146628d24347ff67a2a57112b58"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NAT_BB</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk14ContactTypeIdx6NAT_BSE">
+<span id="_CPPv3N3mdk14ContactTypeIdx6NAT_BSE"></span><span id="_CPPv2N3mdk14ContactTypeIdx6NAT_BSE"></span><span class="target" id="ContactType_8hpp_1a0a95bad920e7a0f9b4fc9b9e1c754ceba3f35eb38ce310aacb1b73d602481a8d0"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NAT_BS</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk14ContactTypeIdx6NAT_SBE">
+<span id="_CPPv3N3mdk14ContactTypeIdx6NAT_SBE"></span><span id="_CPPv2N3mdk14ContactTypeIdx6NAT_SBE"></span><span class="target" id="ContactType_8hpp_1a0a95bad920e7a0f9b4fc9b9e1c754ceba427dcd515b5990629f22c3dbb452c27c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NAT_SB</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk14ContactTypeIdx6NAT_SSE">
+<span id="_CPPv3N3mdk14ContactTypeIdx6NAT_SSE"></span><span id="_CPPv2N3mdk14ContactTypeIdx6NAT_SSE"></span><span class="target" id="ContactType_8hpp_1a0a95bad920e7a0f9b4fc9b9e1c754cebac2d8a3e74c7483ae253488afab8f0749"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NAT_SS</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk14ContactTypeIdx6SSBONDE">
+<span id="_CPPv3N3mdk14ContactTypeIdx6SSBONDE"></span><span id="_CPPv2N3mdk14ContactTypeIdx6SSBONDE"></span><span class="target" id="ContactType_8hpp_1a0a95bad920e7a0f9b4fc9b9e1c754ceba1e31658b196a7fa608be1d965254c9f7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SSBOND</span></span></span><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk11ContactTypeE">
+<span id="_CPPv3N3mdk11ContactTypeE"></span><span id="_CPPv2N3mdk11ContactTypeE"></span><span id="mdk::ContactType"></span><span class="target" id="classmdk_1_1ContactType"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ContactType</span></span></span><br /></dt>
+<dd><em>#include &lt;ContactType.hpp&gt;</em><p>An object representing a contact type, along with a number of facilities, conversions from/to other types etc. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk11ContactType11ContactTypeEv">
+<span id="_CPPv3N3mdk11ContactType11ContactTypeEv"></span><span id="_CPPv2N3mdk11ContactType11ContactTypeEv"></span><span id="mdk::ContactType::ContactType"></span><span class="target" id="classmdk_1_1ContactType_1abeba51277e862f6f19ed08ac8b6e6870"></span><span class="sig-name descname"><span class="n"><span class="pre">ContactType</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk11ContactType11ContactTypeE14ContactTypeIdx">
+<span id="_CPPv3N3mdk11ContactType11ContactTypeE14ContactTypeIdx"></span><span id="_CPPv2N3mdk11ContactType11ContactTypeE14ContactTypeIdx"></span><span id="mdk::ContactType::ContactType__ContactTypeIdxCE"></span><span class="target" id="classmdk_1_1ContactType_1a4207e0e807449880bf85de166cf603e2"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ContactType</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../entire.html#_CPPv4N3mdk14ContactTypeIdxE" title="mdk::ContactTypeIdx"><span class="n"><span class="pre">ContactTypeIdx</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">code</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk11ContactTypecvRK14ContactTypeIdxEv">
+<span id="_CPPv3NK3mdk11ContactTypecvRK14ContactTypeIdxEv"></span><span id="_CPPv2NK3mdk11ContactTypecvRK14ContactTypeIdxEv"></span><span id="mdk::ContactType::castto-ContactTypeIdxCR-operatorC"></span><span class="target" id="classmdk_1_1ContactType_1a203f78cbf6adfd73477820e9cd341e4f"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="w"> </span><a class="reference internal" href="../entire.html#_CPPv4N3mdk14ContactTypeIdxE" title="mdk::ContactTypeIdx"><span class="n"><span class="pre">ContactTypeIdx</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="p"><span class="pre">&amp;</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk11ContactType11ContactTypeE6int8_t">
+<span id="_CPPv3N3mdk11ContactType11ContactTypeE6int8_t"></span><span id="_CPPv2N3mdk11ContactType11ContactTypeE6int8_t"></span><span id="mdk::ContactType::ContactType__int8_tCE"></span><span class="target" id="classmdk_1_1ContactType_1af8f0545bf7fe3abeb3a63c79195926e4"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">constexpr</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ContactType</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">int8_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">x</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk11ContactTypecv6int8_tEv">
+<span id="_CPPv3NK3mdk11ContactTypecv6int8_tEv"></span><span id="_CPPv2NK3mdk11ContactTypecv6int8_tEv"></span><span id="mdk::ContactType::castto-int8_t-operatorC"></span><span class="target" id="classmdk_1_1ContactType_1aa2c8aa0c736058352592e7081ca8d5eb"></span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="w"> </span><span class="n"><span class="pre">int8_t</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk11ContactType11ContactTypeERKNSt6stringE">
+<span id="_CPPv3N3mdk11ContactType11ContactTypeERKNSt6stringE"></span><span id="_CPPv2N3mdk11ContactType11ContactTypeERKNSt6stringE"></span><span id="mdk::ContactType::ContactType__ssCR"></span><span class="target" id="classmdk_1_1ContactType_1a96ce6bafbe4287bcdac60872ab6fc505"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ContactType</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">name</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk11ContactTypecvNSt6stringEEv">
+<span id="_CPPv3NK3mdk11ContactTypecvNSt6stringEEv"></span><span id="_CPPv2NK3mdk11ContactTypecvNSt6stringEEv"></span><span id="mdk::ContactType::castto-ss-operatorC"></span><span class="target" id="classmdk_1_1ContactType_1a64b08a365b73f773a0cbfb52266af297"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="w"> </span><a class="reference internal" href="aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk11ContactType4codeE">
+<span id="_CPPv3N3mdk11ContactType4codeE"></span><span id="_CPPv2N3mdk11ContactType4codeE"></span><span id="mdk::ContactType::code__ContactTypeIdx"></span><span class="target" id="classmdk_1_1ContactType_1ae4646e4bf998b098bc8b6c7fcf92568e"></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk14ContactTypeIdxE" title="mdk::ContactTypeIdx"><span class="n"><span class="pre">ContactTypeIdx</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">code</span></span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-friends">Friends</p>
+<dl>
+<dt class="sig sig-object cpp">
+<em class="property"><span class="pre">friend</span> <span class="pre">struct</span></em> <span class="pre">std::hash&lt;</span> <span class="pre">ContactType</span> <span class="pre">&gt;</span></dt>
+</dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv4St">
+<span id="_CPPv3St"></span><span id="_CPPv2St"></span><span id="std"></span><span class="target" id="namespacestd"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">std</span></span></span><br /></dt>
+<dd><dl class="cpp struct">
+<dt class="sig sig-object cpp">
+<span class="target" id="structstd_1_1hash_3_01mdk_1_1ContactType_01_4"></span><span class="sig-name descname"><span class="pre">template&lt;&gt;</span> <span class="pre">ContactType</span> <span class="pre">&gt;</span></span></dt>
+<dd><em>#include &lt;ContactType.hpp&gt;</em><p>A <code class="docutils literal notranslate"><span class="pre">std::hash</span></code> instantiation for <code class="docutils literal notranslate"><span class="pre">ContactType</span></code>, allows us to use <code class="docutils literal notranslate"><span class="pre">ContactType</span></code> as keys in STL maps. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NKSt19PhonyNameDueToErrorclERKN3mdk11ContactTypeE">
+<span id="_CPPv3NKSt19PhonyNameDueToErrorclERKN3mdk11ContactTypeE"></span><span id="_CPPv2NKSt19PhonyNameDueToErrorclERKN3mdk11ContactTypeE"></span><span id="std::PhonyNameDueToError::call-operator__mdk::ContactTypeCRC"></span><span class="target" id="structstd_1_1hash_3_01mdk_1_1ContactType_01_4_1a158593264541ac8239ccdd821fe39ea3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="sig-name descname"><span class="k"><span class="pre">operator</span></span><span class="o"><span class="pre">()</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk11ContactTypeE" title="mdk::ContactType"><span class="n"><span class="pre">ContactType</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">resType</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NKSt19PhonyNameDueToErrorclERKN3mdk11ContactTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="pairtype.html" class="btn btn-neutral float-right" title="Pair type class" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="aminoacid.html" class="btn btn-neutral float-left" title="Amino acid class" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, IF PAN &amp; ZPP Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

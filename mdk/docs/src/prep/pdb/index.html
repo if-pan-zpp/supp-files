@@ -1,0 +1,264 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>PDB objects and parsing &mdash; mdk  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="PDB file records" href="records.html" />
+    <link rel="prev" title="Sequence files" href="../seq.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> mdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sections:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Preparation layer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../cmap.html">Contact map files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../seq.html">Sequence files</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">PDB objects and parsing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="records.html">PDB file records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="raw.html">Raw PDB data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="model.html">PDB atomic model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="parsing.html">PDB parsing framework</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../model.html">Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../param.html">Parameter files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../simul/index.html">Simulation layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/index.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../entire.html">Entire namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Preparation layer</a> &raquo;</li>
+        
+      <li>PDB objects and parsing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/src/prep/pdb/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pdb-objects-and-parsing">
+<h1>PDB objects and parsing<a class="headerlink" href="#pdb-objects-and-parsing" title="Permalink to this headline">¶</a></h1>
+<p>Parsing and printing of PDB files is more complex than that of the other files.
+There are following components:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb6ParserE" title="mdk::pdb::Parser"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">mdk::pdb::Parser</span></code></a> parses and prints <a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb4DataE" title="mdk::pdb::Data"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">mdk::pdb::Data</span></code></a>
+objects;</p></li>
+<li><p><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb5ModelE" title="mdk::pdb::Model"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">mdk::pdb::Model</span></code></a> represents a full-atomic model as derived from
+the <a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb4DataE" title="mdk::pdb::Data"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">mdk::pdb::Data</span></code></a>, and allows for conversion from/to
+<a class="reference internal" href="../../entire.html#_CPPv4N3mdk5ModelE" title="mdk::Model"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">mdk::Model</span></code></a> and <a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb4DataE" title="mdk::pdb::Data"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">mdk::pdb::Data</span></code></a></p></li>
+<li><p><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb4DataE" title="mdk::pdb::Data"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">mdk::pdb::Data</span></code></a> represents a parsed PDB file but in a raw format,
+i.e. not as a model;</p></li>
+<li><p><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb7records6RecordE" title="mdk::pdb::records::Record"><code class="xref cpp cpp-type docutils literal notranslate"><span class="pre">mdk::pdb::records::Record</span></code></a> is a single record in a PDB file, a
+variant type of many record types (see <cite>records</cite> for details).</p></li>
+</ul>
+<p>In general, one takes an input stream, recovers <a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb4DataE" title="mdk::pdb::Data"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">mdk::pdb::Data</span></code></a> via
+<a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb6ParserE" title="mdk::pdb::Parser"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">mdk::pdb::Parser</span></code></a>, converts it to a <a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb5ModelE" title="mdk::pdb::Model"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">mdk::pdb::Model</span></code></a>,
+then (after potentially modifying it) reduces it to a <a class="reference internal" href="../../entire.html#_CPPv4N3mdk5ModelE" title="mdk::Model"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">mdk::Model</span></code></a> to
+pass to a <a class="reference internal" href="../../entire.html#_CPPv4N3mdk10SimulationE" title="mdk::Simulation"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">mdk::Simulation</span></code></a>. If one wants to print
+<a class="reference internal" href="../../entire.html#_CPPv4N3mdk5ModelE" title="mdk::Model"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">mdk::Model</span></code></a>, a <a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb4DataE" title="mdk::pdb::Data"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">mdk::pdb::Data</span></code></a> object can be generated
+from one (via <a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb5ModelE" title="mdk::pdb::Model"><code class="xref cpp cpp-class docutils literal notranslate"><span class="pre">mdk::pdb::Model</span></code></a>), which can the written with the
+parser.</p>
+<p>We also provide a framework wherewith one can add custom records to parse,
+see <cite>parsing</cite> for details.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="records.html">PDB file records</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raw.html">Raw PDB data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model.html">PDB atomic model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parsing.html">PDB parsing framework</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="parsing.html#adding-a-new-record-type">Adding a new record type</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="records.html" class="btn btn-neutral float-right" title="PDB file records" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../seq.html" class="btn btn-neutral float-left" title="Sequence files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, IF PAN &amp; ZPP Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

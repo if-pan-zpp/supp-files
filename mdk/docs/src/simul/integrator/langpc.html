@@ -1,0 +1,358 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Predictor-corrector integrator with Langevin noise &mdash; mdk  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Hooks" href="../hooks/index.html" />
+    <link rel="prev" title="Leapfrog integrator" href="leapfrog.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> mdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sections:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prep/index.html">Preparation layer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Simulation layer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../simulation.html">Simulation object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">Data objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../primitives.html">Primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../simulvar.html">Simulation variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forces/index.html">Forces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../kernels/index.html">Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../verlet.html">Verlet list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stats.html">Coordination stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../state.html">Physical state object</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Integrators</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="leapfrog.html">Leapfrog integrator</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Predictor-corrector integrator with Langevin noise</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../hooks/index.html">Hooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/index.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../entire.html">Entire namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Simulation layer</a> &raquo;</li>
+        
+          <li><a href="index.html">Integrators</a> &raquo;</li>
+        
+      <li>Predictor-corrector integrator with Langevin noise</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/src/simul/integrator/langpc.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="predictor-corrector-integrator-with-langevin-noise">
+<h1>Predictor-corrector integrator with Langevin noise<a class="headerlink" href="#predictor-corrector-integrator-with-langevin-noise" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22LangPredictorCorrectorE">
+<span id="_CPPv3N3mdk22LangPredictorCorrectorE"></span><span id="_CPPv2N3mdk22LangPredictorCorrectorE"></span><span id="mdk::LangPredictorCorrector"></span><span class="target" id="classmdk_1_1LangPredictorCorrector"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">LangPredictorCorrector</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk10IntegratorE" title="mdk::Integrator"><span class="n"><span class="pre">Integrator</span></span></a><br /></dt>
+<dd><p>Langevin predictor-corrector fifth-order integrator, combined with a Langevin noise. Apparently these two are combined because in the Fortran code, the velocities are <em>set</em> in <code class="docutils literal notranslate"><span class="pre">lang</span></code> or <code class="docutils literal notranslate"><span class="pre">lang_mass</span></code>. Now, this looks like a bug, but we replicate it nonetheless. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22LangPredictorCorrector22LangPredictorCorrectorEd">
+<span id="_CPPv3N3mdk22LangPredictorCorrector22LangPredictorCorrectorEd"></span><span id="_CPPv2N3mdk22LangPredictorCorrector22LangPredictorCorrectorEd"></span><span id="mdk::LangPredictorCorrector::LangPredictorCorrector__double"></span><span class="target" id="classmdk_1_1LangPredictorCorrector_1a2a6055a56e1e1532ba06bc63f2793ff0"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LangPredictorCorrector</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">dt</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22LangPredictorCorrector4bindER10Simulation">
+<span id="_CPPv3N3mdk22LangPredictorCorrector4bindER10Simulation"></span><span id="_CPPv2N3mdk22LangPredictorCorrector4bindER10Simulation"></span><span id="mdk::LangPredictorCorrector::bind__SimulationR"></span><span class="target" id="classmdk_1_1LangPredictorCorrector_1a008ccc5725572fd0bc95bfeb07b82c41"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bind</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk10SimulationE" title="mdk::Simulation"><span class="n"><span class="pre">Simulation</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">simulation</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Bind an object to a simulation. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>simulation</strong> – <a class="reference internal" href="../simulation.html#classmdk_1_1Simulation"><span class="std std-ref">Simulation</span></a> to bind the object to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22LangPredictorCorrector4initEv">
+<span id="_CPPv3N3mdk22LangPredictorCorrector4initEv"></span><span id="_CPPv2N3mdk22LangPredictorCorrector4initEv"></span><span id="mdk::LangPredictorCorrector::init"></span><span class="target" id="classmdk_1_1LangPredictorCorrector_1a64c203ab1ae85eb796ac2a30726ff617"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">init</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Initialize the state of the integrator. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22LangPredictorCorrector9integrateEv">
+<span id="_CPPv3N3mdk22LangPredictorCorrector9integrateEv"></span><span id="_CPPv2N3mdk22LangPredictorCorrector9integrateEv"></span><span id="mdk::LangPredictorCorrector::integrate"></span><span class="target" id="classmdk_1_1LangPredictorCorrector_1a3e4f4e35542328538dc50996cc9aaae4"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">integrate</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22LangPredictorCorrector5gammaE">
+<span id="_CPPv3N3mdk22LangPredictorCorrector5gammaE"></span><span id="_CPPv2N3mdk22LangPredictorCorrector5gammaE"></span><span id="mdk::LangPredictorCorrector::gamma__double"></span><span class="target" id="classmdk_1_1LangPredictorCorrector_1a7be210368949ed7c964d670569d74728"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">gamma</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">2.0</span></span><span class="w"> </span><span class="o"><span class="pre">*</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk7f77massE" title="mdk::f77mass"><span class="n"><span class="pre">f77mass</span></span></a><span class="w"> </span><span class="o"><span class="pre">/</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3tauE" title="mdk::tau"><span class="n"><span class="pre">tau</span></span></a><br /></dt>
+<dd><p>Value of gamma for the Langevin noise. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22LangPredictorCorrector13generateNoiseEv">
+<span id="_CPPv3N3mdk22LangPredictorCorrector13generateNoiseEv"></span><span id="_CPPv2N3mdk22LangPredictorCorrector13generateNoiseEv"></span><span id="mdk::LangPredictorCorrector::generateNoise"></span><span class="target" id="classmdk_1_1LangPredictorCorrector_1ae9b46426d4bd15f1aaadfdc6e79dd1a7"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">generateNoise</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22LangPredictorCorrector2dtE">
+<span id="_CPPv3N3mdk22LangPredictorCorrector2dtE"></span><span id="_CPPv2N3mdk22LangPredictorCorrector2dtE"></span><span id="mdk::LangPredictorCorrector::dt__double"></span><span class="target" id="classmdk_1_1LangPredictorCorrector_1a8ccb6c70a2e027b8e3aea9ee0c9f373c"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dt</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22LangPredictorCorrector1mE">
+<span id="_CPPv3N3mdk22LangPredictorCorrector1mE"></span><span id="_CPPv2N3mdk22LangPredictorCorrector1mE"></span><span id="mdk::LangPredictorCorrector::m__Masses"></span><span class="target" id="classmdk_1_1LangPredictorCorrector_1a05916544bfd4c52efdfbcab7390d9b24"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk6MassesE" title="mdk::Masses"><span class="n"><span class="pre">Masses</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">m</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22LangPredictorCorrector2y0E">
+<span id="_CPPv3N3mdk22LangPredictorCorrector2y0E"></span><span id="_CPPv2N3mdk22LangPredictorCorrector2y0E"></span><span id="mdk::LangPredictorCorrector::y0__Vectors"></span><span class="target" id="classmdk_1_1LangPredictorCorrector_1a5e4ac329aa7cb0cbbd75786331f6d47c"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk7VectorsE" title="mdk::Vectors"><span class="n"><span class="pre">Vectors</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">y0</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22LangPredictorCorrector2y1E">
+<span id="_CPPv3N3mdk22LangPredictorCorrector2y1E"></span><span id="_CPPv2N3mdk22LangPredictorCorrector2y1E"></span><span id="mdk::LangPredictorCorrector::y1__Vectors"></span><span class="target" id="classmdk_1_1LangPredictorCorrector_1a0da4dd4a282c17343254cb479e0c8f43"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk7VectorsE" title="mdk::Vectors"><span class="n"><span class="pre">Vectors</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">y1</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22LangPredictorCorrector2y2E">
+<span id="_CPPv3N3mdk22LangPredictorCorrector2y2E"></span><span id="_CPPv2N3mdk22LangPredictorCorrector2y2E"></span><span id="mdk::LangPredictorCorrector::y2__Vectors"></span><span class="target" id="classmdk_1_1LangPredictorCorrector_1a5025f835d6aa768d1ef91ac75785312e"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk7VectorsE" title="mdk::Vectors"><span class="n"><span class="pre">Vectors</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">y2</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22LangPredictorCorrector2y3E">
+<span id="_CPPv3N3mdk22LangPredictorCorrector2y3E"></span><span id="_CPPv2N3mdk22LangPredictorCorrector2y3E"></span><span id="mdk::LangPredictorCorrector::y3__Vectors"></span><span class="target" id="classmdk_1_1LangPredictorCorrector_1adccd1c62396aade033179fe23c5a604a"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk7VectorsE" title="mdk::Vectors"><span class="n"><span class="pre">Vectors</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">y3</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22LangPredictorCorrector2y4E">
+<span id="_CPPv3N3mdk22LangPredictorCorrector2y4E"></span><span id="_CPPv2N3mdk22LangPredictorCorrector2y4E"></span><span id="mdk::LangPredictorCorrector::y4__Vectors"></span><span class="target" id="classmdk_1_1LangPredictorCorrector_1a72005f3737fe4cb3c152189e6a406db6"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk7VectorsE" title="mdk::Vectors"><span class="n"><span class="pre">Vectors</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">y4</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22LangPredictorCorrector2y5E">
+<span id="_CPPv3N3mdk22LangPredictorCorrector2y5E"></span><span id="_CPPv2N3mdk22LangPredictorCorrector2y5E"></span><span id="mdk::LangPredictorCorrector::y5__Vectors"></span><span class="target" id="classmdk_1_1LangPredictorCorrector_1a74a9ce5a4476a69d1d0359744872c2b4"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk7VectorsE" title="mdk::Vectors"><span class="n"><span class="pre">Vectors</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">y5</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22LangPredictorCorrector6randomE">
+<span id="_CPPv3N3mdk22LangPredictorCorrector6randomE"></span><span id="_CPPv2N3mdk22LangPredictorCorrector6randomE"></span><span id="mdk::LangPredictorCorrector::random__RandomP"></span><span class="target" id="classmdk_1_1LangPredictorCorrector_1accf1a474c0e64f1382291f788b2cd2fb"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk6RandomE" title="mdk::Random"><span class="n"><span class="pre">Random</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">random</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22LangPredictorCorrector4rngsE">
+<span id="_CPPv3N3mdk22LangPredictorCorrector4rngsE"></span><span id="_CPPv2N3mdk22LangPredictorCorrector4rngsE"></span><span id="mdk::LangPredictorCorrector::rngs__std::vector:Random:"></span><span class="target" id="classmdk_1_1LangPredictorCorrector_1a9c75d68fecb438d726ddb13fda620a9f"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk6RandomE" title="mdk::Random"><span class="n"><span class="pre">Random</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">rngs</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22LangPredictorCorrector13gaussianNoiseE">
+<span id="_CPPv3N3mdk22LangPredictorCorrector13gaussianNoiseE"></span><span id="_CPPv2N3mdk22LangPredictorCorrector13gaussianNoiseE"></span><span id="mdk::LangPredictorCorrector::gaussianNoise__Vectors"></span><span class="target" id="classmdk_1_1LangPredictorCorrector_1ab53ec9274233425fb95e549a6e69a5e4"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk7VectorsE" title="mdk::Vectors"><span class="n"><span class="pre">Vectors</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">gaussianNoise</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22LangPredictorCorrector11initializedE">
+<span id="_CPPv3N3mdk22LangPredictorCorrector11initializedE"></span><span id="_CPPv2N3mdk22LangPredictorCorrector11initializedE"></span><span id="mdk::LangPredictorCorrector::initialized__b"></span><span class="target" id="classmdk_1_1LangPredictorCorrector_1af38a43cd23eae8c1dcba3622817c02ba"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">initialized</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22LangPredictorCorrector11temperatureE">
+<span id="_CPPv3N3mdk22LangPredictorCorrector11temperatureE"></span><span id="_CPPv2N3mdk22LangPredictorCorrector11temperatureE"></span><span id="mdk::LangPredictorCorrector::temperature__double"></span><span class="target" id="classmdk_1_1LangPredictorCorrector_1a4cbe1f51fcc3b8d734dfbdc975b4a813"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">temperature</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0.35</span></span><span class="w"> </span><span class="o"><span class="pre">*</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk6eps_kBE" title="mdk::eps_kB"><span class="n"><span class="pre">eps_kB</span></span></a><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../hooks/index.html" class="btn btn-neutral float-right" title="Hooks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="leapfrog.html" class="btn btn-neutral float-left" title="Leapfrog integrator" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, IF PAN &amp; ZPP Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

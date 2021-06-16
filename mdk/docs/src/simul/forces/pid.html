@@ -1,0 +1,438 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Pseudo-improper-dihedral custom potential &mdash; mdk  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Quasi-adiabatic custom potential" href="qa.html" />
+    <link rel="prev" title="Pauli exclusion forces" href="pauli.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> mdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sections:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../prep/index.html">Preparation layer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Simulation layer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../simulation.html">Simulation object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../data/index.html">Data objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../primitives.html">Primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../simulvar.html">Simulation variables</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Forces</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="tether.html">Chain tether forces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bondangle.html">Bond angle potential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dihedral.html">Dihedral angle potentials</a></li>
+<li class="toctree-l3"><a class="reference internal" href="chiral.html">Chirality potential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nonlocal.html">Nonlocal function interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gomodel.html">Go-model native contacts potential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="es.html">Electrostatic forces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pauli.html">Pauli exclusion forces</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Pseudo-improper-dihedral custom potential</a></li>
+<li class="toctree-l3"><a class="reference internal" href="qa.html">Quasi-adiabatic custom potential</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../kernels/index.html">Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../verlet.html">Verlet list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../stats.html">Coordination stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../state.html">Physical state object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integrator/index.html">Integrators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hooks/index.html">Hooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/index.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../entire.html">Entire namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Simulation layer</a> &raquo;</li>
+        
+          <li><a href="index.html">Forces</a> &raquo;</li>
+        
+      <li>Pseudo-improper-dihedral custom potential</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/src/simul/forces/pid.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pseudo-improper-dihedral-custom-potential">
+<h1>Pseudo-improper-dihedral custom potential<a class="headerlink" href="#pseudo-improper-dihedral-custom-potential" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv43mdk">
+<span id="_CPPv33mdk"></span><span id="_CPPv23mdk"></span><span id="mdk"></span><span class="target" id="namespacemdk"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">mdk</span></span></span><br /></dt>
+<dd><dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10LambdaPeakE">
+<span id="_CPPv3N3mdk10LambdaPeakE"></span><span id="_CPPv2N3mdk10LambdaPeakE"></span><span id="mdk::LambdaPeak"></span><span class="target" id="classmdk_1_1LambdaPeak"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LambdaPeak</span></span></span><br /></dt>
+<dd><em>#include &lt;PseudoImproperDihedral.hpp&gt;</em><p>An object representing either of the three lambda functions. It is theoretically a Gaussian function, but we implement it here in terms of computationally faster functions (either cosine or an “algebraic version” thereof, with a cutoff at the far ends). </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk10LambdaPeak4suppEd">
+<span id="_CPPv3NK3mdk10LambdaPeak4suppEd"></span><span id="_CPPv2NK3mdk10LambdaPeak4suppEd"></span><span id="mdk::LambdaPeak::supp__doubleC"></span><span class="target" id="classmdk_1_1LambdaPeak_1a4512163d7ddade81be1f05a356b7b6b1"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">supp</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">psi</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Check whether a value $psi$ is in the support of the function. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>psi</strong> – Value to test. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>true if $lambda(psi) != 0$, false otherwise. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk10LambdaPeak4evalEdRdRd">
+<span id="_CPPv3NK3mdk10LambdaPeak4evalEdRdRd"></span><span id="_CPPv2NK3mdk10LambdaPeak4evalEdRdRd"></span><span id="mdk::LambdaPeak::eval__double.doubleR.doubleRC"></span><span class="target" id="classmdk_1_1LambdaPeak_1ae800018014e54debd6b6f63ce9b53eb1"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">eval</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">psi</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">L</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">dL_dpsi</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Compute the value of the function. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>psi</strong> – Argument, i.e. the improper dihedral angle </p></li>
+<li><p><strong>L</strong> – Value of the lambda function at <code class="docutils literal notranslate"><span class="pre">psi</span></code>, </p></li>
+<li><p><strong>dL_dpsi</strong> – Derivative of L wrt <code class="docutils literal notranslate"><span class="pre">psi</span></code> </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10LambdaPeak5alphaE">
+<span id="_CPPv3N3mdk10LambdaPeak5alphaE"></span><span id="_CPPv2N3mdk10LambdaPeak5alphaE"></span><span id="mdk::LambdaPeak::alpha__double"></span><span class="target" id="classmdk_1_1LambdaPeak_1a4886ed2fd5bbb47fc2df455b648bd7da"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">alpha</span></span></span><br /></dt>
+<dd><p>The “width” of the lambda function. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10LambdaPeak4psi0E">
+<span id="_CPPv3N3mdk10LambdaPeak4psi0E"></span><span id="_CPPv2N3mdk10LambdaPeak4psi0E"></span><span id="mdk::LambdaPeak::psi0__double"></span><span class="target" id="classmdk_1_1LambdaPeak_1a4db69ca138d39e86e3a24fa65f028c67"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">psi0</span></span></span><br /></dt>
+<dd><p>The “center” of the lambda function. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk10LambdaPeak13cosineVersionE">
+<span id="_CPPv3N3mdk10LambdaPeak13cosineVersionE"></span><span id="_CPPv2N3mdk10LambdaPeak13cosineVersionE"></span><span id="mdk::LambdaPeak::cosineVersion__b"></span><span class="target" id="classmdk_1_1LambdaPeak_1a1caa4bdf942a277aef537cf8fbcc9f94"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cosineVersion</span></span></span><br /></dt>
+<dd><p>Whether we should use the cosine version of the function. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22PseudoImproperDihedralE">
+<span id="_CPPv3N3mdk22PseudoImproperDihedralE"></span><span id="_CPPv2N3mdk22PseudoImproperDihedralE"></span><span id="mdk::PseudoImproperDihedral"></span><span class="target" id="classmdk_1_1PseudoImproperDihedral"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PseudoImproperDihedral</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk13NonlocalForceE" title="mdk::NonlocalForce"><span class="n"><span class="pre">NonlocalForce</span></span></a><br /></dt>
+<dd><em>#include &lt;PseudoImproperDihedral.hpp&gt;</em><p>The “pseudo-improper-dihedral” custom potential. A more computationally expensive but more accurate and Hamiltonian alternative to the quasi-adiabatic potential. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22PseudoImproperDihedral4bindER10Simulation">
+<span id="_CPPv3N3mdk22PseudoImproperDihedral4bindER10Simulation"></span><span id="_CPPv2N3mdk22PseudoImproperDihedral4bindER10Simulation"></span><span id="mdk::PseudoImproperDihedral::bind__SimulationR"></span><span class="target" id="classmdk_1_1PseudoImproperDihedral_1a47effe7a049b058758006205e0ed9c83"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bind</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk10SimulationE" title="mdk::Simulation"><span class="n"><span class="pre">Simulation</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">simulation</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Bind the object to the simulation. Here we also fetch from it the types and chains. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>simulation</strong> – <a class="reference internal" href="../simulation.html#classmdk_1_1Simulation"><span class="std std-ref">Simulation</span></a> to bind to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22PseudoImproperDihedral9asyncPartER8Dynamics">
+<span id="_CPPv3N3mdk22PseudoImproperDihedral9asyncPartER8Dynamics"></span><span id="_CPPv2N3mdk22PseudoImproperDihedral9asyncPartER8Dynamics"></span><span id="mdk::PseudoImproperDihedral::asyncPart__DynamicsR"></span><span class="target" id="classmdk_1_1PseudoImproperDihedral_1a0a04f13a8e08ff32d878e5725c3ed1e5"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">asyncPart</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk8DynamicsE" title="mdk::Dynamics"><span class="n"><span class="pre">Dynamics</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">dynamics</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Asynchronous part of the force computation. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dynamics</strong> – <a class="reference internal" href="../../entire.html#structmdk_1_1Dynamics"><span class="std std-ref">Dynamics</span></a> object to add potential energy and forces to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22PseudoImproperDihedral12vlUpdateHookEv">
+<span id="_CPPv3N3mdk22PseudoImproperDihedral12vlUpdateHookEv"></span><span id="_CPPv2N3mdk22PseudoImproperDihedral12vlUpdateHookEv"></span><span id="mdk::PseudoImproperDihedral::vlUpdateHook"></span><span class="target" id="classmdk_1_1PseudoImproperDihedral_1aeb33e1260c8724ebde1159a7454e23d0"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">vlUpdateHook</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>An action to be performed when the Verlet list is updated. We essentially copy the residues but exclude the pairs within bond distance of less than 4, or at the ends of their chains. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22PseudoImproperDihedral6bb_posE">
+<span id="_CPPv3N3mdk22PseudoImproperDihedral6bb_posE"></span><span id="_CPPv2N3mdk22PseudoImproperDihedral6bb_posE"></span><span id="mdk::PseudoImproperDihedral::bb_pos__LambdaPeak"></span><span class="target" id="classmdk_1_1PseudoImproperDihedral_1a55f7dbed487b4788129c5cb3ac2ed43c"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk10LambdaPeakE" title="mdk::LambdaPeak"><span class="n"><span class="pre">LambdaPeak</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bb_pos</span></span></span><br /></dt>
+<dd><p>Lambda function corresponding to the bb+ part of the potential. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22PseudoImproperDihedral9bb_pos_ljE">
+<span id="_CPPv3N3mdk22PseudoImproperDihedral9bb_pos_ljE"></span><span id="_CPPv2N3mdk22PseudoImproperDihedral9bb_pos_ljE"></span><span id="mdk::PseudoImproperDihedral::bb_pos_lj__LennardJones"></span><span class="target" id="classmdk_1_1PseudoImproperDihedral_1aca45cefd71ec34746bf1f3738bfb964f"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk12LennardJonesE" title="mdk::LennardJones"><span class="n"><span class="pre">LennardJones</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bb_pos_lj</span></span></span><br /></dt>
+<dd><p>Lennard-Jones potential corresponding to the bb+ part of the potential. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22PseudoImproperDihedral6bb_negE">
+<span id="_CPPv3N3mdk22PseudoImproperDihedral6bb_negE"></span><span id="_CPPv2N3mdk22PseudoImproperDihedral6bb_negE"></span><span id="mdk::PseudoImproperDihedral::bb_neg__LambdaPeak"></span><span class="target" id="classmdk_1_1PseudoImproperDihedral_1a9e627f1f6223ab1df1a59cc6f793085a"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk10LambdaPeakE" title="mdk::LambdaPeak"><span class="n"><span class="pre">LambdaPeak</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bb_neg</span></span></span><br /></dt>
+<dd><p>Lambda function corresponding to the bb- part of the potential. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22PseudoImproperDihedral9bb_neg_ljE">
+<span id="_CPPv3N3mdk22PseudoImproperDihedral9bb_neg_ljE"></span><span id="_CPPv2N3mdk22PseudoImproperDihedral9bb_neg_ljE"></span><span id="mdk::PseudoImproperDihedral::bb_neg_lj__LennardJones"></span><span class="target" id="classmdk_1_1PseudoImproperDihedral_1a4a29f7788b547e62ad10c498b1d448f8"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk12LennardJonesE" title="mdk::LennardJones"><span class="n"><span class="pre">LennardJones</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bb_neg_lj</span></span></span><br /></dt>
+<dd><p>Lennard-Jones potential corresponding to the bb- part of the potential. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22PseudoImproperDihedral2ssE">
+<span id="_CPPv3N3mdk22PseudoImproperDihedral2ssE"></span><span id="_CPPv2N3mdk22PseudoImproperDihedral2ssE"></span><span id="mdk::PseudoImproperDihedral::ss__LambdaPeak"></span><span class="target" id="classmdk_1_1PseudoImproperDihedral_1a9dccb484a0e49ff7107c6aecb7be40e6"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk10LambdaPeakE" title="mdk::LambdaPeak"><span class="n"><span class="pre">LambdaPeak</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ss</span></span></span><br /></dt>
+<dd><p>Lambda function corresponding to the ss part of the potential. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22PseudoImproperDihedral6ss_ljsE">
+<span id="_CPPv3N3mdk22PseudoImproperDihedral6ss_ljsE"></span><span id="_CPPv2N3mdk22PseudoImproperDihedral6ss_ljsE"></span><span id="mdk::PseudoImproperDihedral::ss_ljs__SidechainLJAA"></span><span class="target" id="classmdk_1_1PseudoImproperDihedral_1a3ace403b95e9e04efe03e20eb795f041"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk11SidechainLJE" title="mdk::SidechainLJ"><span class="n"><span class="pre">SidechainLJ</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ss_ljs</span></span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk9AminoAcidE" title="mdk::AminoAcid"><span class="n"><span class="pre">AminoAcid</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk9AminoAcid1NE" title="mdk::AminoAcid::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk9AminoAcidE" title="mdk::AminoAcid"><span class="n"><span class="pre">AminoAcid</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk9AminoAcid1NE" title="mdk::AminoAcid::N"><span class="n"><span class="pre">N</span></span></a><span class="p"><span class="pre">]</span></span><br /></dt>
+<dd><p>An array of sidechain L-J potentials for each pair of types of amino acids interacting. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-protected-functions">Protected Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk22PseudoImproperDihedral4specEv">
+<span id="_CPPv3NK3mdk22PseudoImproperDihedral4specEv"></span><span id="_CPPv2NK3mdk22PseudoImproperDihedral4specEv"></span><span id="mdk::PseudoImproperDihedral::specC"></span><span class="target" id="classmdk_1_1PseudoImproperDihedral_1aae5f42d818a3f2db28c791e58688f590"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk2vlE" title="mdk::vl"><span class="n"><span class="pre">vl</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk2vl4SpecE" title="mdk::vl::Spec"><span class="n"><span class="pre">Spec</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">spec</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Generate spec for the Verlet list. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Generated spec. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk22PseudoImproperDihedral12deriveAnglesERKN2vl8PairInfoEAL2E_dAL2E_AL6E_6Vector">
+<span id="_CPPv3NK3mdk22PseudoImproperDihedral12deriveAnglesERKN2vl8PairInfoEAL2E_dAL2E_AL6E_6Vector"></span><span id="_CPPv2NK3mdk22PseudoImproperDihedral12deriveAnglesERKN2vl8PairInfoEA2_dA2_A6_6Vector"></span><span id="mdk::PseudoImproperDihedral::deriveAngles__vl::PairInfoCR.doubleA.VectorAAC"></span><span class="target" id="classmdk_1_1PseudoImproperDihedral_1af70c1935b5e48292d090ef3fb188c22b"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">deriveAngles</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk2vlE" title="mdk::vl"><span class="n"><span class="pre">vl</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk2vl8PairInfoE" title="mdk::vl::PairInfo"><span class="n"><span class="pre">PairInfo</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">pair</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">psi</span></span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">]</span></span>, <a class="reference internal" href="../../entire.html#_CPPv4N3mdk6VectorE" title="mdk::Vector"><span class="n"><span class="pre">Vector</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">dpsi_dr</span></span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">6</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd><p>Derive the angle data (specifically the angles and derivatives) pertaining to the pair. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pair</strong> – Pair of residues. </p></li>
+<li><p><strong>psi</strong> – An array, where psi[0] is the improper dihedral angle between i_1-1, i_1, i_1+1 and i_2, and psi[1] is the improper dihedral angle between i_2-1, i_2, i_2+1 and i_1. </p></li>
+<li><p><strong>dpsi_dr</strong> – An array, where dpsi_dr[0][0..2] are the derivatives d psi_1/d r_{i_1-1 .. i_1+1} and dspi_dr[0][3..6] are the derivatives d psi_1/d r_{i_2-1 .. i_2+1}; dpsi_dr[1][0..3] is defined as for 0, but with psi_2 instead of psi_1 (order of variables is not changed). </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22PseudoImproperDihedral5typesE">
+<span id="_CPPv3N3mdk22PseudoImproperDihedral5typesE"></span><span id="_CPPv2N3mdk22PseudoImproperDihedral5typesE"></span><span id="mdk::PseudoImproperDihedral::types__TypesCP"></span><span class="target" id="classmdk_1_1PseudoImproperDihedral_1a827dc68327a02e53e7ffb52584b172c5"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5TypesE" title="mdk::Types"><span class="n"><span class="pre">Types</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">types</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><br /></dt>
+<dd><p>A const pointer to the types of the residues. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22PseudoImproperDihedral4seqsE">
+<span id="_CPPv3N3mdk22PseudoImproperDihedral4seqsE"></span><span id="_CPPv2N3mdk22PseudoImproperDihedral4seqsE"></span><span id="mdk::PseudoImproperDihedral::seqs__ChainsCP"></span><span class="target" id="classmdk_1_1PseudoImproperDihedral_1a986a4905267cb68b2529a3f2ce9689ce"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk6ChainsE" title="mdk::Chains"><span class="n"><span class="pre">Chains</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">seqs</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><br /></dt>
+<dd><p>A const pointer to the chain data of the model. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk22PseudoImproperDihedral5pairsE">
+<span id="_CPPv3N3mdk22PseudoImproperDihedral5pairsE"></span><span id="_CPPv2N3mdk22PseudoImproperDihedral5pairsE"></span><span id="mdk::PseudoImproperDihedral::pairs__Pairs"></span><span class="target" id="classmdk_1_1PseudoImproperDihedral_1a7ea49d3f8713993cdeffd84f6e75d8c6"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5PairsE" title="mdk::Pairs"><span class="n"><span class="pre">Pairs</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pairs</span></span></span><br /></dt>
+<dd><p>Local copy of the Verlet list with some pairs potentially excluded (see <code class="docutils literal notranslate"><span class="pre">vlUpdateHook</span></code> for details). </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="qa.html" class="btn btn-neutral float-right" title="Quasi-adiabatic custom potential" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="pauli.html" class="btn btn-neutral float-left" title="Pauli exclusion forces" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, IF PAN &amp; ZPP Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,276 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Simulation layer &mdash; mdk  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Simulation object" href="simulation.html" />
+    <link rel="prev" title="Parameter files" href="../prep/param.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> mdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sections:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prep/index.html">Preparation layer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Simulation layer</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="simulation.html">Simulation object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/index.html">Data objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="primitives.html">Primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simulvar.html">Simulation variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forces/index.html">Forces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kernels/index.html">Kernels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="verlet.html">Verlet list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stats.html">Coordination stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="state.html">Physical state object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integrator/index.html">Integrators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hooks/index.html">Hooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/index.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../entire.html">Entire namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">mdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Simulation layer</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/src/simul/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="simulation-layer">
+<h1>Simulation layer<a class="headerlink" href="#simulation-layer" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Modules</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="simulation.html">Simulation object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data/index.html">Data objects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data/factory.html">Data objects factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/objects.html">Data objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="primitives.html">Primitives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulvar.html">Simulation variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="forces/index.html">Forces</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="forces/tether.html">Chain tether forces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forces/bondangle.html">Bond angle potential</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forces/dihedral.html">Dihedral angle potentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forces/chiral.html">Chirality potential</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forces/nonlocal.html">Nonlocal function interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forces/gomodel.html">Go-model native contacts potential</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forces/es.html">Electrostatic forces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forces/pauli.html">Pauli exclusion forces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forces/pid.html">Pseudo-improper-dihedral custom potential</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forces/qa.html">Quasi-adiabatic custom potential</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="kernels/index.html">Kernels</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="kernels/harmonic.html">Harmonic potential kernel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kernels/lj.html">Lennard-Jones potential kernel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kernels/stlj.html">Shifted and truncated Lennard-Jones potential kernel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kernels/sidechainlj.html">Sidechain Lennard-Jones potential kernel</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="verlet.html">Verlet list</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stats.html">Coordination stats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="state.html">Physical state object</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integrator/index.html">Integrators</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="integrator/leapfrog.html">Leapfrog integrator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integrator/langpc.html">Predictor-corrector integrator with Langevin noise</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="hooks/index.html">Hooks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="hooks/exportpdb.html">PDB export hook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hooks/positiondiff.html">Position diff hook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hooks/progressbar.html">Progress bar hook</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="simulation.html" class="btn btn-neutral float-right" title="Simulation object" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../prep/param.html" class="btn btn-neutral float-left" title="Parameter files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, IF PAN &amp; ZPP Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

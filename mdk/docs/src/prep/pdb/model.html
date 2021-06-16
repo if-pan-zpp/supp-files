@@ -1,0 +1,527 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>PDB atomic model &mdash; mdk  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="PDB parsing framework" href="parsing.html" />
+    <link rel="prev" title="Raw PDB data" href="raw.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> mdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sections:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Preparation layer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../cmap.html">Contact map files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../seq.html">Sequence files</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">PDB objects and parsing</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="records.html">PDB file records</a></li>
+<li class="toctree-l3"><a class="reference internal" href="raw.html">Raw PDB data</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">PDB atomic model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="parsing.html">PDB parsing framework</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../model.html">Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../param.html">Parameter files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../simul/index.html">Simulation layer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils/index.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../entire.html">Entire namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">mdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Preparation layer</a> &raquo;</li>
+        
+          <li><a href="index.html">PDB objects and parsing</a> &raquo;</li>
+        
+      <li>PDB atomic model</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../../_sources/src/prep/pdb/model.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="pdb-atomic-model">
+<h1>PDB atomic model<a class="headerlink" href="#pdb-atomic-model" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5ModelE">
+<span id="_CPPv3N3mdk3pdb5ModelE"></span><span id="_CPPv2N3mdk3pdb5ModelE"></span><span id="mdk::pdb::Model"></span><span class="target" id="classmdk_1_1pdb_1_1Model"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdbE" title="mdk::pdb"><span class="n"><span class="pre">pdb</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">Model</span></span></span><br /></dt>
+<dd><p>PDB model object. As opposed to <code class="docutils literal notranslate"><a class="reference internal" href="#classmdk_1_1pdb_1_1Model"><span class="std std-ref"><span class="pre">Model</span></span></a></code>, here we store atomic data, chiefly for the use in the derivation of full-atomic contact maps. Also, non-full-atomic contact maps may be derived; <code class="docutils literal notranslate"><a class="reference internal" href="#classmdk_1_1pdb_1_1Model"><span class="std std-ref"><span class="pre">Model</span></span></a></code> doesn’t contain such a method because it’s ill-defined for models obtained from <code class="docutils literal notranslate"><span class="pre">Sequence</span></code> file, which doesn’t have native residue positions. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model7addAtomEiP7Residue">
+<span id="_CPPv3N3mdk3pdb5Model7addAtomEiP7Residue"></span><span id="_CPPv2N3mdk3pdb5Model7addAtomEiP7Residue"></span><span id="mdk::pdb::Model::addAtom__i.ResidueP"></span><span class="target" id="classmdk_1_1pdb_1_1Model_1ac8a483b3da54ef85ffc8879846de956a"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb5Model4AtomE" title="mdk::pdb::Model::Atom"><span class="n"><span class="pre">Atom</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">addAtom</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">serial</span></span>, <a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb5Model7ResidueE" title="mdk::pdb::Model::Residue"><span class="n"><span class="pre">Residue</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">res</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Add an atom to a residue. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>serial</strong> – Serial number of an atom </p></li>
+<li><p><strong>res</strong> – Parent residue, or <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Reference to the added atom. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model10addResidueEiP5Chain">
+<span id="_CPPv3N3mdk3pdb5Model10addResidueEiP5Chain"></span><span id="_CPPv2N3mdk3pdb5Model10addResidueEiP5Chain"></span><span id="mdk::pdb::Model::addResidue__i.ChainP"></span><span class="target" id="classmdk_1_1pdb_1_1Model_1a6de17216a7faa447dd4fe3a4ba11548a"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb5Model7ResidueE" title="mdk::pdb::Model::Residue"><span class="n"><span class="pre">Residue</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">addResidue</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">serial</span></span>, <a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb5Model5ChainE" title="mdk::pdb::Model::Chain"><span class="n"><span class="pre">Chain</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">chain</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Add a residue to a chain. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>serial</strong> – Serial number of a residue to add. </p></li>
+<li><p><strong>chain</strong> – Parent chain or <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Reference to the added residue. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model8addChainEc">
+<span id="_CPPv3N3mdk3pdb5Model8addChainEc"></span><span id="_CPPv2N3mdk3pdb5Model8addChainEc"></span><span id="mdk::pdb::Model::addChain__c"></span><span class="target" id="classmdk_1_1pdb_1_1Model_1a5d922b7696de56a13869a3266b006be7"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb5Model5ChainE" title="mdk::pdb::Model::Chain"><span class="n"><span class="pre">Chain</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">addChain</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">serial</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Add a chain with a specified serial character. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>serial</strong> – Serial character of the chain. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Reference to the added chain. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model10addContactEv">
+<span id="_CPPv3N3mdk3pdb5Model10addContactEv"></span><span id="_CPPv2N3mdk3pdb5Model10addContactEv"></span><span id="mdk::pdb::Model::addContact"></span><span class="target" id="classmdk_1_1pdb_1_1Model_1ab2acf079a7beec87f8c7f4d0e6e5f286"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb5Model7ContactE" title="mdk::pdb::Model::Contact"><span class="n"><span class="pre">Contact</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="sig-name descname"><span class="n"><span class="pre">addContact</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Add a new contact. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Reference to the added contact. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model5ModelEv">
+<span id="_CPPv3N3mdk3pdb5Model5ModelEv"></span><span id="_CPPv2N3mdk3pdb5Model5ModelEv"></span><span id="mdk::pdb::Model::Model"></span><span class="target" id="classmdk_1_1pdb_1_1Model_1aacfcce3dc2e93e356e12a10a74fc8412"></span><span class="sig-name descname"><span class="n"><span class="pre">Model</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">default</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model5ModelERKN3mdk5ModelE">
+<span id="_CPPv3N3mdk3pdb5Model5ModelERKN3mdk5ModelE"></span><span id="_CPPv2N3mdk3pdb5Model5ModelERKN3mdk5ModelE"></span><span id="mdk::pdb::Model::Model__mdk::ModelCR"></span><span class="target" id="classmdk_1_1pdb_1_1Model_1ae6648669d51724e82e9df8875b190568"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Model</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5ModelE" title="mdk::Model"><span class="n"><span class="pre">Model</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">coarse</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Construct a <code class="docutils literal notranslate"><a class="reference internal" href="#classmdk_1_1pdb_1_1Model"><span class="std std-ref"><span class="pre">pdb::Model</span></span></a></code> from a <code class="docutils literal notranslate"><a class="reference internal" href="#classmdk_1_1pdb_1_1Model"><span class="std std-ref"><span class="pre">Model</span></span></a></code>. Doesn’t extrapolate extra atoms, i.e. only CA atoms are in the final model. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>coarse</strong> – <code class="docutils literal notranslate"><a class="reference internal" href="#classmdk_1_1pdb_1_1Model"><span class="std std-ref"><span class="pre">Model</span></span></a></code> from which to construct the PDB model. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model26addContactsFromAtomOverlapEv">
+<span id="_CPPv3N3mdk3pdb5Model26addContactsFromAtomOverlapEv"></span><span id="_CPPv2N3mdk3pdb5Model26addContactsFromAtomOverlapEv"></span><span id="mdk::pdb::Model::addContactsFromAtomOverlap"></span><span class="target" id="classmdk_1_1pdb_1_1Model_1a192a380370adb2859f73bb3ab2307c55"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">addContactsFromAtomOverlap</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Adds contacts based on the overlap of atoms. This method also derives types of contacts based on whether the atoms are in the backbone or the sidechain of an amino acid. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model25addContactsFromResOverlapERKN5param10ParametersE">
+<span id="_CPPv3N3mdk3pdb5Model25addContactsFromResOverlapERKN5param10ParametersE"></span><span id="_CPPv2N3mdk3pdb5Model25addContactsFromResOverlapERKN5param10ParametersE"></span><span id="mdk::pdb::Model::addContactsFromResOverlap__param::ParametersCR"></span><span class="target" id="classmdk_1_1pdb_1_1Model_1a1e0e3527ec88b0c4cb25814ebc2a7377"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">addContactsFromResOverlap</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5paramE" title="mdk::param"><span class="n"><span class="pre">param</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5param10ParametersE" title="mdk::param::Parameters"><span class="n"><span class="pre">Parameters</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">params</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Adds contacts based on approximate residue overlap, given the <code class="docutils literal notranslate"><span class="pre">aminoAcidRadii</span></code> data from the parameter file. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>params</strong> – Parameter file with amino acid radii data. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model7coarsenEv">
+<span id="_CPPv3N3mdk3pdb5Model7coarsenEv"></span><span id="_CPPv2N3mdk3pdb5Model7coarsenEv"></span><span id="mdk::pdb::Model::coarsen"></span><span class="target" id="classmdk_1_1pdb_1_1Model_1a15227cf056a37c05ca23e003097e1490"></span><a class="reference internal" href="../../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk5ModelE" title="mdk::Model"><span class="n"><span class="pre">Model</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">coarsen</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Construct a <code class="docutils literal notranslate"><a class="reference internal" href="../model.html#classmdk_1_1Model"><span class="std std-ref"><span class="pre">mdk::Model</span></span></a></code> from the PDB model. Collapses residues to a single <code class="docutils literal notranslate"><a class="reference internal" href="#classmdk_1_1pdb_1_1Model"><span class="std std-ref"><span class="pre">Model</span></span></a></code> residue and copies the contacts (if two atoms are connected, the residues containing them are connected in the final model). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A reduced (“coarsened”) model. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model5atomsE">
+<span id="_CPPv3N3mdk3pdb5Model5atomsE"></span><span id="_CPPv2N3mdk3pdb5Model5atomsE"></span><span id="mdk::pdb::Model::atoms__std::unordered_map:i.Atom:"></span><span class="target" id="classmdk_1_1pdb_1_1Model_1a8f999eab5963e94eaef2c744532f5893"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unordered_map</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb5Model4AtomE" title="mdk::pdb::Model::Atom"><span class="n"><span class="pre">Atom</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">atoms</span></span></span><br /></dt>
+<dd><p>A map from the serial number of an atom to the <code class="docutils literal notranslate"><a class="reference internal" href="#structmdk_1_1pdb_1_1Model_1_1Atom"><span class="std std-ref"><span class="pre">Atom</span></span></a></code> structure. Note that the order of serial numbers is (1) not necessarily consecutive, (2) not starting from 0, in some degenerate cases. Also, adding new atoms doesn’t invalidate pointers or references. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model8residuesE">
+<span id="_CPPv3N3mdk3pdb5Model8residuesE"></span><span id="_CPPv2N3mdk3pdb5Model8residuesE"></span><span id="mdk::pdb::Model::residues__std::unordered_map:i.Residue:"></span><span class="target" id="classmdk_1_1pdb_1_1Model_1a66ed0aaee3dc5bd381abab25403250d9"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unordered_map</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb5Model7ResidueE" title="mdk::pdb::Model::Residue"><span class="n"><span class="pre">Residue</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">residues</span></span></span><br /></dt>
+<dd><p>A map from residue serial number to <a class="reference internal" href="#structmdk_1_1pdb_1_1Model_1_1Residue"><span class="std std-ref">Residue</span></a> struct. Note that the order of serial numbers is (1) not necessarily consecutive, (2) not starting from 0, in some degenerate cases. Also, adding new residues doesn’t invalidate pointers or references. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model6chainsE">
+<span id="_CPPv3N3mdk3pdb5Model6chainsE"></span><span id="_CPPv2N3mdk3pdb5Model6chainsE"></span><span id="mdk::pdb::Model::chains__std::unordered_map:c.Chain:"></span><span class="target" id="classmdk_1_1pdb_1_1Model_1ad14363b3ba042b569480f61221849a3b"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">unordered_map</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">char</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb5Model5ChainE" title="mdk::pdb::Model::Chain"><span class="n"><span class="pre">Chain</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">chains</span></span></span><br /></dt>
+<dd><p>A map from the chain serial character to the chain. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model8contactsE">
+<span id="_CPPv3N3mdk3pdb5Model8contactsE"></span><span id="_CPPv2N3mdk3pdb5Model8contactsE"></span><span id="mdk::pdb::Model::contacts__std::vector:Contact:"></span><span class="target" id="classmdk_1_1pdb_1_1Model_1abe894ba89c89b7987e5d5b87dd5c58ba"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb5Model7ContactE" title="mdk::pdb::Model::Contact"><span class="n"><span class="pre">Contact</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">contacts</span></span></span><br /></dt>
+<dd><p>A vector of contacts. Note that references <em>are</em> (potentially) invalidated when adding new contacts. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model3topE">
+<span id="_CPPv3N3mdk3pdb5Model3topE"></span><span id="_CPPv2N3mdk3pdb5Model3topE"></span><span id="mdk::pdb::Model::top__Topology"></span><span class="target" id="classmdk_1_1pdb_1_1Model_1ab77ab3de308cf97801d18a6e93b57327"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk8TopologyE" title="mdk::Topology"><span class="n"><span class="pre">Topology</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">top</span></span></span><br /></dt>
+<dd><p>“Topology”, i.e. box shape for PBC. </p>
+</dd></dl>
+
+</div>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model4AtomE">
+<span id="_CPPv3N3mdk3pdb5Model4AtomE"></span><span id="_CPPv2N3mdk3pdb5Model4AtomE"></span><span id="mdk::pdb::Model::Atom"></span><span class="target" id="structmdk_1_1pdb_1_1Model_1_1Atom"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Atom</span></span></span><br /></dt>
+<dd><p>A struct containing data for a single atom. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model4Atom6serialE">
+<span id="_CPPv3N3mdk3pdb5Model4Atom6serialE"></span><span id="_CPPv2N3mdk3pdb5Model4Atom6serialE"></span><span id="mdk::pdb::Model::Atom::serial__i"></span><span class="target" id="structmdk_1_1pdb_1_1Model_1_1Atom_1abe99ed0b9b0ae1ac54f17c6d225a802a"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">serial</span></span></span><br /></dt>
+<dd><p>PDB serial number of an atom. Zero-indexed. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model4Atom8idxInResE">
+<span id="_CPPv3N3mdk3pdb5Model4Atom8idxInResE"></span><span id="_CPPv2N3mdk3pdb5Model4Atom8idxInResE"></span><span id="mdk::pdb::Model::Atom::idxInRes__i"></span><span class="target" id="structmdk_1_1pdb_1_1Model_1_1Atom_1a479fcfa4586ce0f826b1774207620173"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">idxInRes</span></span></span><br /></dt>
+<dd><p>Index of an atom in the <code class="docutils literal notranslate"><a class="reference internal" href="#structmdk_1_1pdb_1_1Model_1_1Residue_1a94c4f3cb4bb247d853c010bd018cd079"><span class="std std-ref"><span class="pre">Residue::atoms</span></span></a></code> list of the parent residue, or -1 if it’s not a part of any residue. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model4Atom3resE">
+<span id="_CPPv3N3mdk3pdb5Model4Atom3resE"></span><span id="_CPPv2N3mdk3pdb5Model4Atom3resE"></span><span id="mdk::pdb::Model::Atom::res__ResidueP"></span><span class="target" id="structmdk_1_1pdb_1_1Model_1_1Atom_1a7f72f859cc0364c97bb48abe0796db43"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb5Model7ResidueE" title="mdk::pdb::Model::Residue"><span class="n"><span class="pre">Residue</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">res</span></span></span><br /></dt>
+<dd><p>Parent residue. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model4Atom1rE">
+<span id="_CPPv3N3mdk3pdb5Model4Atom1rE"></span><span id="_CPPv2N3mdk3pdb5Model4Atom1rE"></span><span id="mdk::pdb::Model::Atom::r__Eigen::Vector3d"></span><span class="target" id="structmdk_1_1pdb_1_1Model_1_1Atom_1a94ef0bcdb07b33472cae05f4f7869812"></span><span class="n"><span class="pre">Eigen</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Vector3d</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">r</span></span></span><br /></dt>
+<dd><p>(Native) position of the atom. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model4Atom4typeE">
+<span id="_CPPv3N3mdk3pdb5Model4Atom4typeE"></span><span id="_CPPv2N3mdk3pdb5Model4Atom4typeE"></span><span id="mdk::pdb::Model::Atom::type__ss"></span><span class="target" id="structmdk_1_1pdb_1_1Model_1_1Atom_1a5b2a289ab643bbcc09a95e9f6b91997f"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">type</span></span></span><br /></dt>
+<dd><p>Type of an atom (in the <code class="docutils literal notranslate"><span class="pre">std::string</span></code> form). </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model5ChainE">
+<span id="_CPPv3N3mdk3pdb5Model5ChainE"></span><span id="_CPPv2N3mdk3pdb5Model5ChainE"></span><span id="mdk::pdb::Model::Chain"></span><span class="target" id="structmdk_1_1pdb_1_1Model_1_1Chain"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Chain</span></span></span><br /></dt>
+<dd><p>A struct containing PDB chain data. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model5Chain6serialE">
+<span id="_CPPv3N3mdk3pdb5Model5Chain6serialE"></span><span id="_CPPv2N3mdk3pdb5Model5Chain6serialE"></span><span id="mdk::pdb::Model::Chain::serial__c"></span><span class="target" id="structmdk_1_1pdb_1_1Model_1_1Chain_1a3cadf1c380bd8f6819eb3adf5b572995"></span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">serial</span></span></span><br /></dt>
+<dd><p>Serial (alphanumeric) character of a chain. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model5Chain8residuesE">
+<span id="_CPPv3N3mdk3pdb5Model5Chain8residuesE"></span><span id="_CPPv2N3mdk3pdb5Model5Chain8residuesE"></span><span id="mdk::pdb::Model::Chain::residues__std::vector:ResidueP:"></span><span class="target" id="structmdk_1_1pdb_1_1Model_1_1Chain_1a61cff09901d60306544469c83b980354"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb5Model7ResidueE" title="mdk::pdb::Model::Residue"><span class="n"><span class="pre">Residue</span></span></a><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">residues</span></span></span><br /></dt>
+<dd><p>Constituent resides of the chain. Ordered. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model7ContactE">
+<span id="_CPPv3N3mdk3pdb5Model7ContactE"></span><span id="_CPPv2N3mdk3pdb5Model7ContactE"></span><span id="mdk::pdb::Model::Contact"></span><span class="target" id="structmdk_1_1pdb_1_1Model_1_1Contact"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Contact</span></span></span><br /></dt>
+<dd><p>A struct containing contacts. Technically this isn’t represented 1-to-1 in the PDB data, but an unification of SSBONDs and LINKs is useful, especially for the reduction of the <code class="docutils literal notranslate"><a class="reference internal" href="#classmdk_1_1pdb_1_1Model"><span class="std std-ref"><span class="pre">pdb::Model</span></span></a></code> into <code class="docutils literal notranslate"><a class="reference internal" href="#classmdk_1_1pdb_1_1Model"><span class="std std-ref"><span class="pre">Model</span></span></a></code>. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model7Contact3idxE">
+<span id="_CPPv3N3mdk3pdb5Model7Contact3idxE"></span><span id="_CPPv2N3mdk3pdb5Model7Contact3idxE"></span><span id="mdk::pdb::Model::Contact::idx__i"></span><span class="target" id="structmdk_1_1pdb_1_1Model_1_1Contact_1aaa17d444cbfaceffb3bc8aece9fd2193"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">idx</span></span></span><br /></dt>
+<dd><p>Index of the contact in <code class="docutils literal notranslate"><span class="pre">contacts</span></code> vector. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model7Contact4atomE">
+<span id="_CPPv3N3mdk3pdb5Model7Contact4atomE"></span><span id="_CPPv2N3mdk3pdb5Model7Contact4atomE"></span><span id="mdk::pdb::Model::Contact::atom__AtomPA"></span><span class="target" id="structmdk_1_1pdb_1_1Model_1_1Contact_1a7cef133cc5292d22b06e3b078ecec52e"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb5Model4AtomE" title="mdk::pdb::Model::Atom"><span class="n"><span class="pre">Atom</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">atom</span></span></span><span class="p"><span class="pre">[</span></span><span class="m"><span class="pre">2</span></span><span class="p"><span class="pre">]</span></span><br /></dt>
+<dd><p>Pointers to atoms that comprise the contact. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model7Contact4typeE">
+<span id="_CPPv3N3mdk3pdb5Model7Contact4typeE"></span><span id="_CPPv2N3mdk3pdb5Model7Contact4typeE"></span><span id="mdk::pdb::Model::Contact::type__ss"></span><span class="target" id="structmdk_1_1pdb_1_1Model_1_1Contact_1aa7f2e849370fa97277979aea8ce6fd3e"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">type</span></span></span><br /></dt>
+<dd><p>Type of contact. Takes (at this moment) values “SSBOND”, “NAT”, “NAT_BB”, “NAT_BS”, “NAT_SB”, “NAT_SS”. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model7Contact5dist0E">
+<span id="_CPPv3N3mdk3pdb5Model7Contact5dist0E"></span><span id="_CPPv2N3mdk3pdb5Model7Contact5dist0E"></span><span id="mdk::pdb::Model::Contact::dist0__double"></span><span class="target" id="structmdk_1_1pdb_1_1Model_1_1Contact_1afcc793fe22c628737ceec660efe29428"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">dist0</span></span></span><br /></dt>
+<dd><p>Native contact length. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model7ResidueE">
+<span id="_CPPv3N3mdk3pdb5Model7ResidueE"></span><span id="_CPPv2N3mdk3pdb5Model7ResidueE"></span><span id="mdk::pdb::Model::Residue"></span><span class="target" id="structmdk_1_1pdb_1_1Model_1_1Residue"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Residue</span></span></span><br /></dt>
+<dd><p>A struct containing data for a PDB residue. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model7Residue4findERKNSt6stringE">
+<span id="_CPPv3N3mdk3pdb5Model7Residue4findERKNSt6stringE"></span><span id="_CPPv2N3mdk3pdb5Model7Residue4findERKNSt6stringE"></span><span id="mdk::pdb::Model::Residue::find__ssCR"></span><span class="target" id="structmdk_1_1pdb_1_1Model_1_1Residue_1af7c50cdff53d2acc9dc20e414646a709"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb5Model4AtomE" title="mdk::pdb::Model::Atom"><span class="n"><span class="pre">Atom</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">find</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">type</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Find an atom belonging to the residue by the type. (Used primarily for finding CG atoms in SSBONDs). </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>type</strong> – <a class="reference internal" href="#structmdk_1_1pdb_1_1Model_1_1Atom"><span class="std std-ref">Atom</span></a> type to find. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Pointer to found atom, or <code class="docutils literal notranslate"><span class="pre">nullptr</span></code> if such an atom has not been found. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model7Residue6serialE">
+<span id="_CPPv3N3mdk3pdb5Model7Residue6serialE"></span><span id="_CPPv2N3mdk3pdb5Model7Residue6serialE"></span><span id="mdk::pdb::Model::Residue::serial__i"></span><span class="target" id="structmdk_1_1pdb_1_1Model_1_1Residue_1a12aa86b8e863d2f8b18a6a2a2b0dadd5"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">serial</span></span></span><br /></dt>
+<dd><p>Serial number of a residue. 0-indexed. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model7Residue10idxInChainE">
+<span id="_CPPv3N3mdk3pdb5Model7Residue10idxInChainE"></span><span id="_CPPv2N3mdk3pdb5Model7Residue10idxInChainE"></span><span id="mdk::pdb::Model::Residue::idxInChain__i"></span><span class="target" id="structmdk_1_1pdb_1_1Model_1_1Residue_1aaee87659d8d83eb3cbd8ab56e45952cf"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">idxInChain</span></span></span><br /></dt>
+<dd><p>Index in the <code class="docutils literal notranslate"><a class="reference internal" href="#structmdk_1_1pdb_1_1Model_1_1Chain_1a61cff09901d60306544469c83b980354"><span class="std std-ref"><span class="pre">Chain::residues</span></span></a></code> of the parent chain, or -1 if it’s not in any chain. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model7Residue5chainE">
+<span id="_CPPv3N3mdk3pdb5Model7Residue5chainE"></span><span id="_CPPv2N3mdk3pdb5Model7Residue5chainE"></span><span id="mdk::pdb::Model::Residue::chain__ChainP"></span><span class="target" id="structmdk_1_1pdb_1_1Model_1_1Residue_1a90a06f6dc909db7cbaf28ae26f3c709f"></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb5Model5ChainE" title="mdk::pdb::Model::Chain"><span class="n"><span class="pre">Chain</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">chain</span></span></span><br /></dt>
+<dd><p>Parent chain. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model7Residue4typeE">
+<span id="_CPPv3N3mdk3pdb5Model7Residue4typeE"></span><span id="_CPPv2N3mdk3pdb5Model7Residue4typeE"></span><span id="mdk::pdb::Model::Residue::type__ss"></span><span class="target" id="structmdk_1_1pdb_1_1Model_1_1Residue_1a959aae34890a73b4e2deefb0c911174c"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">type</span></span></span><br /></dt>
+<dd><p>Type of residue (in <code class="docutils literal notranslate"><span class="pre">std::string</span></code> form) </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk3pdb5Model7Residue5atomsE">
+<span id="_CPPv3N3mdk3pdb5Model7Residue5atomsE"></span><span id="_CPPv2N3mdk3pdb5Model7Residue5atomsE"></span><span id="mdk::pdb::Model::Residue::atoms__std::vector:AtomP:"></span><span class="target" id="structmdk_1_1pdb_1_1Model_1_1Residue_1a94c4f3cb4bb247d853c010bd018cd079"></span><a class="reference internal" href="../../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../../entire.html#_CPPv4N3mdk3pdb5Model4AtomE" title="mdk::pdb::Model::Atom"><span class="n"><span class="pre">Atom</span></span></a><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">atoms</span></span></span><br /></dt>
+<dd><p>List of constituent atoms for the residue. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="parsing.html" class="btn btn-neutral float-right" title="PDB parsing framework" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="raw.html" class="btn btn-neutral float-left" title="Raw PDB data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, IF PAN &amp; ZPP Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

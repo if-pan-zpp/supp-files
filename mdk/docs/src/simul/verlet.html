@@ -1,0 +1,439 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Verlet list &mdash; mdk  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Coordination stats" href="stats.html" />
+    <link rel="prev" title="Sidechain Lennard-Jones potential kernel" href="kernels/sidechainlj.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> mdk
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Sections:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prep/index.html">Preparation layer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Simulation layer</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="simulation.html">Simulation object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data/index.html">Data objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="primitives.html">Primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="simulvar.html">Simulation variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="forces/index.html">Forces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kernels/index.html">Kernels</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Verlet list</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stats.html">Coordination stats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="state.html">Physical state object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integrator/index.html">Integrators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hooks/index.html">Hooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/index.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../entire.html">Entire namespace</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">mdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Simulation layer</a> &raquo;</li>
+        
+      <li>Verlet list</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/src/simul/verlet.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="verlet-list">
+<h1>Verlet list<a class="headerlink" href="#verlet-list" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp struct">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk2vl4SpecE">
+<span id="_CPPv3N3mdk2vl4SpecE"></span><span id="_CPPv2N3mdk2vl4SpecE"></span><span id="mdk::vl::Spec"></span><span class="target" id="structmdk_1_1vl_1_1Spec"></span><span class="k"><span class="pre">struct</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk2vlE" title="mdk::vl"><span class="n"><span class="pre">vl</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">Spec</span></span></span><br /></dt>
+<dd><p>A specification (spec for short) for the non-local force. Technically one could generate a Verlet list for every non-local force, however this would be wasteful - thus we generate a most restrictive possible Verlet list which contains the “sub-Verlet lists” of the particular non-local forces and let them filter the general list on their own accord into a local list. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk2vl4Spec8cutoffSqE">
+<span id="_CPPv3N3mdk2vl4Spec8cutoffSqE"></span><span id="_CPPv2N3mdk2vl4Spec8cutoffSqE"></span><span id="mdk::vl::Spec::cutoffSq__double"></span><span class="target" id="structmdk_1_1vl_1_1Spec_1ad39f7ca0e50c8e0c36a15fefec2663d5"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cutoffSq</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0.0</span></span><br /></dt>
+<dd><p>A square of the cutoff distance. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk2vl4Spec10minBondSepE">
+<span id="_CPPv3N3mdk2vl4Spec10minBondSepE"></span><span id="_CPPv2N3mdk2vl4Spec10minBondSepE"></span><span id="mdk::vl::Spec::minBondSep__i"></span><span class="target" id="structmdk_1_1vl_1_1Spec_1a93b0f06d8c39e80f5b5a5d318583ee36"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">minBondSep</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">3</span></span><br /></dt>
+<dd><p>Minimum bond separation between the residues of one pair in the Verlet list. Technically this is just an optimization. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk2vl4ListE">
+<span id="_CPPv3N3mdk2vl4ListE"></span><span id="_CPPv2N3mdk2vl4ListE"></span><span id="mdk::vl::List"></span><span class="target" id="classmdk_1_1vl_1_1List"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk2vlE" title="mdk::vl"><span class="n"><span class="pre">vl</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">List</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../entire.html#_CPPv43mdk" title="mdk"><span class="n"><span class="pre">mdk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk8SimulVarE" title="mdk::SimulVar"><span class="n"><span class="pre">SimulVar</span></span></a><br /></dt>
+<dd><p>A Verlet list. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk2vl4List10registerNFER13NonlocalForceRK4Spec">
+<span id="_CPPv3N3mdk2vl4List10registerNFER13NonlocalForceRK4Spec"></span><span id="_CPPv2N3mdk2vl4List10registerNFER13NonlocalForceRK4Spec"></span><span id="mdk::vl::List::registerNF__NonlocalForceR.SpecCR"></span><span class="target" id="classmdk_1_1vl_1_1List_1a5d3e0b9a1e4befd7048fd8930125d9a8"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">registerNF</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../entire.html#_CPPv4N3mdk13NonlocalForceE" title="mdk::NonlocalForce"><span class="n"><span class="pre">NonlocalForce</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">force</span></span>, <a class="reference internal" href="../entire.html#_CPPv4N3mdk2vl4SpecE" title="mdk::vl::Spec"><span class="n"><span class="pre">Spec</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">spec</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Register a nonlocal force, in particular adjust the current specs so as to accomodate the newly added force (for example increase the cutoff distance), and add it to the internal list of the forces whose hooks to call when a list is reconstructed. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>force</strong> – Nonlocal force to register. </p></li>
+<li><p><strong>spec</strong> – <a class="reference internal" href="#structmdk_1_1vl_1_1Spec"><span class="std std-ref">Spec</span></a> with which to register the force. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk2vl4List4bindER10Simulation">
+<span id="_CPPv3N3mdk2vl4List4bindER10Simulation"></span><span id="_CPPv2N3mdk2vl4List4bindER10Simulation"></span><span id="mdk::vl::List::bind__SimulationR"></span><span class="target" id="classmdk_1_1vl_1_1List_1a6e38e3392be38257414a05c398881786"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">bind</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../entire.html#_CPPv4N3mdk10SimulationE" title="mdk::Simulation"><span class="n"><span class="pre">Simulation</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">simulation</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><br /></dt>
+<dd><p>Bind an object to a simulation. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>simulation</strong> – <a class="reference internal" href="simulation.html#classmdk_1_1Simulation"><span class="std std-ref">Simulation</span></a> to bind the object to. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk2vl4List5checkEv">
+<span id="_CPPv3N3mdk2vl4List5checkEv"></span><span id="_CPPv2N3mdk2vl4List5checkEv"></span><span id="mdk::vl::List::check"></span><span class="target" id="classmdk_1_1vl_1_1List_1a24771bca23ec816a45b7349e734cbbb4"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">check</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Check whether the list needs updating, and if it does update it and invoke the relevant update hooks for the non-local forces. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-members">Public Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk2vl4List5pairsE">
+<span id="_CPPv3N3mdk2vl4List5pairsE"></span><span id="_CPPv2N3mdk2vl4List5pairsE"></span><span id="mdk::vl::List::pairs__Pairs"></span><span class="target" id="classmdk_1_1vl_1_1List_1a5d550cb1db1ae1b18a855ec4d87f13a5"></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk5PairsE" title="mdk::Pairs"><span class="n"><span class="pre">Pairs</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pairs</span></span></span><br /></dt>
+<dd><p>The list of pairs. The pairs are ordered (if a pair [i, j] is in this list, then i &lt; j). </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-functions">Private Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK3mdk2vl4List11needToResetEv">
+<span id="_CPPv3NK3mdk2vl4List11needToResetEv"></span><span id="_CPPv2NK3mdk2vl4List11needToResetEv"></span><span id="mdk::vl::List::needToResetC"></span><span class="target" id="classmdk_1_1vl_1_1List_1a1f8bd76c04c79ea74765437911397758"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">needToReset</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk2vl4List6updateEv">
+<span id="_CPPv3N3mdk2vl4List6updateEv"></span><span id="_CPPv2N3mdk2vl4List6updateEv"></span><span id="mdk::vl::List::update"></span><span class="target" id="classmdk_1_1vl_1_1List_1a152ee3c947c6070ffde80dc7b4f0ead8"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">update</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Updates the Verlet list in the “legacy fashion”, i.e. going through a list of pairs and checking the distances. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk2vl4List7indexOfERKN5Eigen8Vector3iE">
+<span id="_CPPv3N3mdk2vl4List7indexOfERKN5Eigen8Vector3iE"></span><span id="_CPPv2N3mdk2vl4List7indexOfERKN5Eigen8Vector3iE"></span><span id="mdk::vl::List::indexOf__Eigen::Vector3iCR"></span><span class="target" id="classmdk_1_1vl_1_1List_1a4ca6bd260035f5244ebe1662864c27ae"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">indexOf</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">Eigen</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Vector3i</span></span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">loc</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Computes the flattened index of a cell in the grid. </p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>loc</strong> – Unflattened index. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Flattened index. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk2vl4List7perPairEii">
+<span id="_CPPv3N3mdk2vl4List7perPairEii"></span><span id="_CPPv2N3mdk2vl4List7perPairEii"></span><span id="mdk::vl::List::perPair__i.i"></span><span class="target" id="classmdk_1_1vl_1_1List_1aa3832fde5dfd796af4f8f11cc29b2a6a"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">perPair</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">c1</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">c2</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk2vl4List7perCellEi">
+<span id="_CPPv3N3mdk2vl4List7perCellEi"></span><span id="_CPPv2N3mdk2vl4List7perCellEi"></span><span id="mdk::vl::List::perCell__i"></span><span class="target" id="classmdk_1_1vl_1_1List_1af4fdcc10bca7a38b7cf1026cba2e3dbd"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">perCell</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">c1</span></span><span class="sig-paren">)</span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk2vl4List10updateGridEv">
+<span id="_CPPv3N3mdk2vl4List10updateGridEv"></span><span id="_CPPv2N3mdk2vl4List10updateGridEv"></span><span id="mdk::vl::List::updateGrid"></span><span class="target" id="classmdk_1_1vl_1_1List_1a41fc05726a9df437928d7ef7329e5b92"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">updateGrid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><br /></dt>
+<dd><p>Updates the Verlet list, but instead of going through each pair we first place the residues into cells of (rough) size <code class="docutils literal notranslate"><span class="pre">effCutoff</span></code> and then only take the pairs from the neighboring cells, which reduces the computational cost from O(N^2) to O(N) (although the constant behind O(N) may be significant). In practice this version is much faster, especially for large numbers of residues. </p>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-private-members">Private Members</p>
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk2vl4List5stateE">
+<span id="_CPPv3N3mdk2vl4List5stateE"></span><span id="_CPPv2N3mdk2vl4List5stateE"></span><span id="mdk::vl::List::state__StateCP"></span><span class="target" id="classmdk_1_1vl_1_1List_1aedabb809b9974d975d3eb0171bed07e3"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../entire.html#_CPPv4N3mdk5StateE" title="mdk::State"><span class="n"><span class="pre">State</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">state</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk2vl4List6chainsE">
+<span id="_CPPv3N3mdk2vl4List6chainsE"></span><span id="_CPPv2N3mdk2vl4List6chainsE"></span><span id="mdk::vl::List::chains__ChainsCP"></span><span class="target" id="classmdk_1_1vl_1_1List_1ac79e4a980349cd242e627454aa085ece"></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk6ChainsE" title="mdk::Chains"><span class="n"><span class="pre">Chains</span></span></a><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">chains</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">nullptr</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk2vl4List2t0E">
+<span id="_CPPv3N3mdk2vl4List2t0E"></span><span id="_CPPv2N3mdk2vl4List2t0E"></span><span id="mdk::vl::List::t0__double"></span><span class="target" id="classmdk_1_1vl_1_1List_1afc77a202f607572c7fe840a524117a26"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">t0</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0.0</span></span><br /></dt>
+<dd><p>Time from when the list was last reconstructed. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk2vl4List2r0E">
+<span id="_CPPv3N3mdk2vl4List2r0E"></span><span id="_CPPv2N3mdk2vl4List2r0E"></span><span id="mdk::vl::List::r0__Vectors"></span><span class="target" id="classmdk_1_1vl_1_1List_1afe52dcc9631975632fc59ee6481c5ef3"></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk7VectorsE" title="mdk::Vectors"><span class="n"><span class="pre">Vectors</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">r0</span></span></span><br /></dt>
+<dd><p>Positions of the residues from when the list was last reconstructed. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk2vl4List4top0E">
+<span id="_CPPv3N3mdk2vl4List4top0E"></span><span id="_CPPv2N3mdk2vl4List4top0E"></span><span id="mdk::vl::List::top0__Topology"></span><span class="target" id="classmdk_1_1vl_1_1List_1ae6668e3786a878deee39ad2b4af37962"></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk8TopologyE" title="mdk::Topology"><span class="n"><span class="pre">Topology</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">top0</span></span></span><br /></dt>
+<dd><p>Box shape from when the list was last reconstructed. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk2vl4List6forcesE">
+<span id="_CPPv3N3mdk2vl4List6forcesE"></span><span id="_CPPv2N3mdk2vl4List6forcesE"></span><span id="mdk::vl::List::forces__std::vector:NonlocalForceP:"></span><span class="target" id="classmdk_1_1vl_1_1List_1af0479e0ca5084fb24bd7fbd3d6892f2b"></span><a class="reference internal" href="../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../entire.html#_CPPv4N3mdk13NonlocalForceE" title="mdk::NonlocalForce"><span class="n"><span class="pre">NonlocalForce</span></span></a><span class="p"><span class="pre">*</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">forces</span></span></span><br /></dt>
+<dd><p>A list of nonlocal forces, saved in order to invoke their update hooks when the list is reconstructed. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk2vl4List7initialE">
+<span id="_CPPv3N3mdk2vl4List7initialE"></span><span id="_CPPv2N3mdk2vl4List7initialE"></span><span id="mdk::vl::List::initial__b"></span><span class="target" id="classmdk_1_1vl_1_1List_1a24ce468858ad0d18062d6a327072531f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">initial</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk2vl4List6cutoffE">
+<span id="_CPPv3N3mdk2vl4List6cutoffE"></span><span id="_CPPv2N3mdk2vl4List6cutoffE"></span><span id="mdk::vl::List::cutoff__double"></span><span class="target" id="classmdk_1_1vl_1_1List_1aeadd70a3383b78c7a376255666cb4f38"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">cutoff</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0.0</span></span><span class="w"> </span><span class="o"><span class="pre">*</span></span><span class="w"> </span><a class="reference internal" href="../entire.html#_CPPv4N3mdk8angstromE" title="mdk::angstrom"><span class="n"><span class="pre">angstrom</span></span></a><br /></dt>
+<dd><p>A maximal cutoff among registered nonlocal forces. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk2vl4List3padE">
+<span id="_CPPv3N3mdk2vl4List3padE"></span><span id="_CPPv2N3mdk2vl4List3padE"></span><span id="mdk::vl::List::pad__double"></span><span class="target" id="classmdk_1_1vl_1_1List_1a9bce1ccd8688e39f222f10e8ae2a1643"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">pad</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">10.0</span></span><span class="w"> </span><span class="o"><span class="pre">*</span></span><span class="w"> </span><a class="reference internal" href="../entire.html#_CPPv4N3mdk8angstromE" title="mdk::angstrom"><span class="n"><span class="pre">angstrom</span></span></a><br /></dt>
+<dd><p>An extra “buffer”. The list by default contains elements that may be outside the maximal cutoff, which allows us to not have to reconstruct the verlet list at every time step, at the cost of spurious distance comparisons. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk2vl4List10minBondSepE">
+<span id="_CPPv3N3mdk2vl4List10minBondSepE"></span><span id="_CPPv2N3mdk2vl4List10minBondSepE"></span><span id="mdk::vl::List::minBondSep__i"></span><span class="target" id="classmdk_1_1vl_1_1List_1afb182316622dcef2eff93749141075f9"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">minBondSep</span></span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><br /></dt>
+<dd><p>Minimal bond-distance between the residues among registered nonlocal forces. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk2vl4List4gridE">
+<span id="_CPPv3N3mdk2vl4List4gridE"></span><span id="_CPPv2N3mdk2vl4List4gridE"></span><span id="mdk::vl::List::grid__Eigen::Vector3i"></span><span class="target" id="classmdk_1_1vl_1_1List_1a1b1a489184068f1ecae4c78fda7c7608"></span><span class="n"><span class="pre">Eigen</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Vector3i</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">grid</span></span></span><br /></dt>
+<dd><p>Dimensions of the grid of cells used in the cell version of the computation. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk2vl4List5firstE">
+<span id="_CPPv3N3mdk2vl4List5firstE"></span><span id="_CPPv2N3mdk2vl4List5firstE"></span><span id="mdk::vl::List::first__std::vector:i:"></span><span class="target" id="classmdk_1_1vl_1_1List_1a7688a95eaae0fd565703540185828847"></span><a class="reference internal" href="../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">first</span></span></span><br /></dt>
+<dd><p>A list of size equal to the number of cells in the grid, where a nonnegative number indicates an index of the residue which is first in the linked list of residues in a given cell. If the cell is empty, the value is -1. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk2vl4List4lastE">
+<span id="_CPPv3N3mdk2vl4List4lastE"></span><span id="_CPPv2N3mdk2vl4List4lastE"></span><span id="mdk::vl::List::last__std::vector:i:"></span><span class="target" id="classmdk_1_1vl_1_1List_1a867fd28aa3b8e7fdd8c1a080046c9fd9"></span><a class="reference internal" href="../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">last</span></span></span><br /></dt>
+<dd><p>A list of size equal to the number of cells in the grid, where a nonnegative number indicates an index of the residue which is last in the linked list of residues in a given cell. If the cell is empty, the value is -1. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk2vl4List4nextE">
+<span id="_CPPv3N3mdk2vl4List4nextE"></span><span id="_CPPv2N3mdk2vl4List4nextE"></span><span id="mdk::vl::List::next__std::vector:i:"></span><span class="target" id="classmdk_1_1vl_1_1List_1ab42c6e9f43dd5e3f804ff756a9ff63bf"></span><a class="reference internal" href="../utils/aminoacid.html#_CPPv4St" title="std"><span class="n"><span class="pre">std</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">next</span></span></span><br /></dt>
+<dd><p>A list of size equal to the number of residues, where a nonnegative number indicates an index of a residue which is next in the linked list associated with the cell in which the residue is placed. </p>
+</dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk2vl4List9effCutoffE">
+<span id="_CPPv3N3mdk2vl4List9effCutoffE"></span><span id="_CPPv2N3mdk2vl4List9effCutoffE"></span><span id="mdk::vl::List::effCutoff__double"></span><span class="target" id="classmdk_1_1vl_1_1List_1a1d14dcf1bfc5fd949a335cba6ea5acda"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">effCutoff</span></span></span><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp var">
+<dt class="sig sig-object cpp" id="_CPPv4N3mdk2vl4List11effCutoffSqE">
+<span id="_CPPv3N3mdk2vl4List11effCutoffSqE"></span><span id="_CPPv2N3mdk2vl4List11effCutoffSqE"></span><span id="mdk::vl::List::effCutoffSq__double"></span><span class="target" id="classmdk_1_1vl_1_1List_1a3df9d29476492a6dc57acc74f8af8498"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">effCutoffSq</span></span></span><br /></dt>
+<dd></dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="stats.html" class="btn btn-neutral float-right" title="Coordination stats" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="kernels/sidechainlj.html" class="btn btn-neutral float-left" title="Sidechain Lennard-Jones potential kernel" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, IF PAN &amp; ZPP Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
