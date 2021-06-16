@@ -1,0 +1,215 @@
+%
+% Niniejszy plik stanowi przykład formatowania pracy magisterskiej na
+% Wydziale MIM UW.  Szkielet użytych poleceń można wykorzystywać do
+% woli, np. formatujac wlasna prace.
+%
+% Zawartosc merytoryczna stanowi oryginalnosiagniecie
+% naukowosciowe Marcina Wolinskiego.  Wszelkie prawa zastrzeżone.
+%
+% Copyright (c) 2001 by Marcin Woliński <M.Wolinski@gust.org.pl>
+% Poprawki spowodowane zmianami przepisów - Marcin Szczuka, 1.10.2004
+% Poprawki spowodowane zmianami przepisow i ujednolicenie 
+% - Seweryn Karłowicz, 05.05.2006
+% Dodanie wielu autorów i tłumaczenia na angielski - Kuba Pochrybniak, 29.11.2016
+
+% dodaj opcję [licencjacka] dla pracy licencjackiej
+% dodaj opcję [en] dla wersji angielskiej (mogą być obie: [licencjacka,en])
+\documentclass[licencjacka,en]{pracamgr}
+
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{url}
+\usepackage{pgfplots}
+\pgfplotsset{width=10cm,compat=1.9}
+
+\usepgfplotslibrary{external}
+\tikzexternalize
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Fortran,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=left,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+% Dane magistrantów:
+\autor{Jakub Bednarz}{406103}
+\autori{Jakub Boguta}{394089}
+\autorii{Paweł Kopaczyk}{394373}
+\autoriii{Juliusz Pham}{406295}
+\autoriv{Jan Urbanek}{406395}
+
+\title{Modern implementation of a molecular dynamics simulation of proteins in a coarse-grained model}
+\titlepl{Nowoczesna implementacja programu do symulacji białek w modelu gruboziarnistym}
+
+%\tytulang{An implementation of a difference blabalizer based on the theory of $\sigma$ -- $\rho$ phetors}
+
+%kierunek: 
+% - matematyka, informacyka, ...
+% - Mathematics, Computer Science, ...
+\kierunek{Computer Science}
+
+% informatyka - nie okreslamy zakresu (opcja zakomentowana)
+% matematyka - zakres moze pozostac nieokreslony,
+% a jesli ma byc okreslony dla pracy mgr,
+% to przyjmuje jedna z wartosci:
+% {metod matematycznych w finansach}
+% {metod matematycznych w ubezpieczeniach}
+% {matematyki stosowanej}
+% {nauczania matematyki}
+% Dla pracy licencjackiej mamy natomiast
+% mozliwosc wpisania takiej wartosci zakresu:
+% {Jednoczesnych Studiow Ekonomiczno--Matematycznych}
+
+% \zakres{Tu wpisac, jesli trzeba, jedna z opcji podanych wyzej}
+
+% Praca wykonana pod kierunkiem:
+% (podać tytuł/stopień imię i nazwisko opiekuna
+% Instytut
+% ew. Wydział ew. Uczelnia (jeżeli nie MIM UW))
+\opiekun{dr Jacek Sroka \\
+  Institute of Informatics \\
+  }
+
+% miesiąc i~rok:
+\date{June 2021}
+
+%Podać dziedzinę wg klasyfikacji Socrates-Erasmus:
+\dziedzina{ 
+%11.0 Matematyka, Informatyka:\\ 
+%11.1 Matematyka\\ 
+%11.2 Statystyka\\ 
+11.3 Informatics\\ 
+%11.4 Sztuczna inteligencja\\ 
+%11.5 Nauki aktuarialne\\
+%11.9 Inne nauki matematyczne i informatyczne
+}
+
+
+%Klasyfikacja tematyczna wedlug AMS (matematyka) lub ACM (informatyka)
+
+\klasyfikacja{
+I. Computing Methodologies \\
+I.6 Simulation and Modeling \\
+I.6.3 Applications \\
+G. Mathematics of Computing \\
+G.4 Mathematical Software \\
+}
+
+% Słowa kluczowe:
+\keywords{molecular dynamics, coarse grained model, parallel computing, FORTRAN, C++, OpenMP}
+
+% Tu jest dobre miejsce na Twoje własne makra i~środowiska:
+\newtheorem{defi}{Definicja}[section]
+
+% koniec definicji
+
+\begin{document}
+\maketitle
+
+
+
+%tu idzie streszczenie na strone poczatkowa
+\begin{abstract}
+  Molecular dynamics simulations provide us with insight into proteins' properties by predicting their movements in various environments.
+  As part of this thesis we have implemented a coarse-grained model that can be used for such purpose. Its main application is simulating large systems over long time periods, because it allows for bigger time steps than traditional all-atom models.
+ 
+  A tool allowing for simulations based on this model has already been implemented and used for 20 years. During that time it was extended with new features. Unfortunately, the authors realized that the implementation 
+  has many shortcomings which made it hard to extend, modify and reason about. 
+  The goal of this thesis was to reimplement it following good programming practices, using modular design and taking advantage of modern C++ features. 
+  During reimplementation we also identified opportunities for parallelization, which resulted in the speedup of up to 193\% in the multi-threaded setting.  
+  
+  %%% POLISH VERSION
+  % Symulacje dynamiki molekularnej pozwalają nam uzyskiwać informacje na temat własności białek poprzez przewidywanie ich ruchów w różnych środowiskach. W ramach pracy licencjackiej zaimplementowaliśmy model gruboziarnisty wykorzystywany w tym właśnie celu. Jego głównym zastosowaniem jest symulowanie dużych systemów przez długie okresy czasu, ponieważ pozwala na większy krok czasowy niż tradycyjne modele pełnoatomowe.
+  
+  % Narzędzie pozwalające przeprowadzać symulacje oparte na tym modelu już istniało i było używane od 20 lat. W tym czasie było poszerzane o nowe funkcjonalności. Niestety autorzy programu zdali sobie sprawę, że ich implementacja ma wiele braków, co czyniło ją trudną do rozwijania, modyfikowania, a nawet zrozumienia. Celem pracy było zaimplementowanie programu od nowa, przestrzegając dobrych praktyk programistycznych, stosując modularną budowę kodu i wykorzystując możliwości współczesnego języka C++. Podczas tworzenia programu dostrzegliśmy możliwości zrównoleglenia obliczeń, co pozwoliło uzyskać przyspieszenie nawet do 193% przy użyciu wielu wątków.
+\end{abstract}
+
+\tableofcontents
+%\listoffigures
+%\listoftables
+
+% CHAPTERS:
+
+\input{introduction}
+\input{model}
+\input{ref_implementation}
+\input{new_implementation}
+\input{summary}
+\input{division}
+\input{supplement}
+
+
+
+\appendix
+
+\begin{thebibliography}{99}
+\addcontentsline{toc}{chapter}{Bibliography}
+
+\bibitem{md_aa} Hospital A, Goñi JR, Orozco M, Gelpí JL. \textit{Molecular dynamics simulations: advances and applications.}, Adv Appl Bioinform Chem. 2015;8:37-47. doi:10.2147/AABC.S70333
+
+\bibitem{sb} Curry S. Structural Biology: \textit{A Century-long Journey into an Unseen World.} Interdiscip Sci Rev. 2015; 40(3):308-328. doi:10.1179/0308018815Z.000000000120
+
+\bibitem{sb_health} Oakley AJ, Ketterman A, Wilce MC. \textit{Structural biology and its applications to the health sciences.} Croat Med J. 2001; 42(4):375-8
+
+\bibitem{idp} Uversky VN. \textit{Unusual biophysics of intrinsically disordered proteins.} Biochim Biophys Acta. 2013; 1834(5):932-51. doi:10.1016/j.bbapap.2012.12.008
+
+\bibitem{dyn_proteins} Bastolla U, Porto M, Roman HE. \textit{The emerging dynamic view of proteins: protein plasticity in allostery, evolution and self-assembly.} Biochim Biophys Acta. 2013; 1834(5):817-9. doi:10.1016/j.bbapap.2013.03.016
+
+\bibitem{mol} David Sehnal, Sebastian Bittrich, Mandar Deshpande, Radka Svobodová, Karel Berka, Václav Bazgier, Sameer Velankar, Stephen K Burley, Jaroslav Koča, Alexander S Rose: \textit{Mol* Viewer: modern web app for 3D visualization and analysis of large biomolecular structures}, Nucleic Acids Research, 2021. doi:10.1093/nar/gkab31
+
+\bibitem{pdb} Helen M. Berman, John Westbrook, Zukang Feng, Gary Gilliland, T. N. Bhat, Helge Weissig, Ilya N. Shindyalov, Philip E. Bourne: \textit{The Protein Data Bank}, Nucleic Acids Research, Volume 28, Issue 1, 2000, Pages 235–242. doi:10.1093/nar/28.1.235
+
+\bibitem{md_nature} McCammon, J., Gelin, B. \& Karplus, M. \textit{Dynamics of folded proteins.} Nature 267, 585–590, 1977. doi:10.1038/267585a0
+
+\bibitem{cg_1} Trinh Xuan Hoang, Marek Cieplak \textit{Molecular dynamics of folding of secondary structures in Go-type models of proteins.} J. Chem. Phys. 112, 6851 (2000). doi:10.1063/1.481261
+
+\bibitem{cg_2} Sułkowska J, Cieplak M. \textit{Selection of optimal variants of Gō-like models of proteins through studies of stretching.} Biophys J. 2008 Oct;95(7):3174-91. doi:10.1529/biophysj.107.127233
+
+\bibitem{QA_model} Mioduszewski, Ł., Cieplak, M. \textit{Disordered peptide chains in an alpha-C-based coarse-grained model.} PCCP 20 28, 2018: 19057-19070. doi:10.1039/C8CP03309A
+
+\bibitem{PID} Mioduszewski, Ł., Różycki, B., Cieplak, M. \textit{Pseudo-improper-dihedral model for intrinsically disordered proteins.} J. Chem. Theory Comput. 2020, 16(7), 47264733. doi:10.1021/acs.jctc.0c00338
+
+\bibitem{openmp} OpenMP Architecture Review Board \textit{OpenMP
+Application Programming
+Interface}, 2020. \url{www.openmp.org/wp-content/uploads/OpenMP-API-Specification-5-1.pdf}
+
+\bibitem{eigen} {Guennebaud Ga\"{e}l, Jacob Beno\^{i}t and others} \textit{Eigen v3}, 2010, \url{http://eigen.tuxfamily.org}
+
+\bibitem{xorshift} Vigna, S. \textit{An Experimental Exploration of Marsaglia's xorshift Generators, Scrambled.} ACM Trans. Math. Softw. 42, 4, Article 30 (July 2016). doi:10.1145/2845077
+
+\bibitem{box-muller} Box, G., Muller, M. \textit{A Note on the Generation of Random Normal Deviates.} Ann. Math. Statist. 29 (2) 610 - 611, 1958. doi:10.1214/aoms/1177706645
+
+\bibitem{lj} Jones, J.~E. \textit{On the Determination of Molecular Fields.—I. From the Variation of the Viscosity of a Gas with Temperature.} Proceedings of the Royal Society of London. Series A, Containing Papers of a Mathematical and Physical Character, vol. 106, no. 738, Oct. 1924, pp. 441–62. DOI.org (Crossref), doi:10.1098/rspa.1924.0081.
+
+\bibitem{CPC14} Mioduszewski, Ł., Chwastyk, M., Cieplak, M. \textit{Contact-based molecular dynamics of structured and
+disordered proteins in a coarse-grained model: fixed
+contacts, switchable contacts and those described by
+pseudo-improper-dihedral angles.} Submitted to Computer Physics Communications. It can be found in the supplementary materials under \texttt{reference/CPC14.pdf}. 
+
+
+\end{thebibliography}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% coding: latin-2
+%%% End:

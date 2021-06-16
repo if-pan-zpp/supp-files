@@ -1,0 +1,209 @@
+%%% REFERENCE IMPLEMENTATION
+\chapter{Reference implementation}\label{c:ref_impl}
+
+\section{Overview}
+
+The reference implementation has been written in FORTRAN 77. It consists of a single file with ~8000 lines of code. Because of old technology, long program  development history and disregard for good programming practices, its code is difficult to understand. However, we haven't found any significant bugs in the code.
+
+
+\section{Features}
+We provide a list of the most important features of the program.
+
+\subsection {Potentials}
+
+Program implements all potentials defined in the model. However, their code is poorly separated. Different physical potentials are often implemented in the same subroutine for convenience and there is a lot of communication through global variables. All of this makes it hard to understand the non-trivial interactions between potentials. 
+
+Since calculating forces is the heaviest part of all computations, most of the potentials are parallelized using OpenMP (see section \ref{new:parallel}), however virtually all potentials suffer from a simple race condition and a few of the more complicated ones are affected by a more subtle race condition that is much harder to eliminate. Even if those were fixed, the multi-threaded version is by design non-deterministic, which makes it much less suitable for research. 
+
+\subsection {Verlet list} \label{ref:verlet}
+Many potentials depend highly on the distance between two residues. When they are far away from each other, their mutual interaction is too weak to be relevant for simulation. Therefore, in order to reduce computation time, program maintains a list of pairs of residues that are close enough to possibly have impactful interaction. This solution is called Verlet list and it is one of the key features of this implementation. 
+
+Unfortunately, different potentials require different pairs to be included in the Verlet list (not only based on distance) and they sometimes need to assign additional data to the entries in the list. The program has 4 different lists, 2 of them store additional data and one needs this data to be persistent after update while the semantics of this data depend on the simulation scenario. All of this makes the code responsible for building the lists very hard to understand (see the last example in subsection \ref{ref:flaws}). 
+
+\subsection {Simulation protocols}
+Program offers several simulation protocols corresponding to different real life situations:
+\begin{itemize}
+    \item Default --- proteins are located in infinite space and no external forces act upon them.
+    \item Folding --- an ordered protein is simulated in infinite space and the simulation ends when all native contacts become active (meaning that all pairs specified as native contacts are closer to each other than a given threshold).
+    \item Stretching by Atomic Force Microscope tips --- the first and the last residues are pulled apart along the line connecting them.
+    \item Walls --- simulation space is limited by walls. Implementation offers a choice between a box (limits to all dimensions) and pair of walls perpendicular to Z axis. The walls limiting Z dimension may be customized. There are three kinds of box walls in program, each interacting differently with residues, as described in the next subsection.
+    
+\end{itemize}
+
+\subsection {Boundary conditions}\label{ref:boundary}
+When running simulation with walls, one can choose between three kinds of walls perpendicular to Z dimension. Other walls, when they exist, are always repulsive:
+\begin{itemize}
+    \item Face-centered-cubic walls --- each wall is made of two layers of immovable beads in a face-centered-cubic lattice. They interact with residues via Lennard-Jones potential.
+    \item Flat attractive walls - when residue gets close to wall, it gets attracted by artificial bead on the other side of wall with the same X and Y coordinates.
+    \item Sticky harmonic walls - residues closer to wall than given cutoff are harmonically attached to it.
+\end{itemize}
+
+The user can also enable periodic boundary conditions (PBC) individually for each dimension. If PBC is enabled for a dimension, then the space is wrapped around this dimension with the period equal to the size of the simulation box, so the distance between two walls of the simulation box that are perpendicular to this dimension is zero.   
+
+
+\subsection{Checkpoints}
+Program allows saving checkpoints at intervals of given length. Checkpoints may be used for resuming the simulation. However, not all data is saved, for example pseudoatoms' acceleration vectors and adiabatic counters used by the quasi-adiabatic potential are lost with each restart, which makes this feature incomplete. This issue has led to incorrect results and instability in the past. 
+
+\section{User interface}
+
+The program can be interacted with only via files in its working directory. It doesn't use standard input and uses standard output only to print errors.
+
+\subsection{Input}\label{ref:input}
+
+The only argument of the program is the name of the main input file. This file contains key-value pairs of different parameters and/or the names of other input files that need to be read. There are over 100 parameters, most of them can be divided into 3 categories based on their type:
+
+\begin{itemize}
+    \item Boolean --- these mostly govern \emph{what} the program needs to do, i.e. which potentials should be present, which simulation scenario should be chosen, what kind of output should be generated. They can also enable numerous minor tweaks in the model. Unfortunately some combinations of choices for these values are invalid (either because it doesn't make physical sense or because the implementation doesn't support it), but the program doesn't validate its input.
+    \item Integer --- they determine the number of simulation steps that should pass between different events, for example how often to save a checkpoint or how many steps to wait before triggering wall oscillations.
+    \item Floating point --- these are mostly physical constants used in the calculations of forces in the model.  
+\end{itemize}
+
+All those parameters have default values defined at the beginning of the program. 
+
+
+The remaining input data is provided by specifying the names of other input files: \texttt{pdbfile}, \texttt{seqfile}, \texttt{paramfile}, their contents are described below:
+
+\begin{itemize}
+\item \texttt{pdbfile} is the native conformation in the PDB~\cite{pdb} format.
+
+\item \texttt{seqfile} provides information about a disordered protein. It contains information about the number of chains and their amino acid sequences in one-letter format. Additionally, each chain has a list of names of its contact map files. A contact map is yet another file which holds information about an ordered region within a chain. 
+
+\item \texttt{paramfile} stores remaining model parameters. It's mostly used to pass arrays into the model, for example the coordination numbers for each amino acid or 63 coefficients for the bond angle potential.
+\end{itemize}
+
+All of the above files can be read correctly only if they conform to a very strict format, which doesn't allow for additional whitespace characters or comments.
+
+\subsection{Output}
+Program may produce several output files:
+
+\begin{itemize}
+\item \texttt{outfile} is the main simulation output. It comprises various statistics, for example total system energy or parameters regarding the protein's shape.
+
+\item \texttt{savfile} contains output structure in PDB~\cite{pdb} format.
+
+\item \texttt{mapfile} is a contact map for the resulting structure (see \texttt{seqfile} in subsection \ref{ref:input}).
+
+\item \texttt{rstfile} is a checkpoint needed for restarting the simulation.
+
+\end{itemize}
+
+\section{Code quality}
+
+Reference implementation code has many flaws due to limitations of the used language and poor programming practices.
+
+\subsection{FORTRAN 77 limitations}
+Language limitations include:
+\begin{itemize}
+    \item Lack of object oriented programming support.
+    \item Lack of basic data structures (such as set or map).
+    \item Variable naming limitations.
+    \item No functionalities for easy input parsing.
+    \item In the standard format, lines are limited to 72 characters.
+\end{itemize}
+
+\subsection{Code flaws} \label{ref:flaws}
+Poor programming practices include:
+\begin{itemize}
+    \item Possible race conditions.
+    \item Excessive usage of global variables (around 250 in total).
+    \item Insufficient code partitioning, e.g. the main simulation loop spans more than 600 lines. 
+    \item Subroutines having multiple independent concerns, e.g. VAFM procedure handles one of the Atomic Force scenarios as well as one kind of wall interactions.
+    \item Small amount of comments
+    \item Inconsistent indentation, often caused by the 72 character limit.
+    
+    \item Obscure names of variables without comments, for example:
+    \begin{lstlisting}[firstnumber=32, title=Names of some global variables in code]
+common/verl/oxv(3,len),vrcut2sq,af,kfcc(3,len*500,2),kfccw,menw
+common/cmap/kront,krist(3,len*500),klont,klist(3,len*50),lcintr
+common/cmp2/kcont,kcist(3,len*500),kqont,kqist(4,len*1500,2),jq
+    \end{lstlisting}
+    
+    \begin{minipage}{\textwidth}
+    \item Assigning different meanings to one variable, for example:
+    
+    \begin{lstlisting}[firstnumber=3977, title=\texttt{z0temp} used as an array of z-axis positions]
+do ib=1,men
+    z0temp(ib)=z0(ib)
+    ksorted(ib)=ib
+enddo
+call sort2(men,z0temp,ksorted) ! sort by z0
+    \end{lstlisting}
+    
+    \begin{lstlisting}[firstnumber=6835, title=\texttt{z0temp} used as an array of adiabatic counters]
+if(r.gt.sigma1(9)*1.5) then
+    if(z0temp(i).gt.0) then
+        z0temp(i)=z0temp(i)-1
+    else
+        z0temp(i)=0
+        ipw(1,ip)=0
+    endif
+else
+    if(z0temp(i).lt.ad) then
+        z0temp(i)=z0temp(i)+1
+    endif
+endif
+    \end{lstlisting}
+    \end{minipage}
+    
+    \item Multiple violations of Don't Repeat Yourself (DRY) rule, for example:
+    \begin{lstlisting}[title=This snippet appears 14 times]    
+if(lpbcx) dx = dx-xsep*nint(dx*xinv)
+if(lpbcy) dy = dy-ysep*nint(dy*yinv)
+if(lpbcz) dz = dz-zsep*nint(dz*zinv)
+    \end{lstlisting}
+    
+    
+    \begin{minipage}{\linewidth}
+    \item Complicated control flow using \texttt{goto}, for example:
+    \begin{lstlisting}[title=Control flow structure of the main part of \texttt{update\_verlet\_list} subroutine]
+9797    continue
+        if(...) then ! find native contacts
+            if(...) then
+                goto 9797
+            else if(...) then
+                goto 1129
+            endif
+        endif
+        ! 3579 is the label for "the rest" of contacts
+        if(...) goto 3579
+        if(...) then ! 3580 skips electrostatics
+            if(...) goto 3580
+            if(...) goto 3579
+        endif
+        if(...) goto 3579
+        if(...) goto 9696 !no need 2 keep kqist for pid
+9898    continue
+        if(...) then ! find non-native c.
+            if(...) then
+                goto 9898
+            else if(...) then
+                !if(lpid) goto 3579
+                goto 1129
+            endif
+        endif
+9696    continue
+        ! make a new non-native contact
+        if(...) then
+            if(...) goto 3580
+        else
+            goto 1129 ! TODO check if it works for lpid
+        endif
+            ! electrostatic, disulfide or repulsive contacts
+3579    continue
+        if(...) goto 3581 !skip ssbond and electr
+        if(...) then
+            goto 1129
+        endif
+3580    continue
+        if(...) then
+            goto 1129
+        endif
+3581    continue
+        if(...) then ! REPULSIVE CONTACT
+        endif
+1129               
+    \end{lstlisting}
+    \end{minipage}
+\end{itemize}
+
+

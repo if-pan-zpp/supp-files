@@ -1,0 +1,40 @@
+\chapter{Division of tasks}\label{c:division}
+
+In this chapter we list individual contributions of all team members. It is important to note that a significant amount of work in this project consisted of analyzing and documenting the original implementation. This was a collaborative effort, so contributions in this area are not listed below.
+
+\section{Individual contributions}
+\subsection*{Jakub Bednarz}
+\begin{itemize}
+    \item Designing and implementing the \texttt{Simulation} class. 
+    \item Implementing I/O and the model preparation layer.
+    \item Implementing the Verlet list with the cell-based construction algorithm.
+    \item Writing documentation of the program.
+    \item Writing sections \ref{new:design}, \ref{new:abs}, \ref{new:docs}, \ref{summary:speed} of this thesis.
+    \item Designing the structure of the repository.
+\end{itemize}
+\subsection*{Jakub Boguta}
+\begin{itemize}
+    \item Designing and implementing the parallel model for computing forces.
+    \item Optimizing noise generation.
+    \item Running benchmarks.
+    \item Testing and patching the differences between the reference and the new program.
+    \item Writing chapter \ref{c:introduction} and sections \ref{new:features}, \ref{new:parallel}, \ref{new:opt} of this thesis.
+    \item Implementing the \emph{quasi-adiabatic} potential.
+\end{itemize}
+\subsection*{Paweł Kopaczyk}
+\begin{itemize}
+    \item Designing UI.
+    \item Designing and prototyping additional GUI. However, this feature was ultimately discarded. 
+\end{itemize}
+\subsection*{Juliusz Pham}
+\begin{itemize}
+    \item Designing and implementing checkpoints.
+    \item Writing chapter \ref{c:model} of this thesis.
+    \item Implementing functions analyzing the final conformation.
+\end{itemize}
+\subsection*{Jan Urbanek}
+\begin{itemize}
+    \item Implementing the \emph{pseudo-improper dihedral} potential and other simpler potentials. 
+    \item Writing chapter \ref{c:ref_impl} of this thesis.
+    \item Implementing self-avoiding random walk, which generates initial conformation without self-intersections.  
+\end{itemize}

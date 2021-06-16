@@ -1,0 +1,31 @@
+\chapter{The model}\label{c:model}
+
+In this chapter we discuss the basics of the molecular dynamics model that was implemented as part of this thesis. We start by describing how the proteins are represented and explaining what governs their movements. Next we describe 3 substantially different examples of potentials that can be applied in this model.
+
+\section{The basics} 
+The model is coarse-grained, which means that it groups entire amino acids into individual pseudoatoms. Since proteins are made of chains of amino acids, this model treats them as chains of pseudoatoms. The entire complexity of the model is in the definitions of its potentials, or equivalently, its forces. Each potential is simply a formula that takes all pseudoatoms' positions and outputs the force vector for every one of them. Once we have all the potentials, we can define how the positions evolve with time --- the movement of each pseudoatom is described by the Langevin equation of motion:
+
+$$ m\frac{d^2 \vec{r}}{d^2t} = \vec{F} - \gamma \frac{d\vec{r}}{dt} + \vec{\Gamma}$$
+
+It says that the mass times acceleration is equal to the sum of 3 vectors. The first one is the net force arising from all the potentials. The second one is a negative constant times velocity, which results in motion damping, where the faster a pseudoatom moves, the faster it decelerates. The third one is a random gaussian vector with variance proportional to external temperature, which simulates randomly bumping into jiggling water molecules. Simulation is essentially a process of numerically solving the equations of motion using selected numerical scheme. It simply boils down to summing all the forces acting on each pseudoatom, then adding motion damping and random noise and finally applying some numerical integration algorithm. 
+
+\section{Examples of potentials}
+Since the whole complexity of the model lies in its potentials, let's review a couple examples.
+
+\begin{itemize}
+    \item \emph{Bond angle} potential for disordered parts.
+    This is an example of a local potential, which means that interactions happen only between pseudoatoms that are close to each other within one chain. In this case, we can limit ourselves to considering all triples $(i-1,i,i+1)$ of consecutive pseudoatoms. Local potentials are introduced to maintain the stiffness of the chain. 
+    The value of the force arising from this particular potential depends on the planar angle formed by pseudoatoms $(i-1,i,i+1)$. It is a value of a sixth degree polynomial evaluated at that angle and the coefficients of this polynomial depend on what amino acids make up this angle. This gives 9 different polynomials in total.
+    
+    \item \emph{Quasi-adiabatic} potential. This potential is not local, which means that it can create interactions between any pair of pseudoatoms that will be close enough to each other. It is based on the idea of a contact, where contacts are determined dynamically on the basis of several criteria. The first criterion is the distance between a given pair of amino acid residues. The second criterion is geometric and it is required to check the corresponding angles between specific chemical bonds present in amino acids. Since we do not remember the positions of all atoms in the model, but only the positions of entire amino acid residues, the angles are reconstructed on the basis of the positions of adjacent residues in the chains. The third criterion is the limit on the number of contacts a given amino acid can create. Amino acids are divided into several groups depending on their chemical properties, and the limits for these groups differ. The contacts are created quasi-adiabatically, that is, once formed, the force does not immediately increase to its maximum value, but increases gradually. The same method is used for breaking contacts. This is done to avoid numerical instabilities, but it means that this potential has an internal state which the simulation needs to remember.
+
+    When a contact is established, the force between two pseudoatoms in contact depends only on the distance between them, which makes computing this potential quite fast. 
+    
+    \label{ref:disul} There is also a special type of contact that can form --- a disulfide bridge. It can only be formed by a pair of cysteines, which are one of the amino acids. These have an additional criterion for creation. A cysteine cannot be a part of more than one disulfide bridge.
+    
+    \item \emph{Pseudo-improper dihedral (PID)} potential. The PID potential was introduced as a substitute for quasi-adiabatic. In fact it achieves higher accuracy when compared with experimental results. PID makes contacts only depending on the distance between the pseudoatoms, but the value of the acting force depends on complicated geometric criteria that take into account the positions of the pseudoatoms that are to interact with each other and their neighbors in the chains. Contacts are no longer created quasi-adiabatically, which makes this potential stateless, but in each step of the simulation more calculations need to be made to compute the acting force, making the overall simulation slower in practice.
+
+\end{itemize}
+
+
+
