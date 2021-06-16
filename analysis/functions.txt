@@ -1,0 +1,127 @@
+The functions that are absolutely crucial for the first prototype have (+) on the left.
+Evalcpot has '+?', because it is used, but probably just a small fraction of it influences the result
+(just repulsive interactions maybe?).
+
+SIMULATION:
++	prepare			Simple	A function called before each step. Zeroes a lot of variables
+					and recalculates many auxilary variables, like 'v' or 'vxv'.
++	update_verlet_list	Hard	Updates the verlet list, but it's hard to say
+					what actually is updated there.
++	evalgo			Hard	Computes the energy and force of the Go model.
+					The interactions include:
+					    - harmonic between residues i and i + 1
+					    - standard L-J between native contacts
+					    - repulsive L-J between residues i and i + 2
+					    - repulsive L-J between residues that aren't in
+					      a native contact but are close to each other.
+					    - some weird stuff with ss bonds.
++?	evalcpot 		Hard	Calculates energy and force of the custom potential (???)
++	evalangles 		Medium  Computes the energy and force related
+					to bond (i-1, i, i+1) and dihedral (i-2, i-1, i, i+1) angles.
+	evalimproper 		Medium	Calculates energy and force of the PID potential.
+	evalwall		Medium	Computes the energy and forces related to wall interactions.
+	eval_chirality		Simple	Computes the energy and forces arising from chirality potential.
+
+	afm			Simple	Applies constant AFM force on the first and last residue.
+	vafm 			Medium	Applies AFM force on the first and last residue by simulating
+					a harmonic spring that moves with constant velocity.
+					But also does some logic with walls (???)
+		
++	predct 			VSimple Predictor step from the predictor-corrector method.
++	corr			VSimple Corrector step from the predictor-corrector method.
+
++	lang			VSimple	Adds langevin noise and damping
+					(which simulates the effect of implicit solvent).
+	lang_mass		VSimple	Same as lang, but accounts for different masses of residues.
+
+MATH:
++	dihedral		Simple	Calculates dihedral angle (for a given set of 4 vectors).
++	bondangle		VSimple Calculates the bond angle (for a given set of 4 vectors).
+	countpid 		Simple  Computes phi (angle used in PID) for a given pair of residues.
+					Used only in 'print_map' -> 'compute_details'.
+
+	norma			VSimple Takes a 3x3 matrix and normalizes its columns. Used only in kabsch.
+	pvector			VSimple	Given two 3D vectors, calculates cross product and its norm.
+	
+	jacobi			Medium	Given a 3x3 symmetric matrix it finds its eigen(values|vectors).
+	eigsrt			VSimple	Given the output of jacobi it sorts eigenvectors in descending
+					order by their lengths.
+
++	ran2 			Simple	Random number generator.
+			
+
+INPUT:  Every function here is called at most once and before the main loop starts.
+
+	load_allatom		Simple	Part of 'compute_contact_map'. Given the PDB file, it reads
+					the native positions of atoms in the protein.
++	load_protein 		Hard 	Loads the native conformation and SS bonds from the PDB file. 
+					Big part of it runs only when 'lunwrap' is true
+					(unwrapping coordinates arising from periodic boundary conditions).
+	load_cmap		VSimple	Loads native contacts directly from a .map file (also dihedral
+					and bond angles).
+	load_sequence		Simple	Loads sequences of amino acids to simulate (for disordered proteins),
+					also loads contact maps specified in the 'seqfile'.
+	load_paramfile		Simple	Loads various parameters from 'paramfile' (example3 has 'parameters.txt').
+
++	compute_native_angles	VSimple Computes dihedral and bond angles for native conformation.
++	gopotential 		Simple 	If 'lpdb' is true, it calculates the sigmas of L-J potential
+					for all contacts (the meaning of sigmas - p. 9 in the paper).
+	model_chirality 	VSimple	Calculates the chiralities for the native structure.
+	amino_acid_mass		VSimple Computes masses of residues relative to the mass
+					of the entire protein. 		
+
+	compute_contact_map 	Medium 	Computes native contacts from a PDB file based on the positions
+					of individual atoms in the amino-acids.
++	compute_cmap 		Simple  Simpler alternative to 'compute_contact_map'. It defines a contact
+					between residues by the cut-off on the distance between C-alpha atoms.
+	assign_VdW_radius 	Medium 	Part of 'compute_contact_map'. It assigns the Van der Waals radius
+					to all atoms in the amino-acids in the chains. Also performs some
+					checks.
+
+	displace 		Simple  Displaces one specified pair of chains away from each other
+					by a given distance.
++	confstart 		Medium	Generates the starting conformation (it's supposed to be
+					a self-avoiding random walk).
++	intvel3d 		Simple	Assigns initial velocities to the pseudoatoms.
+
+STATISTICS:
++	gyration		VSimple	Computes radius of gyration of the protein, which is the
+					standard deviation of distances from residues to the center of mass.
+
+	cgyration		Medium	Computes various statistics - the radii of gyration for all chains,
+					also W (asphericity parameter, whatever that is). Also finds knots.
+	kmt			Hard	Used only in 'cgyration'. Finds the beginning and end of a knot
+					in a chain. Possibly some knot theory is needed to understand it.
+
+	kabsch			Medium	Given two sequences of 3D vectors of equal length, finds a rotation
+					+ translation that minimizes the root mean sqared deviation between
+					them. See 'Kabsch algorithm' on Wikipedia.
+	compute_rmsd		VSimple	Calls 'kabsch' on the positions of residues after simulation ends
+					and their original positions.
+
+OUTPUT:
+	print_restart		VSimple	Prints the restart file.
+	print_conformation	Medium	Prints the conformation in the PDB format.	
+	print_conf_xyz		VSimple Prints the conformation in the XYZ format.
+	print_cmap		VSimple	If 'lwritego' is true, no simulations are performed and this
+					function prints the contact map.
+	print_map		Medium	Prints a contact map file that contains all the contacts after
+					the simulation (optionally adds some details about angles).
+	compute_details		Simple	Given two residues, computes some angles between them.
+					Used in 'print_map' when 'ldet' is true.
+
+WALLS:
+	connect_to_wal_one_by_o	???	???
+	connect_to_wal		???	???
+	make_fcc		Simple	Creates a 2-layer, triangular lattice of beads that form a wall.
+
+OTHER:
+	sort/sort2		VSimple	Just a quicksort (sort2 applies the same permutation to
+					a second array).
+	angeval			Medium	Never called. Maybe the older version of evalangles.
+	compute_ssbonds		Simple	Never called. Probably obsolete.
+
+	build_titin 		Simple 	Used for building titin - a very large protein composed
+					of many protein domains.
+	interdomain 		Simple	Next step for building titin, disables contacts between
+					different domains of titin.

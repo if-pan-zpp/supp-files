@@ -1,0 +1,339 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ks/call  Ks/call  name    
+ 59.26   1366.22  1366.22 18946800     0.00     0.00  evalcpot_
+ 12.89   1663.29   297.07 18946800     0.00     0.00  evalangles_
+  9.37   1879.41   216.12 18946800     0.00     0.00  evalgo_
+  4.83   1990.68   111.27 8639743082     0.00     0.00  ran2_
+  4.37   2091.43   100.75 18946800     0.00     0.00  prepare_
+  3.60   2174.46    83.03 18946789     0.00     0.00  predct_
+  2.01   2220.74    46.29 18946789     0.00     0.00  corr_
+  1.92   2265.03    44.29 18946789     0.00     0.00  lang_
+  1.60   2301.98    36.95        1     0.04     2.30  MAIN__
+  0.09   2303.98     2.00    27659     0.00     0.00  update_verlet_list_
+  0.05   2305.21     1.23                             lang_mass_
+  0.01   2305.39     0.18      963     0.00     0.00  kmt_
+  0.00   2305.43     0.04                             connect_to_wal_one_by_one_
+  0.00   2305.46     0.03                             evalwall_
+  0.00   2305.47     0.01        1     0.00     0.00  compute_contact_map_
+  0.00   2305.47     0.01                             eval_chirality_
+  0.00   2305.47     0.00     1926     0.00     0.00  jacobi_
+  0.00   2305.47     0.00     1926     0.00     0.00  pvector_
+  0.00   2305.47     0.00      963     0.00     0.00  cgyration_
+  0.00   2305.47     0.00      963     0.00     0.00  compute_rmsd_
+  0.00   2305.47     0.00      963     0.00     0.00  eigsrt_
+  0.00   2305.47     0.00      963     0.00     0.00  kabsch_
+  0.00   2305.47     0.00      963     0.00     0.00  norma_
+  0.00   2305.47     0.00      963     0.00     0.00  sort_
+  0.00   2305.47     0.00      959     0.00     0.00  gyration_
+  0.00   2305.47     0.00      107     0.00     0.00  print_conformation_
+  0.00   2305.47     0.00       74     0.00     0.00  bondangle_
+  0.00   2305.47     0.00       73     0.00     0.00  dihedral_
+  0.00   2305.47     0.00       10     0.00     0.00  confstart_
+  0.00   2305.47     0.00       10     0.00     0.00  intvel3d_
+  0.00   2305.47     0.00        1     0.00     0.00  assign_vdw_radius_
+  0.00   2305.47     0.00        1     0.00     0.00  compute_native_angles_
+  0.00   2305.47     0.00        1     0.00     0.00  gopotential_
+  0.00   2305.47     0.00        1     0.00     0.00  load_allatom_
+  0.00   2305.47     0.00        1     0.00     0.00  load_protein_
+  0.00   2305.47     0.00        1     0.00     0.00  sort2_
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) for 0.00% of 2305.47 seconds
+
+index % time    self  children    called     name
+               36.95 2267.22       1/1           main [2]
+[1]     99.9   36.95 2267.22       1         MAIN__ [1]
+             1366.22    0.00 18946800/18946800     evalcpot_ [3]
+              297.07    0.00 18946800/18946800     evalangles_ [4]
+              216.12    0.00 18946800/18946800     evalgo_ [5]
+               44.29  111.27 18946789/18946789     lang_ [6]
+              100.75    0.00 18946800/18946800     prepare_ [8]
+               83.03    0.00 18946789/18946789     predct_ [9]
+               46.29    0.00 18946789/18946789     corr_ [10]
+                2.00    0.00   27659/27659       update_verlet_list_ [11]
+                0.00    0.18     963/963         cgyration_ [13]
+                0.01    0.00       1/1           compute_contact_map_ [17]
+                0.00    0.00      10/10          confstart_ [19]
+                0.00    0.00      10/10          intvel3d_ [20]
+                0.00    0.00       2/8639743082     ran2_ [7]
+                0.00    0.00     963/963         compute_rmsd_ [23]
+                0.00    0.00     959/959         gyration_ [28]
+                0.00    0.00     107/107         print_conformation_ [29]
+                0.00    0.00       1/1           load_protein_ [36]
+                0.00    0.00       1/1           compute_native_angles_ [33]
+                0.00    0.00       1/1           gopotential_ [34]
+                0.00    0.00       1/1           sort2_ [37]
+-----------------------------------------------
+                                                 <spontaneous>
+[2]     99.9    0.00 2304.17                 main [2]
+               36.95 2267.22       1/1           MAIN__ [1]
+-----------------------------------------------
+             1366.22    0.00 18946800/18946800     MAIN__ [1]
+[3]     59.3 1366.22    0.00 18946800         evalcpot_ [3]
+-----------------------------------------------
+              297.07    0.00 18946800/18946800     MAIN__ [1]
+[4]     12.9  297.07    0.00 18946800         evalangles_ [4]
+-----------------------------------------------
+              216.12    0.00 18946800/18946800     MAIN__ [1]
+[5]      9.4  216.12    0.00 18946800         evalgo_ [5]
+-----------------------------------------------
+               44.29  111.27 18946789/18946789     MAIN__ [1]
+[6]      6.7   44.29  111.27 18946789         lang_ [6]
+              111.27    0.00 8639735784/8639743082     ran2_ [7]
+-----------------------------------------------
+                0.00    0.00       2/8639743082     MAIN__ [1]
+                0.00    0.00    2280/8639743082     intvel3d_ [20]
+                0.00    0.00    5016/8639743082     confstart_ [19]
+              111.27    0.00 8639735784/8639743082     lang_ [6]
+[7]      4.8  111.27    0.00 8639743082         ran2_ [7]
+-----------------------------------------------
+              100.75    0.00 18946800/18946800     MAIN__ [1]
+[8]      4.4  100.75    0.00 18946800         prepare_ [8]
+-----------------------------------------------
+               83.03    0.00 18946789/18946789     MAIN__ [1]
+[9]      3.6   83.03    0.00 18946789         predct_ [9]
+-----------------------------------------------
+               46.29    0.00 18946789/18946789     MAIN__ [1]
+[10]     2.0   46.29    0.00 18946789         corr_ [10]
+-----------------------------------------------
+                2.00    0.00   27659/27659       MAIN__ [1]
+[11]     0.1    2.00    0.00   27659         update_verlet_list_ [11]
+-----------------------------------------------
+                                                 <spontaneous>
+[12]     0.1    1.23    0.00                 lang_mass_ [12]
+-----------------------------------------------
+                0.00    0.18     963/963         MAIN__ [1]
+[13]     0.0    0.00    0.18     963         cgyration_ [13]
+                0.18    0.00     963/963         kmt_ [14]
+                0.00    0.00     963/1926        jacobi_ [21]
+                0.00    0.00     963/963         sort_ [27]
+-----------------------------------------------
+                0.18    0.00     963/963         cgyration_ [13]
+[14]     0.0    0.18    0.00     963         kmt_ [14]
+-----------------------------------------------
+                                                 <spontaneous>
+[15]     0.0    0.04    0.00                 connect_to_wal_one_by_one_ [15]
+-----------------------------------------------
+                                                 <spontaneous>
+[16]     0.0    0.03    0.00                 evalwall_ [16]
+-----------------------------------------------
+                0.01    0.00       1/1           MAIN__ [1]
+[17]     0.0    0.01    0.00       1         compute_contact_map_ [17]
+                0.00    0.00       1/1           assign_vdw_radius_ [32]
+                0.00    0.00       1/1           load_allatom_ [35]
+-----------------------------------------------
+                                                 <spontaneous>
+[18]     0.0    0.01    0.00                 eval_chirality_ [18]
+-----------------------------------------------
+                0.00    0.00      10/10          MAIN__ [1]
+[19]     0.0    0.00    0.00      10         confstart_ [19]
+                0.00    0.00    5016/8639743082     ran2_ [7]
+-----------------------------------------------
+                0.00    0.00      10/10          MAIN__ [1]
+[20]     0.0    0.00    0.00      10         intvel3d_ [20]
+                0.00    0.00    2280/8639743082     ran2_ [7]
+-----------------------------------------------
+                0.00    0.00     963/1926        cgyration_ [13]
+                0.00    0.00     963/1926        kabsch_ [25]
+[21]     0.0    0.00    0.00    1926         jacobi_ [21]
+-----------------------------------------------
+                0.00    0.00    1926/1926        kabsch_ [25]
+[22]     0.0    0.00    0.00    1926         pvector_ [22]
+-----------------------------------------------
+                0.00    0.00     963/963         MAIN__ [1]
+[23]     0.0    0.00    0.00     963         compute_rmsd_ [23]
+                0.00    0.00     963/963         kabsch_ [25]
+-----------------------------------------------
+                0.00    0.00     963/963         kabsch_ [25]
+[24]     0.0    0.00    0.00     963         eigsrt_ [24]
+-----------------------------------------------
+                0.00    0.00     963/963         compute_rmsd_ [23]
+[25]     0.0    0.00    0.00     963         kabsch_ [25]
+                0.00    0.00    1926/1926        pvector_ [22]
+                0.00    0.00     963/1926        jacobi_ [21]
+                0.00    0.00     963/963         eigsrt_ [24]
+                0.00    0.00     963/963         norma_ [26]
+-----------------------------------------------
+                0.00    0.00     963/963         kabsch_ [25]
+[26]     0.0    0.00    0.00     963         norma_ [26]
+-----------------------------------------------
+                0.00    0.00     963/963         cgyration_ [13]
+[27]     0.0    0.00    0.00     963         sort_ [27]
+-----------------------------------------------
+                0.00    0.00     959/959         MAIN__ [1]
+[28]     0.0    0.00    0.00     959         gyration_ [28]
+-----------------------------------------------
+                0.00    0.00     107/107         MAIN__ [1]
+[29]     0.0    0.00    0.00     107         print_conformation_ [29]
+-----------------------------------------------
+                0.00    0.00      74/74          compute_native_angles_ [33]
+[30]     0.0    0.00    0.00      74         bondangle_ [30]
+-----------------------------------------------
+                0.00    0.00      73/73          compute_native_angles_ [33]
+[31]     0.0    0.00    0.00      73         dihedral_ [31]
+-----------------------------------------------
+                0.00    0.00       1/1           compute_contact_map_ [17]
+[32]     0.0    0.00    0.00       1         assign_vdw_radius_ [32]
+-----------------------------------------------
+                0.00    0.00       1/1           MAIN__ [1]
+[33]     0.0    0.00    0.00       1         compute_native_angles_ [33]
+                0.00    0.00      74/74          bondangle_ [30]
+                0.00    0.00      73/73          dihedral_ [31]
+-----------------------------------------------
+                0.00    0.00       1/1           MAIN__ [1]
+[34]     0.0    0.00    0.00       1         gopotential_ [34]
+-----------------------------------------------
+                0.00    0.00       1/1           compute_contact_map_ [17]
+[35]     0.0    0.00    0.00       1         load_allatom_ [35]
+-----------------------------------------------
+                0.00    0.00       1/1           MAIN__ [1]
+[36]     0.0    0.00    0.00       1         load_protein_ [36]
+-----------------------------------------------
+                0.00    0.00       1/1           MAIN__ [1]
+[37]     0.0    0.00    0.00       1         sort2_ [37]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+
+Index by function name
+
+   [1] MAIN__                 [18] eval_chirality_        [12] lang_mass_
+  [32] assign_vdw_radius_      [4] evalangles_            [35] load_allatom_
+  [30] bondangle_              [3] evalcpot_              [36] load_protein_
+  [13] cgyration_              [5] evalgo_                [26] norma_
+  [17] compute_contact_map_   [16] evalwall_               [9] predct_
+  [33] compute_native_angles_ [34] gopotential_            [8] prepare_
+  [23] compute_rmsd_          [28] gyration_              [29] print_conformation_
+  [19] confstart_             [20] intvel3d_              [22] pvector_
+  [15] connect_to_wal_one_by_one_ [21] jacobi_             [7] ran2_
+  [10] corr_                  [25] kabsch_                [37] sort2_
+  [31] dihedral_              [14] kmt_                   [27] sort_
+  [24] eigsrt_                 [6] lang_                  [11] update_verlet_list_
